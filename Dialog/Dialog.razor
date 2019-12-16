@@ -1,0 +1,51 @@
+﻿@inherits DialogComponent
+
+<Modal Open="@Open"
+       Class="@_Class"
+       Style="@_Style"
+       OnClose="@HandleClose"
+       DisableBackdropClick="@DisableBackdropClick"
+       DisableEscapeKeyDown="@DisableEscapeKeyDown"
+       OnEscapeKeyDown="@HandleEscapeKeyDown"
+       RootRef="@RootRef"
+       Context="ModalContext">
+    <BackdropContent>
+        <Backdrop Open="@ModalContext.Open" 
+                  OnClick="@ModalContext.OnBackdropClick"/>
+    </BackdropContent>
+    <ChildContent>
+        <Fade
+            CloseAfterTransition
+            Appear
+            In="@ModalContext.Open"
+            TransitionDuration="@TransitionDuration"
+            AppearTimeout="@AppearTimeout"
+            EnterTimeout="@EnterTimeout"
+            ExitTimeout="@ExitTimeout"
+            OnEnter="@(CreateOnEnter(@ModalContext.OnEnter))"
+            OnExited="@(CreateOnExited(@ModalContext.OnExited))"
+            OnEntering="@HandleEntering"
+            OnEntered="@HandleEntered"
+            OnExit="@HandleExit"
+            OnExiting="@HandleExiting"
+            role="none presentation"
+            Context="FadeContext">
+            <div data-mui-test="FakeBackdrop"
+                 @ref="FadeContext.RefBack.Current"
+                 @onclick="@ModalContext.OnBackdropClick"
+                 class="@_ContainerClass"
+                 style="@(CssUtil.ToStyle(FadeContext.Styles, _ContainerStyle))">
+                <Paper 
+                    Elevation="24"
+                    role="dialog"
+                    Square
+                    Class="@_PaperClass"
+                    Style="@_PaperStyle"
+                    @onclick:stopPropagation>
+                    @ChildContent
+                </Paper>
+            </div>
+        </Fade>
+    </ChildContent>
+</Modal>
+

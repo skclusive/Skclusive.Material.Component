@@ -1,0 +1,5 @@
+﻿@inherits TrapFocusComponent
+
+<div tabIndex="0" @ref="SentinelStart.Current" data-test="sentinelStart" />
+@ChildContent(Context)
+<div tabIndex="0" @ref="SentinelEnd.Current" data-test="sentinelEnd" />

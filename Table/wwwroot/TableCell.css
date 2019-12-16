@@ -1,0 +1,94 @@
+﻿.TableCell-Root {
+  display: table-cell;
+  padding: 16px;
+  vertical-align: inherit;
+  text-align: left;
+  border-bottom: 1px solid
+    var(--theme-palette-divider-border-bottom, rgba(224, 224, 224, 1));
+  font-size: var(--theme-typography-body2-font-size, 0.875rem);
+  font-family: var(--theme-typography-body2-font-family, "Roboto", "Helvetica", "Arial", sans-serif);
+  font-weight: var(--theme-typography-body2-font-weight, 400);
+  line-height: var(--theme-typography-body2-line-height, 1.43);
+  letter-spacing: var(--theme-typography-body2-letter-spacing, 0.01071em);
+}
+
+.TableCell-Head {
+  color: var(--theme-palette-text-primary, rgba(0, 0, 0, 0.87));
+  font-weight: var(--theme-typography-font-weight-medium, 500);
+  line-height: calc(var(--theme-font-size-rem-factor, 0.0625) * 24rem);
+}
+
+.TableCell-Body {
+  color: var(--theme-palette-text-primary, rgba(0, 0, 0, 0.87));
+}
+
+.TableCell-Footer {
+  color: var(--theme-palette-text-secondary, rgba(0, 0, 0, 0.54));
+  font-size: calc(var(--theme-font-size-rem-factor, 0.0625) * 12rem);
+  line-height: calc(var(--theme-font-size-rem-factor, 0.0625) * 21rem);
+}
+
+.TableCell-Size-Small {
+  padding: 6px 24px 6px 16px;
+}
+
+.TableCell-Size-Small:last-child {
+  padding-right: 16px;
+}
+
+.TableCell-Size-Small.TableCell-Padding-Checkbox {
+  width: 24px;
+  padding: 0px 12px 0 16px;
+}
+
+.TableCell-Size-Small.TableCell-Padding-Checkbox:last-child {
+  padding-left: 12px;
+  padding-right: 16px;
+}
+
+.TableCell-Size-Small.TableCell-Padding-Checkbox > * {
+  padding: 0;
+}
+
+.TableCell-Padding-Checkbox {
+  width: 48px;
+  padding: 0 0 0 4px;
+}
+
+.TableCell-Padding-Checkbox:last-child {
+  padding-left: 0;
+  padding-right: 4px;
+}
+
+.TableCell-Padding-None {
+  padding: 0;
+}
+
+.TableCell-Padding-None:last-child {
+  padding: 0;
+}
+
+.TableCell-Align-Left {
+  text-align: left;
+}
+
+.TableCell-Align-Center {
+  text-align: center;
+}
+
+.TableCell-Align-Right {
+  text-align: right;
+  flex-direction: row-reverse;
+}
+
+.TableCell-Align-Justify {
+  text-align: justify;
+}
+
+.TableCell-StickyHeader {
+  top: 0;
+  left: 0;
+  z-index: 2;
+  position: sticky;
+  background-color: var(--theme-palette-background-default: #fff);
+}

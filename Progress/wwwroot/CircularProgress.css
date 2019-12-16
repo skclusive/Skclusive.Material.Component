@@ -1,0 +1,64 @@
+﻿
+.CircularProgress-Root {
+  display: inline-block;
+}
+
+.CircularProgress-Static {
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.CircularProgress-Indeterminate {
+  animation: CircularProgress-keyframes-circular-rotate 1.4s linear infinite;
+}
+
+.CircularProgress-Color-Primary {
+  color: var(--theme-palette-primary-main, #1976d2);
+}
+
+.CircularProgress-Color-Secondary {
+  color: var(--theme-palette-secondary-main, rgb(220, 0, 78));
+}
+
+.CircularProgress-Svg {
+  display: block;
+}
+
+.CircularProgress-Circle {
+  stroke: currentColor;
+}
+
+.CircularProgress-Circle-Static {
+  transition: stroke-dashoffset 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.CircularProgress-Circle-Indeterminate {
+  animation: CircularProgress-keyframes-circular-dash 1.4s ease-in-out
+    infinite;
+  stroke-dasharray: 80px, 200px;
+  stroke-dashoffset: 0px;
+}
+
+@-webkit-keyframes CircularProgress-keyframes-circular-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes CircularProgress-keyframes-circular-dash {
+  0% {
+    stroke-dasharray: 1px, 200px;
+    stroke-dashoffset: 0px;
+  }
+  50% {
+    stroke-dasharray: 100px, 200px;
+    stroke-dashoffset: -15px;
+  }
+  100% {
+    stroke-dasharray: 100px, 200px;
+    stroke-dashoffset: -125px;
+  }
+}
+
+.CircularProgress-Circle-DisableShrink {
+  animation: none;
+}

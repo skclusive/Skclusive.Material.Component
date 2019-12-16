@@ -1,0 +1,14 @@
+﻿@inherits SvgIconComponent
+
+<svg class="@_Class"
+     style="@_Style"
+     focusable="false"
+     viewBox="@ViewBox"
+     color="@NativeColor"
+     aria-hidden="@Hidden">
+    @if(!Hidden)
+    {
+        <title>@Title</title>
+    }
+    @ChildContent
+</svg>

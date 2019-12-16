@@ -1,0 +1,10 @@
+﻿.ListItemIcon-Root {
+  color: var(--theme-palette-action-active, rgba(0, 0, 0, 0.54));
+  display: inline-flex;
+  min-width: 56px;
+  flex-shrink: 0;
+}
+
+.ListItemIcon-AlignItems-FlexStart {
+  margin-top: 8px;
+}

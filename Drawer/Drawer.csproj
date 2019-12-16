@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <RazorLangVersion>3.0</RazorLangVersion>
+    <AssemblyName>Skclusive.Material.Drawer</AssemblyName>
+    <RootNamespace>Skclusive.Material.Drawer</RootNamespace>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj" />
+    <ProjectReference Include="..\Modal\Modal.csproj" />
+    <ProjectReference Include="..\Transition\Transition.csproj" />
+    <ProjectReference Include="..\Paper\Paper.csproj" />
+  </ItemGroup>
+
+</Project>

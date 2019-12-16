@@ -1,0 +1,38 @@
+﻿.Checkbox-Root {
+  color: var(--theme-palette-text-secondary, rgba(0, 0, 0, 0.54));
+}
+
+.Checkbox-Color-Primary.Checkbox-Checked {
+  color: var(--theme-palette-primary-main, #1976d2);
+}
+
+.Checkbox-Color-Primary.Checkbox-Disabled {
+  color: var(--theme-palette-action-disabled, rgba(0, 0, 0, 0.26));
+}
+
+.Checkbox-Color-Primary.Checkbox-Checked:hover {
+  background-color: var(--theme-palette-primary-main-hover, rgba(25, 118, 210, 0.08));
+}
+
+@media (hover: none) {
+  .Checkbox-Color-Primary.Checkbox-Checked:hover {
+    background-color: transparent;
+  }
+}
+
+.Checkbox-Color-Secondary.Checkbox-Checked {
+  color: var(--theme-palette-secondary-main, rgb(220, 0, 78));
+}
+
+.Checkbox-Color-Secondary .Checkbox-Disabled {
+  color: var(--theme-palette-action-disabled, rgba(0, 0, 0, 0.26));
+}
+
+.Checkbox-Color-Secondary.Checkbox-Checked:hover {
+  background-color: var(--theme-palette-secondary-main-hover, rgba(220, 0, 78, 0.08));
+}
+@media (hover: none) {
+  .Checkbox-Color-Secondary.Checkbox-Checked:hover {
+    background-color: transparent;
+  }
+}

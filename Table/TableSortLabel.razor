@@ -1,0 +1,13 @@
+﻿@inherits TableSortLabelComponent
+
+<ButtonBase RootRef="@RootRef"
+            Component="@Component"
+            Class="@_Class"
+            Style="@_Style"
+            DisableRipple>
+    @ChildContent
+    @if (!HideSortIcon || Active)
+    {
+        <ArrowDownwardIcon Class="@_IconClass" />
+    }
+</ButtonBase>

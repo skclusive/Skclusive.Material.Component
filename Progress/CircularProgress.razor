@@ -1,0 +1,18 @@
+﻿@inherits CircularProgressComponent
+
+<div @ref="RootRef.Current"
+     role="progressbar"
+     class="@_Class"
+     style="@_Style"
+     aria-valuenow="@ValueNow">
+    <svg class="@_SvgClass"
+         viewBox="@ViewBox">
+        <circle class="@_CircleClass"
+                style="@_CircleStyle"
+                cx="@Cx"
+                cy="@Cy"
+                r="@Radius"
+                fill="none"
+                stroke-width="@Thickness"/>
+    </svg>
+</div>

@@ -1,0 +1,13 @@
+﻿@inherits FormControlLabelComponent
+
+<Component RootRef="@RootRef"
+           Tag="@Component"
+           Class="@_Class"
+           Style="@_Style"
+           @attributes="Attributes">
+    @ControlContent(ControlContext)
+    <Typography Component="span"
+                Class="@_LabelClass">
+        @Label
+    </Typography>
+</Component>

@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <RazorLangVersion>3.0</RazorLangVersion>
+    <AssemblyName>Skclusive.Material.Modal</AssemblyName>
+    <RootNamespace>Skclusive.Material.Modal</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj" />
+    <ProjectReference Include="..\Transition\Transition.csproj" />
+    <ProjectReference Include="..\Script\Script.csproj" />
+  </ItemGroup>
+
+</Project>

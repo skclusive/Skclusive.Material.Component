@@ -1,0 +1,9 @@
+﻿@inherits CardActionAreaComponent
+
+<ButtonBase RootRef="@RootRef"
+            Class="@_Class"
+            Style="@_Style"
+            FocusVisibleClass="@FocusVisibleClass">
+    @ChildContent
+    <span class="@_HighlightClass" style="@_HighlightStyle" />
+</ButtonBase>

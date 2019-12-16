@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <RazorLangVersion>3.0</RazorLangVersion>
+    <AssemblyName>Skclusive.Material.Input</AssemblyName>
+    <RootNamespace>Skclusive.Material.Input</RootNamespace>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj" />
+    <ProjectReference Include="..\Form\Form.csproj" />
+    <ProjectReference Include="..\Typography\Typography.csproj" />
+  </ItemGroup>
+
+</Project>

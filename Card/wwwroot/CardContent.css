@@ -1,0 +1,7 @@
+﻿.CardContent-Root {
+  padding: 16px;
+}
+
+.CardContent-Root:last-child {
+  padding-bottom: 24px;
+}

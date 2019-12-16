@@ -1,0 +1,60 @@
+﻿.Drawer-Docked {
+  flex: 0 0 auto;
+}
+
+.Drawer-Paper {
+  top: 0;
+  flex: 1 0 auto;
+  height: 100%;
+  display: flex;
+  outline: 0;
+  z-index: 1200;
+  position: fixed;
+  overflow-y: auto;
+  flex-direction: column;
+  -webkit-overflow-scrolling: touch;
+}
+
+.Drawer-Paper-Anchor-Start {
+  left: 0;
+  right: auto;
+}
+
+.Drawer-Paper-Anchor-End {
+  left: auto;
+  right: 0;
+}
+
+.Drawer-Paper-Anchor-Top {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: auto;
+  height: auto;
+  max-height: 100%;
+}
+
+.Drawer-Paper-Anchor-Bottom {
+  top: auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: auto;
+  max-height: 100%;
+}
+
+.Drawer-Paper-Anchor-Docked-Left {
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.Drawer-Paper-Anchor-Docked-Top {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.Drawer-Paper-Anchor-Docked-Right {
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.Drawer-Paper-Anchor-Docked-Bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}

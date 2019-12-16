@@ -1,0 +1,5 @@
+﻿:root {
+    --theme-palette-border-bottom: rgba(255, 255, 255, 0.7);
+    --theme-palette-table-row-background-selected: rgba(255, 255, 255, 0.08);
+    --theme-palette-table-row-background-hover: rgba(255, 255, 255, 0.14);
+}

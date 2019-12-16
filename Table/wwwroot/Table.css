@@ -1,0 +1,22 @@
+﻿.Table-Root {
+  width: 100%;
+  display: table;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.Table-Root caption {
+  color: var(--theme-palette-text-secondary, rgba(0, 0, 0, 0.54));
+  padding: calc(var(--theme-spacing, 8) * 2px);
+  text-align: left;
+  caption-side: bottom;
+  font-size: var(--theme-typography-body2-font-size, 0.875rem);
+  font-family: var(--theme-typography-body2-font-family, "Roboto", "Helvetica", "Arial", sans-serif);
+  font-weight: var(--theme-typography-body2-font-weight, 400);
+  line-height: var(--theme-typography-body2-line-height, 1.43);
+  letter-spacing: var(--theme-typography-body2-letter-spacing, 0.01071em);
+}
+
+.Table-StickyHeader {
+  border-collapse: separate;
+}

@@ -1,0 +1,39 @@
+﻿.Radio-Root {
+  color: var(--theme-palette-text-secondary, rgba(0, 0, 0, 0.54));
+}
+
+.Radio-Color-Primary.Radio-Checked {
+  color: var(--theme-palette-primary-main, #1976d2);
+}
+
+.Radio-Color-Primary.Radio-Disabled {
+  color: var(--theme-palette-action-disabled, rgba(0, 0, 0, 0.26));
+}
+
+.Radio-Color-Primary.Radio-Checked:hover {
+  background-color: var(--theme-palette-primary-main-hover, rgba(25, 118, 210, 0.08));
+}
+
+@media (hover: none) {
+  .Radio-Color-Primary.Radio-Checked:hover {
+    background-color: transparent;
+  }
+}
+
+.Radio-Color-Secondary.Radio-Checked {
+  color: var(--theme-palette-secondary-main, rgb(220, 0, 78));
+}
+
+.Radio-Color-Secondary.Radio-Disabled {
+  color: var(--theme-palette-action-disabled, rgba(0, 0, 0, 0.26));
+}
+
+.Radio-Color-Secondary.Radio-Checked:hover {
+  background-color: var(--theme-palette-secondary-main-hover, rgba(220, 0, 78, 0.08));
+}
+
+@media (hover: none) {
+  .Radio-Color-Secondary.Radio-Checked:hover {
+    background-color: transparent;
+  }
+}

@@ -1,0 +1,21 @@
+﻿@inherits AvatarComponent
+
+<Component RootRef="@RootRef"
+           Tag="@Component"
+           Class="@_Class"
+           Style="@_Style"
+           @attributes="Attributes">
+    @if (IsImage)
+    {
+        <img class="@_ImageClass"
+             style="@_ImageStyle"
+             alt="@Alt"
+             src="@Src"
+             srcSet="@SrcSet"
+             sizes="@Sizes" />
+    }
+    else if (HasContent)
+    {
+        @ChildContent
+    }
+</Component>

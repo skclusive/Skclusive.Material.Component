@@ -1,0 +1,56 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <VersionPrefix>1.0.0-preview1</VersionPrefix>
+    <VersionSuffix>$(VersionSuffix)</VersionSuffix>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <RazorLangVersion>3.0</RazorLangVersion>
+    <AssemblyName>Skclusive.Material.Component</AssemblyName>
+    <PackageId>Skclusive.Material.Component</PackageId>
+    <RootNamespace>Skclusive.Material.Component</RootNamespace>
+    <Authors>Skclusive</Authors>
+    <Company>Skclusive</Company>
+    <Copyright>Skclusive</Copyright>
+    <PackageTags>blazor material ui components</PackageTags>
+    <PackageProjectUrl>https://github.com/skclusive/Skclusive.Material.Component</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/skclusive/Skclusive.Material.Component</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Blazor" Version="3.1.0-preview4.19579.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="3.1.0-preview4.19579.2" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.AspNetCore.Blazor.HttpClient" Version="3.1.0-preview4.19579.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Blazor.DevServer" Version="3.1.0-preview4.19579.2" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AppBar\AppBar.csproj" />
+    <ProjectReference Include="..\Avatar\Avatar.csproj" />
+    <ProjectReference Include="..\Badge\Badge.csproj" />
+    <ProjectReference Include="..\Baseline\Baseline.csproj" />
+    <ProjectReference Include="..\Button\Button.csproj" />
+    <ProjectReference Include="..\Divider\Divider.csproj" />
+    <ProjectReference Include="..\Card\Card.csproj" />
+    <ProjectReference Include="..\Form\Form.csproj" />
+    <ProjectReference Include="..\Grid\Grid.csproj" />
+    <ProjectReference Include="..\Icon\Icon.csproj" />
+    <ProjectReference Include="..\Paper\Paper.csproj" />
+    <ProjectReference Include="..\Progress\Progress.csproj" />
+    <ProjectReference Include="..\Selection\Selection.csproj" />
+    <ProjectReference Include="..\Table\Table.csproj" />
+    <ProjectReference Include="..\Text\Text.csproj" />
+    <ProjectReference Include="..\Toolbar\Toolbar.csproj" />
+    <ProjectReference Include="..\Transition\Transition.csproj" />
+    <ProjectReference Include="..\Typography\Typography.csproj" />
+    <ProjectReference Include="..\Hidden\Hidden.csproj" />
+    <ProjectReference Include="..\Core\Core.csproj" />
+    <ProjectReference Include="..\List\List.csproj" />
+    <ProjectReference Include="..\Input\Input.csproj" />
+    <ProjectReference Include="..\Theme\Theme.csproj" />
+    <ProjectReference Include="..\Modal\Modal.csproj" />
+    <ProjectReference Include="..\Script\Script.csproj" />
+    <ProjectReference Include="..\Drawer\Drawer.csproj" />
+    <ProjectReference Include="..\Dialog\Dialog.csproj" />
+  </ItemGroup>
+
+</Project>
