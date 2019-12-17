@@ -1,17 +1,25 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
+    <VersionPrefix>1.0.0-preview1</VersionPrefix>
+    <VersionSuffix>$(VersionSuffix)</VersionSuffix>
     <TargetFramework>netstandard2.1</TargetFramework>
     <RazorLangVersion>3.0</RazorLangVersion>
     <AssemblyName>Skclusive.Material.Table</AssemblyName>
+    <PackageId>Skclusive.Material.Table</PackageId>
     <RootNamespace>Skclusive.Material.Table</RootNamespace>
+    <Authors>Skclusive</Authors>
+    <Company>Skclusive</Company>
+    <Copyright>Skclusive</Copyright>
+    <PackageTags>blazor material ui Table</PackageTags>
+    <PackageProjectUrl>https://github.com/skclusive/Skclusive.Material.Component</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/skclusive/Skclusive.Material.Component</RepositoryUrl>
   </PropertyGroup>
 
-
   <ItemGroup>
-    <ProjectReference Include="..\Button\Button.csproj" />
-    <ProjectReference Include="..\Core\Core.csproj" />
-    <ProjectReference Include="..\Icon\Icon.csproj" />
+    <ProjectReference Include="..\Button\Button.csproj" Version="1.0.0-preview1" />
+    <ProjectReference Include="..\Core\Core.csproj" Version="1.0.0-preview1" />
+    <ProjectReference Include="..\Icon\Icon.csproj" Version="1.0.0-preview1" />
   </ItemGroup>
 
 </Project>

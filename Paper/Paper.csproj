@@ -1,15 +1,23 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
+    <VersionPrefix>1.0.0-preview1</VersionPrefix>
+    <VersionSuffix>$(VersionSuffix)</VersionSuffix>
     <TargetFramework>netstandard2.1</TargetFramework>
     <RazorLangVersion>3.0</RazorLangVersion>
     <AssemblyName>Skclusive.Material.Paper</AssemblyName>
+    <PackageId>Skclusive.Material.Paper</PackageId>
     <RootNamespace>Skclusive.Material.Paper</RootNamespace>
+    <Authors>Skclusive</Authors>
+    <Company>Skclusive</Company>
+    <Copyright>Skclusive</Copyright>
+    <PackageTags>blazor material ui Paper</PackageTags>
+    <PackageProjectUrl>https://github.com/skclusive/Skclusive.Material.Component</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/skclusive/Skclusive.Material.Component</RepositoryUrl>
   </PropertyGroup>
 
-
   <ItemGroup>
-    <ProjectReference Include="..\Core\Core.csproj" />
+    <ProjectReference Include="..\Core\Core.csproj" Version="1.0.0-preview1" />
   </ItemGroup>
 
 </Project>
