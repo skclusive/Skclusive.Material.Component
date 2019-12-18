@@ -1,0 +1,224 @@
+﻿@inherits StyleComponentBase
+
+<style data-name="Table">
+
+    .Table-Root {
+        width: 100%;
+        display: table;
+        border-spacing: 0;
+        border-collapse: collapse;
+    }
+
+    .Table-Root caption {
+        color: var(--theme-palette-text-secondary, rgba(0, 0, 0, 0.54));
+        padding: calc(var(--theme-spacing, 8) * 2px);
+        text-align: left;
+        caption-side: bottom;
+        font-size: var(--theme-typography-body2-font-size, 0.875rem);
+        font-family: var(--theme-typography-body2-font-family, "Roboto", "Helvetica", "Arial", sans-serif);
+        font-weight: var(--theme-typography-body2-font-weight, 400);
+        line-height: var(--theme-typography-body2-line-height, 1.43);
+        letter-spacing: var(--theme-typography-body2-letter-spacing, 0.01071em);
+    }
+
+    .Table-StickyHeader {
+        border-collapse: separate;
+    }
+
+</style>
+
+<style data-name="TableBody">
+
+    .TableBody-Root {
+        display: table-row-group;
+    }
+
+</style>
+
+<style data-name="TableCell">
+
+    .TableCell-Root {
+        display: table-cell;
+        padding: 16px;
+        vertical-align: inherit;
+        text-align: left;
+        border-bottom: 1px solid
+            var(--theme-palette-divider-border-bottom, rgba(224, 224, 224, 1));
+        font-size: var(--theme-typography-body2-font-size, 0.875rem);
+        font-family: var(--theme-typography-body2-font-family, "Roboto", "Helvetica", "Arial", sans-serif);
+        font-weight: var(--theme-typography-body2-font-weight, 400);
+        line-height: var(--theme-typography-body2-line-height, 1.43);
+        letter-spacing: var(--theme-typography-body2-letter-spacing, 0.01071em);
+    }
+
+    .TableCell-Head {
+        color: var(--theme-palette-text-primary, rgba(0, 0, 0, 0.87));
+        font-weight: var(--theme-typography-font-weight-medium, 500);
+        line-height: calc(var(--theme-font-size-rem-factor, 0.0625) * 24rem);
+    }
+
+    .TableCell-Body {
+        color: var(--theme-palette-text-primary, rgba(0, 0, 0, 0.87));
+    }
+
+    .TableCell-Footer {
+        color: var(--theme-palette-text-secondary, rgba(0, 0, 0, 0.54));
+        font-size: calc(var(--theme-font-size-rem-factor, 0.0625) * 12rem);
+        line-height: calc(var(--theme-font-size-rem-factor, 0.0625) * 21rem);
+    }
+
+    .TableCell-Size-Small {
+        padding: 6px 24px 6px 16px;
+    }
+
+    .TableCell-Size-Small:last-child {
+        padding-right: 16px;
+    }
+
+    .TableCell-Size-Small.TableCell-Padding-Checkbox {
+        width: 24px;
+        padding: 0px 12px 0 16px;
+    }
+
+    .TableCell-Size-Small.TableCell-Padding-Checkbox:last-child {
+        padding-left: 12px;
+        padding-right: 16px;
+    }
+
+    .TableCell-Size-Small.TableCell-Padding-Checkbox > * {
+        padding: 0;
+    }
+
+    .TableCell-Padding-Checkbox {
+        width: 48px;
+        padding: 0 0 0 4px;
+    }
+
+    .TableCell-Padding-Checkbox:last-child {
+        padding-left: 0;
+        padding-right: 4px;
+    }
+
+    .TableCell-Padding-None {
+        padding: 0;
+    }
+
+    .TableCell-Padding-None:last-child {
+        padding: 0;
+    }
+
+    .TableCell-Align-Left {
+        text-align: left;
+    }
+
+    .TableCell-Align-Center {
+        text-align: center;
+    }
+
+    .TableCell-Align-Right {
+        text-align: right;
+        flex-direction: row-reverse;
+    }
+
+    .TableCell-Align-Justify {
+        text-align: justify;
+    }
+
+    .TableCell-StickyHeader {
+        top: 0;
+        left: 0;
+        z-index: 2;
+        position: sticky;
+        background-color: var(--theme-palette-background-default: #fff);
+    }
+
+</style>
+
+<style data-name="TableFoot">
+
+    .TableFoot-Root {
+        display: table-footer-group;
+    }
+
+</style>
+
+<style data-name="TableHead">
+
+    .TableHead-Root {
+        display: table-header-group;
+    }
+
+</style>
+
+<style data-name="TableRow">
+
+    .TableRow-Root {
+        color: inherit;
+        display: table-row;
+        outline: 0;
+        vertical-align: middle;
+    }
+
+    .TableRow-Root.TableRow-Selected {
+        background-color: var(--theme-palette-table-row-background-selected, rgba(0, 0, 0, 0.04));
+    }
+
+    .TableRow-Root.TableRow-Hover:hover {
+        background-color: var(--theme-palette-table-row-background-hover, rgba(0, 0, 0, 0.07));
+    }
+
+</style>
+
+<style data-name="TableSortLabel">
+
+    .TableSortLabel-Root {
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        flex-direction: inherit;
+        justify-content: flex-start;
+    }
+
+    .TableSortLabel-Root:focus {
+        color: var(--theme-palette-text-secondary, rgba(0, 0, 0, 0.54));
+    }
+
+    .TableSortLabel-Root:hover {
+        color: var(--theme-palette-text-secondary, rgba(0, 0, 0, 0.54));
+    }
+
+    .TableSortLabel-Root.TableSortLabel-Active {
+            color: var(--theme-palette-text-primary, rgba(0, 0, 0, 0.87));
+    }
+
+    .TableSortLabel-Root
+    .TableSortLabel-Active
+    .TableSortLabel-Root
+    .TableSortLabel-Active
+    .TableSortLabel-Icon {
+    color: var(--theme-palette-text-secondary, rgba(0, 0, 0, 0.54));
+        opacity: 1;
+    }
+
+    .TableSortLabel-Root:hover .TableSortLabel-Icon {
+        opacity: 1;
+    }
+
+    .TableSortLabel-Icon {
+        opacity: 0;
+        transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+            transform 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        margin-left: 4px;
+        user-select: none;
+        margin-right: 4px;
+    }
+
+    .TableSortLabel-Icon-Direction-Descending {
+        transform: rotate(0deg);
+    }
+
+    .TableSortLabel-Icon-Direction-Ascending {
+        transform: rotate(180deg);
+    }
+
+</style>

@@ -57,6 +57,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hidden", "Hidden\Hidden.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Theme", "Theme\Theme.csproj", "{CA19D592-0851-4390-91B1-EEB64D3E4AEF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Material", "Material\Material.csproj", "{379256A3-0025-44AF-AB7F-5D24F6D20AD8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -394,5 +396,17 @@ Global
 		{CA19D592-0851-4390-91B1-EEB64D3E4AEF}.Release|x64.Build.0 = Release|Any CPU
 		{CA19D592-0851-4390-91B1-EEB64D3E4AEF}.Release|x86.ActiveCfg = Release|Any CPU
 		{CA19D592-0851-4390-91B1-EEB64D3E4AEF}.Release|x86.Build.0 = Release|Any CPU
+		{379256A3-0025-44AF-AB7F-5D24F6D20AD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{379256A3-0025-44AF-AB7F-5D24F6D20AD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{379256A3-0025-44AF-AB7F-5D24F6D20AD8}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{379256A3-0025-44AF-AB7F-5D24F6D20AD8}.Debug|x64.Build.0 = Debug|Any CPU
+		{379256A3-0025-44AF-AB7F-5D24F6D20AD8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{379256A3-0025-44AF-AB7F-5D24F6D20AD8}.Debug|x86.Build.0 = Debug|Any CPU
+		{379256A3-0025-44AF-AB7F-5D24F6D20AD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{379256A3-0025-44AF-AB7F-5D24F6D20AD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{379256A3-0025-44AF-AB7F-5D24F6D20AD8}.Release|x64.ActiveCfg = Release|Any CPU
+		{379256A3-0025-44AF-AB7F-5D24F6D20AD8}.Release|x64.Build.0 = Release|Any CPU
+		{379256A3-0025-44AF-AB7F-5D24F6D20AD8}.Release|x86.ActiveCfg = Release|Any CPU
+		{379256A3-0025-44AF-AB7F-5D24F6D20AD8}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

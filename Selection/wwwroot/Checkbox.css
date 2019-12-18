@@ -31,6 +31,7 @@
 .Checkbox-Color-Secondary.Checkbox-Checked:hover {
   background-color: var(--theme-palette-secondary-main-hover, rgba(220, 0, 78, 0.08));
 }
+
 @media (hover: none) {
   .Checkbox-Color-Secondary.Checkbox-Checked:hover {
     background-color: transparent;
