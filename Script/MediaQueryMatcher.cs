@@ -23,7 +23,7 @@ namespace Skclusive.Material.Script
         [JSInvokable]
         public Task OnChangeAsync(bool match)
         {
-            OnChange?.Invoke(null, match);
+            OnChange?.Invoke(EVENT_ARGS, match);
 
             return Task.CompletedTask;
         }

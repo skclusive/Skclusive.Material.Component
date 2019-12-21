@@ -23,7 +23,7 @@ namespace Skclusive.Material.Script
         [JSInvokable]
         public Task OnEventAsync(string json)
         {
-            OnEvent?.Invoke(null, json);
+            OnEvent?.Invoke(EVENT_ARGS, json);
 
             return Task.CompletedTask;
         }

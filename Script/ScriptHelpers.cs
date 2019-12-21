@@ -14,11 +14,11 @@ namespace Skclusive.Material.Script
             JSRuntime = jsruntime;
         }
 
-        public async Task<string> GetTranslateValueAsync(ElementReference? element)
+        public async Task<string> GetTranslateValueAsync(Placement placement, ElementReference? element)
         {
             if (element.HasValue)
             {
-                return await JSRuntime.InvokeAsync<string>("Skclusive.Material.Script.getTranslateValue", element);
+                return await JSRuntime.InvokeAsync<string>("Skclusive.Material.Script.getTranslateValue", placement.ToString().ToLower(), element);
             }
 
             return null;

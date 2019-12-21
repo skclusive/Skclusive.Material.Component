@@ -51,7 +51,6 @@ namespace Skclusive.Material.Button
 
         public void Stop()
         {
-            // Console.WriteLine("TouchRipple.Stop");
             RunTimeout(() =>
             {
                 if (Ripples.Count > 0)

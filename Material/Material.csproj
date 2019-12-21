@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <VersionPrefix>1.0.0-preview3</VersionPrefix>
+    <VersionPrefix>1.0.0-preview6</VersionPrefix>
     <VersionSuffix>$(VersionSuffix)</VersionSuffix>
     <TargetFramework>netstandard2.1</TargetFramework>
     <RazorLangVersion>3.0</RazorLangVersion>
@@ -24,33 +24,33 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AppBar\AppBar.csproj" Version="1.0.0-preview3" />
-    <ProjectReference Include="..\Avatar\Avatar.csproj" Version="1.0.0-preview3" />
-    <ProjectReference Include="..\Badge\Badge.csproj" Version="1.0.0-preview3" />
-    <ProjectReference Include="..\Baseline\Baseline.csproj" Version="1.0.0-preview3" />
-    <ProjectReference Include="..\Button\Button.csproj" Version="1.0.0-preview3" />
-    <ProjectReference Include="..\Divider\Divider.csproj" Version="1.0.0-preview3" />
-    <ProjectReference Include="..\Card\Card.csproj" Version="1.0.0-preview3" />
-    <ProjectReference Include="..\Form\Form.csproj" Version="1.0.0-preview3" />
-    <ProjectReference Include="..\Grid\Grid.csproj" Version="1.0.0-preview3" />
-    <ProjectReference Include="..\Icon\Icon.csproj" Version="1.0.0-preview3" />
-    <ProjectReference Include="..\Paper\Paper.csproj" Version="1.0.0-preview3" />
-    <ProjectReference Include="..\Progress\Progress.csproj" Version="1.0.0-preview3" />
-    <ProjectReference Include="..\Selection\Selection.csproj" Version="1.0.0-preview3" />
-    <ProjectReference Include="..\Table\Table.csproj" Version="1.0.0-preview3" />
-    <ProjectReference Include="..\Text\Text.csproj" Version="1.0.0-preview3" />
-    <ProjectReference Include="..\Toolbar\Toolbar.csproj" Version="1.0.0-preview3" />
-    <ProjectReference Include="..\Transition\Transition.csproj" Version="1.0.0-preview3" />
-    <ProjectReference Include="..\Typography\Typography.csproj" Version="1.0.0-preview3" />
-    <ProjectReference Include="..\Hidden\Hidden.csproj" Version="1.0.0-preview3" />
-    <ProjectReference Include="..\Core\Core.csproj" Version="1.0.0-preview3" />
-    <ProjectReference Include="..\List\List.csproj" Version="1.0.0-preview3" />
-    <ProjectReference Include="..\Input\Input.csproj" Version="1.0.0-preview3" />
-    <ProjectReference Include="..\Theme\Theme.csproj" Version="1.0.0-preview3" />
-    <ProjectReference Include="..\Modal\Modal.csproj" Version="1.0.0-preview3" />
-    <ProjectReference Include="..\Script\Script.csproj" Version="1.0.0-preview3" />
-    <ProjectReference Include="..\Drawer\Drawer.csproj" Version="1.0.0-preview3" />
-    <ProjectReference Include="..\Dialog\Dialog.csproj" Version="1.0.0-preview3" />
+    <ProjectReference Include="..\AppBar\AppBar.csproj" Version="1.0.0-preview6" />
+    <ProjectReference Include="..\Avatar\Avatar.csproj" Version="1.0.0-preview6" />
+    <ProjectReference Include="..\Badge\Badge.csproj" Version="1.0.0-preview6" />
+    <ProjectReference Include="..\Baseline\Baseline.csproj" Version="1.0.0-preview6" />
+    <ProjectReference Include="..\Button\Button.csproj" Version="1.0.0-preview6" />
+    <ProjectReference Include="..\Divider\Divider.csproj" Version="1.0.0-preview6" />
+    <ProjectReference Include="..\Card\Card.csproj" Version="1.0.0-preview6" />
+    <ProjectReference Include="..\Form\Form.csproj" Version="1.0.0-preview6" />
+    <ProjectReference Include="..\Grid\Grid.csproj" Version="1.0.0-preview6" />
+    <ProjectReference Include="..\Icon\Icon.csproj" Version="1.0.0-preview6" />
+    <ProjectReference Include="..\Paper\Paper.csproj" Version="1.0.0-preview6" />
+    <ProjectReference Include="..\Progress\Progress.csproj" Version="1.0.0-preview6" />
+    <ProjectReference Include="..\Selection\Selection.csproj" Version="1.0.0-preview6" />
+    <ProjectReference Include="..\Table\Table.csproj" Version="1.0.0-preview6" />
+    <ProjectReference Include="..\Text\Text.csproj" Version="1.0.0-preview6" />
+    <ProjectReference Include="..\Toolbar\Toolbar.csproj" Version="1.0.0-preview6" />
+    <ProjectReference Include="..\Transition\Transition.csproj" Version="1.0.0-preview6" />
+    <ProjectReference Include="..\Typography\Typography.csproj" Version="1.0.0-preview6" />
+    <ProjectReference Include="..\Hidden\Hidden.csproj" Version="1.0.0-preview6" />
+    <ProjectReference Include="..\Core\Core.csproj" Version="1.0.0-preview6" />
+    <ProjectReference Include="..\List\List.csproj" Version="1.0.0-preview6" />
+    <ProjectReference Include="..\Input\Input.csproj" Version="1.0.0-preview6" />
+    <ProjectReference Include="..\Theme\Theme.csproj" Version="1.0.0-preview6" />
+    <ProjectReference Include="..\Modal\Modal.csproj" Version="1.0.0-preview6" />
+    <ProjectReference Include="..\Script\Script.csproj" Version="1.0.0-preview6" />
+    <ProjectReference Include="..\Drawer\Drawer.csproj" Version="1.0.0-preview6" />
+    <ProjectReference Include="..\Dialog\Dialog.csproj" Version="1.0.0-preview6" />
   </ItemGroup>
 
 </Project>
