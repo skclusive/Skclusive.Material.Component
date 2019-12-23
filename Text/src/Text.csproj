@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <VersionPrefix>1.0.0-preview1</VersionPrefix>
+    <VersionPrefix>1.0.1-preview1</VersionPrefix>
     <VersionSuffix>$(VersionSuffix)</VersionSuffix>
     <TargetFramework>netstandard2.1</TargetFramework>
     <RazorLangVersion>3.0</RazorLangVersion>
@@ -18,8 +18,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\src\Core.csproj" Version="1.0.0-preview1" />
-    <ProjectReference Include="..\..\Form\src\Form.csproj" Version="1.0.0-preview1" />
-    <ProjectReference Include="..\..\Input\src\Input.csproj" Version="1.0.0-preview1" />
+    <ProjectReference Include="..\..\Form\src\Form.csproj" Version="1.0.1-preview1" />
+    <ProjectReference Include="..\..\Input\src\Input.csproj" Version="1.0.1-preview1" />
   </ItemGroup>
 
 </Project>
