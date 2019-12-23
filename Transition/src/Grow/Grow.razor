@@ -1,0 +1,13 @@
+﻿@namespace Skclusive.Material.Transition
+@inherits GrowComponent
+
+<Transition Appear="true"
+            In="@In"
+            Timeout="@Timeout"
+            AppearTimeout="@AppearTimeout"
+            EnterTimeout="@EnterTimeout"
+            ExitTimeout="@ExitTimeout"
+            OnEnter="@HandleEnter"
+            OnExit="@HandleExit">
+    @ChildContent.Invoke(GetChildContext(context))
+</Transition>

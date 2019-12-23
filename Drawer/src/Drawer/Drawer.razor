@@ -1,0 +1,65 @@
+﻿@namespace Skclusive.Material.Drawer
+@inherits DrawerComponent
+
+@if (Variant == DrawerVariant.Permanent)
+{
+    <div class="@_Class" style="@_Style" @ref="RootRef.Current">
+        <Paper Elevation="@_Elevation"
+               Square
+               Class="@_PaperClass"
+               Style="@_PaperStyle">
+            @ChildContent
+        </Paper>
+    </div>
+}
+else if (Variant == DrawerVariant.Persistent)
+{
+    <div class="@_Class" style="@_Style" @ref="RootRef.Current">
+        <Slide Placement="@Placement"
+               In="@Open"
+               TransitionDuration="@TransitionDuration"
+               AppearTimeout="@AppearTimeout"
+               EnterTimeout="@EnterTimeout"
+               ExitTimeout="@ExitTimeout"
+               Appear="@Mounted">
+            <Paper RootRef="context.RefBack"
+                   Elevation="@_Elevation"
+                   Square
+                   Class="@_PaperClass"
+                   Style="@(CssUtil.ToStyle(context.Styles, _PaperStyle))">
+                @ChildContent
+            </Paper>
+        </Slide>
+    </div>
+}
+else
+{
+    <Modal Open="@Open" 
+           OnClose="@HandleClose"
+           Context="ModalContext">
+        <BackdropContent>
+            <Backdrop Open="@ModalContext.Open" 
+                      OnClick="@ModalContext.OnBackdropClick"/>
+        </BackdropContent>
+        <ChildContent>
+            <Slide Placement="@Placement"
+                In="@ModalContext.Open"
+                TransitionDuration="@TransitionDuration"
+                AppearTimeout="@AppearTimeout"
+                EnterTimeout="@EnterTimeout"
+                ExitTimeout="@ExitTimeout"
+                Appear="@Mounted"
+                OnEnter="@ModalContext.OnEnter"
+                OnExited="@ModalContext.OnExited"
+                Context="SlideContext">
+                <Paper RootRef="SlideContext.RefBack"
+                    Elevation="@_Elevation"
+                    Square
+                    Class="@_PaperClass"
+                    Style="@(CssUtil.ToStyle(SlideContext.Styles, _PaperStyle))">
+                    @ChildContent
+                </Paper>
+            </Slide>
+        </ChildContent>
+    </Modal>
+}

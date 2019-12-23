@@ -1,0 +1,185 @@
+﻿@namespace Skclusive.Material.Typography
+@inherits StyleComponentBase
+
+<style data-name="Typography">
+
+    .Typography-Root {
+        margin: 0;
+    }
+
+    .Typography-Body2 {
+        font-size: var(--theme-typography-body2-font-size, 0.875rem);
+        font-family: var(--theme-typography-body2-font-family, "Roboto", "Helvetica", "Arial", sans-serif);
+        font-weight: var(--theme-typography-body2-font-weight, 400);
+        line-height: var(--theme-typography-body2-line-height, 1.43);
+        letter-spacing: var(--theme-typography-body2-letter-spacing, 0.01071em);
+    }
+
+    .Typography-Body1 {
+        font-size: var(--theme-typography-body1-font-size, 1rem);
+        font-family: var(--theme-typography-body1-font-family, "Roboto", "Helvetica", "Arial", sans-serif);
+        font-weight: var(--theme-typography-body1-font-weight, 400);
+        line-height: var(--theme-typography-body1-line-height, 1.5);
+        letter-spacing: var(--theme-typography-body1-letter-spacing, 0.00938em);
+    }
+
+    .Typography-Caption {
+        font-size: var(--theme-typography-caption-font-size, 0.75rem);
+        font-family: var(--theme-typography-caption-font-family, "Roboto", "Helvetica", "Arial", sans-serif);
+        font-weight: var(--theme-typography-caption-font-weight, 400);
+        line-height: var(--theme-typography-caption-line-height, 1.66);
+        letter-spacing: var(--theme-typography-caption-letter-spacing, 0.03333em);
+    }
+
+    .Typography-Button {
+        font-size: var(--theme-typography-caption-font-size, 0.875rem);
+        font-family: var(--theme-typography-caption-font-family, "Roboto", "Helvetica", "Arial", sans-serif);
+        font-weight: var(--theme-typography-caption-font-weight, 500);
+        line-height: var(--theme-typography-caption-line-height, 1.75);
+        letter-spacing: var(--theme-typography-caption-letter-spacing, 0.02857em);
+        text-transform: var(--theme-typography-button-text-transform, uppercase);
+    }
+
+    .Typography-H1 {
+        font-size: var(--theme-typography-h1-font-size, 6rem);
+        font-family: var(--theme-typography-h1-font-family, "Roboto", "Helvetica", "Arial", sans-serif);
+        font-weight: var(--theme-typography-h1-font-weight, 300);
+        line-height: var(--theme-typography-h1-line-height, 1);
+        letter-spacing: var(--theme-typography-h1-letter-spacing, -0.01562em);
+    }
+
+    .Typography-H2 {
+        font-size: var(--theme-typography-h2-font-size, 3.75rem);
+        font-family: var(--theme-typography-h2-font-family, "Roboto", "Helvetica", "Arial", sans-serif);
+        font-weight: var(--theme-typography-h2-font-weight, 300);
+        line-height: var(--theme-typography-h2-line-height, 1);
+        letter-spacing: var(--theme-typography-h2-letter-spacing, -0.00833em);
+    }
+
+    .Typography-H3 {
+        font-size: var(--theme-typography-h3-font-size, 3rem);
+        font-family: var(--theme-typography-h3-font-family, "Roboto", "Helvetica", "Arial", sans-serif);
+        font-weight: var(--theme-typography-h3-font-weight, 400);
+        line-height: var(--theme-typography-h3-line-height, 1.04);
+        letter-spacing: var(--theme-typography-h3-letter-spacing, 0em);
+    }
+
+    .Typography-H4 {
+        font-size: var(--theme-typography-h4-font-size, 2.125rem);
+        font-family: var(--theme-typography-h4-font-family, "Roboto", "Helvetica", "Arial", sans-serif);
+        font-weight: var(--theme-typography-h4-font-weight, 400);
+        line-height: var(--theme-typography-h4-line-height, 1.17);
+        letter-spacing: var(--theme-typography-h4-letter-spacing, 0.00735em);
+    }
+
+    .Typography-H5 {
+        font-size: var(--theme-typography-h5-font-size, 1.5rem);
+        font-family: var(--theme-typography-h5-font-family, "Roboto", "Helvetica", "Arial", sans-serif);
+        font-weight: var(--theme-typography-h5-font-weight, 400);
+        line-height: var(--theme-typography-h5-line-height, 1.33);
+        letter-spacing: var(--theme-typography-h5-letter-spacing, 0em);
+    }
+
+    .Typography-H6 {
+        font-size: var(--theme-typography-h6-font-size, 1.25rem);
+        font-family: var(--theme-typography-h6-font-family, "Roboto", "Helvetica", "Arial", sans-serif);
+        font-weight: var(--theme-typography-h6-font-weight, 500);
+        line-height: var(--theme-typography-h6-line-height, 1.6);
+        letter-spacing: var(--theme-typography-h6-letter-spacing, 0.0075em);
+    }
+
+    .Typography-Subtitle1 {
+        font-size: var(--theme-typography-subtitle1-font-size, 1rem);
+        font-family: var(--theme-typography-subtitle1-font-family, "Roboto", "Helvetica", "Arial", sans-serif);
+        font-weight: var(--theme-typography-subtitle1-font-weight, 400);
+        line-height: var(--theme-typography-subtitle1-line-height, 1.75);
+        letter-spacing: var(--theme-typography-subtitle1-letter-spacing, 0.00938em);
+    }
+
+    .Typography-Subtitle2 {
+        font-size: var(--theme-typography-subtitle2-font-size, 0.875rem);
+        font-family: var(--theme-typography-subtitle2-font-family, "Roboto", "Helvetica", "Arial", sans-serif);
+        font-weight: var(--theme-typography-subtitle2-font-weight, 500);
+        line-height: var(--theme-typography-subtitle2-line-height, 1.57);
+        letter-spacing: var(--theme-typography-subtitle2-letter-spacing, 0.00714em);
+    }
+
+    .Typography-Overline {
+        font-size: var(--theme-typography-overline-font-size, 0.75rem);
+        font-family: var(--theme-typography-overline-font-family, "Roboto", "Helvetica", "Arial", sans-serif);
+        font-weight: var(--theme-typography-overline-font-weight, 400);
+        line-height: var(--theme-typography-overline-line-height, 2.66);
+        letter-spacing: var(--theme-typography-overline-letter-spacing, 0.08333em);
+        text-transform: var(--theme-typography-overline-text-transform, uppercase);
+    }
+
+    .Typography-SrOnly {
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        position: absolute;
+    }
+
+    .Typography-Align-Left {
+        text-align: left;
+    }
+
+    .Typography-Align-Center {
+        text-align: center;
+    }
+
+    .Typography-Align-Right {
+        text-align: right;
+    }
+
+    .Typography-Align-Justify {
+        text-align: justify;
+    }
+
+    .Typography-NoWrap {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .Typography-GutterBottom {
+        margin-bottom: 0.35em;
+    }
+
+    .Typography-Paragraph {
+        margin-bottom: 16px;
+    }
+
+    .Typography-Color-Inherit {
+        color: inherit;
+    }
+
+    .Typography-Color-Primary {
+        color: var(--theme-palette-primary-main, #1976d2);
+    }
+
+    .Typography-Color-Secondary {
+        color: var(--theme-palette-secondary-main, rgb(220, 0, 78));
+    }
+
+    .Typography-Color-TextPrimary {
+        color: var(--theme-palette-text-primary, rgba(0, 0, 0, 0.87));
+    }
+
+    .Typography-Color-TextSecondary {
+        color: var(--theme-palette-text-secondary, rgba(0, 0, 0, 0.54));
+    }
+
+    .Typography-Color-Error {
+        color: var(--theme-palette-error-main, #f44336);
+    }
+
+    .Typography-Display-Inline {
+        display: inline;
+    }
+
+    .Typography-Display-Block {
+        display: block;
+    }
+
+</style>

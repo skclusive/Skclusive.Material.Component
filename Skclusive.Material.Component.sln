@@ -3,61 +3,61 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppBar", "AppBar\AppBar.csproj", "{95F9DC52-91C4-468D-AE58-06073503EB92}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppBar", "AppBar\src\AppBar.csproj", "{95F9DC52-91C4-468D-AE58-06073503EB92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avatar", "Avatar\Avatar.csproj", "{64FA9A6A-5F9B-49D7-B828-6B8562509084}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avatar", "Avatar\src\Avatar.csproj", "{64FA9A6A-5F9B-49D7-B828-6B8562509084}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Badge", "Badge\Badge.csproj", "{CDF9553A-A00C-4841-B48B-8C2A8913FDD5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Badge", "Badge\src\Badge.csproj", "{CDF9553A-A00C-4841-B48B-8C2A8913FDD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Baseline", "Baseline\Baseline.csproj", "{BB9BF227-B511-4296-BC33-1713D2C6BAFA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Baseline", "Baseline\src\Baseline.csproj", "{BB9BF227-B511-4296-BC33-1713D2C6BAFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Button", "Button\Button.csproj", "{6DD5585C-F980-487B-A389-F4EF96AFDBB6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Button", "Button\src\Button.csproj", "{6DD5585C-F980-487B-A389-F4EF96AFDBB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Card", "Card\Card.csproj", "{35F37A50-219E-4221-8CA0-257371D5D759}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Card", "Card\src\Card.csproj", "{35F37A50-219E-4221-8CA0-257371D5D759}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Component", "Core\Core.csproj", "{E25A482B-EFFD-45F1-81D9-8E3C5179BB8C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Component", "Core\src\Core.csproj", "{E25A482B-EFFD-45F1-81D9-8E3C5179BB8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dialog", "Dialog\Dialog.csproj", "{C3B6C43C-8CC7-4961-8D27-971C9D759A66}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dialog", "Dialog\src\Dialog.csproj", "{C3B6C43C-8CC7-4961-8D27-971C9D759A66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Divider", "Divider\Divider.csproj", "{BC08CFD9-8A81-49B2-85BF-416A7DE4CF20}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Divider", "Divider\src\Divider.csproj", "{BC08CFD9-8A81-49B2-85BF-416A7DE4CF20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Drawer", "Drawer\Drawer.csproj", "{3F3B4CEC-91CD-4F29-9673-ED180A0AABC9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Drawer", "Drawer\src\Drawer.csproj", "{3F3B4CEC-91CD-4F29-9673-ED180A0AABC9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Form", "Form\Form.csproj", "{DFC70D70-DDA6-4B01-BC91-24D9FA57AA97}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Form", "Form\src\Form.csproj", "{DFC70D70-DDA6-4B01-BC91-24D9FA57AA97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grid", "Grid\Grid.csproj", "{92EC9D10-7085-4F24-9EC6-44D8E93CDBA5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grid", "Grid\src\Grid.csproj", "{92EC9D10-7085-4F24-9EC6-44D8E93CDBA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Icon", "Icon\Icon.csproj", "{B2687AA8-EB9B-40A1-AC17-759B4A5C87F2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Icon", "Icon\src\Icon.csproj", "{B2687AA8-EB9B-40A1-AC17-759B4A5C87F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Input", "Input\Input.csproj", "{BFC7D158-44F7-4DE5-B067-9DC7C40F365F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Input", "Input\src\Input.csproj", "{BFC7D158-44F7-4DE5-B067-9DC7C40F365F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "List", "List\List.csproj", "{3E22F492-F8C0-4B4B-B61D-BCB23F879054}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "List", "List\src\List.csproj", "{3E22F492-F8C0-4B4B-B61D-BCB23F879054}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modal", "Modal\Modal.csproj", "{651BFF1E-0855-4A84-BC71-6AA8709C89C7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modal", "Modal\src\Modal.csproj", "{651BFF1E-0855-4A84-BC71-6AA8709C89C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paper", "Paper\Paper.csproj", "{CA638221-AAF5-4D14-87D0-9D5AA38036D4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paper", "Paper\src\Paper.csproj", "{CA638221-AAF5-4D14-87D0-9D5AA38036D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Progress", "Progress\Progress.csproj", "{814EC598-C5BC-405D-8A58-9D97EB42A4D7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Progress", "Progress\src\Progress.csproj", "{814EC598-C5BC-405D-8A58-9D97EB42A4D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Script", "Script\Script.csproj", "{0758F0B7-5131-4A0F-8A7C-41A9497F36B0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Script", "Script\src\Script.csproj", "{0758F0B7-5131-4A0F-8A7C-41A9497F36B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selection", "Selection\Selection.csproj", "{DC2FF77B-F3D0-4659-82DC-D2CD7BD46E04}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selection", "Selection\src\Selection.csproj", "{DC2FF77B-F3D0-4659-82DC-D2CD7BD46E04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Table", "Table\Table.csproj", "{55B65E0B-285F-4AD2-939F-E8312DFEF65D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Table", "Table\src\Table.csproj", "{55B65E0B-285F-4AD2-939F-E8312DFEF65D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Text", "Text\Text.csproj", "{C75635FC-442F-49BB-96DC-87CB8260B5AB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Text", "Text\src\Text.csproj", "{C75635FC-442F-49BB-96DC-87CB8260B5AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toolbar", "Toolbar\Toolbar.csproj", "{1CAC8D44-F2E8-42E9-85D5-FCE7586B5886}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toolbar", "Toolbar\src\Toolbar.csproj", "{1CAC8D44-F2E8-42E9-85D5-FCE7586B5886}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transition", "Transition\Transition.csproj", "{FD5C35C3-8F2D-42D7-88EF-2C4B4859EEAA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transition", "Transition\src\Transition.csproj", "{FD5C35C3-8F2D-42D7-88EF-2C4B4859EEAA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Typography", "Typography\Typography.csproj", "{81AA6345-2D3C-4AA3-A9E2-38CA507C949E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Typography", "Typography\src\Typography.csproj", "{81AA6345-2D3C-4AA3-A9E2-38CA507C949E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hidden", "Hidden\Hidden.csproj", "{926124D5-A350-410E-B744-DC47A69C635F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hidden", "Hidden\src\Hidden.csproj", "{926124D5-A350-410E-B744-DC47A69C635F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Theme", "Theme\Theme.csproj", "{CA19D592-0851-4390-91B1-EEB64D3E4AEF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Theme", "Theme\src\Theme.csproj", "{CA19D592-0851-4390-91B1-EEB64D3E4AEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Material", "Material\Material.csproj", "{379256A3-0025-44AF-AB7F-5D24F6D20AD8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Material", "Material\src\Material.csproj", "{379256A3-0025-44AF-AB7F-5D24F6D20AD8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

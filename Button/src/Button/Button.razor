@@ -1,0 +1,31 @@
+﻿@namespace Skclusive.Material.Button
+@inherits ButtonComponent
+
+<ButtonBase RootRef="@RootRef"
+            ChildRef="@ChildRef"
+            Class="@_Class"
+            Style="@_Style"
+            Component="@Component"
+            Type="@Type"
+            Disabled="@Disabled"
+            DisableRipple="@DisableRipple"
+            FocusRipple="@(!DisableFocusRipple)"
+            FocusVisibleClass="@_FocusVisibleClass"
+            OnFocus="@HandleFocus"
+            OnBlur="@HandleBlurAsync"
+            OnKeyDown="@HandleKeyDown"
+            OnKeyUp="@HandleKeyUp"
+            OnMouseDown="@HandleMouseDownAsync"
+            OnMouseUp="@HandleMouseUpAsync"
+            OnMouseLeave="@HandleMouseLeaveAsync"
+            OnTouchStart="@HandleTouchStartAsync"
+            OnTouchMove="@HandleTouchMoveAsync"
+            OnTouchEnd="@HandleTouchEndAsync"
+            OnClick="@HandleClick"
+            @attributes="Attributes">
+    <span class="@_LabelClass">
+        @StartIcon
+        @ChildContent(context)
+        @EndIcon
+    </span>
+</ButtonBase>

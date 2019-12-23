@@ -1,0 +1,18 @@
+﻿@namespace Skclusive.Material.Progress
+@inherits LinearProgressComponent
+
+<div @ref="RootRef.Current"
+     role="progressbar"
+     class="@_Class"
+     style="@_Style"
+     aria-valuenow="@(ValueNow?.ToString())">
+    @if (Variant == LinearVariant.Buffer)
+    {
+        <div class="@_DashedClass" />
+    }
+    <div class="@_Bar1Class" style="@_Bar1Style" />
+    @if (Variant != LinearVariant.Determinate)
+    {
+        <div class="@_Bar2Class" style="@_Bar2Style" />
+    }
+</div>

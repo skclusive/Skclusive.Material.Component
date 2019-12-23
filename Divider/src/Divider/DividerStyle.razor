@@ -1,0 +1,39 @@
+﻿@namespace Skclusive.Material.Divider
+@inherits StyleComponentBase
+
+<style data-name="Divider">
+
+    .Divider-Root {
+        border: none;
+        height: 1px;
+        margin: 0;
+        flex-shrink: 0;
+        background-color: var(--theme-palette-divider, rgba(0, 0, 0, 0.12));
+    }
+
+    .Divider-Absolute {
+        left: 0;
+        width: 100%;
+        bottom: 0;
+        position: absolute;
+    }
+
+    .Divider-Inset {
+        margin-left: 72px;
+    }
+
+    .Divider-Light {
+        background-color: var(--theme-palette-divider-background-color, rgba(0, 0, 0, 0.08));
+    }
+
+    .Divider-Middle {
+        margin-left: calc(var(--theme-spacing, 8) * 2px);
+        margin-right: calc(var(--theme-spacing, 8) * 2px);
+    }
+
+    .Divider-Vertical {
+        width: 1px;
+        height: 100%;
+    }
+
+</style>

@@ -1,0 +1,18 @@
+﻿@namespace Skclusive.Material.Modal
+@inherits BackdropComponent
+
+<Fade In="@Open"
+      Timeout="@TransitionDuration"
+      AppearTimeout="@AppearTransitionDuration"
+      EnterTimeout="@EnterTransitionDuration"
+      ExitTimeout="@ExitTransitionDuration">
+    <div @ref="context.RefBack.Current"
+         style="@(CssUtil.ToStyle(context.Styles, _Style))"
+         data-mui-test="Backdrop"
+         class="@_Class"
+         aria-hidden
+         @onclick="HandleClickAsync"
+         @attributes="Attributes">
+        @ChildContent
+    </div>
+</Fade>

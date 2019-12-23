@@ -1,0 +1,32 @@
+﻿@namespace Skclusive.Material.Button
+@inherits ButtonBaseComponent
+
+<Component RootRef="@RootRef"
+           ChildRef="@ChildRef"
+           type="@_Type"
+           Tag="@_Component"
+           Class="@_Class"
+           Style="@_Style"
+           @ref="Control"
+           Role="@Role"
+           Disabled="@Disabled"
+           Tabindex="@((Disabled.HasValue && Disabled.Value) ? -1 : TabIndex)"
+           OnFocus="@HandleFocus"
+           OnBlur="@HandleBlurAsync"
+           OnKeyDown="@HandleKeyDown"
+           OnKeyUp="@HandleKeyUp"
+           OnMouseDown="@HandleMouseDownAsync"
+           OnMouseUp="@HandleMouseUpAsync"
+           OnMouseLeave="@HandleMouseLeaveAsync"
+           OnTouchStart="@HandleTouchStartAsync"
+           OnTouchMove="@HandleTouchMoveAsync"
+           OnTouchEnd="@HandleTouchEndAsync"
+           OnDragLeave="@HandleDragLeaveAsync"
+           OnClick="@HandleClick"
+           @attributes="Attributes">
+    @ChildContent(context)
+    @if(!DisableRipple && !(Disabled.HasValue && Disabled.Value))
+    {
+        <TouchRipple Center="@CenterRipple" @ref="Ripple"/>
+    }
+</Component>

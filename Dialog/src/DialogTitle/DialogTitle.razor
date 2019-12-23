@@ -1,0 +1,19 @@
+﻿@namespace Skclusive.Material.Dialog
+@inherits DialogTitleComponent
+
+<Component RootRef="@RootRef"
+           Tag="@Component"
+           Class="@_Class"
+           Style="@_Style"
+           @attributes="Attributes">
+    @if (DisableTypography)
+    {
+        @ChildContent
+    }
+    else
+    {
+        <Typography Component="h2" Variant="@TypographyVariant.H6">
+            @ChildContent
+        </Typography>
+    }
+</Component>

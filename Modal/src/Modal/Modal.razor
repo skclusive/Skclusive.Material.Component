@@ -1,0 +1,22 @@
+﻿@namespace Skclusive.Material.Modal
+@inherits ModalComponent
+
+<div data-mui-test="Modal"
+     class="@_Class"
+     style="@_Style"
+     @ref="@RootRef.Current"
+     @onkeydown="@HandleKeyDownAsync"
+     @onkeydown:stopPropagation
+     role="presentation">
+    @if (!HideBackdrop)
+    {
+        @BackdropContent?.Invoke(ModalContext)
+    }
+    <TrapFocus DisableEnforceFocus="@DisableEnforceFocus"
+               DisableAutoFocus="@DisableAutoFocus"
+               DisableRestoreFocus="@DisableRestoreFocus"
+               IsEnabled="@IsTopModal"
+               Open="@Open">
+        @ChildContent(GetModalContext(context))
+    </TrapFocus>
+</div>

@@ -1,0 +1,213 @@
+﻿@namespace Skclusive.Material.Progress
+@inherits StyleComponentBase
+
+<style data-name="CircularProgress">
+
+    .CircularProgress-Root {
+        display: inline-block;
+    }
+
+    .CircularProgress-Static {
+        transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    }
+
+    .CircularProgress-Indeterminate {
+        animation: CircularProgress-keyframes-circular-rotate 1.4s linear infinite;
+    }
+
+    .CircularProgress-Color-Primary {
+        color: var(--theme-palette-primary-main, #1976d2);
+    }
+
+    .CircularProgress-Color-Secondary {
+        color: var(--theme-palette-secondary-main, rgb(220, 0, 78));
+    }
+
+    .CircularProgress-Svg {
+        display: block;
+    }
+
+    .CircularProgress-Circle {
+        stroke: currentColor;
+    }
+
+    .CircularProgress-Circle-Static {
+        transition: stroke-dashoffset 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    }
+
+    .CircularProgress-Circle-Indeterminate {
+        animation: CircularProgress-keyframes-circular-dash 1.4s ease-in-out
+            infinite;
+        stroke-dasharray: 80px, 200px;
+        stroke-dashoffset: 0px;
+    }
+
+    @keyframes CircularProgress-keyframes-circular-rotate {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes CircularProgress-keyframes-circular-dash {
+        0% {
+            stroke-dasharray: 1px, 200px;
+            stroke-dashoffset: 0px;
+        }
+        50% {
+            stroke-dasharray: 100px, 200px;
+            stroke-dashoffset: -15px;
+        }
+        100% {
+            stroke-dasharray: 100px, 200px;
+            stroke-dashoffset: -125px;
+        }
+    }
+
+    .CircularProgress-Circle-DisableShrink {
+        animation: none;
+    }
+
+</style>
+
+<style data-name="LinearProgress">
+
+    .LinearProgress-Root {
+        height: 4px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .LinearProgress-Color-Primary {
+        background-color: var(--theme-palette-primary-main-background, rgb(167, 202, 237));
+    }
+
+    .LinearProgress-Color-Secondary {
+        background-color: var(--theme-palette-secondary-main-background, rgb(241, 158, 187));
+    }
+
+    .LinearProgress-Buffer {
+        background-color: transparent;
+    }
+
+    .LinearProgress-Query {
+        transform: rotate(180deg);
+    }
+
+    .LinearProgress-Dashed {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        animation: LinearProgress-keyframes-buffer 3s infinite linear;
+        margin-top: 0;
+    }
+
+    .LinearProgress-Dashed-Color-Primary {
+        background-size: 10px 10px;
+        background-image: radial-gradient(
+            var(--theme-palette-primary-main-background, rgb(167, 202, 237)) 0%,
+            var(--theme-palette-primary-main-background, rgb(167, 202, 237)) 16%,
+            transparent 42%
+        );
+        background-position: 0px -23px;
+    }
+
+    .LinearProgress-Dashed-Color-Secondary {
+        background-size: 10px 10px;
+        background-image: radial-gradient(
+            var(--theme-palette-secondary-main-background, rgb(241, 158, 187)) 0%,
+            var(--theme-palette-secondary-main-background, rgb(241, 158, 187)) 16%,
+            transparent 42%
+        );
+        background-position: 0px -23px;
+    }
+
+    .LinearProgress-Bar {
+        top: 0;
+        left: 0;
+        width: 100%;
+        bottom: 0;
+        position: absolute;
+        transition: transform 0.2s linear;
+        transform-origin: left;
+    }
+
+    .LinearProgress-Bar-Color-Primary {
+        background-color: var(--theme-palette-primary-main, #1976d2);
+    }
+
+    .LinearProgress-Bar-Color-Secondary {
+        background-color: var(--theme-palette-secondary-main, rgb(220, 0, 78));
+    }
+
+    .LinearProgress-Bar1-Indeterminate {
+        width: auto;
+        animation: LinearProgress-keyframes-indeterminate1 2.1s
+            cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+    }
+
+    .LinearProgress-Bar1-Determinate {
+        transition: transform 0.4s linear;
+    }
+
+    .LinearProgress-Bar1-Buffer {
+        z-index: 1;
+        transition: transform 0.4s linear;
+    }
+
+    .LinearProgress-Bar2-Indeterminate {
+        width: auto;
+        animation: LinearProgress-keyframes-indeterminate2 2.1s
+            cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+        animation-delay: 1.15s;
+    }
+
+    .LinearProgress-Bar2-Buffer {
+        transition: transform 0.4s linear;
+    }
+
+    @keyframes LinearProgress-keyframes-indeterminate1 {
+        0% {
+            left: -35%;
+            right: 100%;
+        }
+        60% {
+            left: 100%;
+            right: -90%;
+        }
+        100% {
+            left: 100%;
+            right: -90%;
+        }
+    }
+
+    @keyframes LinearProgress-keyframes-indeterminate2 {
+        0% {
+            left: -200%;
+            right: 100%;
+        }
+        60% {
+            left: 107%;
+            right: -8%;
+        }
+        100% {
+            left: 107%;
+            right: -8%;
+        }
+    }
+
+    @keyframes LinearProgress-keyframes-buffer {
+        0% {
+            opacity: 1;
+            background-position: 0px -23px;
+        }
+        50% {
+            opacity: 0;
+            background-position: 0px -23px;
+        }
+        100% {
+            opacity: 1;
+            background-position: -200px -23px;
+        }
+    }
+
+</style>

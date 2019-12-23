@@ -1,0 +1,56 @@
+﻿@namespace Skclusive.Material.Card
+@inherits CardHeaderComponent
+
+<Component RootRef="@RootRef"
+           Tag="@Component"
+           Class="@_Class"
+           Style="@_Style"
+           @attributes="Attributes">
+    @if (HasAvatarContent)
+    {
+        <div class="@_AvatarClass"
+             style="@_AvatarStyle">
+            @AvatarContent
+        </div>
+    }
+    <div @ref="@context.RefBack.Current"
+         class="@_ContentClass"
+         style="@_ContentStyle">
+        @if(HasTitleContent)
+        {
+            @TitleContent
+        } else
+        {
+        <Typography Context="TypographyContext"
+                    Component="span"
+                    Display="@Display.Block"
+                    Variant="@TitleVariant"
+                    Class="@_TitleClass"
+                    style="@_TitleStyle">
+            @Title
+        </Typography>
+        }
+        @if(HasSubHeaderContent)
+        {
+            @SubHeaderContent
+        } else
+        {
+            <Typography Context="TypographyContext"
+                        Component="span"
+                        Display="@Display.Block"
+                        Color="@Color.TextSecondary"
+                        Variant="@SubHeaderVariant"
+                        Class="@_SubHeaderClass"
+                        style="@_SubHeaderStyle">
+                    @SubHeader
+            </Typography>
+        }
+    </div>
+    @if (HasActionContent)
+    {
+        <div class="@_ActionClass"
+             style="@_ActionStyle">
+            @ActionContent
+        </div>
+    }
+</Component>

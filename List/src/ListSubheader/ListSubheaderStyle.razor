@@ -1,0 +1,40 @@
+﻿@namespace Skclusive.Material.List
+@inherits StyleComponentBase
+
+<style data-name="ListSubheader">
+
+    .ListSubheader-Root {
+        color: var(--theme-palette-text-secondary, rgba(0, 0, 0, 0.54));
+        font-size: calc(var(--theme-font-size-rem-factor, 0.0625) * 14rem);
+        box-sizing: border-box;
+        list-style: none;
+        font-family: var(--theme-typography-font-family, "Roboto", "Helvetica", "Arial", sans-serif);
+        font-weight: var(--theme-typography-font-weight-medium, 500);
+        line-height: 48px;
+    }
+
+    .ListSubheader-Color-Primary {
+        color: var(--theme-palette-primary-main, #1976d2);
+    }
+
+    .ListSubheader-Color-Inherit {
+        color: inherit;
+    }
+
+    .ListSubheader-Gutters {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .ListSubheader-Inset {
+        padding-left: 72px;
+    }
+
+    .ListSubheader-Sticky {
+        top: 0;
+        z-index: 1;
+        position: sticky;
+        background-color: inherit;
+    }
+
+</style>
