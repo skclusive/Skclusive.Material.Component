@@ -112,8 +112,6 @@ namespace Skclusive.Material.Button
 
         protected override void OnParametersSet()
         {
-            // Console.WriteLine("Ripple.OnParametersSet");
-
             if (!In)
             {
                 Leaving = true;

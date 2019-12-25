@@ -95,8 +95,6 @@ namespace Skclusive.Material.Text
 
                 var elementRef = Input?.Input?.Input?.RootRef.Current;
 
-                System.Console.WriteLine($"AutoFocus is: {AutoFocus} for element: {elementRef}");
-
                 await DomHelpers.FocusAsync(elementRef);
             }
         }

@@ -36,8 +36,6 @@ namespace Skclusive.Material.Button
 
         public void StartRipple(bool pulsate, double rippleX, double rippleY, double rippleSize)
         {
-            // Console.WriteLine("TouchRipple.StartRipple");
-
             Ripples.Add(
                 new TransitionItemBuilder()
                 .WithKey(NextKey++)
@@ -76,10 +74,6 @@ namespace Skclusive.Material.Button
 
             double? clientX = point.ClientX;
             double? clientY = point.ClientY;
-
-            System.Console.WriteLine($"TouchPoint : {point.ClientX}, {point.ClientY}");
-
-            System.Console.WriteLine($"Boundry : {boundry.Top}, {boundry.Left}, {boundry.Height}, {boundry.Width}");
 
             if (center || (clientX is null || clientX.Value == 0) || !point.IsTouch)
             {

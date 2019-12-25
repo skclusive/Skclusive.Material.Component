@@ -125,8 +125,6 @@ namespace Skclusive.Material.Modal
 
         protected void HandleBackdropClick()
         {
-            System.Console.WriteLine("OnBackdropClicked");
-
             OnBackdropClick?.Invoke();
 
             if (!DisableBackdropClick)
@@ -137,8 +135,6 @@ namespace Skclusive.Material.Modal
 
         protected void HandleEnter(IReference reference, bool appear)
         {
-            System.Console.WriteLine("HandleEnter");
-
             Exited = false;
 
             // StateHasChanged();
@@ -146,8 +142,6 @@ namespace Skclusive.Material.Modal
 
         protected void HandleExited(IReference reference)
         {
-            System.Console.WriteLine("HandleExited");
-
             Exited = true;
 
             // StateHasChanged();

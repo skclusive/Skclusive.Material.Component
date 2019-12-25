@@ -224,8 +224,6 @@ namespace Skclusive.Material.Transition
 
         private void OnWindowResize(object sender, string e)
         {
-            System.Console.WriteLine($"{DateTime.Now.ToUniversalTime()}: OnWindowResize: {e}");
-
             _ = OnWindowResizeAsync();
         }
 

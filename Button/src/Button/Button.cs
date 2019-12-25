@@ -86,13 +86,7 @@ namespace Skclusive.Material.Button
 
         public override async Task SetParametersAsync(ParameterView parameters)
         {
-            Console.WriteLine("Button.SetParametersAsync");
-
             await base.SetParametersAsync(parameters);
-
-            Console.WriteLine("StartIcon is null  : " + (StartIcon is null));
-
-            Console.WriteLine("EndIcon is null  : " + (EndIcon is null));
         }
 
         protected override void OnAfterMount()

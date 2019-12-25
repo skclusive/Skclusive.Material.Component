@@ -154,6 +154,7 @@ namespace Skclusive.Material.Button
             Ripple?.Stop();
         }
 
+        /* TODO: OnTouchStart=HandleTouchStartAsync not used to avoid double ripple. Need to revist.  */
         protected override async Task HandleTouchStartAsync(TouchEventArgs args)
         {
             var point = new TouchPoint
