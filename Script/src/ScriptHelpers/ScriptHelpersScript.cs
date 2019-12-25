@@ -1,15 +1,12 @@
-﻿using Microsoft.AspNetCore.Components.Rendering;
-using Skclusive.Core.Component;
+﻿using Skclusive.Core.Component;
 
 namespace Skclusive.Material.Script
 {
-    public class ScriptHelpersScript : StaticComponentBase
+    public class ScriptHelpersScript : ScriptComponentBase
     {
-        protected override void BuildRenderTree(RenderTreeBuilder builder)
+        protected override string GetScript()
         {
-            builder.OpenElement(0, "script");
-            builder.AddContent(1,
-            #region ScriptHelpers.js
+            return
             @"
             (function () {
             'use strict';
@@ -361,10 +358,7 @@ namespace Skclusive.Material.Script
             };
 
           }());
-            "
-            #endregion
-            );
-            builder.CloseElement();
+            ";
         }
     }
 }

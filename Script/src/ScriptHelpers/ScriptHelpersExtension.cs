@@ -6,7 +6,7 @@ namespace Skclusive.Material.Script
     {
         public static void AddScriptHelpers(this IServiceCollection services)
         {
-            services.AddSingleton<ScriptHelpers>();
+            services.AddScoped<ScriptHelpers>();
 
             services.AddTransient<EventDelegator>();
 
