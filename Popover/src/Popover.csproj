@@ -5,20 +5,20 @@
     <VersionSuffix>$(VersionSuffix)</VersionSuffix>
     <TargetFramework>netstandard2.1</TargetFramework>
     <RazorLangVersion>3.0</RazorLangVersion>
-    <AssemblyName>Skclusive.Material.Form</AssemblyName>
-    <PackageId>Skclusive.Material.Form</PackageId>
-    <RootNamespace>Skclusive.Material.Form</RootNamespace>
+    <AssemblyName>Skclusive.Material.Popover</AssemblyName>
+    <PackageId>Skclusive.Material.Popover</PackageId>
+    <RootNamespace>Skclusive.Material.Popover</RootNamespace>
     <Authors>Skclusive</Authors>
     <Company>Skclusive</Company>
     <Copyright>Skclusive</Copyright>
-    <PackageTags>blazor material ui Form</PackageTags>
+    <PackageTags>blazor material ui Popover</PackageTags>
     <PackageProjectUrl>https://github.com/skclusive/Skclusive.Material.Component</PackageProjectUrl>
     <RepositoryUrl>https://github.com/skclusive/Skclusive.Material.Component</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\src\Core.csproj" Version="1.0.4-preview1" />
-    <ProjectReference Include="..\..\Typography\src\Typography.csproj" Version="1.0.4-preview1" />
+    <ProjectReference Include="..\..\Modal\src\Modal.csproj" Version="1.0.4-preview1" />
+    <ProjectReference Include="..\..\Paper\src\Paper.csproj" Version="1.0.4-preview1" />
   </ItemGroup>
 
 </Project>
