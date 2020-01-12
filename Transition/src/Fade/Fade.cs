@@ -60,6 +60,12 @@ namespace Skclusive.Material.Transition
         [Parameter]
         public int? ExitTimeout { set; get; }
 
+        [Parameter]
+        public bool MountOnEnter { set; get; }
+
+        [Parameter]
+        public bool UnmountOnExit { set; get; }
+
         protected int GetEnterDuration()
         {
             int duration;

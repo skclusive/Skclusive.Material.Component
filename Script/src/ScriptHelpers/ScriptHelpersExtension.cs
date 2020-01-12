@@ -14,7 +14,13 @@ namespace Skclusive.Material.Script
 
             services.AddTransient<MediaQueryMatcher>();
 
+            services.AddTransient<MenuListHelper>();
+
             services.AddTransient<HistoryBackHelper>();
+
+            services.AddTransient<PopoverHelper>();
+
+            services.AddTransient<SlideHelper>();
         }
     }
 }

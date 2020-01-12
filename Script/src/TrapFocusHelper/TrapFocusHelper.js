@@ -1,6 +1,6 @@
 // @ts-check
 
-import { generateId, ownerDocument } from './ScriptUtils';
+import { generateId, ownerDocument } from '../DomHelpers/DomHelpers';
 
 const focusPool = {};
 

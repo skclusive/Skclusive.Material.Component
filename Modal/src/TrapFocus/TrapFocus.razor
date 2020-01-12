@@ -1,6 +1,12 @@
 ﻿@namespace Skclusive.Material.Modal
 @inherits TrapFocusComponent
 
-<div tabIndex="0" @ref="SentinelStart.Current" data-test="sentinelStart" />
+<div
+    tabIndex="0"
+    @ref="SentinelStart.Current"
+    data-test="sentinelStart" />
 @ChildContent(Context)
-<div tabIndex="0" @ref="SentinelEnd.Current" data-test="sentinelEnd" />
+<div
+    tabIndex="0"
+    @ref="SentinelEnd.Current"
+    data-test="sentinelEnd" />

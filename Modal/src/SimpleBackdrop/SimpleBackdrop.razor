@@ -1,12 +1,13 @@
 ﻿@namespace Skclusive.Material.Modal
 @inherits SimpleBackdropComponent
 
-<div @ref="@RootRef.Current"
-     data-mui-test="Backdrop"
-     class="@_Class"
-     style="@_Style"
-     aria-hidden
-     @onclick="HandleClickAsync"
-     @attributes="Attributes">
-    @ChildContent(Context)
+<div
+    @ref="@RootRef.Current"
+    data-mui-test="Backdrop"
+    class="@_Class"
+    style="@_Style"
+    aria-hidden
+    @onclick="HandleClickAsync"
+    @attributes="Attributes">
+    @ChildContent?.Invoke(Context)
 </div>

@@ -37,6 +37,9 @@ namespace Skclusive.Material.Dialog
         }
 
         [Parameter]
+        public IReference ContainerRef { set; get; } = new Reference();
+
+        [Parameter]
         public int? TransitionDuration { set; get; }
 
         [Parameter]
@@ -50,6 +53,9 @@ namespace Skclusive.Material.Dialog
 
         [Parameter]
         public bool Open { set; get; }
+
+        [Parameter]
+        public bool BackdropInvisible { set; get; }
 
         [Parameter]
         public bool DisableBackdropClick { set; get; }
@@ -107,6 +113,12 @@ namespace Skclusive.Material.Dialog
 
         [Parameter]
         public string PaperStyle { set; get; }
+
+        [Parameter]
+        public int Elevation { set; get; } = 24;
+
+        [Parameter]
+        public bool Square { set; get; } = true;
 
         public Action<IReference, bool> CreateOnEnter(Action<IReference, bool> onEnter)
         {

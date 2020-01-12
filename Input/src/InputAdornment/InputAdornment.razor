@@ -1,15 +1,19 @@
 ﻿@namespace Skclusive.Material.Input
 @inherits InputAdornmentComponent
 
-<CascadingValue Value="NullContext">
-    <Component RootRef="@RootRef"
-               Tag="@Component"
-               Class="@_Class"
-               Style="@_Style"
-               @attributes="Attributes">
+<CascadingValue
+    Value="NullContext">
+    <Component
+        RootRef="@RootRef"
+        Tag="@Component"
+        Class="@_Class"
+        Style="@_Style"
+        @attributes="Attributes">
         @if (RenderTypography)
         {
-            <Typography RootRef="context.RefBack" Color="Color.TextSecondary">
+            <Typography
+                RootRef="context.RefBack"
+                Color="Color.TextSecondary">
                 @Adornment
             </Typography>
         }

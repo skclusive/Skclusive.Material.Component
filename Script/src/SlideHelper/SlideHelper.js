@@ -1,11 +1,11 @@
 // @ts-check
 
-import { repaint } from './ScriptUtils';
+import { repaint } from '../DomHelpers/DomHelpers';
 
 // Translate the node so he can't be seen on the screen.
 // Later, we gonna translate back the node to his original location
 // with `none`.`
-export function getTranslateValue(direction, node) {
+export function getSlideTranslateValue(direction, node) {
   if (!node) return;
 
   const rect = node.getBoundingClientRect();
@@ -51,10 +51,10 @@ export function getTranslateValue(direction, node) {
   return `translateY(-${rect.top + rect.height - offsetY}px)`;
 }
 
-export function setTranslateValue(direction, node) {
+export function setSlideTranslateValue(direction, node) {
   if (!node) return;
 
-  const transform = getTranslateValue(direction, node);
+  const transform = getSlideTranslateValue(direction, node);
 
   if (transform) {
     node.style.webkitTransform = transform;

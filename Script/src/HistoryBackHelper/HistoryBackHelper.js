@@ -1,6 +1,6 @@
 // @ts-check
 
-import { generateId, debounce } from "./ScriptUtils";
+import { generateId } from "../DomHelpers/DomHelpers";
 
 const eventPool = {};
 

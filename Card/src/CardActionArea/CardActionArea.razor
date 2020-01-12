@@ -1,10 +1,13 @@
 ﻿@namespace Skclusive.Material.Card
 @inherits CardActionAreaComponent
 
-<ButtonBase RootRef="@RootRef"
-            Class="@_Class"
-            Style="@_Style"
-            FocusVisibleClass="@FocusVisibleClass">
+<ButtonBase
+    RootRef="@RootRef"
+    Class="@_Class"
+    Style="@_Style"
+    FocusVisibleClass="@FocusVisibleClass">
     @ChildContent
-    <span class="@_HighlightClass" style="@_HighlightStyle" />
+    <span
+        class="@_HighlightClass"
+        style="@_HighlightStyle" />
 </ButtonBase>

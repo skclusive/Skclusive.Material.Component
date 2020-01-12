@@ -11,7 +11,7 @@ namespace Skclusive.Material.List
         }
 
         [Parameter]
-        public string Component { set; get; } = "div";
+        public string Component { set; get; } = "ul";
 
         [Parameter]
         public bool Dense { set; get; } = false;

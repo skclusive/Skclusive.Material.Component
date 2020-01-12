@@ -1,14 +1,16 @@
 ﻿@namespace Skclusive.Material.Badge
 @inherits BadgeComponent
 
-<Component RootRef="@RootRef"
-           Tag="@Component"
-           Class="@_Class"
-           Style="@_Style"
-           @attributes="Attributes">
+<Component
+    RootRef="@RootRef"
+    Tag="@Component"
+    Class="@_Class"
+    Style="@_Style"
+    @attributes="Attributes">
     @ChildContent
-    <span class="@_NibClass"
-          style="@_NibStyle">
+    <span
+        class="@_NibClass"
+        style="@_NibStyle">
         @NibDisplay
     </span>
 </Component>

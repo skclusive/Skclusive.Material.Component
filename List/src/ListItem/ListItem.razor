@@ -1,71 +1,86 @@
 ﻿@namespace Skclusive.Material.List
 @inherits ListItemComponent
 
-<CascadingValue Value="ChildContext">
+<CascadingValue
+    Value="ChildContext">
     @if (HasSecondaryAction)
     {
-        <Component RootRef="@RootRef"
-                   ChildRef="@ChildRef"
-                   Tag="@ContainerComponent"
-                   Class="@_ContainerClass"
-                   Style="@_ContainerStyle"
-                   Disabled="@Disabled">
-                @if (Button)
-                {
-                    <ButtonBase Component="@_Component"
-                            Class="@_Class"
-                            Style="@_Style"
-                            Disabled="@Disabled"
-                            FocusVisibleClass="@_FocusVisibleClass"
-                            OnClick="@HandleClick"
-                            @attributes="Attributes"
-                            Context="ChildContext">
-                        @ChildContent(GetItemContext(ChildContext))
-                    </ButtonBase>
+        <Component
+            RootRef="@RootRef"
+            ChildRef="@ChildRef"
+            Tag="@ContainerComponent"
+            Class="@_ContainerClass"
+            Style="@_ContainerStyle"
+            TabIndex="@TabIndex"
+            Disabled="@Disabled">
+            @if (Button)
+            {
+                <ButtonBase
+                    Component="@_Component"
+                    Class="@_Class"
+                    Style="@_Style"
+                    Disabled="@Disabled"
+                    FocusVisible="@AutoFocus"
+                    FocusVisibleClass="@_FocusVisibleClass"
+                    OnClick="@HandleClickAsync"
+                    OnKeyDown="@HandleKeyDownAsync"
+                    @attributes="Attributes"
+                    Context="ChildContext">
+                    @ChildContent(GetItemContext(ChildContext))
+                </ButtonBase>
 
-                } else
-                {
-                    <Component Tag="@_Component"
-                               NoWrap="@NoWrap"
-                               Class="@_Class"
-                               Style="@_Style"
-                               Disabled="@Disabled"
-                               @attributes="Attributes"
-                               Context="ChildContext">
-                            @ChildContent(GetItemContext(ChildContext))
-                    </Component>
-                }
+            } else
+            {
+                <Component
+                    Tag="@_Component"
+                    NoWrap="@NoWrap"
+                    Class="@_Class"
+                    Style="@_Style"
+                    Disabled="@Disabled"
+                    OnClick="@HandleClick"
+                    @attributes="Attributes"
+                    Context="ChildContext">
+                    @ChildContent(GetItemContext(ChildContext))
+                </Component>
+            }
             @SecondaryAction
         </Component>
     } else
     {
         @if (Button)
         {
-            <ButtonBase RootRef="@RootRef"
-                        ChildRef="@ChildRef"
-                        Component="@_Component"
-                        Class="@_Class"
-                        Style="@_Style"
-                        Disabled="@Disabled"
-                        FocusVisibleClass="@_FocusVisibleClass"
-                        OnClick="@HandleClick"
-                        @attributes="Attributes"
-                        Context="ChildContext">
-                 @ChildContent(GetItemContext(ChildContext))
+            <ButtonBase
+                RootRef="@RootRef"
+                ChildRef="@ChildRef"
+                Component="@_Component"
+                Class="@_Class"
+                Style="@_Style"
+                Disabled="@Disabled"
+                TabIndex="@TabIndex"
+                FocusVisible="@AutoFocus"
+                FocusVisibleClass="@_FocusVisibleClass"
+                OnClick="@HandleClickAsync"
+                OnKeyDown="@HandleKeyDownAsync"
+                @attributes="Attributes"
+                Context="ChildContext">
+                @ChildContent(GetItemContext(ChildContext))
             </ButtonBase>
 
         } else
         {
-            <Component RootRef="@RootRef"
-                       ChildRef="@ChildRef"
-                       Tag="@_Component"
-                       NoWrap="@NoWrap"
-                       Class="@_Class"
-                       Style="@_Style"
-                       Disabled="@Disabled"
-                       @attributes="Attributes"
-                       Context="ChildContext">
-                 @ChildContent(GetItemContext(ChildContext))
+            <Component
+                RootRef="@RootRef"
+                ChildRef="@ChildRef"
+                Tag="@_Component"
+                NoWrap="@NoWrap"
+                Class="@_Class"
+                Style="@_Style"
+                Disabled="@Disabled"
+                TabIndex="@TabIndex"
+                OnClick="@HandleClick"
+                @attributes="Attributes"
+                Context="ChildContext">
+                @ChildContent(GetItemContext(ChildContext))
             </Component>
         }
     }

@@ -32,7 +32,8 @@ namespace Skclusive.Material.Button
         [Parameter]
         public bool FocusRipple { set; get; }
 
-        protected bool? FocusVisible { set; get; }
+        [Parameter]
+        public bool? FocusVisible { set; get; }
 
         protected bool LastDisabled { set; get; }
 
@@ -59,7 +60,7 @@ namespace Skclusive.Material.Button
                 {
                     yield return nameof(FocusVisible);
 
-                    yield return FocusVisibleClass;
+                    yield return $"~{FocusVisibleClass}";
                 }
             }
         }

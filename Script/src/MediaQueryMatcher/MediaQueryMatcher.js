@@ -1,6 +1,6 @@
 // @ts-check
 
-import { generateId } from "./ScriptUtils";
+import { generateId } from "../DomHelpers/DomHelpers";
 
 const eventPool = {};
 

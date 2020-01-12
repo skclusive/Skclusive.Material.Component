@@ -1,18 +1,23 @@
 ﻿@namespace Skclusive.Material.Dialog
 @inherits DialogComponent
 
-<Modal Open="@Open"
-       Class="@_Class"
-       Style="@_Style"
-       OnClose="@HandleClose"
-       DisableBackdropClick="@DisableBackdropClick"
-       DisableEscapeKeyDown="@DisableEscapeKeyDown"
-       OnEscapeKeyDown="@HandleEscapeKeyDown"
-       RootRef="@RootRef"
-       Context="ModalContext">
+<Modal
+    Open="@Open"
+    Class="@_Class"
+    Style="@_Style"
+    RootRef="@RootRef"
+    ContainerRef="@ContainerRef"
+    OnClose="@HandleClose"
+    DisableBackdropClick="@DisableBackdropClick"
+    DisableEscapeKeyDown="@DisableEscapeKeyDown"
+    OnEscapeKeyDown="@HandleEscapeKeyDown"
+    BackdropInvisible="@BackdropInvisible"
+    Context="ModalContext">
     <BackdropContent>
-        <Backdrop Open="@ModalContext.Open" 
-                  OnClick="@ModalContext.OnBackdropClick"/>
+        <Backdrop
+            Open="@ModalContext.Open"
+            OnClick="@ModalContext.OnBackdropClick"
+            Invisible="@ModalContext.BackdropInvisible" />
     </BackdropContent>
     <ChildContent>
         <Fade
@@ -31,15 +36,16 @@
             OnExiting="@HandleExiting"
             role="none presentation"
             Context="FadeContext">
-            <div data-mui-test="FakeBackdrop"
-                 @ref="FadeContext.RefBack.Current"
-                 @onclick="@ModalContext.OnBackdropClick"
-                 class="@_ContainerClass"
-                 style="@(CssUtil.ToStyle(FadeContext.Styles, _ContainerStyle))">
-                <Paper 
-                    Elevation="24"
+            <div
+                data-mui-test="FakeBackdrop"
+                @ref="FadeContext.RefBack.Current"
+                @onclick="@ModalContext.OnBackdropClick"
+                class="@_ContainerClass"
+                style="@(CssUtil.ToStyle(FadeContext.Styles, _ContainerStyle))">
+                <Paper
+                    Elevation="@Elevation"
                     role="dialog"
-                    Square
+                    Square="@Square"
                     Class="@_PaperClass"
                     Style="@_PaperStyle"
                     @onclick:stopPropagation>

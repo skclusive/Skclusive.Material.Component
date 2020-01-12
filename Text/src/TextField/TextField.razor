@@ -1,41 +1,47 @@
 ﻿@namespace Skclusive.Material.Text
 @inherits TextFieldComponent
 
-<FormControl RootRef="@RootRef"
-             Class="@Class"
-             FullWidth="@FullWidth"
-             Error="@Error"
-             Focused="@Focused"
-             Disabled="@Disabled"
-             ReadOnly="@ReadOnly"
-             Required="@Required"
-             HiddenLabel="@HiddenLabel"
-             Variant="@Variant"
-             Margin="@Margin">
+<FormControl
+    RootRef="@RootRef"
+    Class="@Class"
+    FullWidth="@FullWidth"
+    Error="@Error"
+    Focused="@Focused"
+    Disabled="@Disabled"
+    ReadOnly="@ReadOnly"
+    Required="@Required"
+    HiddenLabel="@HiddenLabel"
+    Variant="@Variant"
+    Margin="@Margin">
     @if (!string.IsNullOrWhiteSpace(Label))
     {
-        <InputLabel For="@Id" Shrink="@Shrink" Context="InputLabelContext">
+        <InputLabel
+            For="@Id"
+            Shrink="@Shrink"
+            Context="InputLabelContext">
             @Label
         </InputLabel>
     }
-    <Input @ref="Input"
-           Id="@Id"
-           Type="@Type"
-           Name="@Name"
-           Value="@Value"
-           FullWidth="@FullWidth"
-           AutoFocus="@AutoFocus"
-           Multiline="@Multiline"
-           PlaceHolder="@PlaceHolder"
-           AutoComplete="@AutoComplete"
-           DefaultValue="@DefaultValue"
-           OnFocus="@HandleFocus"
-           OnBlur="@HandleBlur"
-           OnChange="@HandleChange"
-           />
+    <Input
+        @ref="Input"
+        Id="@Id"
+        Type="@Type"
+        Name="@Name"
+        Value="@Value"
+        FullWidth="@FullWidth"
+        AutoFocus="@AutoFocus"
+        Multiline="@Multiline"
+        PlaceHolder="@PlaceHolder"
+        AutoComplete="@AutoComplete"
+        DefaultValue="@DefaultValue"
+        OnFocus="@HandleFocus"
+        OnBlur="@HandleBlur"
+        OnChange="@HandleChange" />
     @if (!string.IsNullOrWhiteSpace(Helper))
     {
-        <FormHelperText Id="@HelperId" Context="HelperContext">
+        <FormHelperText
+            Id="@HelperId"
+            Context="HelperContext">
             @Helper
         </FormHelperText>
     }

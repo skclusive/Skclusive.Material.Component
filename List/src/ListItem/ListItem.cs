@@ -4,6 +4,8 @@ using Skclusive.Material.Core;
 using System.Collections.Generic;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
+using Skclusive.Script.DomHelpers;
 
 namespace Skclusive.Material.List
 {
@@ -61,8 +63,17 @@ namespace Skclusive.Material.List
         [Parameter]
         public string ContainerClass { set; get; }
 
+        [Parameter]
+        public string DenseStyle { set; get; }
+
+        [Parameter]
+        public string DenseClass { set; get; }
+
         [CascadingParameter]
         public IListContext Context { set; get; }
+
+        [Inject]
+        private DomHelpers DomHelpers { get; set; }
 
         protected IListItemContext GetItemContext(IComponentContext context) => new ListItemContextBuilder()
             .With(context)
@@ -105,6 +116,21 @@ namespace Skclusive.Material.List
         //    await base.SetParametersAsync(parameters);
         //}
 
+        protected override IEnumerable<Tuple<string, object>> Styles
+        {
+            get
+            {
+                foreach (var item in base.Styles)
+                    yield return item;
+
+                if (IsDense)
+                {
+                    foreach (var item in CssUtil.ToStyles(DenseStyle))
+                        yield return item;
+                }
+            }
+        }
+
         protected override IEnumerable<string> Classes
         {
             get
@@ -113,7 +139,12 @@ namespace Skclusive.Material.List
                     yield return item;
 
                 if (IsDense)
+                {
                     yield return "Dense";
+
+                    if (!string.IsNullOrWhiteSpace(DenseClass))
+                        yield return DenseClass;
+                }
 
                 if (!DisableGutters)
                     yield return "Gutters";
@@ -171,5 +202,14 @@ namespace Skclusive.Material.List
             }
         }
 
+        protected override async Task OnAfterRenderAsync()
+        {
+            if (AutoFocus)
+            {
+                var elementRef = RootRef.Current;
+
+                await DomHelpers.FocusAsync(elementRef);
+            }
+        }
     }
 }

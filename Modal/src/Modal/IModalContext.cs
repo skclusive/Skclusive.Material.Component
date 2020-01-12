@@ -7,6 +7,8 @@ namespace Skclusive.Material.Modal
     {
         bool Open { get; }
 
+        bool BackdropInvisible { get; }
+
         Action<IReference, bool> OnEnter { get; }
 
         Action<IReference> OnExited { get; }
@@ -19,6 +21,8 @@ namespace Skclusive.Material.Modal
         public class ModalContext : ComponentContext, IModalContext
         {
             public bool Open { get; internal set; }
+
+            public bool BackdropInvisible { get; internal set; }
 
             public Action<IReference, bool> OnEnter { get; internal set; }
 
@@ -36,6 +40,13 @@ namespace Skclusive.Material.Modal
         public ModalContextBuilder WithOpen(bool open)
         {
             MContext.Open = open;
+
+            return this;
+        }
+
+        public ModalContextBuilder WithBackdropInvisible(bool backdropInvisible)
+        {
+            MContext.BackdropInvisible = backdropInvisible;
 
             return this;
         }
@@ -65,6 +76,7 @@ namespace Skclusive.Material.Modal
         {
             base.With(context)
             .WithOpen(context.Open)
+            .WithBackdropInvisible(context.BackdropInvisible)
             .WithRefBack(context.RefBack)
             .WithOnEnter(context.OnEnter)
             .WithOnExited(context.OnExited)

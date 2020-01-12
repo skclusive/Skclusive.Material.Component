@@ -1,0 +1,51 @@
+﻿@namespace Skclusive.Material.Popover
+@inherits PopoverComponent
+
+<Modal
+    Open="@Open"
+    Class="@_Class"
+    Style="@_Style"
+    RootRef="@RootRef"
+    ContainerRef="@ContainerRef"
+    OnClose="@HandleClose"
+    OnKeyDown="@HandleKeyDownAsync"
+    OnEscapeKeyDown="@HandleEscapeKeyDown"
+    BackdropInvisible="@BackdropInvisible"
+    Context="ModalContext">
+    <BackdropContent>
+        <SimpleBackdrop
+            Open="@ModalContext.Open"
+            OnClick="@ModalContext.OnBackdropClick"
+            Invisible="@ModalContext.BackdropInvisible" />
+    </BackdropContent>
+    <ChildContent>
+        <Fade
+            Appear
+            In="@ModalContext.Open"
+            TransitionDuration="@TransitionDuration"
+            AppearTimeout="@AppearTimeout"
+            EnterTimeout="@EnterTimeout"
+            ExitTimeout="@ExitTimeout"
+            MountOnEnter="@MountOnEnter"
+            UnmountOnExit="@UnmountOnExit"
+            OnEnter="@(CreateOnEnter(@ModalContext.OnEnter))"
+            OnExited="@(CreateOnExited(@ModalContext.OnExited))"
+            OnEntering="@HandleEntering"
+            OnEntered="@HandleEntered"
+            OnExit="@HandleExit"
+            OnExiting="@HandleExiting"
+            role="none presentation"
+            Context="FadeContext">
+            <Paper
+                RootRef="@(new DelegateReference(FadeContext.RefBack, PaperRef))"
+                data-mui-test="Popover"
+                Elevation="@Elevation"
+                Square="@Square"
+                Class="@_PaperClass"
+                Style="@_PaperStyle"
+                @onclick:stopPropagation>
+                @ChildContent
+            </Paper>
+        </Fade>
+    </ChildContent>
+</Modal>

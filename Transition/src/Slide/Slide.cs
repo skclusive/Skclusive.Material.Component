@@ -17,7 +17,7 @@ namespace Skclusive.Material.Transition
         public DomHelpers DomHelpers { set; get; }
 
         [Inject]
-        public ScriptHelpers ScriptHelpers { set; get; }
+        public SlideHelper SlideHelper { set; get; }
 
         [Inject]
         public EventDelegator EventDelegator { set; get; }
@@ -134,7 +134,7 @@ namespace Skclusive.Material.Transition
 
         protected async Task HandleEnterAsync(IReference refback, bool appear)
         {
-            await ScriptHelpers.SetTranslateValueAsync(Placement, refback.Current);
+            await SlideHelper.SetSlideTranslateValueAsync(Placement, refback.Current);
 
             OnEnter?.Invoke(refback, appear);
         }
@@ -178,7 +178,7 @@ namespace Skclusive.Material.Transition
 
             await DomHelpers.SetStyleAsync(refback.Current, styles, trigger: true);
 
-            await ScriptHelpers.SetTranslateValueAsync(Placement, refback.Current);
+            await SlideHelper.SetSlideTranslateValueAsync(Placement, refback.Current);
 
             OnExit?.Invoke(refback);
         }
@@ -210,7 +210,7 @@ namespace Skclusive.Material.Transition
 
             if (!In)
             {
-                await ScriptHelpers.SetTranslateValueAsync(Placement, RefBack.Current);
+                await SlideHelper.SetSlideTranslateValueAsync(Placement, RefBack.Current);
             }
         }
 
@@ -218,7 +218,7 @@ namespace Skclusive.Material.Transition
         {
             if (!In && Placement != Placement.Bottom && Placement != Placement.End)
             {
-                await ScriptHelpers.SetTranslateValueAsync(Placement, RefBack.Current);
+                await SlideHelper.SetSlideTranslateValueAsync(Placement, RefBack.Current);
             }
         }
 

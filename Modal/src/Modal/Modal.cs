@@ -31,7 +31,7 @@ namespace Skclusive.Material.Modal
         public IReference ChildRef { get; set; } = new Reference();
 
         [Parameter]
-        public ElementReference ContainerRef { set; get; }
+        public IReference ContainerRef { set; get; } = new Reference();
 
         [Parameter]
         public bool Open { set; get; }
@@ -65,6 +65,9 @@ namespace Skclusive.Material.Modal
 
         [Parameter]
         public bool KeepMounted { set; get; }
+
+        [Parameter]
+        public bool BackdropInvisible { set; get; }
 
         [Parameter]
         public Action OnBackdropClick { set; get; }
@@ -109,6 +112,7 @@ namespace Skclusive.Material.Modal
 
         private ModalContextBuilder ModalContextBuilder => new ModalContextBuilder().WithRefBack(ChildRef)
                 .WithOpen(Open)
+                .WithBackdropInvisible(BackdropInvisible)
                 .WithOnEnter(HandleEnter)
                 .WithOnExited(HandleExited)
                 .WithOnBackdropClick(HandleBackdropClick);

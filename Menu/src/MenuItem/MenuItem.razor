@@ -1,0 +1,20 @@
+﻿@namespace Skclusive.Material.Menu
+@inherits MenuItemComponent
+
+<ListItem
+    Button
+    RootRef="@ContentRef"
+    Class="@_Class"
+    Style="@_Style"
+    Component="@Component"
+    Selected="@Selected"
+    DisableGutters="@DisableGutters"
+    Disabled="@Disabled"
+    TabIndex="@_TabIndex"
+    AutoFocus="@_AutoFocus"
+    DenseClass="@(ToClass("Dense"))"
+    OnClick="@HandleClickAsync"
+    OnKeyDown="@HandleKeyDownAsync"
+    @attributes="Attributes">
+    @Index @_TabIndex @_AutoFocus @MenuContext.ActiveIndex @ChildContent
+</ListItem>

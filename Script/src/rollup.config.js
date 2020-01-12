@@ -1,11 +1,12 @@
 import resolve from "rollup-plugin-node-resolve";
+import { terser } from "rollup-plugin-terser";
 
 process.env.INCLUDE_DEPS === "true";
 module.exports = {
-  input: "js/ScriptHelpers.js",
+  input: "ScriptHelpers/ScriptHelpers.js",
   output: {
     file: "wwwroot/ScriptHelpers.js",
     format: "iife"
   },
-  plugins: [resolve()]
+  plugins: [resolve(), terser()]
 };

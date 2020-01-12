@@ -89,7 +89,7 @@ namespace Skclusive.Material.Text
 
         protected override async Task OnAfterMountAsync()
         {
-            if(AutoFocus)
+            if (AutoFocus)
             {
                 // Input.Focus();
 

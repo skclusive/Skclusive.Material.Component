@@ -1,15 +1,19 @@
 ﻿@namespace Skclusive.Material.Form
 @inherits FormLabelComponent
 
-<Component RootRef="@RootRef"
-           Tag="@Component"
-           Class="@_Class"
-           Style="@_Style"
-           for="@For"
-           @attributes="Attributes">
+<Component
+    RootRef="@RootRef"
+    Tag="@Component"
+    Class="@_Class"
+    Style="@_Style"
+    for="@For"
+    @attributes="Attributes">
     @ChildContent
     @if (Required.HasValue && Required.Value)
     {
-        <span class="@_RequiredClass">&thinsp;*</span>
+        <span
+            class="@_RequiredClass">
+            &thinsp;*
+        </span>
     }
 </Component>

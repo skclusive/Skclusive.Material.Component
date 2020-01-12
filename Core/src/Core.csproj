@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <VersionPrefix>1.0.4-preview1</VersionPrefix>
+    <VersionPrefix>1.0.5-preview1</VersionPrefix>
     <VersionSuffix>$(VersionSuffix)</VersionSuffix>
     <TargetFramework>netstandard2.1</TargetFramework>
     <RazorLangVersion>3.0</RazorLangVersion>
@@ -16,9 +16,14 @@
     <RepositoryUrl>https://github.com/skclusive/Skclusive.Material.Component</RepositoryUrl>
   </PropertyGroup>
 
+  <!-- <ItemGroup>
+    <PackageReference Include="Skclusive.Core.Component" Version="1.2.0" />
+    <PackageReference Include="Skclusive.Script.DomHelpers" Version="1.2.0" />
+  </ItemGroup> -->
+
   <ItemGroup>
-    <PackageReference Include="Skclusive.Core.Component" Version="1.1.1" />
-    <PackageReference Include="Skclusive.Script.DomHelpers" Version="1.1.1" />
+    <ProjectReference Include="..\..\..\Skclusive.Core.Component\src\Component.csproj" Version="1.2.0" />
+    <ProjectReference Include="..\..\..\Skclusive.Script.DomHelpers\src\DomHelpers\DomHelpers.csproj" Version="1.2.0" />
   </ItemGroup>
 </Project>
 

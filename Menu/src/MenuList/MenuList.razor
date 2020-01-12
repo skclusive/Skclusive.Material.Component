@@ -1,0 +1,15 @@
+﻿@namespace Skclusive.Material.Menu
+@inherits MenuListComponent
+
+<CascadingValue
+    Value="MenuContext">
+    <List
+        Role="menu"
+        Class="@_Class"
+        Style="@_Style"
+        RootRef="@RootRef"
+        TabIndex="@(AutoFocus ? 0 : -1)"
+        OnKeyDown="@HandleKeyDownAsync">
+        @ChildContent
+    </List>
+</CascadingValue>

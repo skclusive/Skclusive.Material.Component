@@ -1,13 +1,18 @@
 ﻿@namespace Skclusive.Material.Transition
 @inherits FadeComponent
 
-<Transition Appear="true"
-            In="@In"
-            Timeout="@Timeout"
-            AppearTimeout="@AppearTimeout"
-            EnterTimeout="@EnterTimeout"
-            ExitTimeout="@ExitTimeout"
-            OnEnter="@HandleEnter"
-            OnExit="@HandleExit">
+<Transition
+    Appear="true"
+    In="@In"
+    Timeout="@Timeout"
+    AppearTimeout="@AppearTimeout"
+    EnterTimeout="@EnterTimeout"
+    ExitTimeout="@ExitTimeout"
+    MountOnEnter="@MountOnEnter"
+    UnmountOnExit="@UnmountOnExit"
+    OnEnter="@HandleEnter"
+    OnExit="@HandleExit"
+    OnEntering="@HandleEntering"
+    OnExited="@HandleExited">
     @ChildContent.Invoke(GetChildContext(context))
 </Transition>
