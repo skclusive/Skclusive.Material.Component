@@ -6,16 +6,22 @@
     .MenuItem-Root {
         width: auto;
         overflow: hidden;
-        font-size: 1rem;
         box-sizing: border-box;
         min-height: 48px;
-        font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-        font-weight: 400;
         line-height: 1.5;
         padding-top: 6px;
         white-space: nowrap;
-        letter-spacing: 0.00938em;
         padding-bottom: 6px;
+        font-size: var(--theme-typography-body1-font-size, 1rem);
+        font-family: var(
+            --theme-typography-body1-font-family,
+            "Roboto",
+            "Helvetica",
+            "Arial",
+            sans-serif
+        );
+        font-weight: var(--theme-typography-body1-font-weight, 400);
+        letter-spacing: var(--theme-typography-body1-letter-spacing, 0.00938em);
     }
 
     @media (min-width:600px) {
@@ -25,12 +31,12 @@
     }
 
     .MenuItem-Dense {
-        font-size: 0.875rem;
         min-height: auto;
-        font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-        font-weight: 400;
-        line-height: 1.43;
-        letter-spacing: 0.01071em;
+        font-size: var(--theme-typography-body2-font-size, 0.875rem);
+        font-family: var(--theme-typography-body2-font-family, "Roboto", "Helvetica", "Arial", sans-serif);
+        font-weight: var(--theme-typography-body2-font-weight, 400);
+        line-height: var(--theme-typography-body2-line-height, 1.43);
+        letter-spacing: var(--theme-typography-body2-letter-spacing, 0.01071em);
     }
 
     .MenuItem-Selected {

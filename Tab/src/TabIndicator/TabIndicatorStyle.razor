@@ -1,0 +1,28 @@
+﻿@namespace Skclusive.Material.Tab
+@inherits StyleComponentBase
+
+<style data-name="TabIndicator">
+
+    .TabIndicator-Root {
+        width: 100%;
+        bottom: 0;
+        height: 2px;
+        position: absolute;
+        transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    }
+
+    .TabIndicator-Color-Primary {
+        background-color: var(--theme-palette-primary-main, #1976d2);
+    }
+
+    .TabIndicator-Color-Secondary {
+        background-color: var(--theme-palette-secondary-main, rgb(220, 0, 78));
+    }
+
+    .TabIndicator-Vertical {
+        right: 0;
+        width: 2px;
+        height: 100%;
+    }
+
+</style>

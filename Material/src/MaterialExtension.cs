@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Components.Builder;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Skclusive.Material.Script;
 using Skclusive.Script.DomHelpers;
 

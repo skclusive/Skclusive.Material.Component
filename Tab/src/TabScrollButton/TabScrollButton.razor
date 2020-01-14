@@ -1,0 +1,17 @@
+﻿@namespace Skclusive.Material.Tab
+@inherits TabScrollButtonComponent
+
+<ButtonBase
+    RootRef="@RootRef"
+    Component="@Component"
+    Class="@_Class"
+    Style="@_Style"
+    @attributes="Attributes">
+    @if (Side == Side.Left)
+    {
+        <KeyboardArrowLeft FontSize="@Size.Small" />
+    } else
+    {
+        <KeyboardArrowRight FontSize="@Size.Small" />
+    }
+</ButtonBase>

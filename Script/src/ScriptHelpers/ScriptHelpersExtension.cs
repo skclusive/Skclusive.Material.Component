@@ -14,6 +14,8 @@ namespace Skclusive.Material.Script
 
             services.AddTransient<MediaQueryMatcher>();
 
+            services.AddTransient<DetectThemeHelper>();
+
             services.AddTransient<MenuListHelper>();
 
             services.AddTransient<HistoryBackHelper>();

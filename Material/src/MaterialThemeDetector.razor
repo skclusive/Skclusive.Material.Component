@@ -1,0 +1,39 @@
+﻿@implements IDisposable
+@inject DetectThemeHelper DetectThemeHelper
+
+<MaterialThemeStyle
+    Theme="@Theme" />
+
+@code
+{
+    private Theme Theme { set; get; } = Theme.Light;
+
+    private IDisposable TimeoutDisposal { set; get; }
+
+    protected override Task OnInitializedAsync()
+    {
+        DetectThemeHelper.OnChange += OnThemeChanged;
+
+        TimeoutDisposal = ExecutionPlan.Delay(500, () => {
+            _ = DetectThemeHelper.RegisterAsync();
+        });
+
+        return Task.CompletedTask;
+    }
+
+    protected void OnThemeChanged(object sender, Theme theme)
+    {
+        Theme = theme;
+
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        TimeoutDisposal?.Dispose();
+
+        DetectThemeHelper.OnChange -= OnThemeChanged;
+
+        _ = DetectThemeHelper.UnRegisterAsync();
+    }
+}

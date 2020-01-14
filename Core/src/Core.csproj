@@ -16,14 +16,14 @@
     <RepositoryUrl>https://github.com/skclusive/Skclusive.Material.Component</RepositoryUrl>
   </PropertyGroup>
 
-  <!-- <ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Skclusive.Core.Component" Version="1.2.0" />
     <PackageReference Include="Skclusive.Script.DomHelpers" Version="1.2.0" />
-  </ItemGroup> -->
+  </ItemGroup>
 
-  <ItemGroup>
+  <!-- <ItemGroup>
     <ProjectReference Include="..\..\..\Skclusive.Core.Component\src\Component.csproj" Version="1.2.0" />
     <ProjectReference Include="..\..\..\Skclusive.Script.DomHelpers\src\DomHelpers\DomHelpers.csproj" Version="1.2.0" />
-  </ItemGroup>
+  </ItemGroup> -->
 </Project>
 

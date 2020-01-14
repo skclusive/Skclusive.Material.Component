@@ -53,6 +53,7 @@
     <ProjectReference Include="..\..\Dialog\src\Dialog.csproj" Version="1.0.5-preview1" />
     <ProjectReference Include="..\..\Popover\src\Popover.csproj" Version="1.0.5-preview1" />
     <ProjectReference Include="..\..\Menu\src\Menu.csproj" Version="1.0.5-preview1" />
+    <ProjectReference Include="..\..\Tab\src\Tab.csproj" Version="1.0.5-preview1" />
   </ItemGroup>
 
 </Project>

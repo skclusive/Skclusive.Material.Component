@@ -1,0 +1,183 @@
+﻿@namespace Skclusive.Material.Theme
+@inherits StyleComponentBase
+
+<style data-name="ThemeCommon">
+
+    :root {
+
+        --theme-palette-common-white: #fff;
+        --theme-palette-common-black: #000;
+
+        --theme-spacing: 8;
+        --theme-shape-border-radius: 4;
+        --theme-transition-box-shadow: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1)
+            0ms;
+
+        --theme-shadow0: none;
+        --theme-shadow1: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+            0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+        --theme-shadow2: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+            0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+        --theme-shadow3: 0px 3px 3px -2px rgba(0, 0, 0, 0.2),
+            0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
+        --theme-shadow4: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+            0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+        --theme-shadow5: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+            0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+        --theme-shadow6: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+            0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+        --theme-shadow7: 0px 4px 5px -2px rgba(0, 0, 0, 0.2),
+            0px 7px 10px 1px rgba(0, 0, 0, 0.14), 0px 2px 16px 1px rgba(0, 0, 0, 0.12);
+        --theme-shadow8: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
+            0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+        --theme-shadow9: 0px 5px 6px -3px rgba(0, 0, 0, 0.2),
+            0px 9px 12px 1px rgba(0, 0, 0, 0.14), 0px 3px 16px 2px rgba(0, 0, 0, 0.12);
+        --theme-shadow10: 0px 6px 6px -3px rgba(0, 0, 0, 0.2),
+            0px 10px 14px 1px rgba(0, 0, 0, 0.14), 0px 4px 18px 3px rgba(0, 0, 0, 0.12);
+        --theme-shadow11: 0px 6px 7px -4px rgba(0, 0, 0, 0.2),
+            0px 11px 15px 1px rgba(0, 0, 0, 0.14), 0px 4px 20px 3px rgba(0, 0, 0, 0.12);
+        --theme-shadow12: 0px 7px 8px -4px rgba(0, 0, 0, 0.2),
+            0px 12px 17px 2px rgba(0, 0, 0, 0.14), 0px 5px 22px 4px rgba(0, 0, 0, 0.12);
+        --theme-shadow13: 0px 7px 8px -4px rgba(0, 0, 0, 0.2),
+            0px 13px 19px 2px rgba(0, 0, 0, 0.14), 0px 5px 24px 4px rgba(0, 0, 0, 0.12);
+        --theme-shadow14: 0px 7px 9px -4px rgba(0, 0, 0, 0.2),
+            0px 14px 21px 2px rgba(0, 0, 0, 0.14), 0px 5px 26px 4px rgba(0, 0, 0, 0.12);
+        --theme-shadow15: 0px 8px 9px -5px rgba(0, 0, 0, 0.2),
+            0px 15px 22px 2px rgba(0, 0, 0, 0.14), 0px 6px 28px 5px rgba(0, 0, 0, 0.12);
+        --theme-shadow16: 0px 8px 10px -5px rgba(0, 0, 0, 0.2),
+            0px 16px 24px 2px rgba(0, 0, 0, 0.14), 0px 6px 30px 5px rgba(0, 0, 0, 0.12);
+        --theme-shadow17: 0px 8px 11px -5px rgba(0, 0, 0, 0.2),
+            0px 17px 26px 2px rgba(0, 0, 0, 0.14), 0px 6px 32px 5px rgba(0, 0, 0, 0.12);
+        --theme-shadow18: 0px 9px 11px -5px rgba(0, 0, 0, 0.2),
+            0px 18px 28px 2px rgba(0, 0, 0, 0.14), 0px 7px 34px 6px rgba(0, 0, 0, 0.12);
+        --theme-shadow19: 0px 9px 12px -6px rgba(0, 0, 0, 0.2),
+            0px 19px 29px 2px rgba(0, 0, 0, 0.14), 0px 7px 36px 6px rgba(0, 0, 0, 0.12);
+        --theme-shadow20: 0px 10px 13px -6px rgba(0, 0, 0, 0.2),
+            0px 20px 31px 3px rgba(0, 0, 0, 0.14), 0px 8px 38px 7px rgba(0, 0, 0, 0.12);
+        --theme-shadow21: 0px 10px 13px -6px rgba(0, 0, 0, 0.2),
+            0px 21px 33px 3px rgba(0, 0, 0, 0.14), 0px 8px 40px 7px rgba(0, 0, 0, 0.12);
+        --theme-shadow22: 0px 10px 14px -6px rgba(0, 0, 0, 0.2),
+            0px 22px 35px 3px rgba(0, 0, 0, 0.14), 0px 8px 42px 7px rgba(0, 0, 0, 0.12);
+        --theme-shadow23: 0px 11px 14px -7px rgba(0, 0, 0, 0.2),
+            0px 23px 36px 3px rgba(0, 0, 0, 0.14), 0px 9px 44px 8px rgba(0, 0, 0, 0.12);
+        --theme-shadow24: 0px 11px 15px -7px rgba(0, 0, 0, 0.2),
+            0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+
+        --theme-zindex-appbar: 1100;
+        --theme-typography-font-size: 14;
+        --theme-typography-html-font-size: 16;
+        --theme-font-size-coef: calc(var(--theme-typography-font-size) / 14);
+        --theme-font-size-rem-factor: calc(
+            var(--theme-font-size-coef) / var(--theme-typography-html-font-size)
+        );
+
+        --theme-typography-font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+        --theme-typography-font-size-medium: 1.25rem;
+        --theme-typography-font-size-normal: 0.75rem;
+        --theme-typography-font-weight-medium: 500;
+
+        --theme-typography-body2-font-family: "Roboto", "Helvetica", "Arial",
+            sans-serif;
+        --theme-typography-body2-font-size: 0.875rem;
+        --theme-typography-body2-font-weight: 400;
+        --theme-typography-body2-line-height: 1.43;
+        --theme-typography-body2-letter-spacing: 0.01071em;
+
+        --theme-typography-body1-font-family: "Roboto", "Helvetica", "Arial",
+            sans-serif;
+        --theme-typography-body1-font-size: 1rem;
+        --theme-typography-body1-font-weight: 400;
+        --theme-typography-body1-line-height: 1.5;
+        --theme-typography-body1-letter-spacing: 0.00938em;
+
+        --theme-typography-caption-font-family: "Roboto", "Helvetica", "Arial",
+            sans-serif;
+        --theme-typography-caption-font-size: 0.75rem;
+        --theme-typography-caption-font-weight: 400;
+        --theme-typography-caption-line-height: 1.66;
+        --theme-typography-caption-letter-spacing: 0.03333em;
+
+        --theme-typography-button-font-family: "Roboto", "Helvetica", "Arial",
+            sans-serif;
+        --theme-typography-button-font-size: 0.875rem;
+        --theme-typography-button-font-weight: 500;
+        --theme-typography-button-line-height: 1.75;
+        --theme-typography-button-letter-spacing: 0.02857em;
+        --theme-typography-button-text-transform: uppercase;
+
+        --theme-typography-h1-font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+        --theme-typography-h1-font-size: 6rem;
+        --theme-typography-h1-font-weight: 300;
+        --theme-typography-h1-line-height: 1;
+        --theme-typography-h1-letter-spacing: -0.01562em;
+
+        --theme-typography-h2-font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+        --theme-typography-h2-font-size: 3.75rem;
+        --theme-typography-h2-font-weight: 300;
+        --theme-typography-h2-line-height: 1;
+        --theme-typography-h2-letter-spacing: -0.00833em;
+
+        --theme-typography-h3-font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+        --theme-typography-h3-font-size: 3rem;
+        --theme-typography-h3-font-weight: 400;
+        --theme-typography-h3-line-height: 1.04;
+        --theme-typography-h3-letter-spacing: 0em;
+
+        --theme-typography-h4-font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+        --theme-typography-h4-font-size: 2.125rem;
+        --theme-typography-h4-font-weight: 400;
+        --theme-typography-h4-line-height: 1.17;
+        --theme-typography-h4-letter-spacing: 0.00735em;
+
+        --theme-typography-h5-font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+        --theme-typography-h5-font-size: 1.5rem;
+        --theme-typography-h5-font-weight: 400;
+        --theme-typography-h5-line-height: 1.33;
+        --theme-typography-h5-letter-spacing: 00em;
+
+        --theme-typography-h6-font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+        --theme-typography-h6-font-size: 1.25rem;
+        --theme-typography-h6-font-weight: 500;
+        --theme-typography-h6-line-height: 1.6;
+        --theme-typography-h6-letter-spacing: 0.0075em;
+
+        --theme-typography-subtitle1-font-family: "Roboto", "Helvetica", "Arial",
+            sans-serif;
+        --theme-typography-subtitle1-font-size: 1rem;
+        --theme-typography-subtitle1-font-weight: 400;
+        --theme-typography-subtitle1-line-height: 1.75;
+        --theme-typography-subtitle1-letter-spacing: 0.00938em;
+
+        --theme-typography-subtitle2-font-family: "Roboto", "Helvetica", "Arial",
+            sans-serif;
+        --theme-typography-subtitle2-font-size: 0.875rem;
+        --theme-typography-subtitle2-font-weight: 500;
+        --theme-typography-subtitle2-line-height: 1.57;
+        --theme-typography-subtitle2-letter-spacing: 0.00714em;
+
+        --theme-typography-overline-font-family: "Roboto", "Helvetica", "Arial",
+            sans-serif;
+        --theme-typography-overline-font-size: 0.75rem;
+        --theme-typography-overline-font-weight: 400;
+        --theme-typography-overline-line-height: 2.66;
+        --theme-typography-overline-letter-spacing: 0.08333em;
+        --theme-typography-overline-text-transform: uppercase;
+
+        --theme-typography-overline-font-family: "Roboto", "Helvetica", "Arial",
+            sans-serif;
+        --theme-typography-overline-font-size: 0.75rem;
+        --theme-typography-overline-font-weight: 400;
+        --theme-typography-overline-line-height: 2.66;
+        --theme-typography-overline-letter-spacing: 0.08333em;
+        --theme-typography-overline-text-transform: uppercase;
+
+        --theme-typography-button-font-size: 0.875rem;
+        --theme-typography-button-font-family: "Roboto", "Helvetica", "Arial",
+            sans-serif;
+        --theme-typography-button-font-weight: 500;
+        --theme-typography-button-line-height: 1.75;
+        --theme-typography-button-letter-spacing: 0.02857em;
+        --theme-typography-button-text-transform: uppercase;
+    }
+
+</style>

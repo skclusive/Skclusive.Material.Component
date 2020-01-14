@@ -5,28 +5,21 @@
     <VersionSuffix>$(VersionSuffix)</VersionSuffix>
     <TargetFramework>netstandard2.1</TargetFramework>
     <RazorLangVersion>3.0</RazorLangVersion>
-    <AssemblyName>Skclusive.Material.Transition</AssemblyName>
-    <PackageId>Skclusive.Material.Transition</PackageId>
-    <RootNamespace>Skclusive.Material.Transition</RootNamespace>
+    <AssemblyName>Skclusive.Material.Tab</AssemblyName>
+    <PackageId>Skclusive.Material.Tab</PackageId>
+    <RootNamespace>Skclusive.Material.Tab</RootNamespace>
     <Authors>Skclusive</Authors>
     <Company>Skclusive</Company>
     <Copyright>Skclusive</Copyright>
-    <PackageTags>blazor material ui Transition</PackageTags>
+    <PackageTags>blazor material ui Tab</PackageTags>
     <PackageProjectUrl>https://github.com/skclusive/Skclusive.Material.Component</PackageProjectUrl>
     <RepositoryUrl>https://github.com/skclusive/Skclusive.Material.Component</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Skclusive.Transition.Component" Version="1.2.0" />
-  </ItemGroup>
-
-  <!-- <ItemGroup>
-    <ProjectReference Include="..\..\..\Skclusive.Transition.Component\src\Transition\Transition.csproj" Version="1.2.0" />
-  </ItemGroup> -->
-
-  <ItemGroup>
     <ProjectReference Include="..\..\Core\src\Core.csproj" Version="1.0.5-preview1" />
-    <ProjectReference Include="..\..\Script\src\Script.csproj" Version="1.0.5-preview1" />
+    <ProjectReference Include="..\..\Button\src\Button.csproj" Version="1.0.5-preview1" />
+    <ProjectReference Include="..\..\Icon\src\Icon.csproj" Version="1.0.5-preview1" />
   </ItemGroup>
 
 </Project>

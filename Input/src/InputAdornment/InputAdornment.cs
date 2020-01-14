@@ -15,7 +15,7 @@ namespace Skclusive.Material.Input
         public string Component { set; get; } = "div";
 
         [Parameter]
-        public Position Position { set; get; } = Position.Start;
+        public InputPosition Position { set; get; } = InputPosition.Start;
 
         [Parameter]
         public bool DisablePointerEvents { set; get; }
@@ -63,7 +63,7 @@ namespace Skclusive.Material.Input
         }
     }
 
-    public enum Position
+    public enum InputPosition
     {
         Start,
 

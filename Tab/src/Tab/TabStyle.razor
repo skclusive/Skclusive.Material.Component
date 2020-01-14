@@ -1,0 +1,105 @@
+﻿@namespace Skclusive.Material.Tab
+@inherits StyleComponentBase
+
+<style data-name="Tab">
+
+    .Tab-Root {
+        padding: 6px 12px;
+        overflow: hidden;
+        position: relative;
+        max-width: 264px;
+        min-width: 72px;
+        box-sizing: border-box;
+        min-height: 48px;
+        text-align: center;
+        flex-shrink: 0;
+        white-space: normal;
+        font-size: var(--theme-typography-button-font-size, 0.875rem);
+        font-family: var(
+            --theme-typography-button-font-family,
+            "Roboto",
+            "Helvetica",
+            "Arial",
+            sans-serif
+        );
+        font-weight: var(--theme-typography-button-font-weight, 500);
+        line-height: var(--theme-typography-button-line-height, 1.75);
+        letter-spacing: var(--theme-typography-button-letter-spacing, 0.02857em);
+        text-transform: var(--theme-typography-button-text-transform, uppercase);
+    }
+
+    @media (min-width:600px) {
+        .Tab-Root {
+            font-size: calc(var(--theme-font-size-rem-factor, 0.0625) * 13rem);
+            min-width: 160px;
+            padding: 6px 24px
+        }
+    }
+
+    .Tab-LabelIcon {
+        min-height: 72px;
+        padding-top: 9px;
+    }
+
+    .Tab-LabelIcon .Tab-Wrapper > *:first-child {
+        margin-bottom: 6px;
+    }
+
+    .Tab-TextColor-Inherit {
+        color: inherit;
+        opacity: 0.7;
+    }
+
+    .Tab-TextColor-Inherit.Tab-Selected {
+        opacity: 1;
+    }
+
+    .Tab-TextColor-Inherit.Tab-Disabled {
+        opacity: 0.5;
+    }
+
+    .Tab-TextColor-Primary {
+        color: var(--theme-palette-text-secondary, rgba(0, 0, 0, 0.54));
+    }
+
+    .Tab-TextColor-Primary.Tab-Selected {
+        color: var(--theme-palette-primary-main, #1976d2);
+    }
+
+    .Tab-TextColor-Primary.Tab-Disabled {
+        color: var(--theme-palette-text-disabled, rgba(0, 0, 0, 0.38));
+    }
+
+    .Tab-TextColor-Secondary {
+        color: var(--theme-palette-text-secondary, rgba(0, 0, 0, 0.54));
+    }
+
+    .Tab-TextColor-Secondary.Tab-Selected {
+        color: var(--theme-palette-secondary-main, rgb(220, 0, 78));
+    }
+
+    .Tab-TextColor-Secondary.Tab-Disabled {
+        color: var(--theme-palette-text-disabled, rgba(0, 0, 0, 0.38));
+    }
+
+    .Tab-FullWidth {
+        flex-grow: 1;
+        max-width: none;
+        flex-basis: 0;
+        flex-shrink: 1;
+    }
+
+    .Tab-Wrapped {
+        font-size: calc(var(--theme-font-size-rem-factor, 0.0625) * 12rem);
+        line-height: 1.5;
+    }
+
+    .Tab-Wrapper {
+        width: 100%;
+        display: inline-flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+</style>

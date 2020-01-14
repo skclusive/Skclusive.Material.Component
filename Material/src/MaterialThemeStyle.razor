@@ -1,0 +1,13 @@
+﻿@if (Theme == Theme.Dark)
+{
+    <ThemeDarkStyle />
+} else
+{
+    <ThemeLightStyle />
+}
+
+@code
+{
+    [Parameter]
+    public Theme Theme { set; get; } = Theme.Light;
+}

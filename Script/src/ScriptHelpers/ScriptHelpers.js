@@ -8,6 +8,7 @@ import { initTrapFocus, disposeTrapFocus } from "../TrapFocusHelper/TrapFocusHel
 import { registerMediaQuery, unRegisterMediaQuery } from "../MediaQueryMatcher/MediaQueryMatcher";
 import { getAnchorBoundry, getContentAnchorOffset } from "../PopoverHelper/PopoverHelper";
 import { registerMenuList, unRegisterMenuList } from "../MenuListHelper/MenuListHelper";
+import { registerDetectTheme, unRegisterDetectTheme } from "../DetectThemeHelper/DetectThemeHelper";
 
 // @ts-ignore
 window.Skclusive = {
@@ -31,7 +32,9 @@ window.Skclusive = {
       getAnchorBoundry,
       getContentAnchorOffset,
       registerMenuList,
-      unRegisterMenuList
+      unRegisterMenuList,
+      registerDetectTheme,
+      unRegisterDetectTheme
     }
   }
 };

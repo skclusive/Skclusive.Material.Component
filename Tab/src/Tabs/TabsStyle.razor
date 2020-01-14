@@ -1,0 +1,56 @@
+﻿@namespace Skclusive.Material.Tab
+@inherits StyleComponentBase
+
+<style data-name="Tabs">
+
+    .Tabs-Root {
+        display: flex;
+        overflow: hidden;
+        min-height: 48px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .Tabs-Vertical {
+        flex-direction: column;
+    }
+
+    .Tabs-Container {
+        display: flex;
+    }
+
+    .Tabs-Container-Vertical {
+        flex-direction: column;
+    }
+
+    .Tabs-Container-Centered {
+        justify-content: center;
+    }
+
+    .Tabs-Scroller {
+        flex: 1 1 auto;
+        display: inline-block;
+        position: relative;
+        white-space: nowrap;
+    }
+
+    .Tabs-Scroller-Fixed {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    .Tabs-Scroller-Scrollable {
+        overflow-x: scroll;
+        scrollbar-width: none;
+    }
+
+    .Tabs-Scroller-Scrollable::-webkit-scrollbar {
+        display: none;
+    }
+
+    @media (max-width:599.95px) {
+        .Tabs-ScrollButton-Desktop {
+            display: none;
+        }
+    }
+
+</style>

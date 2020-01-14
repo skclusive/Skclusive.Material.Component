@@ -1,0 +1,26 @@
+﻿@namespace Skclusive.Material.Tab
+@inherits TabsComponent
+
+<Component
+    RootRef="@RootRef"
+    Tag="@Component"
+    Class="@_Class"
+    Style="@_Style"
+    @attributes="Attributes">
+    <div
+        @ref="@TabsRef.Current"
+        class="@_ScrollerClass"
+        style="@_ScrollerStyle">
+        <div
+            @ref="@ContainerRef.Current"
+            class="@_ContainerClass"
+            style="@_ContainerStyle"
+            role="tablist">
+            <CascadingValue
+                Value="TabsContext">
+                @ChildContent
+            </CascadingValue>
+        </div>
+       @* @Indicator *@
+    </div>
+</Component>

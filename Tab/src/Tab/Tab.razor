@@ -1,0 +1,26 @@
+﻿@namespace Skclusive.Material.Tab
+@inherits TabComponent
+
+<ButtonBase
+    RootRef="@RootRef"
+    Class="@_Class"
+    Style="@_Style"
+    Role="tab"
+    aria-selected="@Selected"
+    Disabled="@Disabled"
+    OnClick="@HandleClickAsync"
+    @attributes="Attributes">
+    <span
+        class="@_WrapperClass"
+        style="@_WrapperStyle">
+        @IconContent
+        @if (@LabelContent != null)
+        {
+            @LabelContent
+        } else
+        {
+            @Label
+        }
+    </span>
+    @Indicator
+</ButtonBase>
