@@ -17,13 +17,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Blazor" Version="3.1.0-preview4.19579.2" />
-    <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="3.1.0-preview4.19579.2" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.AspNetCore.Blazor.HttpClient" Version="3.1.0-preview4.19579.2" />
-    <PackageReference Include="Microsoft.AspNetCore.Blazor.DevServer" Version="3.1.0-preview4.19579.2" PrivateAssets="all" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\Core\src\Core.csproj" Version="1.0.5" />
     <ProjectReference Include="..\..\AppBar\src\AppBar.csproj" Version="1.0.5" />
     <ProjectReference Include="..\..\Avatar\src\Avatar.csproj" Version="1.0.5" />
