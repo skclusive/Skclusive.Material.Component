@@ -9,7 +9,7 @@ namespace Skclusive.Material.Form
         public FormConfig(string selector) : base(selector)
         {
         }
-        
+
         [Parameter]
         public bool? HiddenLabel { set; get; }
 

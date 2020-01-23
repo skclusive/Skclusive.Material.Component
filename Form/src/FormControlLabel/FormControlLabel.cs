@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Skclusive.Core.Component;
-using Skclusive.Material.Core;
 using System.Collections.Generic;
 
 namespace Skclusive.Material.Form
@@ -27,14 +26,14 @@ namespace Skclusive.Material.Form
         public RenderFragment<IFormControlContext> ControlContent { set; get; }
 
         protected IFormControlContext ControlContext => new FormControlContextBuilder()
-            .WithDisabled(Disabled)
-            .WithFilled(Filled)
-            .WithFocused(Focused)
-            .WithRequired(Required)
-            .WithHiddenLabel(HiddenLabel)
-            .WithMargin(Margin)
-            .WithError(Error)
-            .WithVariant(Variant).Build();
+            .WithDisabled(_Disabled)
+            .WithFilled(_Filled)
+            .WithFocused(_Focused)
+            .WithRequired(_Required)
+            .WithHiddenLabel(_HiddenLabel)
+            .WithMargin(_Margin)
+            .WithError(_Error)
+            .WithVariant(_Variant).Build();
 
         protected override IEnumerable<string> Classes
         {

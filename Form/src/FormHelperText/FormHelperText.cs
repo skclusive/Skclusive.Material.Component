@@ -19,22 +19,22 @@ namespace Skclusive.Material.Form
                 foreach (var item in base.Classes)
                     yield return item;
 
-                if (Variant == ControlVariant.Filled || Variant == ControlVariant.Outlined)
+                if (_Variant == ControlVariant.Filled || _Variant == ControlVariant.Outlined)
                     yield return $"Contained";
 
-                if (Margin == Skclusive.Core.Component.Margin.Dense)
+                if (_Margin == Skclusive.Core.Component.Margin.Dense)
                     yield return $"{nameof(Margin)}-{Margin}";
 
-                if (Error.HasValue && Error.Value)
+                if (_Error.HasValue && _Error.Value)
                     yield return $"{nameof(Error)}";
 
-                if (Filled.HasValue && Filled.Value)
+                if (_Filled.HasValue && _Filled.Value)
                     yield return $"{nameof(Filled)}";
 
-                if (Focused.HasValue && Focused.Value)
+                if (_Focused.HasValue && _Focused.Value)
                     yield return $"{nameof(Focused)}";
 
-                if (Required.HasValue && Required.Value)
+                if (_Required.HasValue && _Required.Value)
                     yield return $"{nameof(Required)}";
             }
         }

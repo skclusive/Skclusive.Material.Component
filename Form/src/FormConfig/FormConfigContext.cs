@@ -1,6 +1,6 @@
-﻿using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using Skclusive.Core.Component;
 
 namespace Skclusive.Material.Form
 {
@@ -13,45 +13,21 @@ namespace Skclusive.Material.Form
         [CascadingParameter]
         public IFormControlContext FormContext { set; get; }
 
-        public override async Task SetParametersAsync(ParameterView parameters)
-        {
-            await base.SetParametersAsync(parameters);
+        protected bool? _HiddenLabel => HiddenLabel ?? FormContext?.HiddenLabel;
 
-            if (!HiddenLabel.HasValue)
-            {
-                HiddenLabel = FormContext?.HiddenLabel ?? false;
-            }
+        protected bool? _Filled  => Filled ?? FormContext?.Filled;
 
-            if (!Filled.HasValue)
-            {
-                Filled = FormContext?.Filled ?? false;
-            }
+        protected bool? _Focused => Focused ?? FormContext?.Focused;
 
-            if (!Focused.HasValue)
-            {
-                Focused = FormContext?.Focused ?? false;
-            }
+        protected bool? _Required => Required ?? FormContext?.Required;
 
-            if (!Required.HasValue)
-            {
-                Required = FormContext?.Required ?? false;
-            }
+        protected bool? _Error => Error ?? FormContext?.Error;
 
-            if (!Error.HasValue)
-            {
-                Error = FormContext?.Error ?? false;
-            }
+        protected Margin? _Margin => Margin ?? FormContext?.Margin;
 
-            if (!Margin.HasValue)
-            {
-                Margin = FormContext?.Margin ?? Skclusive.Core.Component.Margin.None;
-            }
+        protected ControlVariant? _Variant => Variant ?? FormContext?.Variant;
 
-            if (!Variant.HasValue)
-            {
-                Variant = FormContext?.Variant ?? ControlVariant.Standard;
-            }
-        }
+        protected bool? _Disabled => Disabled ?? FormContext?.Disabled;
 
         protected override void HandleFocus(FocusEventArgs args)
         {

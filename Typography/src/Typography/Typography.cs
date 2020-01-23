@@ -40,17 +40,17 @@ namespace Skclusive.Material.Typography
         {
             get
             {
-                if(!string.IsNullOrWhiteSpace(Component))
+                if (!string.IsNullOrWhiteSpace(Component))
                 {
                     return Component;
                 }
 
-                if(Paragraph)
+                if (Paragraph)
                 {
                     return "p";
                 }
 
-                if(VariantComponents.ContainsKey(Variant))
+                if (VariantComponents.ContainsKey(Variant))
                 {
                     return VariantComponents[Variant];
                 }
@@ -95,9 +95,12 @@ namespace Skclusive.Material.Typography
             builder.OpenElement(0, _Component);
             builder.AddAttribute(1, "class", _Class);
             builder.AddAttribute(2, "style", _Style);
-            builder.AddContent(3, "\n");
-            builder.AddContent(4, ChildContent);
+            if (!string.IsNullOrWhiteSpace(Id))
+                builder.AddAttribute(3, "id", Id);
+            builder.AddMultipleAttributes(4, Attributes);
             builder.AddContent(5, "\n");
+            builder.AddContent(6, ChildContent);
+            builder.AddContent(7, "\n");
             builder.CloseElement();
         }
 

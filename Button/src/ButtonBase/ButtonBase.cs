@@ -39,6 +39,8 @@ namespace Skclusive.Material.Button
 
         protected string _Type => _Component == "button" ? Type.ToString().ToLower() : null;
 
+        protected bool Navigation => !string.IsNullOrWhiteSpace(Href) && _Component == "a";
+
         protected string _Component
         {
             get => string.IsNullOrWhiteSpace(Component) ? !string.IsNullOrWhiteSpace(Href) ? "a" : "button" : Component;
@@ -214,7 +216,7 @@ namespace Skclusive.Material.Button
         {
             base.OnAfterRender();
 
-            if(FocusVisible.HasValue && FocusVisible.Value)
+            if (FocusVisible.HasValue && FocusVisible.Value)
             {
                 Ripple?.Pulsate(PULSATE_POINT, PULSATE_BOUNDRY);
             }

@@ -1,18 +1,16 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Rendering;
 using Skclusive.Core.Component;
 using Skclusive.Material.Core;
 using System.Collections.Generic;
 
 namespace Skclusive.Material.Hidden
 {
-    public class HiddenComponent : MaterialComponent
+    public class Hidden : MaterialComponentBase
     {
-        public HiddenComponent() : base("Hidden")
+        public Hidden() : base("Hidden")
         {
         }
-
-        [Parameter]
-        public string Component { set; get; } = "div";
 
         [Parameter]
         public bool ExtraSmallDown { set; get; }
@@ -31,7 +29,7 @@ namespace Skclusive.Material.Hidden
 
         [Parameter]
         public bool MediumUp { set; get; }
-        
+
         [Parameter]
         public bool LargeDown { set; get; }
 
@@ -46,6 +44,21 @@ namespace Skclusive.Material.Hidden
 
         [Parameter]
         public Breakpoint[] Only { set; get; }
+
+        [Parameter]
+        public RenderFragment<IComponentContext> ChildContent { set; get; }
+
+        protected override void BuildRenderTree(RenderTreeBuilder builder)
+        {
+            builder.AddContent(0, ChildContent(Context));
+        }
+
+        protected IComponentContext Context => new ComponentContextBuilder()
+           .WithClass(_Class)
+           .WithStyle(_Style)
+           .WithRefBack(RootRef)
+           .WithDisabled(Disabled)
+           .Build();
 
         protected override IEnumerable<string> Classes
         {
@@ -87,7 +100,7 @@ namespace Skclusive.Material.Hidden
                 if (Only != null)
                 {
                     foreach(var breakpoint in Only)
-                    yield return $"{nameof(breakpoint)}Only";
+                        yield return $"{breakpoint}Only";
                 }
             }
         }

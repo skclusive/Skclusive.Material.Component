@@ -14,10 +14,10 @@ namespace Skclusive.Material.Selection
         }
 
         protected ElementReference Input { set; get; }
-        
+
         protected bool? CheckedState { set; get; }
 
-        protected bool IsControlled => Checked != null;
+        protected bool IsControlled => Checked.HasValue;
 
         protected bool? IsChecked => IsControlled ? Checked : CheckedState;
 
@@ -88,7 +88,7 @@ namespace Skclusive.Material.Selection
 
             if (!IsControlled)
             {
-                CheckedState = !CheckedState;
+                CheckedState = !(CheckedState.HasValue && CheckedState.Value);
 
                 StateHasChanged();
             }

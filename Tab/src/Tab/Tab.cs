@@ -44,6 +44,9 @@ namespace Skclusive.Material.Tab
         [Parameter]
         public string WrapperClass { set; get; }
 
+        [Parameter]
+        public string Control { set; get; }
+
         protected bool FullWidth => TabsContext.FullWidth;
 
         protected Color TextColor => TabsContext.TextColor;
@@ -53,6 +56,10 @@ namespace Skclusive.Material.Tab
         protected bool Selected => object.Equals(Value, TabsContext.Value);
 
         protected RenderFragment Indicator => Selected ? TabsContext.Indicator : null;
+
+        protected string _Id => $"{Id}-{Value}";
+
+        protected string _Control => $"{Control}-{Value}";
 
         protected override void OnInitialized()
         {

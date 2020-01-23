@@ -39,7 +39,6 @@ namespace Skclusive.Material.List
 
                 if (SubheaderContent != null)
                     yield return "Subheader";
-
             }
         }
     }

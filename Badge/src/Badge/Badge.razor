@@ -11,6 +11,12 @@
     <span
         class="@_NibClass"
         style="@_NibStyle">
-        @NibDisplay
+        @if (CanRenderContent)
+        {
+            @NibContent
+        } else
+        {
+            @NibDisplay
+        }
     </span>
 </Component>

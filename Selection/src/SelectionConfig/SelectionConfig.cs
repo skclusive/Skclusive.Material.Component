@@ -30,7 +30,7 @@ namespace Skclusive.Material.Selection
         public Color Color { set; get; }
 
         [Parameter]
-        public bool? DisableRipple { set; get; }
+        public bool DisableRipple { set; get; }
 
         [Parameter]
         public bool AutoFocus { set; get; }

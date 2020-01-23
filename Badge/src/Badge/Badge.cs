@@ -49,6 +49,11 @@ namespace Skclusive.Material.Badge
         [Parameter]
         public string NibClass { set; get; }
 
+        [Parameter]
+        public RenderFragment NibContent { set; get; }
+
+        protected bool CanRenderContent => Variant != NibVariant.Dot && NibContent != null;
+
         protected int? NibNumber
         {
             get => int.TryParse(Nib, out int result) ? (int?)result : null;
@@ -58,19 +63,19 @@ namespace Skclusive.Material.Badge
         {
             get
             {
-                if(Invisible.HasValue)
+                if (Invisible.HasValue)
                 {
                     return Invisible.Value;
                 }
 
                 var nibNumber = NibNumber;
 
-                if(nibNumber.HasValue && nibNumber.Value == 0 && !ShowZero)
+                if (nibNumber.HasValue && nibNumber.Value == 0 && !ShowZero)
                 {
                     return true;
                 }
 
-                if(string.IsNullOrWhiteSpace(Nib) && Variant != NibVariant.Dot)
+                if (string.IsNullOrEmpty(Nib) && NibContent == null && Variant != NibVariant.Dot)
                 {
                     return true;
                 }
@@ -83,14 +88,14 @@ namespace Skclusive.Material.Badge
         {
             get
             {
-                if(Variant == NibVariant.Dot)
+                if (Variant == NibVariant.Dot)
                 {
                     return string.Empty;
                 }
 
                 var nibNumber = NibNumber;
 
-                if(nibNumber.HasValue && nibNumber.Value > Max)
+                if (nibNumber.HasValue && nibNumber.Value > Max)
                 {
                     return $"{Max}+";
                 }
@@ -123,7 +128,7 @@ namespace Skclusive.Material.Badge
                 if (Color != Color.Default)
                     yield return $"{nameof(Nib)}-{Color}";
 
-                if(NibInvisible)
+                if (NibInvisible)
                     yield return $"{nameof(Nib)}-{nameof(Invisible)}";
 
                 if (Variant == NibVariant.Dot)

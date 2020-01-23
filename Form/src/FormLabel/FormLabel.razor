@@ -9,7 +9,7 @@
     for="@For"
     @attributes="Attributes">
     @ChildContent
-    @if (Required.HasValue && Required.Value)
+    @if (_Required.HasValue && _Required.Value)
     {
         <span
             class="@_RequiredClass">

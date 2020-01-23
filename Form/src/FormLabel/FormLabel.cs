@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Skclusive.Material.Form
 {
-    public class FormLabelComponent : FormConfig
+    public class FormLabelComponent : FormConfigContext
     {
         public FormLabelComponent() : base("FormLabel")
         {
@@ -26,16 +26,16 @@ namespace Skclusive.Material.Form
                 foreach (var item in base.Classes)
                     yield return item;
 
-                if (Error.HasValue && Error.Value)
+                if (_Error.HasValue && _Error.Value)
                     yield return $"{nameof(Error)}";
 
-                if (Filled.HasValue && Filled.Value)
+                if (_Filled.HasValue && _Filled.Value)
                     yield return $"{nameof(Filled)}";
 
-                if (Focused.HasValue && Focused.Value)
+                if (_Focused.HasValue && _Focused.Value)
                     yield return $"{nameof(Focused)}";
 
-                if (Required.HasValue && Required.Value)
+                if (_Required.HasValue && _Required.Value)
                     yield return $"{nameof(Required)}";
             }
         }
