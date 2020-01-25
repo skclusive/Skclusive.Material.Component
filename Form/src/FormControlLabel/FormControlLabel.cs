@@ -11,6 +11,9 @@ namespace Skclusive.Material.Form
         }
 
         [Parameter]
+        public RenderFragment<IFormControlContext> ChildContent { set; get; }
+
+        [Parameter]
         public string Component { set; get; } = "label";
 
         [Parameter]
@@ -21,9 +24,6 @@ namespace Skclusive.Material.Form
 
         [Parameter]
         public string LabelClass { set; get; }
-
-        [Parameter]
-        public RenderFragment<IFormControlContext> ControlContent { set; get; }
 
         protected IFormControlContext ControlContext => new FormControlContextBuilder()
             .WithDisabled(_Disabled)

@@ -50,35 +50,15 @@ namespace Skclusive.Material.Table
 
         protected string AriaSort => Sort.ToString();
 
-        public override async Task SetParametersAsync(ParameterView parameters)
-        {
-            await base.SetParametersAsync(parameters);
+        protected string _Component => string.IsNullOrWhiteSpace(Component) ? ContentContext?.Portion == Skclusive.Core.Component.Portion.Head ? "th" : "td" : Component;
 
-            if (string.IsNullOrWhiteSpace(Component))
-            {
-                Component = ContentContext?.Portion == Skclusive.Core.Component.Portion.Head ? "th" : "td";
-            }
+        protected string _Scope => string.IsNullOrWhiteSpace(Scope) && ContentContext?.Portion == Skclusive.Core.Component.Portion.Head ? "col" : Scope;
 
-            if (string.IsNullOrWhiteSpace(Scope) && ContentContext?.Portion == Skclusive.Core.Component.Portion.Head)
-            {
-                Scope = "col";
-            }
+        protected Size? _Size => Size == null ? (TableContext?.Size ?? Skclusive.Core.Component.Size.Medium) : Size;
 
-            if (Padding == null)
-            {
-                Padding = TableContext?.Padding ?? Skclusive.Core.Component.Padding.Default;
-            }
+        protected Padding? _Padding => Padding == null ? (TableContext?.Padding ?? Skclusive.Core.Component.Padding.Default) : Padding;
 
-            if (Size == null)
-            {
-                Size = TableContext?.Size ?? Skclusive.Core.Component.Size.Medium;
-            }
-
-            if (Portion == null)
-            {
-                Portion = ContentContext?.Portion;
-            }
-        }
+        protected Portion? _Portion => Portion == null ? ContentContext?.Portion : Portion;
 
         protected override IEnumerable<string> Classes
         {
@@ -87,19 +67,19 @@ namespace Skclusive.Material.Table
                 foreach (var item in base.Classes)
                     yield return item;
 
-                yield return $"{Portion}";
+                yield return $"{_Portion}";
 
-                if (Portion == Skclusive.Core.Component.Portion.Head && (TableContext?.StickyHeader ?? false))
+                if (_Portion == Skclusive.Core.Component.Portion.Head && (TableContext?.StickyHeader ?? false))
                     yield return "StickyHeader";
 
                 if (Align != Align.Inherit)
                     yield return $"{nameof(Align)}-{Align}";
 
-                if (Padding != Skclusive.Core.Component.Padding.Default)
-                    yield return $"{nameof(Padding)}-{Padding}";
+                if (_Padding != Skclusive.Core.Component.Padding.Default)
+                    yield return $"{nameof(Padding)}-{_Padding}";
 
-                if (Size != Skclusive.Core.Component.Size.Medium)
-                    yield return $"{nameof(Size)}-{Size}";
+                if (_Size != Skclusive.Core.Component.Size.Medium)
+                    yield return $"{nameof(Size)}-{_Size}";
             }
         }
     }

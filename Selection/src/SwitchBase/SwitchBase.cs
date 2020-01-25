@@ -7,7 +7,7 @@ using Skclusive.Core.Component;
 
 namespace Skclusive.Material.Selection
 {
-    public class SwitchBaseComponent : SelectionConfigContext
+    public class SwitchBaseComponent : SelectionConfig
     {
         public SwitchBaseComponent() : base("SwitchBase")
         {

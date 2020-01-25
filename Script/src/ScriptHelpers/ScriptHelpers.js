@@ -9,7 +9,7 @@ import { registerMediaQuery, unRegisterMediaQuery } from "../MediaQueryMatcher/M
 import { getAnchorBoundry, getContentAnchorOffset } from "../PopoverHelper/PopoverHelper";
 import { registerMenuList, unRegisterMenuList } from "../MenuListHelper/MenuListHelper";
 import { registerDetectTheme, unRegisterDetectTheme } from "../DetectThemeHelper/DetectThemeHelper";
-
+import { focusRadioGroup } from "../RadioGroupHelper/RadioGroupHelper";
 // @ts-ignore
 window.Skclusive = {
   // @ts-ignore
@@ -34,7 +34,8 @@ window.Skclusive = {
       registerMenuList,
       unRegisterMenuList,
       registerDetectTheme,
-      unRegisterDetectTheme
+      unRegisterDetectTheme,
+      focusRadioGroup
     }
   }
 };

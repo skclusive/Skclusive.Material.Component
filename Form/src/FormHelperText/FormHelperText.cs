@@ -10,6 +10,9 @@ namespace Skclusive.Material.Form
         }
 
         [Parameter]
+        public RenderFragment ChildContent { get; set; }
+
+        [Parameter]
         public string Component { set; get; } = "p";
 
         protected override IEnumerable<string> Classes

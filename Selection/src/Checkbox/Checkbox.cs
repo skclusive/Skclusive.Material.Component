@@ -39,30 +39,19 @@ namespace Skclusive.Material.Selection
 
         protected string _DisabledClass => $"~{Selector}-Disabled";
 
+        protected RenderFragment _IndeterminateIcon => IndeterminateIcon ?? DefaultIndeterminateIcon;
+
+        protected RenderFragment _Icon => Indeterminate ? _IndeterminateIcon : Icon ?? DefaultIcon;
+
+        protected RenderFragment _CheckedIcon => Indeterminate ? _IndeterminateIcon : CheckedIcon ?? DefaultCheckedIcon;
+
+        protected Skclusive.Core.Component.Color _Color => Color == default ? Skclusive.Core.Component.Color.Secondary : Color;
+
         public override async Task SetParametersAsync(ParameterView parameters)
         {
             await base.SetParametersAsync(parameters);
 
-            IndeterminateIcon = IndeterminateIcon ?? DefaultIndeterminateIcon;
-
-            if (Indeterminate)
-            {
-                Icon = IndeterminateIcon;
-
-                CheckedIcon = IndeterminateIcon;
-
-                InputProps["data-indeterminate"] = "true";
-            } else
-            {
-                Icon = Icon ?? DefaultIcon;
-
-                CheckedIcon = CheckedIcon ?? DefaultCheckedIcon;
-            }
-
-            if(Color == default)
-            {
-                Color = Skclusive.Core.Component.Color.Secondary;
-            }
+            InputProps["data-indeterminate"] = Indeterminate.ToString();
         }
 
         protected override IEnumerable<string> Classes
@@ -72,7 +61,7 @@ namespace Skclusive.Material.Selection
                 foreach (var item in base.Classes)
                     yield return item;
 
-                yield return $"{nameof(Color)}-{Color}";
+                yield return $"{nameof(Color)}-{_Color}";
 
                 if (Indeterminate)
                     yield return $"{nameof(Indeterminate)}";

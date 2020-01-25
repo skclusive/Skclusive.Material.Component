@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Components;
 using System.Collections.Generic;
-using System;
-using System.Threading.Tasks;
 using Skclusive.Core.Component;
+using System;
+using System.Linq;
 
 namespace Skclusive.Material.Button
 {
@@ -31,6 +31,18 @@ namespace Skclusive.Material.Button
 
         [Parameter]
         public RenderFragment EndIcon { set; get; }
+
+        [Parameter]
+        public string StartIconStyle { set; get; }
+
+        [Parameter]
+        public string StartIconClass { set; get; }
+
+        [Parameter]
+        public string EndIconStyle { set; get; }
+
+        [Parameter]
+        public string EndIconClass { set; get; }
 
         protected override IEnumerable<string> Classes
         {
@@ -84,24 +96,54 @@ namespace Skclusive.Material.Button
             }
         }
 
-        public override async Task SetParametersAsync(ParameterView parameters)
+        protected virtual string _StartIconStyle
         {
-            await base.SetParametersAsync(parameters);
+            get => CssUtil.ToStyle(StartIconStyles, StartIconStyle);
         }
 
-        protected override void OnAfterMount()
+        protected virtual IEnumerable<Tuple<string, object>> StartIconStyles
         {
-            base.OnAfterMount();
+            get => Enumerable.Empty<Tuple<string, object>>();
         }
 
-        protected override void OnAfterUpdate()
+        protected virtual string _StartIconClass
         {
-            base.OnAfterUpdate();
+            get => CssUtil.ToClass(Selector, StartIconClasses, StartIconClass);
         }
 
-        protected override void OnAfterUnmount()
+        protected virtual IEnumerable<string> StartIconClasses
         {
-            base.OnAfterUnmount();
+            get
+            {
+                yield return nameof(StartIcon);
+
+                yield return $"Icon-{nameof(Size)}-{Size}";
+            }
+        }
+
+        protected virtual string _EndIconStyle
+        {
+            get => CssUtil.ToStyle(EndIconStyles, EndIconStyle);
+        }
+
+        protected virtual IEnumerable<Tuple<string, object>> EndIconStyles
+        {
+            get => Enumerable.Empty<Tuple<string, object>>();
+        }
+
+        protected virtual string _EndIconClass
+        {
+            get => CssUtil.ToClass(Selector, EndIconClasses, EndIconClass);
+        }
+
+        protected virtual IEnumerable<string> EndIconClasses
+        {
+            get
+            {
+                yield return nameof(EndIcon);
+
+                yield return $"Icon-{nameof(Size)}-{Size}";
+            }
         }
     }
 

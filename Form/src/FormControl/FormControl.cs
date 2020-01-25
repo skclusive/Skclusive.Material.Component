@@ -11,6 +11,9 @@ namespace Skclusive.Material.Form
         }
 
         [Parameter]
+        public RenderFragment ChildContent { get; set; }
+
+        [Parameter]
         public string Component { set; get; } = "div";
 
         [Parameter]
@@ -20,56 +23,37 @@ namespace Skclusive.Material.Form
         {
             await base.SetParametersAsync(parameters);
 
-            if (!Margin.HasValue)
-            {
-                Margin = Skclusive.Core.Component.Margin.None;
-            }
-
-            if (!Variant.HasValue)
-            {
-                Variant = ControlVariant.Standard;
-            }
-
             if ((Disabled.HasValue && Disabled.Value) && (Focused.HasValue && Focused.Value))
             {
                 Focused = false;
             }
-
-            FormContext = new FormControlContextBuilder().WithDisabled(Disabled)
-            .WithFilled(Filled)
-            .WithFocused(Focused)
-            .WithRequired(Required)
-            .WithHiddenLabel(HiddenLabel)
-            .WithMargin(Margin)
-            .WithError(Error)
-            .WithOnFocus(OnFocusStateChange)
-            .WithOnBlur(OnBlurStateChange)
-            .WithVariant(Variant).Build();
-        }
-
-        protected void OnFocusChanged()
-        {
-            FormContext = new FormControlContextBuilder().With(FormContext)
-            .WithFocused(Focused).Build();
-
-            StateHasChanged();
         }
 
         protected void OnFocusStateChange()
         {
             Focused = true;
 
-            OnFocusChanged();
+            StateHasChanged();
         }
 
         protected void OnBlurStateChange()
         {
             Focused = false;
 
-            OnFocusChanged();
+            StateHasChanged();
         }
 
-        protected IFormControlContext FormContext { get; private set; }
+        protected IFormControlContext FormContext => new FormControlContextBuilder()
+            .WithDisabled(Disabled)
+            .WithFilled(Filled)
+            .WithFocused(Focused)
+            .WithRequired(Required)
+            .WithHiddenLabel(HiddenLabel)
+            .WithMargin(Margin ?? Skclusive.Core.Component.Margin.None)
+            .WithError(Error)
+            .WithOnFocus(OnFocusStateChange)
+            .WithOnBlur(OnBlurStateChange)
+            .WithVariant(Variant ?? ControlVariant.Standard).Build();
 
         protected override IEnumerable<string> Classes
         {

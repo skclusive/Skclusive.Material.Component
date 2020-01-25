@@ -26,8 +26,22 @@
     @attributes="Attributes">
     <span
         class="@_LabelClass">
-        @StartIcon
+        @if (StartIcon != null)
+        {
+            <span
+                style="@_StartIconStyle"
+                class="@_StartIconClass">
+                @StartIcon
+            </span>
+        }
         @ChildContent(context)
-        @EndIcon
+        @if (EndIcon != null)
+        {
+            <span
+                style="@_EndIconStyle"
+                class="@_EndIconClass">
+                @EndIcon
+            </span>
+        }
     </span>
 </ButtonBase>

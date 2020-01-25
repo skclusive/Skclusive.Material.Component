@@ -7,7 +7,7 @@
     Class="@_Class"
     Style="@_Style"
     @attributes="Attributes">
-    @ControlContent(ControlContext)
+    @ChildContent?.Invoke(ControlContext)
     <Typography
         Component="span"
         Class="@_LabelClass">

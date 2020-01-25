@@ -1,0 +1,16 @@
+﻿@namespace Skclusive.Material.Selection
+@inherits RadioGroupComponent
+
+<FormGroup
+    Component="@Component"
+    Row="@Row"
+    RootRef="@RootRef"
+    role="radiogroup"
+    Class="@_Class"
+    Style="@_Style"
+    @attributes="Attributes">
+    <CascadingValue
+        Value="RadioGroupContext">
+        @ChildContent
+    </CascadingValue>
+</FormGroup>

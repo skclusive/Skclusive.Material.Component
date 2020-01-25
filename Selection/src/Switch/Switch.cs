@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
 using Skclusive.Core.Component;
@@ -51,15 +50,7 @@ namespace Skclusive.Material.Selection
 
         protected string _DisabledClass => $"~{Selector}-Disabled";
 
-        public override async Task SetParametersAsync(ParameterView parameters)
-        {
-            await base.SetParametersAsync(parameters);
-
-            if (Color == default)
-            {
-                Color = Color.Secondary;
-            }
-        }
+        protected Color _Color => Color == default ? Color.Secondary : Color;
 
         protected override IEnumerable<string> Classes
         {
@@ -68,7 +59,7 @@ namespace Skclusive.Material.Selection
                 foreach (var item in base.Classes)
                     yield return item;
 
-                if(Size != Size.Medium)
+                if (Size != Size.Medium)
                     yield return $"{nameof(Size)}-{Size}";
 
                 if (Edge == Edge.Start || Edge == Edge.End)
@@ -87,7 +78,7 @@ namespace Skclusive.Material.Selection
             {
                 yield return string.Empty;
 
-                yield return $"~Switch-{nameof(Color)}-{Color}";
+                yield return $"~Switch-{nameof(Color)}-{_Color}";
             }
         }
 

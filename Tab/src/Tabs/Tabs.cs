@@ -65,6 +65,9 @@ namespace Skclusive.Material.Tab
         [Parameter]
         public string IndicatorClass { set; get; }
 
+        [Parameter]
+        public RenderFragment IndicatorContent { set; get; }
+
         protected override void OnInitialized()
         {
             Value = Value ?? -1;
@@ -78,6 +81,7 @@ namespace Skclusive.Material.Tab
                     builder.AddAttribute(2, "Style", _IndicatorStyle);
                     builder.AddAttribute(3, "Orientation", Orientation);
                     builder.AddAttribute(4, "Color", IndicatorColor);
+                    builder.AddAttribute(5, "ChildContent", IndicatorContent);
                 builder.CloseComponent();
             builder.CloseRegion();
         };

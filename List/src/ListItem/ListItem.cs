@@ -111,11 +111,6 @@ namespace Skclusive.Material.List
             .WithAlignItems(AlignItems)
             .Build();
 
-        //public override async Task SetParametersAsync(ParameterView parameters)
-        //{
-        //    await base.SetParametersAsync(parameters);
-        //}
-
         protected override IEnumerable<Tuple<string, object>> Styles
         {
             get

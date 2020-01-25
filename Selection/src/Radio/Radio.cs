@@ -11,6 +11,13 @@ namespace Skclusive.Material.Selection
         {
         }
 
+        [CascadingParameter]
+        public IRadioGroupContext RadioGroupContext { set; get; }
+
+        protected string _Name => string.IsNullOrWhiteSpace(Name) ? RadioGroupContext?.Name : Name;
+
+        protected bool? _Checked => Checked.HasValue ? Checked : (object.Equals(RadioGroupContext?.Value, Value));
+
         private static RenderFragment DefaultIcon = (RenderTreeBuilder builder) =>
         {
             builder.OpenComponent<RadioButtonUncheckedIcon>(0);
@@ -27,19 +34,11 @@ namespace Skclusive.Material.Selection
 
         protected string _DisabledClass => $"~{Selector}-Disabled";
 
-        public override async Task SetParametersAsync(ParameterView parameters)
-        {
-            await base.SetParametersAsync(parameters);
+        protected RenderFragment _Icon => Icon ?? DefaultIcon;
 
-            Icon = Icon ?? DefaultIcon;
+        protected RenderFragment _CheckedIcon => CheckedIcon ?? DefaultCheckedIcon;
 
-            CheckedIcon = CheckedIcon ?? DefaultCheckedIcon;
-
-            if (Color == default)
-            {
-                Color = Skclusive.Core.Component.Color.Secondary;
-            }
-        }
+        protected Skclusive.Core.Component.Color _Color => Color == default ? Skclusive.Core.Component.Color.Secondary : Color;
 
         protected override IEnumerable<string> Classes
         {
@@ -48,8 +47,15 @@ namespace Skclusive.Material.Selection
                 foreach (var item in base.Classes)
                     yield return item;
 
-                yield return $"{nameof(Color)}-{Color}";
+                yield return $"{nameof(Color)}-{_Color}";
             }
+        }
+
+        protected async Task HandleChangeAsync(ChangeEventArgs args)
+        {
+            await OnChange.InvokeAsync(args);
+
+            await RadioGroupContext?.OnChange.InvokeAsync(args);
         }
     }
 }

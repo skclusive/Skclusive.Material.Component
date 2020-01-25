@@ -8,21 +8,23 @@ namespace Skclusive.Material.Script
         {
             services.AddScoped<ScriptHelpers>();
 
-            services.AddTransient<EventDelegator>();
+            services.AddScoped<EventDelegator>();
 
-            services.AddTransient<TrapFocusHelper>();
+            services.AddScoped<TrapFocusHelper>();
 
-            services.AddTransient<MediaQueryMatcher>();
+            services.AddScoped<MediaQueryMatcher>();
 
-            services.AddTransient<DetectThemeHelper>();
+            services.AddScoped<DetectThemeHelper>();
 
-            services.AddTransient<MenuListHelper>();
+            services.AddScoped<MenuListHelper>();
 
-            services.AddTransient<HistoryBackHelper>();
+            services.AddScoped<HistoryBackHelper>();
 
-            services.AddTransient<PopoverHelper>();
+            services.AddScoped<PopoverHelper>();
 
-            services.AddTransient<SlideHelper>();
+            services.AddScoped<SlideHelper>();
+
+            services.AddScoped<RadioGroupHelper>();
         }
     }
 }

@@ -4,7 +4,7 @@ using Skclusive.Material.Core;
 
 namespace Skclusive.Material.Form
 {
-    public class FormConfig : MaterialComponent
+    public class FormConfig : MaterialComponentBase
     {
         public FormConfig(string selector) : base(selector)
         {

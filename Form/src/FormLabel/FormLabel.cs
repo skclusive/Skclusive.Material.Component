@@ -11,6 +11,9 @@ namespace Skclusive.Material.Form
         }
 
         [Parameter]
+        public RenderFragment ChildContent { get; set; }
+
+        [Parameter]
         public string Component { set; get; } = "label";
 
         [Parameter]
