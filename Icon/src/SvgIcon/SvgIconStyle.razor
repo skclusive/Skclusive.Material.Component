@@ -8,10 +8,10 @@
         width: 1em;
         height: 1em;
         display: inline-block;
-        font-size: 24px;
+        font-size: calc(var(--theme-font-size-rem-factor, 0.0625) * 24rem);
         transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-        user-select: none;
         flex-shrink: 0;
+        user-select: none;
     }
 
     .SvgIcon-Color-Primary {
@@ -32,6 +32,18 @@
 
     .SvgIcon-Color-Error {
         color: var(--theme-palette-error-main, #f44336);
+    }
+
+    .SvgIcon-FontSize-Inherit {
+        font-size: inherit;
+    }
+
+    .SvgIcon-FontSize-Small {
+        font-size: calc(var(--theme-font-size-rem-factor, 0.0625) * 20rem);
+    }
+
+    .SvgIcon-FontSize-Large {
+        font-size: calc(var(--theme-font-size-rem-factor, 0.0625) * 35rem);
     }
 
 </style>

@@ -1,13 +1,15 @@
 ﻿@namespace Skclusive.Material.Icon
 @inherits SvgIconComponent
 
-<svg class="@_Class"
-     style="@_Style"
-     focusable="false"
-     viewBox="@ViewBox"
-     color="@NativeColor"
-     aria-hidden="@Hidden">
-    @if(!Hidden)
+<svg
+    class="@_Class"
+    style="@_Style"
+    focusable="false"
+    viewBox="@ViewBox"
+    color="@HtmlColor"
+    role="@_Role"
+    aria-hidden="@Hidden">
+    @if (!Hidden)
     {
         <title>@Title</title>
     }

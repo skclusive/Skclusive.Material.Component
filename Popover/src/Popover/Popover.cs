@@ -92,10 +92,10 @@ namespace Skclusive.Material.Popover
         public double MarginThreshold { set; get; } = 16;
 
         [Parameter]
-        public HorizontalOrigin AnchorHorizontalOrigin { set; get; } = Skclusive.Material.Core.HorizontalOrigin.Left;
+        public HorizontalOrigin AnchorHorizontalOrigin { set; get; } = HorizontalOrigin.Left;
 
         [Parameter]
-        public VerticalOrigin AnchorVerticalOrigin { set; get; } = Skclusive.Material.Core.VerticalOrigin.Top;
+        public VerticalOrigin AnchorVerticalOrigin { set; get; } = VerticalOrigin.Top;
 
         [Parameter]
         public double? AnchorHorizontalOriginValue { set; get; }
@@ -104,10 +104,10 @@ namespace Skclusive.Material.Popover
         public double? AnchorVerticalOriginValue { set; get; }
 
         [Parameter]
-        public HorizontalOrigin TransformHorizontalOrigin { set; get; } = Skclusive.Material.Core.HorizontalOrigin.Left;
+        public HorizontalOrigin TransformHorizontalOrigin { set; get; } = HorizontalOrigin.Left;
 
         [Parameter]
-        public VerticalOrigin TransformVerticalOrigin { set; get; } = Skclusive.Material.Core.VerticalOrigin.Top;
+        public VerticalOrigin TransformVerticalOrigin { set; get; } = VerticalOrigin.Top;
 
         [Parameter]
         public double? TransformHorizontalOriginValue { set; get; }
@@ -230,7 +230,7 @@ namespace Skclusive.Material.Popover
 
             var anchorBoundry = await PopoverHelper.GetAnchorBoundryAsync(AnchorRef.Current, PaperRef.Current);
 
-            VerticalOrigin anchorVertical = contentAnchorOffset == 0 ? AnchorVerticalOrigin : Skclusive.Material.Core.VerticalOrigin.Center;
+            VerticalOrigin anchorVertical = contentAnchorOffset == 0 ? AnchorVerticalOrigin : VerticalOrigin.Center;
 
             return new Location
             {

@@ -1,29 +1,32 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Components;
 using Skclusive.Core.Component;
 
 namespace Skclusive.Material.Icon
 {
-    public class SvgIconComponent : CssPureComponentBase
+    public class SvgIconComponent : SvgIconBase
     {
-        public SvgIconComponent() : base("SvgIcon")
-        {
-        }
 
         [Parameter]
         public RenderFragment ChildContent { get; set; }
 
-        [Parameter]
-        public string NativeColor { set; get; }
-
-        [Parameter]
-        public string Title { set; get; }
-
-        [Parameter]
-        public string ViewBox { set; get; } = "0 0 24 24";
-
-        [Parameter]
-        public Color Color { set; get; } = Color.Inherit;
-
         protected bool Hidden => string.IsNullOrWhiteSpace(Title);
+
+        protected string _Role => Role ?? (!Hidden ? "img" : "presentation");
+
+        protected override IEnumerable<string> Classes
+        {
+            get
+            {
+                foreach (var item in base.Classes)
+                    yield return item;
+
+                if (Color != Color.Inherit)
+                yield return $"{nameof(Color)}-{Color}";
+
+                if (FontSize != FontSize.Default)
+                yield return $"{nameof(FontSize)}-{FontSize}";
+            }
+        }
     }
 }

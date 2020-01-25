@@ -1,8 +1,15 @@
 ﻿@namespace Skclusive.Material.Icon
-@inherits CssPureComponentBase
+@inherits SvgIconBase
 
-<SvgIcon Class="@_Class"
-         Style="@_Style">
+<SvgIcon
+    Disabled="@Disabled"
+    Class="@Class"
+    Style="@Style"
+    HtmlColor="@HtmlColor"
+    Title="@Title"
+    ViewBox="@ViewBox"
+    Color="@Color"
+    FontSize="@FontSize">
     <g>
         <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z" />
     </g>

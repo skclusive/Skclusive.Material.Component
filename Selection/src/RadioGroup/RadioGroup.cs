@@ -33,6 +33,14 @@ namespace Skclusive.Material.Selection
 
         protected bool IsControlled => Value != null;
 
+        protected override void OnParametersSet()
+        {
+            if (ValueState is null && !(DefaultValue is null))
+            {
+                ValueState = DefaultValue;
+            }
+        }
+
         [Parameter]
         public EventCallback<ChangeEventArgs> OnChange { set; get; }
 

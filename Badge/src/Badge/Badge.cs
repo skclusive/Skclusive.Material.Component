@@ -152,18 +152,4 @@ namespace Skclusive.Material.Badge
 
         Rectangle
     }
-
-    public enum Horizontal
-    {
-        Left,
-
-        Right
-    }
-
-    public enum Vertical
-    {
-        Bottom,
-
-        Top
-    }
 }
