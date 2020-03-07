@@ -12,39 +12,75 @@ namespace Skclusive.Material.Hidden
         {
         }
 
+        /// <summary>
+        /// If <c>true</c>, screens this size and down will be hidden.
+        /// </summary>
         [Parameter]
         public bool ExtraSmallDown { set; get; }
 
+        /// <summary>
+        /// If <c>true</c>, screens this size and up will be hidden.
+        /// </summary>
         [Parameter]
         public bool ExtraSmallUp { set; get; }
 
+        /// <summary>
+        /// If <c>true</c>, screens this size and up will be hidden.
+        /// </summary>
         [Parameter]
         public bool SmallUp { set; get; }
 
+        /// <summary>
+        /// If <c>true</c>, screens this size and down will be hidden.
+        /// </summary>
         [Parameter]
         public bool SmallDown { set; get; }
 
+        /// <summary>
+        /// If <c>true</c>, screens this size and down will be hidden.
+        /// </summary>
         [Parameter]
         public bool MediumDown { set; get; }
 
+        /// <summary>
+        /// If <c>true</c>, screens this size and up will be hidden.
+        /// </summary>
         [Parameter]
         public bool MediumUp { set; get; }
 
+        /// <summary>
+        /// If <c>true</c>, screens this size and down will be hidden.
+        /// </summary>
         [Parameter]
         public bool LargeDown { set; get; }
 
+        /// <summary>
+        /// If <c>true</c>, screens this size and up will be hidden.
+        /// </summary>
         [Parameter]
         public bool LargeUp { set; get; }
 
+        /// <summary>
+        /// If <c>true</c>, screens this size and down will be hidden.
+        /// </summary>
         [Parameter]
         public bool ExtraLargeDown { set; get; }
 
+        /// <summary>
+        /// If <c>true</c>, screens this size and up will be hidden.
+        /// </summary>
         [Parameter]
         public bool ExtraLargeUp { set; get; }
 
+        /// <summary>
+        /// Hide the given breakpoint(s).
+        /// </summary>
         [Parameter]
         public Breakpoint[] Only { set; get; }
 
+        /// <summary>
+        /// ChildContent of the current component which gets component <see cref="IComponentContext" />.
+        /// </summary>
         [Parameter]
         public RenderFragment<IComponentContext> ChildContent { set; get; }
 

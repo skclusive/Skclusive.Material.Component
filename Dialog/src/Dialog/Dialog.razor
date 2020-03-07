@@ -2,25 +2,32 @@
 @inherits DialogComponent
 
 <Modal
+    Absolute="@Absolute"
     Open="@Open"
     Class="@_Class"
     Style="@_Style"
+    BackdropClass="@_BackdropClass"
+    BackdropStyle="@_BackdropStyle"
     RootRef="@RootRef"
-    ContainerRef="@ContainerRef"
+    PortalTargetRef="@ContainerRef"
     OnClose="@HandleClose"
     DisableBackdropClick="@DisableBackdropClick"
     DisableEscapeKeyDown="@DisableEscapeKeyDown"
     OnEscapeKeyDown="@HandleEscapeKeyDown"
-    BackdropInvisible="@BackdropInvisible"
-    Context="ModalContext">
-    <BackdropContent>
+    BackdropInvisible="@BackdropInvisible">
+    <BackdropContent
+        Context="ModalContext">
         <Backdrop
+            Class="@ModalContext.BackdropClass"
+            Style="@ModalContext.BackdropStyle"
             Open="@ModalContext.Open"
             OnClick="@ModalContext.OnBackdropClick"
             Invisible="@ModalContext.BackdropInvisible" />
     </BackdropContent>
-    <ChildContent>
+    <ChildContent
+        Context="ModalContext">
         <Fade
+            RootRef="@ModalContext.RefBack"
             CloseAfterTransition
             Appear
             In="@ModalContext.Open"

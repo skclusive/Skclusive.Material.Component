@@ -9,9 +9,15 @@ namespace Skclusive.Material.Form
         {
         }
 
+        /// <summary>
+        /// ChildContent of the current component.
+        /// </summary>
         [Parameter]
         public RenderFragment ChildContent { get; set; }
 
+        /// <summary>
+        /// html component tag to be used as container.
+        /// </summary>
         [Parameter]
         public string Component { set; get; } = "p";
 

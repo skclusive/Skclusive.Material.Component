@@ -22,111 +22,271 @@ namespace Skclusive.Material.Popover
         [Inject]
         public EventDelegator EventDelegator { set; get; }
 
+        /// <summary>
+        /// Disable the portal behavior.
+        /// The children stay within it's parent DOM hierarchy.
+        /// </summary>
+        [Parameter]
+        public bool DisablePortal { get; set; } = false;
+
+        /// <summary>
+        /// Reference attached to the portal target.
+        /// </summary>
+        [Parameter]
+        public IReference PortalTargetRef { get; set; }
+
+        /// <summary>
+        /// Reference attached to the portal target body.
+        /// </summary>
+        [Parameter]
+        public IReference PortalTargetBodyRef { get; set; }
+
+        /// <summary>
+        /// Reference attached to the container element of the popover.
+        /// </summary>
         [Parameter]
         public IReference ContainerRef { set; get; } = new Reference();
 
+        /// <summary>
+        /// Reference attached to the anchor element of the popover.
+        /// </summary>
         [Parameter]
         public IReference AnchorRef { get; set; } = new Reference();
 
+        /// <summary>
+        /// Reference attached to the content element of the popover.
+        /// </summary>
         [Parameter]
         public IReference ContentAnchorRef { get; set; } = new Reference();
 
+        /// <summary>
+        /// The elevation of the popover.
+        /// </summary>
         [Parameter]
         public int Elevation { set; get; } = 8;
 
+        /// <summary>
+        /// If <c>true</c>, rounded corners are disabled.
+        /// </summary>
         [Parameter]
         public bool Square { set; get; } = true;
 
+        /// <summary>
+        /// If <c>true</c>, the popover is visible.
+        /// </summary>
         [Parameter]
         public bool Open { set; get; }
 
+        /// <summary>
+        /// If <c>true</c>, the backdrop is invisible.
+        /// It can be used when rendering a popover or a custom select component.
+        /// </summary>
         [Parameter]
         public bool BackdropInvisible { set; get; } = true;
 
+        /// <summary>
+        /// popover transition duration.
+        /// </summary>
         [Parameter]
         public int? TransitionDuration { set; get; }
 
+        /// <summary>
+        /// popover appear timeout.
+        /// </summary>
         [Parameter]
         public int? AppearTimeout { set; get; }
 
+        /// <summary>
+        /// popover enter timeout.
+        /// </summary>
         [Parameter]
         public int? EnterTimeout { set; get; }
 
+        /// <summary>
+        /// popover exit timeout.
+        /// </summary>
         [Parameter]
         public int? ExitTimeout { set; get; }
 
+        /// <summary>
+        /// By default the child component is mounted immediately along with
+        /// the parent <c>Transition</c> component. If you want to "lazy mount" the component on the
+        /// first <c>In="true"</c> you can set <c>MountOnEnter</c>. After the first enter transition the component will stay
+        /// mounted, even on "exited", unless you also specify <c>UnmountOnExit</c>.
+        /// </summary>
         [Parameter]
         public bool MountOnEnter { set; get; }
 
+        /// <summary>
+        /// By default the child component stays mounted after it reaches the <c>'exited'</c> state.
+        /// Set <c>UnmountOnExit</c> if you'd prefer to unmount the component after it finishes exiting.
+        /// </summary>
         [Parameter]
         public bool UnmountOnExit { set; get; }
 
+        /// <summary>
+        /// Callback fired before the Ppopover enters.
+        /// </summary>
         [Parameter]
         public Action<IReference, bool> OnEnter { set; get; }
 
+        /// <summary>
+        /// Callback fired when the Ppopover is entering.
+        /// </summary>
         [Parameter]
         public Action<IReference, bool> OnEntering { set; get; }
 
+        /// <summary>
+        /// Callback fired when the Ppopover has entered.
+        /// </summary>
         [Parameter]
         public Action<IReference, bool> OnEntered { set; get; }
 
+        /// <summary>
+        /// Callback fired before the Ppopover exits.
+        /// </summary>
         [Parameter]
         public Action<IReference> OnExit { set; get; }
 
+        /// <summary>
+        /// Callback fired when the Ppopover is exiting.
+        /// </summary>
         [Parameter]
         public Action<IReference> OnExiting { set; get; }
 
+        /// <summary>
+        /// Callback fired when the Ppopover has exited.
+        /// </summary>
         [Parameter]
         public Action<IReference> OnExited { set; get; }
 
         [Parameter]
         public Action OnClose { set; get; }
 
+        /// <summary>
+        /// <c>class</c> applied on the <c>Paper</c> element.
+        /// </summary>
         [Parameter]
         public string PaperClass { set; get; }
 
+        /// <summary>
+        /// <c>style</c> applied on the <c>Paper</c> element.
+        /// </summary>
         [Parameter]
         public string PaperStyle { set; get; }
 
+        /// <summary>
+        /// Specifies how close to the edge of the window the popover can appear.
+        /// </summary>
         [Parameter]
         public double MarginThreshold { set; get; } = 16;
 
+        /// <summary>
+        /// This is the horizontal point on the anchor where the popover's
+        /// <c>AnchorRef</c> will attach to. This is not used when the
+        /// anchorReference is 'anchorPosition'.
+        /// </summary>
         [Parameter]
         public HorizontalOrigin AnchorHorizontalOrigin { set; get; } = HorizontalOrigin.Left;
 
+        /// <summary>
+        /// This is the vertical point on the anchor where the popover's
+        /// <c>AnchorRef</c> will attach to. This is not used when the
+        /// anchorReference is 'anchorPosition'.
+        /// </summary>
         [Parameter]
         public VerticalOrigin AnchorVerticalOrigin { set; get; } = VerticalOrigin.Top;
 
+        /// <summary>
+        /// This is the position that may be to set the horizontal position of the popover.
+        /// The coordinates are relative to the application's client area.
+        /// </summary>
         [Parameter]
         public double? AnchorHorizontalOriginValue { set; get; }
 
+        /// <summary>
+        /// This is the position that may be to set the vertical position of the popover.
+        /// The coordinates are relative to the application's client area.
+        /// </summary>
         [Parameter]
         public double? AnchorVerticalOriginValue { set; get; }
 
+        /// <summary>
+        /// This is the point on the popover which will attach to the anchor's horizontal origin.
+        /// </summary>
         [Parameter]
         public HorizontalOrigin TransformHorizontalOrigin { set; get; } = HorizontalOrigin.Left;
 
+        /// <summary>
+        /// This is the point on the popover which will attach to the anchor's vertical origin.
+        /// </summary>
         [Parameter]
         public VerticalOrigin TransformVerticalOrigin { set; get; } = VerticalOrigin.Top;
 
+        /// <summary>
+        /// This is the point on the popover which will attach to the anchor's horizontal origin.
+        /// </summary>
         [Parameter]
         public double? TransformHorizontalOriginValue { set; get; }
 
+        /// <summary>
+        /// This is the point on the popover which will attach to the anchor's vertical origin.
+        /// </summary>
         [Parameter]
         public double? TransformVerticalOriginValue { set; get; }
 
+        /// <summary>
+        /// This is the position that may be used
+        /// to set the left position of the popover.
+        /// The coordinates are relative to
+        /// the application's client area.
+        /// </summary>
         [Parameter]
         public double AnchorLeft { set; get; }
 
+        /// <summary>
+        /// This is the position that may be used
+        /// to set the top position of the popover.
+        /// The coordinates are relative to
+        /// the application's client area.
+        /// </summary>
         [Parameter]
         public double AnchorTop { set; get; }
 
+        /// <summary>
+        /// This determines which anchor prop to refer to to setvthe position of the popover.
+        /// </summary>
         [Parameter]
         public AnchorType AnchorType { set; get; } = AnchorType.Element;
 
+        /// <summary>
+        /// <c>class</c> applied on the <c>Backdrop</c> element.
+        /// </summary>
+        [Parameter]
+        public string BackdropClass { set; get; }
+
+        /// <summary>
+        /// <c>style</c> applied on the <c>Backdrop</c> element.
+        /// </summary>
+        [Parameter]
+        public string BackdropStyle { set; get; }
+
+        /// <summary>
+        /// If <c>true</c>, positions the modal absolute to tha relative parent.
+        /// </summary>
+        [Parameter]
+        public bool Absolute { set; get; }
+
+        /// <summary>
+        /// Callback fired when the backdrop is clicked.
+        /// </summary>
         [Parameter]
         public Action OnBackdropClick { set; get; }
 
+        /// <summary>
+        /// Callback fired when the escape key is pressed,
+        /// <c>DisableEscapeKeyDown</c> is false and the modal is in focus.
+        /// </summary>
         [Parameter]
         public Action OnEscapeKeyDown { set; get; }
 
@@ -158,7 +318,11 @@ namespace Skclusive.Material.Popover
 
         protected virtual IEnumerable<Tuple<string, object>> PaperStyles
         {
-            get => Enumerable.Empty<Tuple<string, object>>();
+            get
+            {
+                if (Absolute)
+                    yield return Tuple.Create<string, object>("position", "relative");
+            }
         }
 
         protected virtual string _PaperClass
@@ -167,6 +331,29 @@ namespace Skclusive.Material.Popover
         }
 
         protected virtual IEnumerable<string> PaperClasses
+        {
+            get
+            {
+                yield return string.Empty;
+            }
+        }
+
+        protected virtual string _BackdropStyle
+        {
+            get => CssUtil.ToStyle(BackdropStyles, BackdropStyle);
+        }
+
+        protected virtual IEnumerable<Tuple<string, object>> BackdropStyles
+        {
+            get => Enumerable.Empty<Tuple<string, object>>();
+        }
+
+        protected virtual string _BackdropClass
+        {
+            get => CssUtil.ToClass($"{Selector}-Backdrop", BackdropClasses, BackdropClass);
+        }
+
+        protected virtual IEnumerable<string> BackdropClasses
         {
             get
             {

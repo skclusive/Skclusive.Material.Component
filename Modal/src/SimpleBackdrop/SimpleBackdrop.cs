@@ -10,12 +10,22 @@ namespace Skclusive.Material.Modal
         {
         }
 
+        /// <summary>
+        /// html component tag to be used as container.
+        /// </summary>
         [Parameter]
         public string Component { set; get; } = "div";
 
+        /// <summary>
+        /// If <c>true</c>, the backdrop is invisible.
+        /// It can be used when rendering a popover or a custom select component.
+        /// </summary>
         [Parameter]
         public bool Invisible { set; get; }
 
+        /// <summary>
+        /// If <c>true</c>, the backdrop is open.
+        /// </summary>
         [Parameter]
         public bool Open { set; get; }
 

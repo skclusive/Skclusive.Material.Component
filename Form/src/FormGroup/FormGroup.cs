@@ -11,9 +11,15 @@ namespace Skclusive.Material.Form
         {
         }
 
+        /// <summary>
+        /// html component tag to be used as container.
+        /// </summary>
         [Parameter]
         public string Component { set; get; } = "div";
 
+        /// <summary>
+        /// Display group of elements in a compact row.
+        /// </summary>
         [Parameter]
         public bool Row { set; get; }
 

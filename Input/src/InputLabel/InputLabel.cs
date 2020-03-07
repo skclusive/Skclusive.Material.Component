@@ -10,22 +10,39 @@ namespace Skclusive.Material.Input
         {
         }
 
+        /// <summary>
+        /// ChildContent of the current component.
+        /// </summary>
         [Parameter]
         public RenderFragment ChildContent { get; set; }
 
+        /// <summary>
+        /// html component tag to be used as container.
+        /// </summary>
         [Parameter]
         public string Component { set; get; } = "label";
 
+        /// <summary>
+        /// If <c>true</c>, the transition animation is disabled.
+        /// </summary>
         [Parameter]
         public bool DisableAnimation { set; get; } = false;
 
+        /// <summary>
+        /// If <c>true</c>, the label is shrunk.
+        /// </summary>
         [Parameter]
-        public bool Shrink { set; get; }
+        public bool? Shrink { set; get; }
 
+        /// <summary>
+        /// html for attribute for the label.
+        /// </summary>
         [Parameter]
         public string For { set; get; }
 
-        protected string DataShrink => Shrink.ToString().ToLower();
+        protected bool _Shrink => Shrink.HasValue ? Shrink.Value : ((_Filled.HasValue && _Filled.Value) || (_Focused.HasValue && _Focused.Value) || (_HasStartAdornment.HasValue && _HasStartAdornment.Value));
+
+        protected string DataShrink => _Shrink.ToString().ToLower();
 
         protected override IEnumerable<string> Classes
         {
@@ -40,14 +57,14 @@ namespace Skclusive.Material.Input
                 if (!DisableAnimation)
                     yield return "Animated";
 
-                if (Shrink)
+                if (_Shrink)
                     yield return nameof(Shrink);
 
-                if(Margin == Skclusive.Core.Component.Margin.Dense)
-                    yield return $"{nameof(Margin)}-{Margin}";
+                if(_Margin == Skclusive.Core.Component.Margin.Dense)
+                    yield return $"{nameof(Margin)}-{_Margin}";
 
-                if (Variant == ControlVariant.Filled || Variant == ControlVariant.Outlined)
-                    yield return $"{Variant}";
+                if (_Variant == ControlVariant.Filled || _Variant == ControlVariant.Outlined)
+                    yield return $"{_Variant}";
             }
         }
     }

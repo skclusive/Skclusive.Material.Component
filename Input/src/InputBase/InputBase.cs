@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Skclusive.Material.Form;
 using Skclusive.Core.Component;
+using Skclusive.Script.DomHelpers;
 
 namespace Skclusive.Material.Input
 {
@@ -14,67 +15,159 @@ namespace Skclusive.Material.Input
 
         public Skclusive.Core.Component.Component Input { set; get; }
 
+        [Inject]
+        public DomHelpers DomHelpers { set; get; }
+
+        /// <summary>
+        /// html component tag to be used as container.
+        /// </summary>
         [Parameter]
         public string Component { set; get; } = "div";
 
+        /// <summary>
+        /// If <c>true</c>, the outline is notched to accommodate the label.
+        /// </summary>
         [Parameter]
-        public bool AutoComplete { set; get; }
+        public bool? Notched { set; get; }
 
+        /// <summary>
+        /// This prop helps users to fill forms faster, especially on mobile devices.
+        /// The name can be confusing, as it's more like an autofill.
+        /// You can learn more about it [following the specification](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill).
+        /// </summary>
+        [Parameter]
+        public string AutoComplete { set; get; }
+
+        /// <summary>
+        /// If <c>true</c>, the <c>input</c> element will be focused during the first mount.
+        /// </summary>
         [Parameter]
         public bool AutoFocus { set; get; }
 
+        /// <summary>
+        /// The default <c>input</c> element value. Use when the component is not controlled.
+        /// </summary>
         [Parameter]
         public string DefaultValue { set; get; }
 
-        [Parameter]
-        public RenderFragment EndAdornment { set; get; }
-
+        /// <summary>
+        /// If <c>true</c>, the input will take up the full width of its container.
+        /// </summary>
         [Parameter]
         public bool FullWidth { set; get; }
 
+        /// <summary>
+        /// html component tag to be used as input.
+        /// </summary>
         [Parameter]
-        public string InputComponent { set; get; } = "input";
+        public string InputComponent { set; get; }
 
+        /// <summary>
+        /// If <c>true</c>, a textarea element will be rendered.
+        /// </summary>
         [Parameter]
         public bool Multiline { set; get; } = false;
 
+        /// <summary>
+        /// Name attribute of the <c>input</c> element.
+        /// </summary>
         [Parameter]
         public string Name { set; get; }
 
+        /// <summary>
+        /// The short hint displayed in the input before the user enters a value.
+        /// </summary>
         [Parameter]
         public string PlaceHolder { set; get; }
 
+        /// <summary>
+        /// It prevents the user from changing the value of the field
+        /// (not from interacting with the field).
+        /// </summary>
         [Parameter]
         public bool ReadOnly { set; get; }
 
+        /// <summary>
+        /// renders suffix component
+        /// </summary>
         [Parameter]
-        public RenderFragment RenderSuffix { set; get; }
+        public RenderFragment<bool> RenderSuffix { set; get; }
 
+        /// <summary>
+        /// Number of rows to display when multiline option is set to true.
+        /// </summary>
         [Parameter]
         public int Rows { set; get; }
 
+        /// <summary>
+        /// Maximum number of rows to display when multiline option is set to true.
+        /// </summary>
         [Parameter]
         public int RowsMax { set; get; }
 
+        /// <summary>
+        /// Should be <c>true</c> when the component hosts a select.
+        /// </summary>
         [Parameter]
         public bool Select { set; get; } = false;
 
+        /// <summary>
+        /// whether has start `InputAdornment` for this component.
+        /// </summary>
+        [Parameter]
+        public bool HasStartAdornment { set; get; }
+
+        /// <summary>
+        /// whether has end `InputAdornment` for this component.
+        /// </summary>
+        [Parameter]
+        public bool HasEndAdornment { set; get; }
+
+        /// <summary>
+        /// Start `InputAdornment` for this component.
+        /// </summary>
         [Parameter]
         public RenderFragment StartAdornment { set; get; }
 
+        /// <summary>
+        /// End `InputAdornment` for this component.
+        /// </summary>
+        [Parameter]
+        public RenderFragment EndAdornment { set; get; }
+
+        /// <summary>
+        /// Type of the <c>input</c> element. It should be [a valid HTML5 input type](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types).
+        /// </summary>
         [Parameter]
         public string Type { set; get; } = "text";
 
+        /// <summary>
+        /// The value of the <c>input</c> element, required for a controlled component.
+        /// </summary>
         [Parameter]
         public string Value { set; get; }
 
+        /// <summary>
+        /// Callback fired when the value is changed.
+        /// </summary>
         [Parameter]
         public EventCallback<ChangeEventArgs> OnChange { set; get; }
 
+        /// <summary>
+        /// <c>class</c> applied on the <c>Input</c> element.
+        /// </summary>
         [Parameter]
         public string InputClass { set; get; }
 
+        protected string _Input => InputComponent ?? (Multiline ? "textarea" : "input");
+
         protected bool IsControlled => Value != null;
+
+        protected string ValueState { set; get; }
+
+        protected string _Value => IsControlled ? Value : ValueState;
+
+        protected bool _Notched => Notched ?? (HasStartAdornment || _Filled.HasValue && _Filled.Value  ||  _Focused.HasValue && _Focused.Value);
 
         protected override IEnumerable<string> Classes
         {
@@ -86,31 +179,31 @@ namespace Skclusive.Material.Input
                 if (FormContext != null)
                     yield return "FormControl";
 
-                if (Error.HasValue && Error.Value)
+                if (_Error.HasValue && _Error.Value)
                     yield return $"{nameof(Error)}";
 
-                if (Filled.HasValue && Filled.Value)
+                if (_Filled.HasValue && _Filled.Value)
                     yield return $"{nameof(Filled)}";
 
-                if (Focused.HasValue && Focused.Value)
+                if (_Focused.HasValue && _Focused.Value)
                     yield return $"{nameof(Focused)}";
 
-                if (Required.HasValue && Required.Value)
+                if (_Required.HasValue && _Required.Value)
                     yield return $"{nameof(Required)}";
 
                 if (FullWidth)
                     yield return $"{nameof(FullWidth)}";
 
-                if (Margin == Skclusive.Core.Component.Margin.Dense)
+                if (_Margin == Skclusive.Core.Component.Margin.Dense)
                     yield return $"{nameof(Skclusive.Core.Component.Margin)}-{Skclusive.Core.Component.Margin.Dense}";
 
                 if (Multiline)
                     yield return $"{nameof(Multiline)}";
 
-                if (StartAdornment != default)
+                if (HasStartAdornment)
                     yield return $"{nameof(StartAdornment)}";
 
-                if (EndAdornment != default)
+                if (HasEndAdornment)
                     yield return $"{nameof(EndAdornment)}";
             }
         }
@@ -119,7 +212,7 @@ namespace Skclusive.Material.Input
         {
             get
             {
-                return CssUtil.ToClass($"{Selector}-Input", InputClasses, InputClass);
+                return CssUtil.ToClass($"{Selector}-Input", string.IsNullOrWhiteSpace(Overridable) ? "" : $"{Overridable}-Input", InputClasses, InputClass);
             }
         }
 
@@ -135,33 +228,51 @@ namespace Skclusive.Material.Input
                 if (Select)
                     yield return $"{nameof(Select)}";
 
-                if (HiddenLabel.HasValue && HiddenLabel.Value)
+                if (_HiddenLabel.HasValue && _HiddenLabel.Value)
                     yield return $"{nameof(HiddenLabel)}";
 
-                if (Margin == Skclusive.Core.Component.Margin.Dense)
+                if (_Margin == Skclusive.Core.Component.Margin.Dense)
                     yield return $"{nameof(Skclusive.Core.Component.Margin)}-{Skclusive.Core.Component.Margin.Dense}";
 
                 if (Multiline)
                     yield return $"{nameof(Multiline)}";
 
-                if (StartAdornment != default)
+                if (HasStartAdornment)
                     yield return $"{nameof(StartAdornment)}";
 
-                if (EndAdornment != default)
+                if (HasEndAdornment)
                     yield return $"{nameof(EndAdornment)}";
             }
         }
 
-        protected void HandleChange(ChangeEventArgs args)
+        protected override void OnInitialized()
         {
-            OnChange.InvokeAsync(args);
+            ValueState = DefaultValue;
+        }
+
+        protected void DirtyCheck(string value)
+        {
+            if (string.IsNullOrEmpty(value))
+            {
+                FormContext?.OnEmpty();
+            } else
+            {
+                FormContext?.OnFill();
+            }
         }
 
         protected async Task HandleChangeAsync(ChangeEventArgs args)
         {
-            HandleChange(args);
+            if (!IsControlled)
+            {
+                ValueState = args.Value?.ToString();
 
-            await Task.CompletedTask;
+                DirtyCheck(ValueState);
+
+                await InvokeAsync(StateHasChanged);
+            }
+
+            await OnChange.InvokeAsync(args);
         }
 
         protected async Task HandleInputAsync(ChangeEventArgs args)
@@ -171,16 +282,46 @@ namespace Skclusive.Material.Input
             await Task.CompletedTask;
         }
 
+        private string LastValue { set; get; }
+
+        protected override void OnParametersSet()
+        {
+            if (IsControlled && !object.Equals(LastValue, Value))
+            {
+                DirtyCheck(Value);
+            }
+            LastValue = Value;
+        }
+
         public void Focus()
         {
             Input.Focus();
         }
 
-        protected override void OnAfterMount()
+        protected override async Task OnAfterMountAsync()
         {
-            base.OnAfterMount();
+            var value = await DomHelpers.GetInputValueAsync(Input.RootRef.Current);
 
-            // Input.EventPolyfill();
+            value = string.IsNullOrEmpty(value) ? null : value;
+
+            if (IsControlled)
+            {
+                if (!object.Equals(Value, value))
+                {
+                    await OnChange.InvokeAsync(new ChangeEventArgs
+                    {
+                        Value = value
+                    });
+                }
+            }
+            else
+            {
+                ValueState = value;
+            }
+
+            DirtyCheck(value);
+
+            await InvokeAsync(StateHasChanged);
         }
     }
 }

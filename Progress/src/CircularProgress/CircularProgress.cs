@@ -3,6 +3,7 @@ using Skclusive.Core.Component;
 using Skclusive.Material.Core;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Skclusive.Material.Progress
 {
@@ -12,36 +13,74 @@ namespace Skclusive.Material.Progress
         {
         }
 
+        /// <summary>
+        /// The <see cref="CircularVariant" /> to use.
+        /// Use Indeterminate when there is no progress value.
+        /// </summary>
         [Parameter]
         public CircularVariant Variant { set; get; } = CircularVariant.Indeterminate;
 
+        /// <summary>
+        /// The <see cref="Skclusive.Core.Component.Color" /> of the component. It supports those theme colors that make sense for this component.
+        /// </summary>
         [Parameter]
         public Color Color { set; get; } = Color.Primary;
 
+        /// <summary>
+        /// If <c>true</c>, the shrink animation is disabled.
+        /// This only works if variant is <c>Indeterminate</c>.
+        /// </summary>
         [Parameter]
         public bool DisableShrink { set; get; } = false;
 
-        [Parameter]
-        public int Maximum { set; get; } = 100;
+        // [Parameter]
+        // public int Maximum { set; get; } = 100;
 
-        [Parameter]
-        public int Minimum { set; get; } = 0;
+        // [Parameter]
+        // public int Minimum { set; get; } = 0;
 
+        /// <summary>
+        /// The size of the circle.
+        /// If using a number, the pixel unit is assumed.
+        /// If using a string, you need to provide the CSS unit, e.g '3rem'.
+        /// </summary>
         [Parameter]
         public int Size { set; get; } = 40;
 
+        /// <summary>
+        /// The value of the progress indicator for the determinate and static variants.
+        /// Value between 0 and 100.
+        /// </summary>
         [Parameter]
         public decimal Value { set; get; } = 0;
 
+        /// <summary>
+        /// The thickness of the circle.
+        /// </summary>
         [Parameter]
         public decimal Thickness { set; get; } = 3.6M;
 
+        /// <summary>
+        /// <c>style</c> applied on the <c>Svg</c> element.
+        /// </summary>
+        [Parameter]
+        public string SvgStyle { set; get; }
+
+        /// <summary>
+        /// <c>class</c> applied on the <c>Svg</c> element.
+        /// </summary>
         [Parameter]
         public string SvgClass { set; get; }
 
+        /// <summary>
+        /// <c>style</c> applied on the <c>Circle</c> element.
+        /// </summary>
         [Parameter]
         public string CircleStyle { set; get; }
 
+        /// <summary>
+        /// <c>class</c> applied on the <c>Circle</c> element.
+        /// </summary>
         [Parameter]
         public string CircleClass { set; get; }
 
@@ -79,7 +118,7 @@ namespace Skclusive.Material.Progress
         }
 
         protected string ValueNow => $"{Math.Round(Relative)}";
-        
+
         protected override IEnumerable<Tuple<string, object>> Styles
         {
             get
@@ -170,6 +209,16 @@ namespace Skclusive.Material.Progress
             }
         }
 
+        protected virtual string _SvgStyle
+        {
+            get => CssUtil.ToStyle(SvgStyles, SvgStyle);
+        }
+
+        protected virtual IEnumerable<Tuple<string, object>> SvgStyles
+        {
+            get => Enumerable.Empty<Tuple<string, object>>();
+        }
+
         public static readonly decimal SIZE = 44;
 
         static decimal GetRelative(decimal value, int min, int max)
@@ -189,14 +238,5 @@ namespace Skclusive.Material.Progress
         {
             return value * value;
         }
-    }
-
-    public enum CircularVariant
-    {
-        Determinate,
-
-        Indeterminate,
-
-        Static
     }
 }

@@ -14,18 +14,33 @@ namespace Skclusive.Material.Selection
         [Inject]
         public RadioGroupHelper RadioGroupHelper { set; get; }
 
+        /// <summary>
+        /// html component tag to be used as container.
+        /// </summary>
         [Parameter]
         public string Component { set; get; } = "div";
 
+        /// <summary>
+        /// Display group of elements in a compact row.
+        /// </summary>
         [Parameter]
         public bool Row { set; get; }
 
+        /// <summary>
+        /// The name used to reference the value of the control.
+        /// </summary>
         [Parameter]
         public string Name { set; get; }
 
+        /// <summary>
+        /// The default <c>input</c> element value. Use when the component is not controlled.
+        /// </summary>
         [Parameter]
         public string DefaultValue { set; get; }
 
+        /// <summary>
+        /// Value of the selected radio button. The DOM API casts this to a string.
+        /// </summary>
         [Parameter]
         public string Value { set; get; }
 

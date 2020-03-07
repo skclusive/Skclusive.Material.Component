@@ -16,15 +16,27 @@ namespace Skclusive.Material.Menu
         [CascadingParameter]
         public IMenuContext MenuContext { set; get; }
 
+        /// <summary>
+        /// html component tag to be used as container.
+        /// </summary>
         [Parameter]
         public string Component { set; get; }
 
+        /// <summary>
+        /// If <c>true</c>, the left and right padding is removed.
+        /// </summary>
         [Parameter]
         public bool DisableGutters { set; get; }
 
+        /// <summary>
+        /// If <c>true</c>, menu item is selected.
+        /// </summary>
         [Parameter]
         public bool Selected { set; get; }
 
+        /// <summary>
+        /// fire click event on keyboard enter
+        /// </summary>
         [Parameter]
         public bool Enter { set; get; } = true;
 

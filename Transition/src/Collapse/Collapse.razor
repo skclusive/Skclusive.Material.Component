@@ -1,0 +1,29 @@
+﻿@namespace Skclusive.Material.Transition
+@inherits CollapseComponent
+
+<Transition
+    Appear="true"
+    In="@In"
+    Timeout="@Timeout"
+    AppearTimeout="@AppearTimeout"
+    EnterTimeout="@EnterTimeout"
+    ExitTimeout="@ExitTimeout"
+    MountOnEnter="@MountOnEnter"
+    UnmountOnExit="@UnmountOnExit"
+    OnEnter="@HandleEnter"
+    OnEntering="@HandleEntering"
+    OnEntered="@HandleEntered"
+    OnExit="@HandleExit"
+    OnExiting="@HandleExiting"
+    OnExited="@HandleExited">
+    <CollapseContainer
+        In="@In"
+        Class="@(CssUtil.ToClass(string.Empty, context.Classes))"
+        Style="@(CssUtil.ToStyle(context.Styles, string.Empty))"
+        RootRef="@context.RefBack"
+        State="@context.State"
+        WrapperRef="@WrapperRef"
+        CollapsedHeight="@CollapsedHeight">
+        @ChildContent.Invoke(context)
+    </CollapseContainer>
+</Transition>

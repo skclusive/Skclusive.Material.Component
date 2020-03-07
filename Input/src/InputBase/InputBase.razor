@@ -7,16 +7,16 @@
    Class="@_Class"
    Style="@_Style"
    @attributes="Attributes">
-   @*  @StartAdornment *@
+   @StartAdornment
    <Component
       RootRef="@context.RefBack"
       @ref="Input"
-      Tag="@InputComponent"
+      Tag="@_Input"
       id="@Id"
       type="@Type"
       name="@Name"
       class="@_InputClass"
-      value="@Value"
+      value="@_Value"
       disabled="@Disabled"
       autofocus="@AutoFocus"
       autocomplete="@AutoComplete"
@@ -25,10 +25,11 @@
       required="@Required"
       aria-required="@Required"
       aria-invalid="@Error"
+      rows="@Rows"
       @onchange="HandleChangeAsync"
       @onfocus="HandleFocusAsync"
       @onblur="HandleBlurAsync"
       @oninput="HandleInputAsync" />
-      @* @EndAdornment *@
-      @RenderSuffix
+      @EndAdornment
+      @RenderSuffix?.Invoke(_Notched)
 </Component>

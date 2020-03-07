@@ -11,18 +11,33 @@ namespace Skclusive.Material.List
         {
         }
 
+        /// <summary>
+        /// html component tag to be used as container.
+        /// </summary>
         [Parameter]
         public string Component { set; get; } = "li";
 
+        /// <summary>
+        /// The <see cref="Skclusive.Core.Component.Color" /> of the component. It supports those theme colors that make sense for this component.
+        /// </summary>
         [Parameter]
         public Color Color { set; get; } = Color.Default;
 
+        /// <summary>
+        /// If <c>true</c>, the List Subheader will not have gutters.
+        /// </summary>
         [Parameter]
         public bool DisableGutters { set; get; } = false;
 
+        /// <summary>
+        /// If <c>true</c>, the List Subheader will not stick to the top during scroll.
+        /// </summary>
         [Parameter]
         public bool DisableSticky { set; get; } = false;
 
+        /// <summary>
+        /// If <c>true</c>, the List Subheader will be indented.
+        /// </summary>
         [Parameter]
         public bool Inset { set; get; } = false;
 

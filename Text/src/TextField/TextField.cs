@@ -13,87 +13,191 @@ namespace Skclusive.Material.Text
         [Inject]
         private DomHelpers DomHelpers { get; set; }
 
-        protected Input.Input Input { set; get; }
+        protected Input.FilledInput FilledInput { set; get; }
 
+        protected Input.OutlinedInput OutlinedInput { set; get; }
+
+        protected Input.StandardInput Input { set; get; }
+
+        protected IReference LabelRef { get; set; } = new Reference();
+
+        /// <summary>
+        /// Type of the <c>input</c> element. It should be [a valid HTML5 input type](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types).
+        /// </summary>
         [Parameter]
         public string Type { set; get; }
 
+        /// <summary>
+        /// If <c>true</c>, the input will take up the full width of its container.
+        /// </summary>
         [Parameter]
         public bool FullWidth { set; get; }
 
+        /// <summary>
+        /// If <c>true</c>, the input of this label is focused (used by <c>FormGroup</c> components).
+        /// </summary>
         [Parameter]
         public bool Focused { set; get; }
 
+        /// <summary>
+        /// If <c>true</c>, the label will indicate that the input is required.
+        /// </summary>
         [Parameter]
         public bool? Required { set; get; }
 
+        /// <summary>
+        /// If <c>true</c>, the label should be displayed in an error state.
+        /// </summary>
         [Parameter]
         public bool? Error { set; get; }
 
+        /// <summary>
+        /// If <c>true</c>, the label will be hidden.
+        /// This is used to increase density for a <c>FilledInput</c>.
+        /// Be sure to add <c>aria-label</c> to the `input` element.
+        /// </summary>
         [Parameter]
         public bool? HiddenLabel { set; get; }
 
+        /// <summary>
+        /// The <see cref="Skclusive.Core.Component.Margin" /> margin to use.
+        /// If <c>dense</c> or <c>normal</c>, will adjust vertical spacing of this and contained components.
+        /// </summary>
         [Parameter]
         public Margin? Margin { set; get; }
 
+        /// <summary>
+        /// The <see cref="ControlVariant" /> variant to use.
+        /// </summary>
         [Parameter]
         public ControlVariant? Variant { set; get; }
 
+        /// <summary>
+        /// If <c>true</c>, compact vertical padding designed for keyboard and mouse input will be used for
+        /// the list and list items.
+        /// The prop is available to descendant components as the <c>dense</c> context.
+        /// </summary>
         [Parameter]
         public bool? Dense { set; get; }
 
-        public bool Shrink
-        {
-            get => Focused || Value?.Length > 0 || StartAdornment != null;
-        }
+        /// <summary>
+        /// If <c>true</c>, the label is shrunk.
+        /// </summary>
+        [Parameter]
+        public bool Shrink { set; get; }
 
+        /// <summary>
+        /// It prevents the user from changing the value of the field
+        /// (not from interacting with the field).
+        /// </summary>
         [Parameter]
         public bool ReadOnly { set; get; }
 
+        /// <summary>
+        /// This prop helps users to fill forms faster, especially on mobile devices.
+        /// The name can be confusing, as it's more like an autofill.
+        /// You can learn more about it [following the specification](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill).
+        /// </summary>
         [Parameter]
-        public bool AutoComplete { set; get; }
+        public string AutoComplete { set; get; }
 
+        /// <summary>
+        /// If <c>true</c>, the <c>input</c> element will be focused during the first mount.
+        /// </summary>
         [Parameter]
         public bool AutoFocus { set; get; }
 
+        /// <summary>
+        /// If <c>true</c>, a textarea element will be rendered.
+        /// </summary>
         [Parameter]
         public bool Multiline { set; get; }
 
+        /// <summary>
+        /// The default <c>input</c> element value. Use when the component is not controlled.
+        /// </summary>
         [Parameter]
         public string DefaultValue { set; get; }
 
+        /// <summary>
+        /// The helper text content.
+        /// </summary>
         [Parameter]
         public string Helper { set; get; }
 
+        /// <summary>
+        /// The label content.
+        /// </summary>
         [Parameter]
         public string Label { set; get; }
 
+        /// <summary>
+        /// The short hint displayed in the input before the user enters a value.
+        /// </summary>
         [Parameter]
         public string PlaceHolder { set; get; }
 
+        /// <summary>
+        /// The value of the <c>input</c> element, required for a controlled component.
+        /// </summary>
         [Parameter]
         public string Value { set; get; }
 
+        /// <summary>
+        /// Name attribute of the <c>input</c> element.
+        /// </summary>
+        [Parameter]
         public string Name { set; get; }
 
-        public string HelperId { get => string.IsNullOrWhiteSpace(Id) ? string.Empty : $"{Id}-Helper"; }
-
+        /// <summary>
+        /// Start `InputAdornment` for this component.
+        /// </summary>
         [Parameter]
         public RenderFragment StartAdornment { set; get; }
 
+        /// <summary>
+        /// End `InputAdornment` for this component.
+        /// </summary>
         [Parameter]
         public RenderFragment EndAdornment { set; get; }
 
+        /// <summary>
+        /// Callback fired when the value is changed.
+        /// </summary>
         [Parameter]
         public EventCallback<ChangeEventArgs> OnChange { set; get; }
 
+        protected bool HasStartAdornment => StartAdornment != null;
+
+        protected bool HasEndAdornment => EndAdornment != null;
+
+        public string HelperId { get => string.IsNullOrWhiteSpace(Id) ? string.Empty : $"{Id}-Helper"; }
+
+        protected double LabelWidth { set; get; }
+
+        public bool _Shrink
+        {
+            get => Shrink || Focused || Value?.Length > 0 || StartAdornment != null || (Value == null && DefaultValue?.Length > 0);
+        }
+
         protected override async Task OnAfterMountAsync()
         {
+            if (Variant == ControlVariant.Outlined)
+            {
+                var offset = await DomHelpers.GetElementOffsetAsync(LabelRef.Current);
+
+                LabelWidth = offset.Width;
+
+                StateHasChanged();
+            }
+
             if (AutoFocus)
             {
                 // Input.Focus();
 
-                var elementRef = Input?.Input?.Input?.RootRef.Current;
+                var elementRef = Variant == ControlVariant.Filled ? FilledInput?.Input?.Input?.RootRef.Current : 
+                (Variant == ControlVariant.Outlined ? OutlinedInput?.Input?.Input?.RootRef.Current
+                : Input?.Input?.Input?.RootRef.Current);
 
                 await DomHelpers.FocusAsync(elementRef);
             }

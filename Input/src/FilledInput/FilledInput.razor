@@ -1,12 +1,15 @@
 ﻿@namespace Skclusive.Material.Input
-@inherits InputComponent
+@inherits FilledInputComponent
 
 <InputBase
     RootRef="@RootRef"
     @ref="Input"
     Class="@_Class"
     Style="@_Style"
+    Overridable="@Selector"
     @attributes="Attributes"
+    Focused="@Focused"
+    Disabled="@Disabled"
     AutoComplete="@AutoComplete"
     AutoFocus="@AutoFocus"
     DefaultValue="@DefaultValue"
@@ -22,4 +25,15 @@
     Type="@Type"
     Value="@Value"
     OnChange="@OnChange"
-    InputClass="@InputClass" />
+    OnFocus="@HandleFocus"
+    OnBlur="@HandleBlur"
+    HasStartAdornment="@HasStartAdornment"
+    HasEndAdornment="@HasEndAdornment"
+    InputClass="@InputClass">
+    <StartAdornment>
+        @StartAdornment
+    </StartAdornment>
+    <EndAdornment>
+        @EndAdornment
+    </EndAdornment>
+</InputBase>

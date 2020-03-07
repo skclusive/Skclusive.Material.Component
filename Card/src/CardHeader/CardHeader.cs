@@ -14,101 +14,128 @@ namespace Skclusive.Material.Card
         {
         }
 
+        /// <summary>
+        /// html component tag to be used as container.
+        /// </summary>
         [Parameter]
         public string Component { set; get; } = "div";
 
+        /// <summary>
+        /// The content of the Card Title.
+        /// </summary>
         [Parameter]
         public string Title { set; get; }
 
+        /// <summary>
+        /// The content of the component.
+        /// </summary>
         [Parameter]
         public string SubHeader { set; get; }
 
+        /// <summary>
+        /// The Avatar for the Card Header.
+        /// </summary>
         [Parameter]
         public RenderFragment AvatarContent { set; get; }
 
+        /// <summary>
+        /// The action to display in the card header.
+        /// </summary>
         [Parameter]
         public RenderFragment ActionContent { set; get; }
 
+        /// <summary>
+        /// The complex content of the Card Title.
+        /// </summary>
         [Parameter]
         public RenderFragment TitleContent { set; get; }
 
+        /// <summary>
+        /// The complex content of the component.
+        /// </summary>
         [Parameter]
         public RenderFragment SubHeaderContent { set; get; }
 
+        /// <summary>
+        /// <c>style</c> applied on the <c>Avatar</c> element.
+        /// </summary>
         [Parameter]
         public string AvatarStyle { set; get; }
 
+        /// <summary>
+        /// <c>class</c> applied on the <c>Avatar</c> element.
+        /// </summary>
         [Parameter]
         public string AvatarClass { set; get; }
 
+        /// <summary>
+        /// <c>style</c> applied on the <c>Action</c> element.
+        /// </summary>
         [Parameter]
         public string ActionStyle { set; get; }
 
+        /// <summary>
+        /// <c>class</c> applied on the <c>Action</c> element.
+        /// </summary>
         [Parameter]
         public string ActionClass { set; get; }
 
+        /// <summary>
+        /// <c>style</c> applied on the <c>Content</c> element.
+        /// </summary>
         [Parameter]
         public string ContentStyle { set; get; }
 
+        /// <summary>
+        /// <c>class</c> applied on the <c>Content</c> element.
+        /// </summary>
         [Parameter]
         public string ContentClass { set; get; }
 
+        /// <summary>
+        /// <c>style</c> applied on the <c>Title</c> element.
+        /// </summary>
         [Parameter]
         public string TitleStyle { set; get; }
 
+        /// <summary>
+        /// <c>class</c> applied on the <c>Title</c> element.
+        /// </summary>
         [Parameter]
         public string TitleClass { set; get; }
 
+        /// <summary>
+        /// <c>style</c> applied on the <c>Subheader</c> element.
+        /// </summary>
         [Parameter]
         public string SubHeaderStyle { set; get; }
 
+        /// <summary>
+        /// <c>class</c> applied on the <c>Subheader</c> element.
+        /// </summary>
         [Parameter]
         public string SubHeaderClass { set; get; }
 
-        protected bool HasActionContent
-        {
-            get => ActionContent != null;
-        }
+        protected bool HasActionContent => ActionContent != null;
 
-        protected bool HasAvatarContent
-        {
-            get => AvatarContent != null;
-        }
+        protected bool HasAvatarContent => AvatarContent != null;
 
-        protected bool HasTitleContent
-        {
-            get => TitleContent != null;
-        }
+        protected bool HasTitleContent => TitleContent != null;
 
-        protected bool HasSubHeaderContent
-        {
-            get => SubHeaderContent != null;
-        }
+        protected bool HasSubHeaderContent => SubHeaderContent != null;
 
-        protected TypographyVariant TitleVariant
-        {
-            get => HasAvatarContent ? TypographyVariant.Body2 : TypographyVariant.H5;
-        }
+        protected TypographyVariant TitleVariant => HasAvatarContent ? TypographyVariant.Body2 : TypographyVariant.H5;
 
-        protected TypographyVariant SubHeaderVariant
-        {
-            get => HasAvatarContent ? TypographyVariant.Body2 : TypographyVariant.Body1;
-        }
+        protected TypographyVariant SubHeaderVariant => HasAvatarContent ? TypographyVariant.Body2 : TypographyVariant.Body1;
 
-        protected virtual string _AvatarStyle
-        {
-            get => CssUtil.ToStyle(AvatarStyles, AvatarStyle);
-        }
+        protected virtual string _AvatarStyle => CssUtil.ToStyle(AvatarStyles, AvatarStyle);
 
         protected virtual IEnumerable<Tuple<string, object>> AvatarStyles
         {
             get => Enumerable.Empty<Tuple<string, object>>();
         }
 
-        protected virtual string _AvatarClass
-        {
-            get => CssUtil.ToClass(Selector, AvatarClasses, AvatarClass);
-        }
+        protected virtual string _AvatarClass => CssUtil.ToClass(Selector, AvatarClasses, AvatarClass);
 
         protected virtual IEnumerable<string> AvatarClasses
         {

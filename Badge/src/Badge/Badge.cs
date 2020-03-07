@@ -13,42 +13,81 @@ namespace Skclusive.Material.Badge
         {
         }
 
+        /// <summary>
+        /// html component tag to be used as container.
+        /// </summary>
         [Parameter]
         public string Component { set; get; } = "span";
 
+        /// <summary>
+        /// badge value to be displayed.
+        /// </summary>
         [Parameter]
         public string Nib { set; get; }
 
+        /// <summary>
+        /// The <see cref="NibVariant"> variant to use.
+        /// </summary>
         [Parameter]
         public NibVariant Variant { set; get; } = NibVariant.Standard;
 
+        /// <summary>
+        /// The <see cref="NibOverlap"> overlap to use.
+        /// </summary>
         [Parameter]
         public NibOverlap Overlap { set; get; } = NibOverlap.Rectangle;
 
+        /// <summary>
+        /// The <see cref="Skclusive.Core.Component.Horizontal" /> anchor of the badge.
+        /// </summary>
         [Parameter]
         public Horizontal Horizontal { set; get; } = Horizontal.Right;
 
+        /// <summary>
+        /// The <see cref="Skclusive.Core.Component.Vertical" /> anchor of the badge.
+        /// </summary>
         [Parameter]
         public Vertical Vertical { set; get; } = Vertical.Top;
 
+        /// <summary>
+        /// Controls whether the badge is hidden when <see cref="Nib" /> is zero.
+        /// </summary>
         [Parameter]
         public bool ShowZero { set; get; } = false;
 
+        /// <summary>
+        /// If <c>true</c>, the badge will be invisible.
+        /// </summary>
         [Parameter]
         public bool? Invisible { set; get; }
 
+        /// <summary>
+        /// Max count to show.
+        /// </summary>
         [Parameter]
         public int Max { set; get; } = 99;
 
+        /// <summary>
+        /// The <see cref="Skclusive.Core.Component.Color" /> of the component. It supports those theme colors that make sense for this component.
+        /// </summary>
         [Parameter]
         public Color Color { set; get; } = Color.Default;
 
+        /// <summary>
+        /// <c>style</c> applied on the <c>Nib</c> element.
+        /// </summary>
         [Parameter]
         public string NibStyle { set; get; }
 
+        /// <summary>
+        /// <c>class</c> applied on the <c>Nib</c> element.
+        /// </summary>
         [Parameter]
         public string NibClass { set; get; }
 
+        /// <summary>
+        /// If the badge value is component use <c>NibContent</c>
+        /// </summary>
         [Parameter]
         public RenderFragment NibContent { set; get; }
 

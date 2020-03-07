@@ -12,9 +12,15 @@ namespace Skclusive.Material.Dialog
         {
         }
 
+        /// <summary>
+        /// html component tag to be used as container.
+        /// </summary>
         [Parameter]
         public string Component { set; get; } = "div";
 
+        /// <summary>
+        /// If <c>true</c>, the actions do not have additional margin.
+        /// </summary>
         [Parameter]
         public bool DisableSpacing { set; get; }
 

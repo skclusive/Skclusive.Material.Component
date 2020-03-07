@@ -3,7 +3,8 @@
 
 <FormControl
     RootRef="@RootRef"
-    Class="@Class"
+    Class="@_Class"
+    Style="@_Style"
     FullWidth="@FullWidth"
     Error="@Error"
     Focused="@Focused"
@@ -16,31 +17,113 @@
     @if (!string.IsNullOrWhiteSpace(Label))
     {
         <InputLabel
+            RootRef="@LabelRef"
             For="@Id"
-            Shrink="@Shrink"
+            Disabled="@Disabled"
+            Shrink="@_Shrink"
+            Variant="@Variant"
             Context="InputLabelContext">
             @Label
         </InputLabel>
     }
-    <Input
-        @ref="Input"
-        Id="@Id"
-        Type="@Type"
-        Name="@Name"
-        Value="@Value"
-        FullWidth="@FullWidth"
-        AutoFocus="@AutoFocus"
-        Multiline="@Multiline"
-        PlaceHolder="@PlaceHolder"
-        AutoComplete="@AutoComplete"
-        DefaultValue="@DefaultValue"
-        OnFocus="@HandleFocus"
-        OnBlur="@HandleBlur"
-        OnChange="@HandleChange" />
+    @if (Variant == ControlVariant.Filled)
+    {
+        <FilledInput
+            @ref="FilledInput"
+            Disabled="@Disabled"
+            Id="@Id"
+            Type="@Type"
+            Name="@Name"
+            Value="@Value"
+            Focused="@Focused"
+            FullWidth="@FullWidth"
+            AutoFocus="@AutoFocus"
+            Multiline="@Multiline"
+            PlaceHolder="@PlaceHolder"
+            AutoComplete="@AutoComplete"
+            DefaultValue="@DefaultValue"
+            ReadOnly="@ReadOnly"
+            OnFocus="@HandleFocus"
+            OnBlur="@HandleBlur"
+            HasStartAdornment="@HasStartAdornment"
+            HasEndAdornment="@HasEndAdornment"
+            OnChange="@HandleChange">
+            <StartAdornment>
+                @StartAdornment
+            </StartAdornment>
+            <EndAdornment>
+                @EndAdornment
+            </EndAdornment>
+        </FilledInput>
+    }
+    else if (Variant == ControlVariant.Outlined)
+    {
+        <OutlinedInput
+            @ref="OutlinedInput"
+            Disabled="@Disabled"
+            Id="@Id"
+            Notched="@_Shrink"
+            LabelWidth="@LabelWidth"
+            Type="@Type"
+            Name="@Name"
+            Value="@Value"
+            Focused="@Focused"
+            FullWidth="@FullWidth"
+            AutoFocus="@AutoFocus"
+            Multiline="@Multiline"
+            PlaceHolder="@PlaceHolder"
+            AutoComplete="@AutoComplete"
+            DefaultValue="@DefaultValue"
+            ReadOnly="@ReadOnly"
+            OnFocus="@HandleFocus"
+            OnBlur="@HandleBlur"
+            HasStartAdornment="@HasStartAdornment"
+            HasEndAdornment="@HasEndAdornment"
+            OnChange="@HandleChange">
+            <StartAdornment>
+                @StartAdornment
+            </StartAdornment>
+            <EndAdornment>
+                @EndAdornment
+            </EndAdornment>
+        </OutlinedInput>
+    }
+    else
+    {
+        <StandardInput
+            @ref="Input"
+            Disabled="@Disabled"
+            Id="@Id"
+            Type="@Type"
+            Name="@Name"
+            Value="@Value"
+            Focused="@Focused"
+            FullWidth="@FullWidth"
+            AutoFocus="@AutoFocus"
+            Multiline="@Multiline"
+            PlaceHolder="@PlaceHolder"
+            AutoComplete="@AutoComplete"
+            DefaultValue="@DefaultValue"
+            ReadOnly="@ReadOnly"
+            OnFocus="@HandleFocus"
+            OnBlur="@HandleBlur"
+            HasStartAdornment="@HasStartAdornment"
+            HasEndAdornment="@HasEndAdornment"
+            OnChange="@HandleChange">
+            <StartAdornment>
+                @StartAdornment
+            </StartAdornment>
+            <EndAdornment>
+                @EndAdornment
+            </EndAdornment>
+        </StandardInput>
+    }
     @if (!string.IsNullOrWhiteSpace(Helper))
     {
         <FormHelperText
+            Disabled="@Disabled"
             Id="@HelperId"
+            Variant="@Variant"
             Context="HelperContext">
             @Helper
         </FormHelperText>

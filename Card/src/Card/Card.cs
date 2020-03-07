@@ -9,12 +9,12 @@ namespace Skclusive.Material.Card
         {
         }
 
+        /// <summary>
+        /// If <c>true</c>, the card will use raised styling.
+        /// </summary>
         [Parameter]
         public bool Raised { set; get; }
 
-        protected int Elevation
-        {
-            get => Raised ? 8 : 1;
-        }
+        protected int Elevation => Raised ? 8 : 1;
     }
 }

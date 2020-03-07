@@ -17,6 +17,8 @@ namespace Skclusive.Material.Form
 
         bool? HiddenLabel { get; }
 
+        bool? HasStartAdornment { get; }
+
         Margin? Margin { get; }
 
         ControlVariant? Variant { get; }
@@ -24,6 +26,10 @@ namespace Skclusive.Material.Form
         Action OnFocus { get; }
 
         Action OnBlur { get; }
+
+        Action OnFill { get; }
+
+        Action OnEmpty { get; }
     }
 
     public class FormControlContextBuilder
@@ -42,6 +48,8 @@ namespace Skclusive.Material.Form
 
             public bool? HiddenLabel { get; internal set; }
 
+            public bool? HasStartAdornment { get; internal set; }
+
             public Margin? Margin { get; internal set; }
 
             public ControlVariant? Variant { get; internal set; }
@@ -49,6 +57,10 @@ namespace Skclusive.Material.Form
             public Action OnFocus { get; internal set; }
 
             public Action OnBlur { get; internal set; }
+
+            public Action OnFill { get; internal set; }
+
+            public Action OnEmpty { get; internal set; }
         }
 
         private readonly FormControlContext context = new FormControlContext();
@@ -68,6 +80,13 @@ namespace Skclusive.Material.Form
         public FormControlContextBuilder WithFilled(bool? filled)
         {
             context.Filled = filled;
+
+            return this;
+        }
+
+        public FormControlContextBuilder WithHasStartAdornment(bool? hasStartAdornment)
+        {
+            context.HasStartAdornment = hasStartAdornment;
 
             return this;
         }
@@ -128,6 +147,20 @@ namespace Skclusive.Material.Form
             return this;
         }
 
+        public FormControlContextBuilder WithOnFill(Action onFill)
+        {
+            context.OnFill = onFill;
+
+            return this;
+        }
+
+        public FormControlContextBuilder WithOnEmpty(Action onEmpty)
+        {
+            context.OnEmpty = onEmpty;
+
+            return this;
+        }
+
         public FormControlContextBuilder With(IFormControlContext context)
         {
             WithDisabled(context.Disabled)
@@ -139,7 +172,9 @@ namespace Skclusive.Material.Form
             .WithError(context.Error)
             .WithVariant(context.Variant)
             .WithOnFocus(context.OnFocus)
-            .WithOnBlur(context.OnBlur);
+            .WithOnBlur(context.OnBlur)
+            .WithOnFill(context.OnFill)
+            .WithOnEmpty(context.OnEmpty);
 
             return this;
         }

@@ -15,57 +15,124 @@ namespace Skclusive.Material.List
         {
         }
 
+        /// <summary>
+        /// ChildContent of the current component which gets component <see cref="IListItemContext" />.
+        /// </summary>
         [Parameter]
         public RenderFragment<IListItemContext> ChildContent { get; set; }
 
+        /// <summary>
+        /// Reference attached to the child element of the component.
+        /// </summary>
         [Parameter]
         public IReference ChildRef { get; set; } = new Reference();
 
+        /// <summary>
+        /// If <c>true</c>, the text will not wrap, but instead will truncate with a text overflow ellipsis.
+        /// <remarks>
+        /// Note that text overflow can only happen with block or inline-block level elements
+        /// (the element needs to have a width in order to overflow).
+        /// </remarks>
+        /// </summary>
         [Parameter]
         public bool NoWrap { set; get; }
 
+        /// <summary>
+        /// html component tag to be used as container.
+        /// </summary>
         [Parameter]
         public string Component { set; get; }
 
+        /// <summary>
+        /// The <see cref="Skclusive.Core.Component.AlignItems" /> which defines the <c>align-items</c> style property..
+        /// </summary>
         [Parameter]
         public AlignItems AlignItems { set; get; } = AlignItems.Center;
 
+        /// <summary>
+        /// If <c>true</c>, the list item will be focused during the first mount.
+        /// Focus will also be triggered if the value changes from false to true.
+        /// </summary>
         [Parameter]
         public bool AutoFocus { set; get; }
 
+        /// <summary>
+        /// If <c>true</c>, the list item will be a button (using <c>ButtonBase</c>). Props intended
+        /// for <c>ButtonBase</c> can then be applied to <c>ListItem</c>.
+        /// </summary>
         [Parameter]
         public bool Button { set; get; } = false;
 
+        /// <summary>
+        /// If <c>true</c>, compact vertical padding designed for keyboard and mouse input will be used for
+        /// the list and list items.
+        /// The prop is available to descendant components as the <c>dense</c> context.
+        /// </summary>
         [Parameter]
         public bool? Dense { set; get; }
 
+        /// <summary>
+        /// If <c>true</c>, the left and right padding is removed.
+        /// </summary>
         [Parameter]
         public bool DisableGutters { set; get; }
 
+        /// <summary>
+        /// If <c>true</c>, a 1px light border is added to the bottom of the list item.
+        /// </summary>
         [Parameter]
         public bool Divider { set; get; } = false;
 
+        /// <summary>
+        /// This prop can help a person know which element has the keyboard focus.
+        /// The class name will be applied when the element gain the focus through a keyboard interaction.
+        /// It's a polyfill for the [CSS :focus-visible selector](https://drafts.csswg.org/selectors-4/#the-focus-visible-pseudo).
+        /// The rationale for using this feature [is explained here](https://github.com/WICG/focus-visible/blob/master/explainer.md).
+        /// A [polyfill can be used](https://github.com/WICG/focus-visible) to apply a `focus-visible` class to other components
+        /// if needed.
+        /// </summary>
         [Parameter]
         public string FocusVisibleClass { set; get; }
 
+        /// <summary>
+        /// Secondary Action content.
+        /// </summary>
         [Parameter]
         public RenderFragment SecondaryAction { set; get; }
 
+        /// <summary>
+        /// Use to apply selected styling.
+        /// </summary>
         [Parameter]
         public bool Selected { set; get; } = false;
 
+        /// <summary>
+        /// html component tag to be used as container.
+        /// </summary>
         [Parameter]
         public string ContainerComponent { set; get; } = "li";
 
+        /// <summary>
+        /// <c>style</c> applied on the <c>Container</c> element.
+        /// </summary>
         [Parameter]
         public string ContainerStyle { set; get; }
 
+        /// <summary>
+        /// <c>class</c> applied on the <c>Container</c> element.
+        /// </summary>
         [Parameter]
         public string ContainerClass { set; get; }
 
+        /// <summary>
+        /// <c>style</c> applied on the <c>Dense</c> element.
+        /// </summary>
         [Parameter]
         public string DenseStyle { set; get; }
 
+        /// <summary>
+        /// <c>class</c> applied on the <c>Dense</c> element.
+        /// </summary>
         [Parameter]
         public string DenseClass { set; get; }
 

@@ -43,15 +43,29 @@ else if (Variant == DrawerVariant.Persistent)
 }
 else
 {
-    <Modal Open="@Open" 
-           OnClose="@HandleClose"
-           Context="ModalContext">
-        <BackdropContent>
-            <Backdrop Open="@ModalContext.Open" 
-                      OnClick="@ModalContext.OnBackdropClick"/>
+    <Modal
+        Absolute="@Absolute"
+        Class="@_Class"
+        Style="@_Style"
+        RootRef="@RootRef"
+        Open="@Open"
+        PortalTargetRef="@ContainerRef"
+        BackdropClass="@_BackdropClass"
+        BackdropStyle="@_BackdropStyle"
+        OnClose="@HandleClose">
+        <BackdropContent
+            Context="ModalContext">
+            <Backdrop
+                Class="@ModalContext.BackdropClass"
+                Style="@ModalContext.BackdropStyle"
+                Open="@ModalContext.Open"
+                OnClick="@ModalContext.OnBackdropClick"/>
         </BackdropContent>
-        <ChildContent>
-            <Slide Placement="@Placement"
+        <ChildContent
+            Context="ModalContext">
+            <Slide
+                RootRef="@ModalContext.RefBack"
+                Placement="@Placement"
                 In="@ModalContext.Open"
                 TransitionDuration="@TransitionDuration"
                 AppearTimeout="@AppearTimeout"
@@ -61,7 +75,8 @@ else
                 OnEnter="@ModalContext.OnEnter"
                 OnExited="@ModalContext.OnExited"
                 Context="SlideContext">
-                <Paper RootRef="SlideContext.RefBack"
+                <Paper
+                    RootRef="SlideContext.RefBack"
                     Elevation="@_Elevation"
                     Square
                     Class="@_PaperClass"

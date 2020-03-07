@@ -2,8 +2,12 @@
 
 namespace Skclusive.Material.Script
 {
-    public class ScriptHelpersScript : ScriptComponentBase
+    public class ScriptHelpersScript : Scripted
     {
+        public ScriptHelpersScript(): base("MaterialScriptHelpers")
+        {
+        }
+
         protected override string GetScript()
         {
             return

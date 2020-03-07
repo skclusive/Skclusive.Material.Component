@@ -1,0 +1,19 @@
+﻿@namespace Skclusive.Material.Transition
+@inherits CollapseContainerComponent
+
+<Component
+    RootRef="@RootRef"
+    Class="@_Class"
+    Style="@_Style"
+    Tag="@Component">
+    <div
+        class="@_WrapperClass"
+        style="@_WrapperStyle"
+        @ref="@WrapperRef.Current">
+        <div
+            class="@_WrapperInnerClass"
+            style="@_WrapperInnerStyle">
+            @ChildContent
+        </div>
+    </div>
+</Component>

@@ -23,15 +23,34 @@ namespace Skclusive.Material.Button
 
         protected TouchRipple Ripple { set; get; }
 
+        /// <summary>
+        /// The <see cref="ButtonType" /> of the button.
+        /// </summary>
         [Parameter]
         public ButtonType Type { set; get; } = ButtonType.Button;
 
+        /// <summary>
+        /// If <c>true</c>, the ripples will be centered.
+        /// They won't start at the cursor interaction position.
+        /// </summary>
         [Parameter]
         public bool CenterRipple { set; get; }
 
+        /// <summary>
+        /// If <c>true</c>, the base button will have a keyboard focus ripple.
+        /// <c>DisableRipple</c> must also be <c>false</c>.
+        /// </summary>
         [Parameter]
         public bool FocusRipple { set; get; }
 
+        /// <summary>
+        /// This prop can help a person know which element has the keyboard focus.
+        /// The class name will be applied when the element gain the focus through a keyboard interaction.
+        /// It's a polyfill for the [CSS :focus-visible selector](https://drafts.csswg.org/selectors-4/#the-focus-visible-pseudo).
+        /// The rationale for using this feature [is explained here](https://github.com/WICG/focus-visible/blob/master/explainer.md).
+        /// A [polyfill can be used](https://github.com/WICG/focus-visible) to apply a `focus-visible` class to other components
+        /// if needed.
+        /// </summary>
         [Parameter]
         public bool? FocusVisible { set; get; }
 

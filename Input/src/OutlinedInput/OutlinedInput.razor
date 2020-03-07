@@ -1,0 +1,47 @@
+﻿@namespace Skclusive.Material.Input
+@inherits OutlinedInputComponent
+
+<InputBase
+    RootRef="@RootRef"
+    @ref="Input"
+    Class="@_Class"
+    Style="@_Style"
+    Notched="@Notched"
+    Overridable="@Selector"
+    @attributes="Attributes"
+    Focused="@Focused"
+    Disabled="@Disabled"
+    AutoComplete="@AutoComplete"
+    AutoFocus="@AutoFocus"
+    DefaultValue="@DefaultValue"
+    FullWidth="@FullWidth"
+    InputComponent="@Component"
+    Multiline="@Multiline"
+    Name="@Name"
+    PlaceHolder="@PlaceHolder"
+    ReadOnly="@ReadOnly"
+    Rows="@Rows"
+    RowsMax="@RowsMax"
+    Select="@Select"
+    Type="@Type"
+    Value="@Value"
+    OnChange="@OnChange"
+    OnFocus="@HandleFocus"
+    OnBlur="@HandleBlur"
+    HasStartAdornment="@HasStartAdornment"
+    HasEndAdornment="@HasEndAdornment"
+    InputClass="@InputClass">
+    <StartAdornment>
+        @StartAdornment
+    </StartAdornment>
+    <EndAdornment>
+        @EndAdornment
+    </EndAdornment>
+    <RenderSuffix
+        Context="NotchedValue">
+        <NotchedOutline
+            Class="@_NotchedClass"
+            LabelWidth="@LabelWidth"
+            Notched="@NotchedValue" />
+    </RenderSuffix>
+</InputBase>

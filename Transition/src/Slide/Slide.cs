@@ -26,48 +26,97 @@ namespace Skclusive.Material.Transition
         {
         }
 
+        /// <summary>
+        /// If <c>true</c>, show the component; triggers the enter or exit animation.
+        /// </summary>
         [Parameter]
         public bool In { set; get; }
 
-        [Parameter]
-        public RenderFragment<ITransitionContext> ChildContent { get; set; }
-
-        [Parameter]
-        public Action<IReference, bool> OnEnter { set; get; }
-
-        [Parameter]
-        public Action<IReference, bool> OnEntering { set; get; }
-
-        [Parameter]
-        public Action<IReference> OnExit { set; get; }
-
-        [Parameter]
-        public Action<IReference> OnExited { set; get; }
-
+        /// <summary>
+        /// The <see cref="Skclusive.Core.Component.Placement" /> that direction the child node will enter from.
+        /// </summary>
         [Parameter]
         public Placement Placement { set; get; } = Placement.Bottom;
 
+        /// <summary>
+        /// ChildContent of the current component which gets component <see cref="ITransitionContext" />.
+        /// </summary>
+        [Parameter]
+        public RenderFragment<ITransitionContext> ChildContent { get; set; }
+
+        /// <summary>
+        /// Callback fired before the Menu enters.
+        /// </summary>
+        [Parameter]
+        public Action<IReference, bool> OnEnter { set; get; }
+
+        /// <summary>
+        /// Callback fired when the Menu is entering.
+        /// </summary>
+        [Parameter]
+        public Action<IReference, bool> OnEntering { set; get; }
+
+        /// <summary>
+        /// Callback fired before the Menu exits.
+        /// </summary>
+        [Parameter]
+        public Action<IReference> OnExit { set; get; }
+
+        /// <summary>
+        /// Callback fired when the Menu has exited.
+        /// </summary>
+        [Parameter]
+        public Action<IReference> OnExited { set; get; }
+
+        /// <summary>
+        /// slide transition duration.
+        /// </summary>
         [Parameter]
         public int? TransitionDuration { set; get; }
 
+        /// <summary>
+        /// slide transition delay.
+        /// </summary>
         [Parameter]
         public int TransitionDelay { set; get; }
 
+        /// <summary>
+        /// slide transition timeout.
+        /// </summary>
         [Parameter]
         public int Timeout { set; get; } = 225;
 
+        /// <summary>
+        /// slide appear timeout.
+        /// </summary>
         [Parameter]
         public int? AppearTimeout { set; get; }
 
+        /// <summary>
+        /// slide enter timeout.
+        /// </summary>
         [Parameter]
         public int? EnterTimeout { set; get; } = 225;
 
+        /// <summary>
+        /// slide exit timeout.
+        /// </summary>
         [Parameter]
         public int? ExitTimeout { set; get; } = 195;
 
+        /// <summary>
+        /// By default the child component is mounted immediately along with
+        /// the parent <c>Transition</c> component. If you want to "lazy mount" the component on the
+        /// first <c>In="true"</c> you can set <c>MountOnEnter</c>. After the first enter transition the component will stay
+        /// mounted, even on "exited", unless you also specify <c>UnmountOnExit</c>.
+        /// </summary>
         [Parameter]
         public bool MountOnEnter { set; get; }
 
+        /// <summary>
+        /// By default the child component stays mounted after it reaches the <c>'exited'</c> state.
+        /// Set <c>UnmountOnExit</c> if you'd prefer to unmount the component after it finishes exiting.
+        /// </summary>
         [Parameter]
         public bool UnmountOnExit { set; get; }
 

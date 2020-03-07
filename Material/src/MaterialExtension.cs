@@ -1,16 +1,13 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Skclusive.Material.Script;
-using Skclusive.Script.DomHelpers;
 
 namespace Skclusive.Material.Component
 {
     public static class MaterialExtension
     {
-        public static void AddMaterialUI(this IServiceCollection services)
+        public static void TryAddMaterialServices(this IServiceCollection services)
         {
-            services.AddDomHelpers();
-
-            services.AddScriptHelpers();
+            services.TryAddMaterialScriptServices();
         }
     }
 }

@@ -14,33 +14,63 @@ namespace Skclusive.Material.Button
 
         protected ElementReference Button { set; get; }
 
+        /// <summary>
+        /// The <see cref="ButtonType" /> of the button.
+        /// </summary>
         [Parameter]
         public ButtonType Type { set; get; } = ButtonType.Button;
 
+        /// <summary>
+        /// The <see cref="ButtonVariant" /> of the button.
+        /// </summary>
         [Parameter]
         public ButtonVariant Variant { set; get; } = ButtonVariant.Text;
 
+        /// <summary>
+        /// The <see cref="Skclusive.Core.Component.Size" /> of the button.
+        /// </summary>
         [Parameter]
         public Size Size { set; get; } = Size.Medium;
 
+        /// <summary>
+        /// If `true`, the button will take up the full width of its container.
+        /// </summary>
         [Parameter]
         public bool FullWidth { set; get; }
 
+        /// <summary>
+        /// Element placed before the children.
+        /// </summary>
         [Parameter]
         public RenderFragment StartIcon { set; get; }
 
+        /// <summary>
+        /// Element placed after the children.
+        /// </summary>
         [Parameter]
         public RenderFragment EndIcon { set; get; }
 
+        /// <summary>
+        /// The <c>style</c> applied on the start icon.
+        /// </summary>
         [Parameter]
         public string StartIconStyle { set; get; }
 
+        /// <summary>
+        /// The <c>class</c> applied on the start icon.
+        /// </summary>
         [Parameter]
         public string StartIconClass { set; get; }
 
+        /// <summary>
+        /// The <c>style</c> applied on the end icon.
+        /// </summary>
         [Parameter]
         public string EndIconStyle { set; get; }
 
+        /// <summary>
+        /// The <c>class</c> applied on the end icon.
+        /// </summary>
         [Parameter]
         public string EndIconClass { set; get; }
 

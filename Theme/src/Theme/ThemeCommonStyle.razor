@@ -1,7 +1,8 @@
 ﻿@namespace Skclusive.Material.Theme
 @inherits StyleComponentBase
 
-<style data-name="ThemeCommon">
+<Styled
+    Name="ThemeCommon">
 
     :root {
 
@@ -64,6 +65,7 @@
             0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
 
         --theme-zindex-appbar: 1100;
+        --theme-zindex-drawer: 1200;
         --theme-typography-font-size: 14;
         --theme-typography-html-font-size: 16;
         --theme-font-size-coef: calc(var(--theme-typography-font-size) / 14);
@@ -183,4 +185,4 @@
         --theme-typography-button-text-transform: uppercase;
     }
 
-</style>
+</Styled>

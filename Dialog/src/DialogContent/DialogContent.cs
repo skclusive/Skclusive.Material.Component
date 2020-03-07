@@ -12,9 +12,15 @@ namespace Skclusive.Material.Dialog
         {
         }
 
+        /// <summary>
+        /// html component tag to be used as container.
+        /// </summary>
         [Parameter]
         public string Component { set; get; } = "div";
 
+        /// <summary>
+        /// Display the top and bottom dividers.
+        /// </summary>
         [Parameter]
         public bool Dividers { set; get; }
 

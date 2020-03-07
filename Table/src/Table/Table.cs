@@ -11,15 +11,30 @@ namespace Skclusive.Material.Table
         {
         }
 
+        /// <summary>
+        /// html component tag to be used as container.
+        /// </summary>
         [Parameter]
         public string Component { set; get; } = "table";
 
+        /// <summary>
+        /// The <see cref="Skclusive.Core.Component.Padding" /> that allows TableCells to inherit padding of the Table.
+        /// </summary>
         [Parameter]
         public Padding Padding { get; set; } = Padding.Default;
 
+        /// <summary>
+        /// The <see cref="Skclusive.Core.Component.Size" /> that allows TableCells to inherit size of the Table.
+        /// </summary>
         [Parameter]
         public Size Size { get; set; } = Size.Medium;
 
+        /// <summary>
+        /// Set the header sticky.
+        /// <remarks>
+        /// ⚠️ It doesn't work with IE 11.
+        /// </remarks>
+        /// </summary>
         [Parameter]
         public bool StickyHeader { get; set; } = false;
 

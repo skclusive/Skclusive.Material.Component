@@ -5,6 +5,9 @@ namespace Skclusive.Material.Core
 {
     public class MaterialComponentBase : EventComponentBase
     {
+        /// <summary>
+        /// Reference attached to the root element of the component.
+        /// </summary>
         [Parameter]
         public IReference RootRef { get; set; } = new Reference();
 

@@ -9,6 +9,9 @@ namespace Skclusive.Material.Card
         {
         }
 
+        /// <summary>
+        /// html component tag to be used as container.
+        /// </summary>
         [Parameter]
         public string Component { set; get; } = "div";
     }

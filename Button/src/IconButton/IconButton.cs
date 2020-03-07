@@ -12,9 +12,15 @@ namespace Skclusive.Material.Button
 
         protected ElementReference Button { set; get; }
 
+        /// <summary>
+        /// The <see cref="IconSize" /> of the button.
+        /// </summary>
         [Parameter]
         public IconSize Size { set; get; } = IconSize.Medium;
 
+        /// <summary>
+        /// The <see cref="IconButtonEdge" /> of the button.
+        /// </summary>
         [Parameter]
         public IconButtonEdge Edge { set; get; } = IconButtonEdge.None;
 

@@ -3,6 +3,7 @@ using Skclusive.Core.Component;
 using Skclusive.Material.Core;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Skclusive.Material.Progress
 {
@@ -12,30 +13,66 @@ namespace Skclusive.Material.Progress
         {
         }
 
+        /// <summary>
+        /// The <see cref="LinearVariant"> variant to use.
+        /// Use Indeterminate or query when there is no progress value.
+        /// </summary>
         [Parameter]
         public LinearVariant Variant { set; get; } = LinearVariant.Indeterminate;
 
+        /// <summary>
+        /// The <see cref="Skclusive.Core.Component.Color" /> of the component. It supports those theme colors that make sense for this component.
+        /// </summary>
         [Parameter]
         public Color Color { set; get; } = Color.Primary;
 
+        /// <summary>
+        /// The value of the progress indicator for the determinate and buffer variants.
+        /// Value between 0 and 100.
+        /// </summary>
         [Parameter]
         public decimal Value { set; get; } = 0;
 
+        /// <summary>
+        /// The value for the buffer variant.
+        /// Value between 0 and 100.
+        /// </summary>
         [Parameter]
-        public double ValueBuffer { set; get; }
+        public decimal ValueBuffer { set; get; }
 
+        /// <summary>
+        /// <c>style</c> applied on the <c>Bar1</c> element.
+        /// </summary>
         [Parameter]
         public string Bar1Style { set; get; }
 
-        [Parameter]
-        public string Bar2Style { set; get; }
-
+        /// <summary>
+        /// <c>class</c> applied on the <c>Bar1</c> element.
+        /// </summary>
         [Parameter]
         public string Bar1Class { set; get; }
 
+        /// <summary>
+        /// <c>style</c> applied on the <c>Bar2</c> element.
+        /// </summary>
+        [Parameter]
+        public string Bar2Style { set; get; }
+
+        /// <summary>
+        /// <c>class</c> applied on the <c>Bar2</c> element.
+        /// </summary>
         [Parameter]
         public string Bar2Class { set; get; }
 
+        /// <summary>
+        /// <c>style</c> applied on the <c>Dashed</c> element.
+        /// </summary>
+        [Parameter]
+        public string DashedStyle { set; get; }
+
+        /// <summary>
+        /// <c>class</c> applied on the <c>Dashed</c> element.
+        /// </summary>
         [Parameter]
         public string DashedClass { set; get; }
 
@@ -77,7 +114,7 @@ namespace Skclusive.Material.Progress
             {
                 if (Variant == LinearVariant.Determinate || Variant == LinearVariant.Buffer)
                 {
-                    yield return Tuple.Create<string, object>("transform", $"translateX({Value - 100})");
+                    yield return Tuple.Create<string, object>("transform", $"translateX({Value - 100}%)");
                 }
             }
         }
@@ -93,11 +130,20 @@ namespace Skclusive.Material.Progress
             {
                 if (Variant == LinearVariant.Buffer)
                 {
-                    yield return Tuple.Create<string, object>("transform", $"translateX({ValueBuffer - 100})");
+                    yield return Tuple.Create<string, object>("transform", $"translateX({ValueBuffer - 100}%)");
                 }
             }
         }
 
+        protected virtual string _DashedStyle
+        {
+            get => CssUtil.ToStyle(DashedStyles, DashedStyle);
+        }
+
+        protected virtual IEnumerable<Tuple<string, object>> DashedStyles
+        {
+            get => Enumerable.Empty<Tuple<string, object>>();
+        }
 
         protected virtual string _DashedClass
         {
@@ -167,16 +213,5 @@ namespace Skclusive.Material.Progress
                     yield return $"Bar2-{nameof(LinearVariant.Buffer)}";
             }
         }
-    }
-
-    public enum LinearVariant
-    {
-        Determinate,
-
-        Indeterminate,
-
-        Buffer,
-
-        Query
     }
 }

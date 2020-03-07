@@ -11,18 +11,30 @@ namespace Skclusive.Material.Divider
         {
         }
 
+        /// <summary>
+        /// html component tag to be used as container.
+        /// </summary>
         [Parameter]
         public string Component { set; get; } = "hr";
 
         [Parameter]
         public bool Absolute { set; get; }
 
+        /// <summary>
+        /// The <see cref="DividerVariant"> variant to use.
+        /// </summary>
         [Parameter]
         public DividerVariant Variant { set; get; } = DividerVariant.FullWidth;
 
+        /// <summary>
+        /// If <c>true</c>, the divider will have a lighter color.
+        /// </summary>
         [Parameter]
         public bool Light { set; get; } = false;
 
+        /// <summary>
+        /// The <see cref="Skclusive.Core.Component.Orientation" /> orientation of the divider.
+        /// </summary>
         [Parameter]
         public Orientation Orientation { set; get; }
 

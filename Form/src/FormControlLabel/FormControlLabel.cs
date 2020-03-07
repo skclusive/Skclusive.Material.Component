@@ -10,18 +10,33 @@ namespace Skclusive.Material.Form
         {
         }
 
+        /// <summary>
+        /// ChildContent of the current component which gets component <see cref="IFormControlContext" />.
+        /// </summary>
         [Parameter]
         public RenderFragment<IFormControlContext> ChildContent { set; get; }
 
+        /// <summary>
+        /// html component tag to be used as container.
+        /// </summary>
         [Parameter]
         public string Component { set; get; } = "label";
 
+        /// <summary>
+        /// The text to be used in an enclosing label element.
+        /// </summary>
         [Parameter]
         public string Label { set; get; }
 
+        /// <summary>
+        /// The <see cref="Skclusive.Core.Component.Placement" /> that places the label.
+        /// </summary>
         [Parameter]
         public Placement Placement { set; get; } = Placement.End;
 
+        /// <summary>
+        /// <c>class</c> applied on the <c>Label</c> element.
+        /// </summary>
         [Parameter]
         public string LabelClass { set; get; }
 

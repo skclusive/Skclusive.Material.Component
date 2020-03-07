@@ -12,33 +12,52 @@ namespace Skclusive.Material.Table
         {
         }
 
+        /// <summary>
+        /// html component tag to be used as container.
+        /// </summary>
         [Parameter]
         public string Component { set; get; }
 
-        [Parameter]
-        public bool Selected { set; get; }
-
-        [Parameter]
-        public bool Hover { set; get; }
-
-        [Parameter]
-        public bool Numeric { set; get; }
-
+        /// <summary>
+        /// Set scope attribute.
+        /// </summary>
         [Parameter]
         public string Scope { set; get; }
 
+        /// <summary>
+        /// The <see cref="Skclusive.Core.Component.Align" /> that sets the text-align on the table cell content.
+        /// <remarks>
+        /// Monetary or generally number fields **should be right aligned** as that allows
+        /// you to add them up quickly in your head without having to worry about decimals.
+        /// </remarks>
+        /// </summary>
         [Parameter]
         public Align Align { set; get; } = Align.Inherit;
 
+        /// <summary>
+        /// The <see cref="Skclusive.Core.Component.Portion" /> that specifies the cell type.
+        ///  By default, the TableHead, TableBody or TableFooter parent component set the value.
+        /// </summary>
         [Parameter]
         public Portion? Portion { set; get; }
 
+        /// <summary>
+        /// The <see cref="Skclusive.Core.Component.Size" /> that specifies the size of the cell.
+        /// By default, the Table parent component set the value (`medium`).
+        /// </summary>
         [Parameter]
         public Size? Size { set; get; }
 
+        /// <summary>
+        /// The <see cref="Skclusive.Core.Component.Sort" /> that sets aria-sort direction.
+        /// </summary>
         [Parameter]
         public Sort Sort { set; get; } = Sort.None;
 
+        /// <summary>
+        /// The <see cref="Skclusive.Core.Component.Padding" /> that sets the padding applied to the cell.
+        /// By default, the Table parent component set the value (`default`).
+        /// </summary>
         [Parameter]
         public Padding? Padding { set; get; }
 

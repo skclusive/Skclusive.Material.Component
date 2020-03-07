@@ -10,14 +10,33 @@ namespace Skclusive.Material.Form
         {
         }
 
+        /// <summary>
+        /// ChildContent of the current component.
+        /// </summary>
         [Parameter]
         public RenderFragment ChildContent { get; set; }
 
+        /// <summary>
+        /// html component tag to be used as container.
+        /// </summary>
         [Parameter]
         public string Component { set; get; } = "div";
 
+        /// <summary>
+        /// If <c>true</c>, the component will take up the full width of its container.
+        /// </summary>
         [Parameter]
         public bool FullWidth { set; get; } = false;
+
+        /// <summary>
+        /// If start <c>InputAdornment</c> is passed for the component.
+        /// </summary>
+        [Parameter]
+        public bool? HasStartAdornment { set; get; }
+
+        protected Skclusive.Core.Component.Margin _Margin => Margin ?? Skclusive.Core.Component.Margin.None;
+
+        protected ControlVariant _Variant => Variant ?? ControlVariant.Standard;
 
         public override async Task SetParametersAsync(ParameterView parameters)
         {
@@ -43,17 +62,34 @@ namespace Skclusive.Material.Form
             StateHasChanged();
         }
 
+        protected void OnFillStateChange()
+        {
+            Filled = true;
+
+            StateHasChanged();
+        }
+
+        protected void OnEmptyStateChange()
+        {
+            Filled = false;
+
+            StateHasChanged();
+        }
+
         protected IFormControlContext FormContext => new FormControlContextBuilder()
             .WithDisabled(Disabled)
             .WithFilled(Filled)
             .WithFocused(Focused)
             .WithRequired(Required)
             .WithHiddenLabel(HiddenLabel)
-            .WithMargin(Margin ?? Skclusive.Core.Component.Margin.None)
+            .WithMargin(_Margin)
             .WithError(Error)
             .WithOnFocus(OnFocusStateChange)
             .WithOnBlur(OnBlurStateChange)
-            .WithVariant(Variant ?? ControlVariant.Standard).Build();
+            .WithOnFill(OnFillStateChange)
+            .WithOnEmpty(OnEmptyStateChange)
+            .WithHasStartAdornment(HasStartAdornment)
+            .WithVariant(_Variant).Build();
 
         protected override IEnumerable<string> Classes
         {
@@ -62,8 +98,8 @@ namespace Skclusive.Material.Form
                 foreach (var item in base.Classes)
                     yield return item;
 
-                if(Margin != Skclusive.Core.Component.Margin.None)
-                    yield return $"{nameof(Margin)}-{Margin}";
+                if(_Margin != Skclusive.Core.Component.Margin.None)
+                    yield return $"{nameof(Margin)}-{_Margin}";
 
                 if (FullWidth)
                     yield return $"{nameof(FullWidth)}";

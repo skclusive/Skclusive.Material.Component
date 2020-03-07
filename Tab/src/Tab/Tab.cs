@@ -17,33 +17,65 @@ namespace Skclusive.Material.Tab
         [CascadingParameter]
         public ITabsContext TabsContext { set; get; }
 
+        /// <summary>
+        /// If <c>true</c>, the  keyboard focus ripple will be disabled.
+        /// <c>DisableRipple</c> must also be true.
+        /// </summary>
         [Parameter]
         public bool DisableFocusRipple { set; get; }
 
+        /// <summary>
+        /// If <c>true</c>, the ripple effect will be disabled.
+        /// </summary>
         [Parameter]
         public bool DisableRipple { set; get; }
 
+        /// <summary>
+        /// Tab labels appear in a single row.
+        /// They can use a second line if needed.
+        /// </summary>
         [Parameter]
         public bool Wrapped { set; get; }
 
+        /// <summary>
+        /// You can provide your own value. Otherwise, we fallback to the child position index.
+        /// </summary>
         [Parameter]
         public object Value { set; get; }
 
+        /// <summary>
+        /// The label text.
+        /// </summary>
         [Parameter]
         public string Label { set; get; }
 
+        /// <summary>
+        /// The icon content.
+        /// </summary>
         [Parameter]
         public RenderFragment IconContent { set; get; }
 
+        /// <summary>
+        /// The label content.
+        /// </summary>
         [Parameter]
         public RenderFragment LabelContent { set; get; }
 
+        /// <summary>
+        /// <c>style</c> applied on the <c>Wrapper</c> element.
+        /// </summary>
         [Parameter]
         public string WrapperStyle { set; get; }
 
+        /// <summary>
+        /// <c>class</c> applied on the <c>Wrapper</c> element.
+        /// </summary>
         [Parameter]
         public string WrapperClass { set; get; }
 
+        /// <summary>
+        /// aria-controls value.
+        /// </summary>
         [Parameter]
         public string Control { set; get; }
 

@@ -13,30 +13,54 @@ namespace Skclusive.Material.Button
         {
         }
 
+        /// <summary>
+        /// If <c>true</c>, the ripple is triggered.
+        /// </summary>
         [Parameter]
         public bool In { set; get; }
 
+        /// <summary>
+        /// If <c>true</c>, the ripple pulsates, typically indicating the keyboard focus state of an element.
+        /// </summary>
         [Parameter]
         public bool Pulsate { set; get; }
 
+        /// <summary>
+        /// Horizontal position of the ripple center.
+        /// </summary>
         [Parameter]
         public double RippleX { set; get; }
 
+        /// <summary>
+        /// Vertical position of the ripple center.
+        /// </summary>
         [Parameter]
         public double RippleY { set; get; }
 
+        /// <summary>
+        /// Diameter of the ripple.
+        /// </summary>
         [Parameter]
         public double RippleSize { set; get; }
 
+        /// <summary>
+        /// exit delay
+        /// </summary>
         [Parameter]
         public int Timeout { set; get; }
 
         [Parameter]
         public Action<IReference> OnExited { set; get; }
 
+        /// <summary>
+        /// <c>class</c> applied on the child element.
+        /// </summary>
         [Parameter]
         public string ChildClass { set; get; }
 
+        /// <summary>
+        /// <c>style</c> applied on the child element.
+        /// </summary>
         [Parameter]
         public string ChildStyle { set; get; }
 

@@ -2,6 +2,12 @@
 @inherits PopoverComponent
 
 <Modal
+    Absolute="@Absolute"
+    DisablePortal="@DisablePortal"
+    PortalTargetRef="@PortalTargetRef"
+    PortalTargetBodyRef="@PortalTargetBodyRef"
+    BackdropClass="@_BackdropClass"
+    BackdropStyle="@_BackdropStyle"
     Open="@Open"
     Class="@_Class"
     Style="@_Style"
@@ -10,16 +16,20 @@
     OnClose="@HandleClose"
     OnKeyDown="@HandleKeyDownAsync"
     OnEscapeKeyDown="@HandleEscapeKeyDown"
-    BackdropInvisible="@BackdropInvisible"
-    Context="ModalContext">
-    <BackdropContent>
+    BackdropInvisible="@BackdropInvisible">
+    <BackdropContent
+        Context="ModalContext">
         <SimpleBackdrop
+            Class="@ModalContext.BackdropClass"
+            Style="@ModalContext.BackdropStyle"
             Open="@ModalContext.Open"
             OnClick="@ModalContext.OnBackdropClick"
             Invisible="@ModalContext.BackdropInvisible" />
     </BackdropContent>
-    <ChildContent>
+    <ChildContent
+        Context="ModalContext">
         <Fade
+            RootRef="@ModalContext.RefBack"
             Appear
             In="@ModalContext.Open"
             TransitionDuration="@TransitionDuration"

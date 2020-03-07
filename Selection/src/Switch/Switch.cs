@@ -20,27 +20,51 @@ namespace Skclusive.Material.Selection
             };
         }
 
+        /// <summary>
+        /// The <see cref="Skclusive.Core.Component.Edge" /> of the component. It supports those theme colors that make sense for this component.
+        /// </summary>
         [Parameter]
         public Edge Edge { set; get; } = Edge.None;
 
+        /// <summary>
+        /// The <see cref="Skclusive.Core.Component.Size" /> of the component. It supports those theme colors that make sense for this component.
+        /// </summary>
         [Parameter]
         public Size Size { set; get; } = Size.Medium;
 
+        /// <summary>
+        /// <c>class</c> applied on the <c>SwitchBase</c> element.
+        /// </summary>
         [Parameter]
         public string SwitchBaseClass { set; get; }
 
+        /// <summary>
+        /// <c>style</c> applied on the <c>SwitchBase</c> element.
+        /// </summary>
         [Parameter]
         public string SwitchBaseStyle { set; get; }
 
+        /// <summary>
+        /// <c>class</c> applied on the <c>Thumb</c> element.
+        /// </summary>
         [Parameter]
         public string ThumbClass { set; get; }
 
+        /// <summary>
+        /// <c>style</c> applied on the <c>Thumb</c> element.
+        /// </summary>
         [Parameter]
         public string ThumbStyle { set; get; }
 
+        /// <summary>
+        /// <c>class</c> applied on the <c>Track</c> element.
+        /// </summary>
         [Parameter]
         public string TrackClass { set; get; }
 
+        /// <summary>
+        /// <c>style</c> applied on the <c>Track</c> element.
+        /// </summary>
         [Parameter]
         public string TrackStyle { set; get; }
 

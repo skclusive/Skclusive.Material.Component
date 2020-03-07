@@ -13,12 +13,21 @@ namespace Skclusive.Material.Button
 
         protected ElementReference Button { set; get; }
 
+        /// <summary>
+        /// The <see cref="ButtonType" /> of the button.
+        /// </summary>
         [Parameter]
         public ButtonType Type { set; get; } = ButtonType.Button;
 
+        /// <summary>
+        /// The <see cref="Skclusive.Core.Component.Size" /> of the button.
+        /// </summary>
         [Parameter]
         public Size Size { set; get; } = Size.Large;
 
+        /// <summary>
+        /// The <see cref="FabVariant" /> of the button.
+        /// </summary>
         [Parameter]
         public FabVariant Variant { set; get; } = FabVariant.Round;
 

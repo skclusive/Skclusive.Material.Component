@@ -11,12 +11,21 @@ namespace Skclusive.Material.Tab
         {
         }
 
+        /// <summary>
+        /// html component tag to be used as container.
+        /// </summary>
         [Parameter]
         public string Component { set; get; } = "span";
 
+        /// <summary>
+        /// The <see cref="Skclusive.Core.Component.Orientation" /> of the component. the tabs orientation (layout flow direction).
+        /// </summary>
         [Parameter]
         public Orientation Orientation { set; get; }
 
+        /// <summary>
+        /// The <see cref="Skclusive.Core.Component.Color" /> of the component. It supports those theme colors that make sense for this component.
+        /// </summary>
         [Parameter]
         public Color Color { set; get; }
 

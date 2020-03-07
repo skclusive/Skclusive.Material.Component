@@ -11,6 +11,9 @@ namespace Skclusive.Material.List
         {
         }
 
+        /// <summary>
+        /// html component tag to be used as container.
+        /// </summary>
         [Parameter]
         public string Component { set; get; } = "div";
 

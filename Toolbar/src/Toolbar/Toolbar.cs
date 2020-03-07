@@ -10,12 +10,21 @@ namespace Skclusive.Material.Toolbar
         {
         }
 
+        /// <summary>
+        /// html component tag to be used as container.
+        /// </summary>
         [Parameter]
         public string Component { set; get; } = "div";
 
+        /// <summary>
+        /// If <c>true</c>, disables gutter padding.
+        /// </summary>
         [Parameter]
-        public bool Gutters { set; get; } = true;
+        public bool DisableGutters { set; get; }
 
+        /// <summary>
+        /// The <see cref="ToolbarVariant"> variant to use.
+        /// </summary>
         [Parameter]
         public ToolbarVariant Variant { set; get; } = ToolbarVariant.Regular;
 
@@ -28,16 +37,9 @@ namespace Skclusive.Material.Toolbar
 
                 yield return $"{Variant}";
 
-                if (Gutters)
-                    yield return nameof(Gutters);
+                if (!DisableGutters)
+                    yield return "Gutters";
             }
         }
-    }
-
-    public enum ToolbarVariant
-    {
-        Regular,
-
-        Dense
     }
 }

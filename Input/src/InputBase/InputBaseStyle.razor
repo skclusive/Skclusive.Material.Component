@@ -1,7 +1,8 @@
 ﻿@namespace Skclusive.Material.Input
 @inherits StyleComponentBase
 
-<style data-name="InputBase">
+<Styled
+    Name="InputBase">
 
     .InputBase-Root {
         color: var(--theme-palette-text-primary, rgba(0, 0, 0, 0.87));
@@ -15,7 +16,7 @@
         line-height: 1.1875em;
     }
 
-    .InputBase-Root.InputBase-disabled {
+    .InputBase-Root.InputBase-Disabled {
         color: var(--theme-palette-text-disabled, rgba(0, 0, 0, 0.38));
         cursor: default;
     }
@@ -84,7 +85,7 @@
         -webkit-appearance: none;
     }
 
-    .InputBase-Input.InputBase-disabled {
+    .InputBase-Input.InputBase-Disabled {
         opacity: 1;
     }
 
@@ -160,4 +161,4 @@
         -webkit-appearance: textfield;
     }
 
-</style>
+</Styled>

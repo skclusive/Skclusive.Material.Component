@@ -7,6 +7,9 @@ namespace Skclusive.Material.Icon
     public class SvgIconComponent : SvgIconBase
     {
 
+        /// <summary>
+        /// Node passed into the SVG element.
+        /// </summary>
         [Parameter]
         public RenderFragment ChildContent { get; set; }
 

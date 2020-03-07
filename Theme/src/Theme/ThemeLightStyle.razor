@@ -1,7 +1,8 @@
 ﻿@namespace Skclusive.Material.Theme
 @inherits StyleComponentBase
 
-<style data-name="ThemeLight">
+<Styled
+    Name="ThemeLight">
 
     @media (prefers-color-scheme: light) {
 
@@ -23,6 +24,7 @@
             --theme-palette-text-primary: rgba(0, 0, 0, 0.87);
             --theme-palette-text-secondary: rgba(0, 0, 0, 0.54);
             --theme-palette-text-disabled: rgba(0, 0, 0, 0.38);
+            --theme-palette-text-hint: rgba(0, 0, 0, 0.38);
             --theme-palette-divider: rgba(0, 0, 0, 0.12);
             --theme-palette-background-paper: #fff;
             --theme-palette-background-default: #fff;
@@ -35,6 +37,7 @@
             --theme-palette-primary-main: #1976d2;
             --theme-palette-primary-light: rgb(71, 145, 219);
             --theme-palette-primary-dark: rgb(17, 82, 147);
+            --theme-palette-primary-alternate: rgb(17, 82, 147);
             --theme-palette-secondary-main: rgb(220, 0, 78);
             --theme-palette-secondary-light: rgb(227, 51, 113);
             --theme-palette-secondary-dark: rgb(154, 0, 54);
@@ -65,7 +68,11 @@
 
             --theme-custom-content-background-color: #f4f6f8;
             --theme-custom-content-background-default: #f5f5f5;
+            --theme-custom-palette-common-alternate: #000;
+            --theme-custom-palette-opacity: 0.38;
+
+            --theme-mode-dark: 0;
         }
     }
 
-</style>
+</Styled>

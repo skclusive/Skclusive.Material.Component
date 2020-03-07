@@ -7,55 +7,79 @@ using Skclusive.Script.DomHelpers;
 
 namespace Skclusive.Material.Core
 {
-    public class Portal : ComponentBase, IDisposable
+    public class Portal : MaterialContextComponent, IDisposable
     {
         [Inject]
         public DomHelpers DomHelpers { set; get; }
 
+        /// <summary>
+        /// html component tag to be used as container.
+        /// </summary>
         [Parameter]
         public string Component { get; set; } = "div";
 
-        [Parameter]
-        public RenderFragment ChildContent { get; set; }
-
+        /// <summary>
+        /// Reference attached to the target.
+        /// </summary>
         [Parameter]
         public IReference TargetRef { get; set; }
 
-        protected IReference SourceRef { get; set; } = new Reference();
+        /// <summary>
+        /// Reference attached to the target body.
+        /// </summary>
+        [Parameter]
+        public IReference TargetBodyRef { get; set; }
 
-        public bool HasContent => ChildContent != null;
+        /// <summary>
+        /// Disable the portal behavior.
+        /// The children stay within it's parent DOM hierarchy.
+        /// </summary>
+        [Parameter]
+        public bool DisablePortal { get; set; } = false;
+
+        protected IReference SourceRef { get; set; } = new Reference();
 
         protected override void BuildRenderTree(RenderTreeBuilder builder)
         {
             base.BuildRenderTree(builder);
 
-            if(HasContent)
+            if (!DisablePortal)
             {
                 builder.OpenElement(0, Component);
                 builder.AddAttribute(1, "style", "display: none;");
-                builder.AddContent(2, ChildContent);
-                builder.AddElementReferenceCapture(3, (refx) => {
+                builder.AddContent(2, ChildContent.Invoke(Context));
+                builder.AddElementReferenceCapture(3, (refx) =>
+                {
                     SourceRef.Current = refx;
                 });
                 builder.CloseElement();
             }
-        }
-
-        protected override async Task OnAfterRenderAsync(bool firstRender)
-        {
-            await base.OnAfterRenderAsync(firstRender);
-
-            if (TargetRef != null)
+            else
             {
-                await DomHelpers.MoveContentAsync(SourceRef.Current, TargetRef.Current);
+                builder.AddContent(4, ChildContent.Invoke(Context));
             }
         }
 
-        public void Dispose()
+        protected override async Task OnAfterRenderAsync()
         {
-            if (TargetRef != null)
+            await base.OnAfterRenderAsync();
+
+            if (!DisablePortal)
             {
-                _ = DomHelpers.ClearContentAsync(TargetRef.Current);
+                await DomHelpers.MoveContentAsync(SourceRef.Current, TargetRef?.Current, TargetBodyRef?.Current);
+            }
+        }
+
+        protected override void Dispose()
+        {
+            base.Dispose();
+
+            if (!DisablePortal)
+            {
+                if (ChildRef.Current != null)
+                {
+                    _ = DomHelpers.RemoveNodeAsync(ChildRef.Current);
+                }
             }
         }
     }

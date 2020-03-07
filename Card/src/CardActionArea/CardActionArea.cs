@@ -13,12 +13,21 @@ namespace Skclusive.Material.Card
         {
         }
 
+        /// <summary>
+        /// <c>class</c> applied when the area is focused.
+        /// </summary>
         [Parameter]
         public string FocusVisibleClass { set; get; }
 
+        /// <summary>
+        /// <c>style</c> applied on the highlight element.
+        /// </summary>
         [Parameter]
         public string HighlightStyle { set; get; }
 
+        /// <summary>
+        /// <c>class</c> applied on the highlight element.
+        /// </summary>
         [Parameter]
         public string HighlightClass { set; get; }
 

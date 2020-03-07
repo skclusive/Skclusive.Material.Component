@@ -1,7 +1,8 @@
 ﻿@namespace Skclusive.Material.Drawer
 @inherits StyleComponentBase
 
-<style data-name="Drawer">
+<Styled
+    Name="Drawer">
 
     .Drawer-Docked {
         flex: 0 0 auto;
@@ -13,19 +14,19 @@
         height: 100%;
         display: flex;
         outline: 0;
-        z-index: 1200;
+        z-index: var(--theme-zindex-drawer, 1200);
         position: fixed;
         overflow-y: auto;
         flex-direction: column;
         -webkit-overflow-scrolling: touch;
     }
 
-    .Drawer-Paper-Anchor-Start {
+    .Drawer-Paper-Anchor-Left {
         left: 0;
         right: auto;
     }
 
-    .Drawer-Paper-Anchor-End {
+    .Drawer-Paper-Anchor-Right {
         left: auto;
         right: 0;
     }
@@ -48,7 +49,7 @@
         max-height: 100%;
     }
 
-    .Drawer-Paper-Anchor-Docked-Start {
+    .Drawer-Paper-Anchor-Docked-Left {
         border-right: 1px solid var(--theme-palette-divider, rgba(0, 0, 0, 0.12));
     }
 
@@ -56,7 +57,7 @@
         border-bottom: 1px solid var(--theme-palette-divider, rgba(0, 0, 0, 0.12));
     }
 
-    .Drawer-Paper-Anchor-Docked-End {
+    .Drawer-Paper-Anchor-Docked-Right {
         border-left: 1px solid var(--theme-palette-divider, rgba(0, 0, 0, 0.12));
     }
 
@@ -64,4 +65,4 @@
         border-top: 1px solid var(--theme-palette-divider, rgba(0, 0, 0, 0.12));
     }
 
-</style>
+</Styled>

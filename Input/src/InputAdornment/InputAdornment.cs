@@ -11,21 +11,42 @@ namespace Skclusive.Material.Input
         {
         }
 
+        /// <summary>
+        /// html component tag to be used as container.
+        /// </summary>
         [Parameter]
         public string Component { set; get; } = "div";
 
+        /// <summary>
+        /// The <see cref="InputPosition" /> that position this adornment should appear relative to the <c>Input</c>.
+        /// </summary>
         [Parameter]
         public InputPosition Position { set; get; } = InputPosition.Start;
 
+        /// <summary>
+        /// Disable pointer events on the root.
+        /// <remarks>
+        /// This allows for the content of the adornment to focus the input on click.
+        /// </remarks>
+        /// </summary>
         [Parameter]
         public bool DisablePointerEvents { set; get; }
 
+        /// <summary>
+        /// If children is a string then disable wrapping in a Typography component.
+        /// </summary>
         [Parameter]
         public bool DisableTypography { set; get; }
 
+        /// <summary>
+        /// The content of the component.
+        /// </summary>
         [Parameter]
         public string Adornment { set; get; }
 
+        /// <summary>
+        /// The <see cref="ControlVariant" /> the variant to use.
+        /// </summary>
         [Parameter]
         public ControlVariant? Variant { set; get; }
 
@@ -36,6 +57,8 @@ namespace Skclusive.Material.Input
 
         protected IFormControlContext NullContext => null;
 
+        protected ControlVariant? _Variant => Variant ?? FormContext?.Variant;
+
         protected override IEnumerable<string> Classes
         {
             get
@@ -45,8 +68,8 @@ namespace Skclusive.Material.Input
 
                 yield return $"{nameof(Position)}-{Position}";
 
-                if (Variant == ControlVariant.Filled)
-                    yield return $"{nameof(Variant)}";
+                if (_Variant == ControlVariant.Filled)
+                    yield return $"{_Variant}";
 
                 if (DisablePointerEvents)
                     yield return $"{nameof(DisablePointerEvents)}";

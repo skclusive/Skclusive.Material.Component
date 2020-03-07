@@ -10,12 +10,21 @@ namespace Skclusive.Material.Table
         {
         }
 
+        /// <summary>
+        /// html component tag to be used as container.
+        /// </summary>
         [Parameter]
         public string Component { set; get; } = "tr";
 
+        /// <summary>
+        /// If <c>true</c>, the table row will have the selected shading.
+        /// </summary>
         [Parameter]
         public bool Selected { set; get; } = false;
 
+        /// <summary>
+        /// If <c>true</c>, the table row will shade on hover.
+        /// </summary>
         [Parameter]
         public bool Hover { set; get; } = false;
 

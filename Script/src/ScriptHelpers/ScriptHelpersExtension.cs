@@ -1,30 +1,34 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Skclusive.Material.Core;
 
 namespace Skclusive.Material.Script
 {
     public static class ScriptHelpersExtension
     {
-        public static void AddScriptHelpers(this IServiceCollection services)
+        public static void TryAddMaterialScriptServices(this IServiceCollection services)
         {
-            services.AddScoped<ScriptHelpers>();
+            services.TryAddMaterialCoreServices();
 
-            services.AddScoped<EventDelegator>();
+            services.TryAddScoped<ScriptHelpers>();
 
-            services.AddScoped<TrapFocusHelper>();
+            services.TryAddScoped<EventDelegator>();
 
-            services.AddScoped<MediaQueryMatcher>();
+            services.TryAddScoped<TrapFocusHelper>();
 
-            services.AddScoped<DetectThemeHelper>();
+            services.TryAddScoped<MediaQueryMatcher>();
 
-            services.AddScoped<MenuListHelper>();
+            services.TryAddScoped<DetectThemeHelper>();
 
-            services.AddScoped<HistoryBackHelper>();
+            services.TryAddScoped<MenuListHelper>();
 
-            services.AddScoped<PopoverHelper>();
+            services.TryAddScoped<HistoryBackHelper>();
 
-            services.AddScoped<SlideHelper>();
+            services.TryAddScoped<PopoverHelper>();
 
-            services.AddScoped<RadioGroupHelper>();
+            services.TryAddScoped<SlideHelper>();
+
+            services.TryAddScoped<RadioGroupHelper>();
         }
     }
 }

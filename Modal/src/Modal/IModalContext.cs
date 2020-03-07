@@ -9,6 +9,10 @@ namespace Skclusive.Material.Modal
 
         bool BackdropInvisible { get; }
 
+        string BackdropClass { get; }
+
+        string BackdropStyle { get; }
+
         Action<IReference, bool> OnEnter { get; }
 
         Action<IReference> OnExited { get; }
@@ -23,6 +27,10 @@ namespace Skclusive.Material.Modal
             public bool Open { get; internal set; }
 
             public bool BackdropInvisible { get; internal set; }
+
+            public string BackdropClass { get; internal set; }
+
+            public string BackdropStyle  { get; internal set; }
 
             public Action<IReference, bool> OnEnter { get; internal set; }
 
@@ -51,6 +59,21 @@ namespace Skclusive.Material.Modal
             return this;
         }
 
+        public ModalContextBuilder WithBackdropClass(string backdropClass)
+        {
+            MContext.BackdropClass = backdropClass;
+
+            return this;
+        }
+
+        public ModalContextBuilder WithBackdropStyle(string backdropStyle)
+        {
+            MContext.BackdropStyle = backdropStyle;
+
+            return this;
+        }
+
+
         public ModalContextBuilder WithOnEnter(Action<IReference, bool> onEnter)
         {
             MContext.OnEnter = onEnter;
@@ -77,6 +100,8 @@ namespace Skclusive.Material.Modal
             base.With(context)
             .WithOpen(context.Open)
             .WithBackdropInvisible(context.BackdropInvisible)
+            .WithBackdropClass(context.BackdropClass)
+            .WithBackdropStyle(context.BackdropStyle)
             .WithRefBack(context.RefBack)
             .WithOnEnter(context.OnEnter)
             .WithOnExited(context.OnExited)

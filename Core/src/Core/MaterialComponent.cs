@@ -4,6 +4,9 @@ namespace Skclusive.Material.Core
 {
     public class MaterialComponent : MaterialComponentBase
     {
+        /// <summary>
+        /// ChildContent of the current component.
+        /// </summary>
         [Parameter]
         public RenderFragment ChildContent { get; set; }
 

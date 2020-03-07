@@ -23,6 +23,10 @@ namespace Skclusive.Material.Button
         {
         }
 
+        /// <summary>
+        /// If <c>true</c>, the ripple starts at the center of the component
+        /// rather than at the point of interaction.
+        /// </summary>
         [Parameter]
         public bool Center { set; get; }
 

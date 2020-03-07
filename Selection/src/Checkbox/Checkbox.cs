@@ -11,6 +11,21 @@ namespace Skclusive.Material.Selection
         {
         }
 
+        /// <summary>
+        /// If <c>true</c>, the component appears indeterminate.
+        /// This does not set the native input element to indeterminate due
+        /// to inconsistent behavior across browsers.
+        /// However, we set a <c>data-indeterminate</c> attribute on the input.
+        /// </summary>
+        [Parameter]
+        public bool Indeterminate { set; get; }
+
+        /// <summary>
+        /// The icon to display when the component is indeterminate.
+        /// </summary>
+        [Parameter]
+        public RenderFragment IndeterminateIcon { set; get; }
+
         private static RenderFragment DefaultIcon = (RenderTreeBuilder builder) =>
         {
             builder.OpenComponent<CheckBoxOutlineBlankIcon>(0);
@@ -28,12 +43,6 @@ namespace Skclusive.Material.Selection
             builder.OpenComponent<IndeterminateCheckBoxIcon>(0);
             builder.CloseComponent();
         };
-
-        [Parameter]
-        public bool Indeterminate { set; get; }
-
-        [Parameter]
-        public RenderFragment IndeterminateIcon { set; get; }
 
         protected string _CheckedClass => $"~{Selector}-Checked";
 

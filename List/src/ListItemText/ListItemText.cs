@@ -16,36 +16,73 @@ namespace Skclusive.Material.List
         {
         }
 
+        /// <summary>
+        /// html component tag to be used as container.
+        /// </summary>
         [Parameter]
         public string Component { set; get; } = "div";
 
+        /// <summary>
+        /// The main content as text.
+        /// </summary>
         [Parameter]
         public string Primary { set; get; }
 
+        /// <summary>
+        /// The secondary content as text.
+        /// </summary>
         [Parameter]
         public string Secondary { set; get; }
 
+        /// <summary>
+        /// If <c>true</c>, the children will be indented.
+        /// This should be used if there is no left avatar or left icon.
+        /// </summary>
         [Parameter]
         public bool Inset { set; get; } = false;
 
+        /// <summary>
+        /// If <c>true</c>, the children won't be wrapped by a Typography component.
+        /// This can be useful to render an alternative Typography variant by wrapping
+        /// the <c>children</c> (or <c>primary</c>) text, and optional <c>secondary</c> text
+        /// with the Typography component.
+        /// </summary>
         [Parameter]
         public bool DisableTypography { set; get; } = false;
 
+        /// <summary>
+        /// <c>style</c> applied on the <c>Primary</c> element.
+        /// </summary>
         [Parameter]
         public string PrimaryStyle { set; get; }
 
+        /// <summary>
+        /// <c>class</c> applied on the <c>Primary</c> element.
+        /// </summary>
         [Parameter]
         public string PrimaryClass { set; get; }
 
+        /// <summary>
+        /// <c>style</c> applied on the <c>Secondary</c> element.
+        /// </summary>
         [Parameter]
         public string SecondaryStyle { set; get; }
 
+        /// <summary>
+        /// <c>class</c> applied on the <c>Secondary</c> element.
+        /// </summary>
         [Parameter]
         public string SecondaryClass { set; get; }
 
+        /// <summary>
+        /// The main content element.
+        /// </summary>
         [Parameter]
         public RenderFragment PrimaryContent { set; get; }
 
+        /// <summary>
+        /// The secondary content element.
+        /// </summary>
         [Parameter]
         public RenderFragment SecondaryContent { set; get; }
 
