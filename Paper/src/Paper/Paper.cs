@@ -29,7 +29,7 @@ namespace Skclusive.Material.Paper
         [Parameter]
         public bool Square { set; get; } = false;
 
-        protected bool Rounded { get => !Square; }
+        protected bool Rounded => !Square;
 
         protected override IEnumerable<string> Classes
         {

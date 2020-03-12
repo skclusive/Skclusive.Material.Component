@@ -56,6 +56,12 @@ namespace Skclusive.Material.Avatar
         [Parameter]
         public string ImageClass { set; get; }
 
+        /// <summary>
+        /// additional props passed to image tag.
+        /// </summary>
+        [Parameter]
+        public Dictionary<string, object> ImageProps { get; set; }
+
         protected bool IsImage => !string.IsNullOrWhiteSpace(Src) || !string.IsNullOrWhiteSpace(SrcSet);
 
         protected override IEnumerable<string> Classes

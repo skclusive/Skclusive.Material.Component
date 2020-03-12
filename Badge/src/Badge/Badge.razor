@@ -9,14 +9,14 @@
     @attributes="Attributes">
     @ChildContent
     <span
-        class="@_NibClass"
-        style="@_NibStyle">
+        class="@_BadgeClass"
+        style="@_BadgeStyle">
         @if (CanRenderContent)
         {
-            @NibContent
+            @BadgeContent
         } else
         {
-            @NibDisplay
+            @BadgeDisplay
         }
     </span>
 </Component>

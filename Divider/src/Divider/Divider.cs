@@ -17,6 +17,9 @@ namespace Skclusive.Material.Divider
         [Parameter]
         public string Component { set; get; } = "hr";
 
+        /// <summary>
+        /// Absolutely position the element.
+        /// </summary>
         [Parameter]
         public bool Absolute { set; get; }
 
@@ -63,14 +66,5 @@ namespace Skclusive.Material.Divider
                     yield return nameof(Light);
             }
         }
-    }
-
-    public enum DividerVariant
-    {
-        FullWidth,
-
-        Inset,
-
-        Middle
     }
 }

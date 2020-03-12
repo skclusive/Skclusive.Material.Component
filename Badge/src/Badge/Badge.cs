@@ -23,19 +23,25 @@ namespace Skclusive.Material.Badge
         /// badge value to be displayed.
         /// </summary>
         [Parameter]
-        public string Nib { set; get; }
+        public string Badge { set; get; }
 
         /// <summary>
-        /// The <see cref="NibVariant"> variant to use.
+        /// If the badge value is component use <c>BadgeContent</c>
         /// </summary>
         [Parameter]
-        public NibVariant Variant { set; get; } = NibVariant.Standard;
+        public RenderFragment BadgeContent { set; get; }
 
         /// <summary>
-        /// The <see cref="NibOverlap"> overlap to use.
+        /// The <see cref="BadgeVariant"> variant to use.
         /// </summary>
         [Parameter]
-        public NibOverlap Overlap { set; get; } = NibOverlap.Rectangle;
+        public BadgeVariant Variant { set; get; } = BadgeVariant.Standard;
+
+        /// <summary>
+        /// The <see cref="BadgeOverlap"> overlap to use.
+        /// </summary>
+        [Parameter]
+        public BadgeOverlap Overlap { set; get; } = BadgeOverlap.Rectangle;
 
         /// <summary>
         /// The <see cref="Skclusive.Core.Component.Horizontal" /> anchor of the badge.
@@ -50,7 +56,7 @@ namespace Skclusive.Material.Badge
         public Vertical Vertical { set; get; } = Vertical.Top;
 
         /// <summary>
-        /// Controls whether the badge is hidden when <see cref="Nib" /> is zero.
+        /// Controls whether the badge is hidden when <see cref="Badge" /> is zero.
         /// </summary>
         [Parameter]
         public bool ShowZero { set; get; } = false;
@@ -74,31 +80,25 @@ namespace Skclusive.Material.Badge
         public Color Color { set; get; } = Color.Default;
 
         /// <summary>
-        /// <c>style</c> applied on the <c>Nib</c> element.
+        /// <c>style</c> applied on the <c>Badge</c> element.
         /// </summary>
         [Parameter]
-        public string NibStyle { set; get; }
+        public string BadgeStyle { set; get; }
 
         /// <summary>
-        /// <c>class</c> applied on the <c>Nib</c> element.
+        /// <c>class</c> applied on the <c>Badge</c> element.
         /// </summary>
         [Parameter]
-        public string NibClass { set; get; }
+        public string BadgeClass { set; get; }
 
-        /// <summary>
-        /// If the badge value is component use <c>NibContent</c>
-        /// </summary>
-        [Parameter]
-        public RenderFragment NibContent { set; get; }
+        protected bool CanRenderContent => Variant != BadgeVariant.Dot && BadgeContent != null;
 
-        protected bool CanRenderContent => Variant != NibVariant.Dot && NibContent != null;
-
-        protected int? NibNumber
+        protected int? BadgeNumber
         {
-            get => int.TryParse(Nib, out int result) ? (int?)result : null;
+            get => int.TryParse(Badge, out int result) ? (int?)result : null;
         }
 
-        protected bool NibInvisible
+        protected bool BadgeInvisible
         {
             get
             {
@@ -107,14 +107,14 @@ namespace Skclusive.Material.Badge
                     return Invisible.Value;
                 }
 
-                var nibNumber = NibNumber;
+                var nibNumber = BadgeNumber;
 
                 if (nibNumber.HasValue && nibNumber.Value == 0 && !ShowZero)
                 {
                     return true;
                 }
 
-                if (string.IsNullOrEmpty(Nib) && NibContent == null && Variant != NibVariant.Dot)
+                if (string.IsNullOrEmpty(Badge) && BadgeContent == null && Variant != BadgeVariant.Dot)
                 {
                     return true;
                 }
@@ -123,72 +123,58 @@ namespace Skclusive.Material.Badge
             }
         }
 
-        protected string NibDisplay
+        protected string BadgeDisplay
         {
             get
             {
-                if (Variant == NibVariant.Dot)
+                if (Variant == BadgeVariant.Dot)
                 {
                     return string.Empty;
                 }
 
-                var nibNumber = NibNumber;
+                var nibNumber = BadgeNumber;
 
                 if (nibNumber.HasValue && nibNumber.Value > Max)
                 {
                     return $"{Max}+";
                 }
 
-                return Nib;
+                return Badge;
             }
         }
 
-        protected virtual string _NibStyle
+        protected virtual string _BadgeStyle
         {
-            get => CssUtil.ToStyle(NibStyles, NibStyle);
+            get => CssUtil.ToStyle(BadgeStyles, BadgeStyle);
         }
 
-        protected virtual IEnumerable<Tuple<string, object>> NibStyles
+        protected virtual IEnumerable<Tuple<string, object>> BadgeStyles
         {
             get => Enumerable.Empty<Tuple<string, object>>();
         }
 
-        protected virtual string _NibClass
+        protected virtual string _BadgeClass
         {
-            get => CssUtil.ToClass(Selector, NibClasses, NibClass);
+            get => CssUtil.ToClass(Selector, BadgeClasses, BadgeClass);
         }
 
-        protected virtual IEnumerable<string> NibClasses
+        protected virtual IEnumerable<string> BadgeClasses
         {
             get
             {
-                yield return nameof(Nib);
+                yield return nameof(Badge);
 
                 if (Color != Color.Default)
-                    yield return $"{nameof(Nib)}-{Color}";
+                    yield return $"{nameof(Color)}-{Color}";
 
-                if (NibInvisible)
-                    yield return $"{nameof(Nib)}-{nameof(Invisible)}";
+                if (BadgeInvisible)
+                    yield return $"{nameof(Invisible)}";
 
-                if (Variant == NibVariant.Dot)
-                    yield return $"{nameof(Nib)}-{Variant}";
+                if (Variant == BadgeVariant.Dot)
+                    yield return $"{Variant}";
 
-                yield return $"{nameof(Nib)}-{Vertical}-{Horizontal}-{Overlap}";
+                yield return $"{Vertical}-{Horizontal}-{Overlap}";
             }
         }
-    }
-
-    public enum NibVariant
-    {
-        Dot,
-
-        Standard
-    }
-
-    public enum NibOverlap
-    {
-        Circle,
-
-        Rectangle
     }
 }
