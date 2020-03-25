@@ -27,7 +27,7 @@ namespace Skclusive.Material.Tab
         /// The <see cref="Skclusive.Core.Component.Color" /> of the component. It supports those theme colors that make sense for this component.
         /// </summary>
         [Parameter]
-        public Color Color { set; get; }
+        public Color Color { set; get; } = Color.Inherit;
 
         protected override IEnumerable<string> Classes
         {

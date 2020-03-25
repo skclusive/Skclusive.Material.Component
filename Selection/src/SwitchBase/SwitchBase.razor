@@ -5,13 +5,13 @@
     RootRef="@RootRef"
     Class="@_Class"
     Style="@_Style"
-    @attributes="Attributes"
     Component="@Component"
     Disabled="@Disabled"
     tabIndex="@TabIndex"
     DisableRipple="@DisableRipple"
     OnFocus="@HandleFocusAsync"
-    OnBlur="@HandleBlurAsync">
+    OnBlur="@HandleBlurAsync"
+    @attributes="Attributes">
     <input
         @ref="ChildRef.Current"
         id="@InputId"

@@ -14,11 +14,11 @@ namespace Skclusive.Material.Progress
         }
 
         /// <summary>
-        /// The <see cref="CircularVariant" /> to use.
+        /// The <see cref="CircularProgressVariant" /> to use.
         /// Use Indeterminate when there is no progress value.
         /// </summary>
         [Parameter]
-        public CircularVariant Variant { set; get; } = CircularVariant.Indeterminate;
+        public CircularProgressVariant Variant { set; get; } = CircularProgressVariant.Indeterminate;
 
         /// <summary>
         /// The <see cref="Skclusive.Core.Component.Color" /> of the component. It supports those theme colors that make sense for this component.
@@ -102,7 +102,7 @@ namespace Skclusive.Material.Progress
                 if (Color != Color.Inherit)
                     yield return $"{nameof(Color)}-{Color}";
 
-                if (Variant == CircularVariant.Indeterminate || Variant == CircularVariant.Static)
+                if (Variant == CircularProgressVariant.Indeterminate || Variant == CircularProgressVariant.Static)
                     yield return $"{Variant}";
             }
         }
@@ -111,7 +111,7 @@ namespace Skclusive.Material.Progress
         {
             get
             {
-                decimal transform = Variant == CircularVariant.Static ? -90 : EaseOut(Relative / 70) * 270;
+                decimal transform = Variant == CircularProgressVariant.Static ? -90 : EaseOut(Relative / 70) * 270;
 
                 return $"rotate({transform}deg)";
             }
@@ -130,7 +130,7 @@ namespace Skclusive.Material.Progress
 
                 yield return Tuple.Create<string, object>("height", $"{Size}px");
 
-                if (Variant == CircularVariant.Determinate || Variant == CircularVariant.Static)
+                if (Variant == CircularProgressVariant.Determinate || Variant == CircularProgressVariant.Static)
                 {
                     yield return Tuple.Create<string, object>("transform", Transform);
                 }
@@ -151,7 +151,7 @@ namespace Skclusive.Material.Progress
         {
             get
             {
-                var offset = Variant == CircularVariant.Static ?
+                var offset = Variant == CircularProgressVariant.Static ?
                     (100 - Relative) / 100 * Circumference
                     : EaseIn((100 - Relative) / 100) * Circumference;
 
@@ -168,7 +168,7 @@ namespace Skclusive.Material.Progress
         {
             get
             {
-                if (Variant == CircularVariant.Determinate || Variant == CircularVariant.Static)
+                if (Variant == CircularProgressVariant.Determinate || Variant == CircularProgressVariant.Static)
                 {
                     yield return Tuple.Create<string, object>("stroke-dasharray", Circumference);
 
@@ -188,7 +188,7 @@ namespace Skclusive.Material.Progress
             {
                 yield return string.Empty;
 
-                if (Variant == CircularVariant.Indeterminate || Variant == CircularVariant.Static)
+                if (Variant == CircularProgressVariant.Indeterminate || Variant == CircularProgressVariant.Static)
                     yield return $"{Variant}";
 
                 if (DisableShrink)

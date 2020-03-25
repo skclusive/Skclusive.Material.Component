@@ -86,18 +86,26 @@ namespace Skclusive.Material.List
         [Parameter]
         public RenderFragment SecondaryContent { set; get; }
 
+        /// <summary>
+        /// The main content element typography props.
+        /// </summary>
+        [Parameter]
+        public Dictionary<string, object> PrimaryTypographyProps { get; set; } = new Dictionary<string, object>();
+
+        /// <summary>
+        /// The secondary content element typography props.
+        /// </summary>
+        [Parameter]
+        public Dictionary<string, object> SecondaryTypographyProps { get; set; } = new Dictionary<string, object>();
+
+
+        [CascadingParameter]
+        public IListContext ListContext { set; get; }
+
         protected RenderFragment PrimaryFragment { set; get; }
 
         protected RenderFragment SecondaryFragment { set; get; }
 
-        [Parameter]
-        public Dictionary<string, object> PrimaryTypographyProps { get; set; } = new Dictionary<string, object>();
-
-        [Parameter]
-        public Dictionary<string, object> SecondaryTypographyProps { get; set; } = new Dictionary<string, object>();
-
-        [CascadingParameter]
-        public IListContext ListContext { set; get; }
 
         protected bool IsDense => ListContext?.Dense ?? false;
 

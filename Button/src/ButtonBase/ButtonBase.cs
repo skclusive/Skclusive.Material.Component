@@ -256,13 +256,4 @@ namespace Skclusive.Material.Button
             base.OnAfterUnmount();
         }
     }
-
-    public enum ButtonType
-    {
-        Submit,
-
-        Reset,
-
-        Button
-    }
 }

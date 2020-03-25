@@ -6,7 +6,8 @@
     <div
         class="@_Class"
         style="@_Style"
-        @ref="RootRef.Current">
+        @ref="RootRef.Current"
+        @attributes="Attributes">
         <Paper
             Elevation="@_Elevation"
             Square
@@ -21,7 +22,8 @@ else if (Variant == DrawerVariant.Persistent)
     <div
         class="@_Class"
         style="@_Style"
-        @ref="RootRef.Current">
+        @ref="RootRef.Current"
+        @attributes="Attributes">
         <Slide
             Placement="@Placement"
             In="@Open"
@@ -52,7 +54,8 @@ else
         PortalTargetRef="@ContainerRef"
         BackdropClass="@_BackdropClass"
         BackdropStyle="@_BackdropStyle"
-        OnClose="@HandleClose">
+        OnClose="@HandleClose"
+        @attributes="Attributes">
         <BackdropContent
             Context="ModalContext">
             <Backdrop

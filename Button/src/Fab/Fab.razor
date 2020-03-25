@@ -22,8 +22,10 @@
     OnTouchStart="@HandleTouchStartAsync"
     OnTouchMove="@HandleTouchMoveAsync"
     OnTouchEnd="@HandleTouchEndAsync"
-    OnClick="@HandleClick">
+    OnClick="@HandleClick"
+    @attributes="Attributes">
     <span
+        style="@_LabelStyle"
         class="@_LabelClass">
         @ChildContent(context)
     </span>

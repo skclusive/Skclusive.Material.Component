@@ -7,6 +7,12 @@ Material-UI Component library for Blazor
 
 Add a reference to the library from [![NuGet](https://img.shields.io/nuget/v/Skclusive.Material.Component.svg)](https://www.nuget.org/packages/Skclusive.Material.Component/)
 
+## Documentation
+
+Documentations are availabe in [Skclusive.Material.Docs](https://github.com/skclusive/Skclusive.Material.Docs) repository.
+
+The Blazor Material-UI Docs project has been hosted [here](https://skclusive.github.io/Skclusive.Material.Docs/).
+
 # Samples Projects
 
 Sample projects using Skclusive.Material.Component are availabe in [Skclusive.Blazor.Samples](https://github.com/skclusive/Skclusive.Blazor.Samples) repository.
@@ -26,6 +32,18 @@ The Blazor Material-UI Dashboard app using [WebWindow](https://github.com/SteveS
 ## Credits
 
 This is an attempt to port [Material-UI](https://github.com/mui-org/material-ui) to Blazor.
+
+## Sponsors & Backers
+
+Skclusive.Material.Component is not managed by a company or anything like that.
+
+It is an independent project created in spare time.
+
+The development is active and working hard to release great things for you.
+
+If you think that this project helped you or your company in any way, you can consider becoming a backer/sponsor.
+
+- [Patreon](https://www.patreon.com/skclusive)
 
 ## License
 

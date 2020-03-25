@@ -45,6 +45,20 @@ namespace Skclusive.Material.Menu
         public bool DisableListWrap { set; get; } = false;
 
         /// <summary>
+        /// If <c>true</c>, compact vertical padding designed for keyboard and mouse input will be used for
+        /// the list and list items.
+        /// The prop is available to descendant components as the <c>dense</c> context.
+        /// </summary>
+        [Parameter]
+        public bool Dense { set; get; } = false;
+
+        /// <summary>
+        /// If <c>true</c>, vertical padding will be removed from the list.
+        /// </summary>
+        [Parameter]
+        public bool DisablePadding { set; get; } = false;
+
+        /// <summary>
         /// Reference attached to the content element of the menulist.
         /// </summary>
         [Parameter]

@@ -7,7 +7,8 @@
     Class="@_Class"
     Style="@_Style"
     DisableRipple
-    OnClick="@HandleClickAsync">
+    OnClick="@HandleClickAsync"
+    @attributes="Attributes">
     @ChildContent
     @if (!HideSortIcon || Active)
     {

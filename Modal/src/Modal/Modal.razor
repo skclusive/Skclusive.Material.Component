@@ -13,7 +13,8 @@
         @ref="@(new DelegateReference("ModalDelegateRef", RootRef, PortalContext.RefBack).Current)"
         @onkeydown="@HandleKeyDownAsync"
         @onkeydown:stopPropagation
-        role="presentation">
+        role="presentation"
+        @attributes="Attributes">
         @if (!HideBackdrop)
         {
             @BackdropContent?.Invoke(ModalContext)

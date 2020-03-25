@@ -65,19 +65,6 @@ namespace Skclusive.Material.Button
             }
         }
 
-        protected virtual string _LabelClass
-        {
-            get => CssUtil.ToClass(Selector, LabelClasses, LabelClass);
-        }
-
-        protected virtual IEnumerable<string> LabelClasses
-        {
-            get
-            {
-                yield return "Label";
-            }
-        }
-
         protected override void OnAfterMount()
         {
             base.OnAfterMount();
@@ -92,12 +79,5 @@ namespace Skclusive.Material.Button
         {
             base.OnAfterUnmount();
         }
-    }
-
-    public enum FabVariant
-    {
-        Round,
-
-        Extended
     }
 }

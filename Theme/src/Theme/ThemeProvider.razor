@@ -1,0 +1,30 @@
+﻿@namespace Skclusive.Material.Theme
+@inherits ThemeComponentBase
+
+<style
+    data-name="ThemeProvider">
+    @ThemeProducer.BuildCommon(_Config)
+    @if (IsAuto)
+    {
+        @ThemeProducer.BuildMediaScheme(Light)
+        @ThemeProducer.BuildMediaScheme(Dark)
+    }
+    else
+    {
+        @ThemeProducer.BuildScheme(_Config)
+    }
+</style>
+
+@code
+{
+    [Parameter]
+    public ThemeConfig Config { set; get; }
+
+    [Parameter]
+    public ThemeConfig Light { set; get; } = ThemeBuilder.LIGHT;
+
+    [Parameter]
+    public ThemeConfig Dark { set; get; } = ThemeBuilder.DARK;
+
+    protected ThemeConfig _Config => Config ?? (Theme == Skclusive.Core.Component.Theme.Dark ? Dark : Light);
+}

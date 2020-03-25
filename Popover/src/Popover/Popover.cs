@@ -184,7 +184,7 @@ namespace Skclusive.Material.Popover
         /// <summary>
         /// This is the horizontal point on the anchor where the popover's
         /// <c>AnchorRef</c> will attach to. This is not used when the
-        /// anchorReference is 'anchorPosition'.
+        /// AnchorType is 'AnchorType.Location'.
         /// </summary>
         [Parameter]
         public HorizontalOrigin AnchorHorizontalOrigin { set; get; } = HorizontalOrigin.Left;
@@ -192,7 +192,7 @@ namespace Skclusive.Material.Popover
         /// <summary>
         /// This is the vertical point on the anchor where the popover's
         /// <c>AnchorRef</c> will attach to. This is not used when the
-        /// anchorReference is 'anchorPosition'.
+        /// AnchorType is 'AnchorType.Location'.
         /// </summary>
         [Parameter]
         public VerticalOrigin AnchorVerticalOrigin { set; get; } = VerticalOrigin.Top;

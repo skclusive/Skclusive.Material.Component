@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Skclusive.Material.Core;
 using Skclusive.Core.Component;
+using System.Collections.Generic;
+using System.Linq;
+using System;
 
 namespace Skclusive.Material.Button
 {
@@ -68,6 +71,12 @@ namespace Skclusive.Material.Button
         public string LabelClass { set; get; }
 
         /// <summary>
+        /// <c>style</c> applied on the label.
+        /// </summary>
+        [Parameter]
+        public string LabelStyle { set; get; }
+
+        /// <summary>
         /// The URL to link to when the button is clicked.
         /// If defined, an <c>a</c> element will be used as the root node.
         /// </summary>
@@ -79,5 +88,28 @@ namespace Skclusive.Material.Button
         /// </summary>
         [Parameter]
         public Color Color { set; get; } = Color.Default;
+
+        protected virtual string _LabelClass
+        {
+            get => CssUtil.ToClass(Selector, LabelClasses, LabelClass);
+        }
+
+        protected virtual IEnumerable<string> LabelClasses
+        {
+            get
+            {
+                yield return "Label";
+            }
+        }
+
+        protected virtual string _LabelStyle
+        {
+            get => CssUtil.ToStyle(LabelStyles, LabelStyle);
+        }
+
+        protected virtual IEnumerable<Tuple<string, object>> LabelStyles
+        {
+            get => Enumerable.Empty<Tuple<string, object>>();
+        }
     }
 }

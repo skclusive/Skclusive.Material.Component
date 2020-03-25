@@ -8,8 +8,11 @@
         Class="@_Class"
         Style="@_Style"
         RootRef="@RootRef"
+        Dense="@Dense"
+        DisablePadding="@DisablePadding"
         TabIndex="@(AutoFocus ? 0 : -1)"
-        OnKeyDown="@HandleKeyDownAsync">
+        OnKeyDown="@HandleKeyDownAsync"
+        @attributes="Attributes">
         @ChildContent
     </List>
 </CascadingValue>

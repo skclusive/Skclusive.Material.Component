@@ -113,19 +113,6 @@ namespace Skclusive.Material.Button
             }
         }
 
-        protected virtual string _LabelClass
-        {
-            get => CssUtil.ToClass(Selector, LabelClasses, LabelClass);
-        }
-
-        protected virtual IEnumerable<string> LabelClasses
-        {
-            get
-            {
-                yield return "Label";
-            }
-        }
-
         protected virtual string _StartIconStyle
         {
             get => CssUtil.ToStyle(StartIconStyles, StartIconStyle);
@@ -175,14 +162,5 @@ namespace Skclusive.Material.Button
                 yield return $"Icon-{nameof(Size)}-{Size}";
             }
         }
-    }
-
-    public enum ButtonVariant
-    {
-        Text,
-
-        Outlined,
-
-        Contained
     }
 }

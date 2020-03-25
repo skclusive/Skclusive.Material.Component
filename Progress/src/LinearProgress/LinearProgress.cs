@@ -14,11 +14,11 @@ namespace Skclusive.Material.Progress
         }
 
         /// <summary>
-        /// The <see cref="LinearVariant"> variant to use.
+        /// The <see cref="LinearProgressVariant"> variant to use.
         /// Use Indeterminate or query when there is no progress value.
         /// </summary>
         [Parameter]
-        public LinearVariant Variant { set; get; } = LinearVariant.Indeterminate;
+        public LinearProgressVariant Variant { set; get; } = LinearProgressVariant.Indeterminate;
 
         /// <summary>
         /// The <see cref="Skclusive.Core.Component.Color" /> of the component. It supports those theme colors that make sense for this component.
@@ -81,7 +81,7 @@ namespace Skclusive.Material.Progress
             get
             {
                 decimal? value = null;
-                if (Variant == LinearVariant.Determinate || Variant == LinearVariant.Buffer)
+                if (Variant == LinearProgressVariant.Determinate || Variant == LinearProgressVariant.Buffer)
                 {
                     value = Math.Round(Value);
                 }
@@ -112,7 +112,7 @@ namespace Skclusive.Material.Progress
         {
             get
             {
-                if (Variant == LinearVariant.Determinate || Variant == LinearVariant.Buffer)
+                if (Variant == LinearProgressVariant.Determinate || Variant == LinearProgressVariant.Buffer)
                 {
                     yield return Tuple.Create<string, object>("transform", $"translateX({Value - 100}%)");
                 }
@@ -128,7 +128,7 @@ namespace Skclusive.Material.Progress
         {
             get
             {
-                if (Variant == LinearVariant.Buffer)
+                if (Variant == LinearProgressVariant.Buffer)
                 {
                     yield return Tuple.Create<string, object>("transform", $"translateX({ValueBuffer - 100}%)");
                 }
@@ -175,14 +175,14 @@ namespace Skclusive.Material.Progress
                 if (Color == Color.Primary || Color == Color.Secondary)
                     yield return $"Bar-{nameof(Color)}-{Color}";
 
-                if (Variant == LinearVariant.Indeterminate || Variant == LinearVariant.Query)
-                    yield return $"Bar1-{nameof(LinearVariant.Indeterminate)}";
+                if (Variant == LinearProgressVariant.Indeterminate || Variant == LinearProgressVariant.Query)
+                    yield return $"Bar1-{nameof(LinearProgressVariant.Indeterminate)}";
 
-                if (Variant == LinearVariant.Determinate)
-                    yield return $"Bar1-{nameof(LinearVariant.Determinate)}";
+                if (Variant == LinearProgressVariant.Determinate)
+                    yield return $"Bar1-{nameof(LinearProgressVariant.Determinate)}";
 
-                if (Variant == LinearVariant.Buffer)
-                    yield return $"Bar1-{nameof(LinearVariant.Buffer)}";
+                if (Variant == LinearProgressVariant.Buffer)
+                    yield return $"Bar1-{nameof(LinearProgressVariant.Buffer)}";
             }
         }
 
@@ -199,18 +199,18 @@ namespace Skclusive.Material.Progress
 
                 if (Color == Color.Primary || Color == Color.Secondary)
                 {
-                    if (Variant != LinearVariant.Buffer)
+                    if (Variant != LinearProgressVariant.Buffer)
                         yield return $"Bar-{nameof(Color)}-{Color}";
 
-                    if (Variant == LinearVariant.Buffer)
+                    if (Variant == LinearProgressVariant.Buffer)
                         yield return $"{nameof(Color)}-{Color}";
                 }
 
-                if (Variant == LinearVariant.Indeterminate || Variant == LinearVariant.Query)
-                    yield return $"Bar2-{nameof(LinearVariant.Indeterminate)}";
+                if (Variant == LinearProgressVariant.Indeterminate || Variant == LinearProgressVariant.Query)
+                    yield return $"Bar2-{nameof(LinearProgressVariant.Indeterminate)}";
 
-                if (Variant == LinearVariant.Buffer)
-                    yield return $"Bar2-{nameof(LinearVariant.Buffer)}";
+                if (Variant == LinearProgressVariant.Buffer)
+                    yield return $"Bar2-{nameof(LinearProgressVariant.Buffer)}";
             }
         }
     }

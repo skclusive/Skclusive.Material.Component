@@ -6,8 +6,9 @@
     role="progressbar"
     class="@_Class"
     style="@_Style"
-    aria-valuenow="@(ValueNow?.ToString())">
-    @if (Variant == LinearVariant.Buffer)
+    aria-valuenow="@(ValueNow?.ToString())"
+    @attributes="Attributes">
+    @if (Variant == LinearProgressVariant.Buffer)
     {
         <div
             class="@_DashedClass"
@@ -16,7 +17,7 @@
     <div
         class="@_Bar1Class"
         style="@_Bar1Style" />
-    @if (Variant != LinearVariant.Determinate)
+    @if (Variant != LinearProgressVariant.Determinate)
     {
         <div
             class="@_Bar2Class"

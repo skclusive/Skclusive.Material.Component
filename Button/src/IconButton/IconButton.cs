@@ -13,10 +13,10 @@ namespace Skclusive.Material.Button
         protected ElementReference Button { set; get; }
 
         /// <summary>
-        /// The <see cref="IconSize" /> of the button.
+        /// The <see cref="IconButtonSize" /> of the button.
         /// </summary>
         [Parameter]
-        public IconSize Size { set; get; } = IconSize.Medium;
+        public IconButtonSize Size { set; get; } = IconButtonSize.Medium;
 
         /// <summary>
         /// The <see cref="IconButtonEdge" /> of the button.
@@ -34,24 +34,11 @@ namespace Skclusive.Material.Button
                 if (Color != Color.Default)
                     yield return $"{nameof(Color)}-{Color}";
 
-                if (Size != IconSize.Medium)
+                if (Size != IconButtonSize.Medium)
                     yield return $"{nameof(Size)}-{Size}";
 
                 if (Edge != IconButtonEdge.None)
                     yield return $"{nameof(Edge)}-{Edge}";
-            }
-        }
-
-        protected virtual string _LabelClass
-        {
-            get => CssUtil.ToClass(Selector, LabelClasses, LabelClass);
-        }
-
-        protected virtual IEnumerable<string> LabelClasses
-        {
-            get
-            {
-                yield return "Label";
             }
         }
 
@@ -69,21 +56,5 @@ namespace Skclusive.Material.Button
         {
             base.OnAfterUnmount();
         }
-    }
-
-    public enum IconSize
-    {
-        Small,
-
-        Medium
-    }
-
-    public enum IconButtonEdge
-    {
-        Start,
-
-        End,
-
-        None
     }
 }

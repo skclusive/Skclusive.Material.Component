@@ -98,7 +98,7 @@ namespace Skclusive.Material.List
         /// Secondary Action content.
         /// </summary>
         [Parameter]
-        public RenderFragment SecondaryAction { set; get; }
+        public RenderFragment SecondaryActionContent { set; get; }
 
         /// <summary>
         /// Use to apply selected styling.
@@ -171,7 +171,7 @@ namespace Skclusive.Material.List
 
         protected bool IsDense => Dense ?? Context?.Dense ?? false;
 
-        protected bool HasSecondaryAction => SecondaryAction != null;
+        protected bool HasSecondaryAction => SecondaryActionContent != null;
 
         public IListContext ChildContext => new ListContextBuilder()
             .WithDense(IsDense)
@@ -221,7 +221,7 @@ namespace Skclusive.Material.List
                     yield return $"{nameof(AlignItems)}-{AlignItems}";
 
                 if (HasSecondaryAction)
-                    yield return $"{nameof(SecondaryAction)}";
+                    yield return $"SecondaryAction";
 
                 if (Selected)
                     yield return $"{nameof(Selected)}";

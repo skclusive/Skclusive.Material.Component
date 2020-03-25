@@ -29,13 +29,16 @@
     OnExit="@HandleExit"
     OnExiting="@HandleExiting"
     PaperStyle="@_PaperStyle"
-    PaperClass="@_PaperClass">
+    PaperClass="@_PaperClass"
+    @attributes="Attributes">
     <MenuList
         Class="@_ListClass"
         Style="@_ListStyle"
         RootRef="@ListRef"
         Open="@Open"
         Variant="@Variant"
+        Dense="@Dense"
+        DisablePadding="@DisablePadding"
         AutoFocus="@ListAutoFocus"
         AutoFocusItem="@AutoFocusItem"
         DisableListWrap="@DisableListWrap"

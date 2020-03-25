@@ -1,11 +1,13 @@
 namespace Skclusive.Material.Progress
 {
-    public enum CircularVariant
+    public enum LinearProgressVariant
     {
         Determinate,
 
         Indeterminate,
 
-        Static
+        Buffer,
+
+        Query
     }
 }
