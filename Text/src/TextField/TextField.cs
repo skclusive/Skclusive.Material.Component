@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Skclusive.Core.Component;
@@ -67,10 +68,10 @@ namespace Skclusive.Material.Text
         public Margin? Margin { set; get; }
 
         /// <summary>
-        /// The <see cref="ControlVariant" /> variant to use.
+        /// The <see cref="TextFieldVariant" /> variant to use.
         /// </summary>
         [Parameter]
-        public ControlVariant? Variant { set; get; }
+        public TextFieldVariant? Variant { set; get; }
 
         /// <summary>
         /// If <c>true</c>, compact vertical padding designed for keyboard and mouse input will be used for
@@ -167,6 +168,8 @@ namespace Skclusive.Material.Text
         [Parameter]
         public EventCallback<ChangeEventArgs> OnChange { set; get; }
 
+        protected ControlVariant? _Variant => Variant != null ? (ControlVariant)Enum.Parse(typeof(ControlVariant), Variant.ToString()) : default(ControlVariant?);
+
         protected bool HasStartAdornment => StartAdornment != null;
 
         protected bool HasEndAdornment => EndAdornment != null;
@@ -182,7 +185,7 @@ namespace Skclusive.Material.Text
 
         protected override async Task OnAfterMountAsync()
         {
-            if (Variant == ControlVariant.Outlined)
+            if (Variant == TextFieldVariant.Outlined)
             {
                 var offset = await DomHelpers.GetElementOffsetAsync(LabelRef.Current);
 
@@ -195,8 +198,8 @@ namespace Skclusive.Material.Text
             {
                 // Input.Focus();
 
-                var elementRef = Variant == ControlVariant.Filled ? FilledInput?.Input?.Input?.RootRef.Current : 
-                (Variant == ControlVariant.Outlined ? OutlinedInput?.Input?.Input?.RootRef.Current
+                var elementRef = Variant == TextFieldVariant.Filled ? FilledInput?.Input?.Input?.RootRef.Current : 
+                (Variant == TextFieldVariant.Outlined ? OutlinedInput?.Input?.Input?.RootRef.Current
                 : Input?.Input?.Input?.RootRef.Current);
 
                 await DomHelpers.FocusAsync(elementRef);

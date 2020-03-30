@@ -2,18 +2,28 @@
 @inherits ThemeComponentBase
 
 <style
-    data-name="ThemeProvider">
-    @ThemeProducer.BuildCommon(_Config)
-    @if (IsAuto)
-    {
-        @ThemeProducer.BuildMediaScheme(Light)
-        @ThemeProducer.BuildMediaScheme(Dark)
-    }
-    else
-    {
-        @ThemeProducer.BuildScheme(_Config)
-    }
+    data-name="ThemeProviderCommon">
+    @(new MarkupString(ThemeProducer.BuildScheme(_Config)))
 </style>
+
+@if (IsAuto)
+{
+    <style
+        data-name="ThemeProviderDark">
+        @(new MarkupString(ThemeProducer.BuildMediaScheme(Dark)))
+    </style>
+    <style
+        data-name="ThemeProviderLight">
+        @(new MarkupString(ThemeProducer.BuildMediaScheme(Light)))
+    </style>
+}
+else
+{
+    <style
+        data-name="ThemeProviderSchema">
+        @(new MarkupString(ThemeProducer.BuildScheme(_Config)))
+    </style>
+}
 
 @code
 {

@@ -66,6 +66,8 @@ namespace Skclusive.Material.Core
 
             if (!DisablePortal)
             {
+                // await Task.Delay(2000);
+
                 await DomHelpers.MoveContentAsync(SourceRef.Current, TargetRef?.Current, TargetBodyRef?.Current);
             }
         }

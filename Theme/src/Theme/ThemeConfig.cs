@@ -139,7 +139,17 @@ namespace Skclusive.Material.Theme
 
         public MainConfig Main { set; get; }
 
-        public ErrorConfig Error { set; get; }
+        public PrimaryConfig Primary { set; get; }
+
+        public SecondaryConfig Secondary { set; get; }
+
+        public ColorConfig Error { set; get; }
+
+        public ColorConfig Warning { set; get; }
+
+        public ColorConfig Info { set; get; }
+
+        public ColorConfig Success { set; get; }
 
         public SwitchConfig Switch { set; get; }
 
@@ -148,10 +158,6 @@ namespace Skclusive.Material.Theme
         public BackgroundConfig Background { set; get; }
 
         public ActionConfig Action { set; get; }
-
-        public PrimaryConfig Primary { set; get; }
-
-        public SecondaryConfig Secondary { set; get; }
 
         public DividerConfig Divider { set; get; }
 
@@ -173,13 +179,6 @@ namespace Skclusive.Material.Theme
         public string Black { set; get; }
 
         public string Background { set; get; }
-    }
-
-    public class ErrorConfig
-    {
-        public string Main { set; get; }
-
-        public string ContrastText { set; get; }
     }
 
     public class SwitchConfig
@@ -211,6 +210,10 @@ namespace Skclusive.Material.Theme
         public string Paper { set; get; }
 
         public string Default { set; get; }
+
+        public string Level1 { set; get; }
+
+        public string Level2 { set; get; }
     }
 
     public class ActionConfig
@@ -228,7 +231,7 @@ namespace Skclusive.Material.Theme
         public string DisabledBackground { set; get; }
     }
 
-    public class PrimaryConfig
+    public class ColorConfig
     {
         public string Main { set; get; }
 
@@ -236,9 +239,12 @@ namespace Skclusive.Material.Theme
 
         public string Dark { set; get; }
 
-        public string Alternate { set; get; }
-
         public string ContrastText { set; get; }
+    }
+
+    public class PrimaryConfig : ColorConfig
+    {
+        public string Alternate { set; get; }
 
         public string Current { set; get; }
 
@@ -249,16 +255,8 @@ namespace Skclusive.Material.Theme
         public string MainBackground { set; get; }
     }
 
-    public class SecondaryConfig
+    public class SecondaryConfig : ColorConfig
     {
-        public string Main { set; get; }
-
-        public string Light { set; get; }
-
-        public string Dark { set; get; }
-
-        public string ContrastText { set; get; }
-
         public string Current { set; get; }
 
         public string MainHover { set; get; }
@@ -317,6 +315,10 @@ namespace Skclusive.Material.Theme
 
     public class CustomConfig
     {
+        public string PrimaryMain { set; get; }
+
+        public string PrimaryContrastText { set; get; }
+
         public string ContentBackground { set; get; }
 
         public string ContentBackgroundDefault { set; get; }

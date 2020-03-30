@@ -172,9 +172,6 @@ namespace Skclusive.Material.Theme
 
             --theme-palette-main-background-default: {palette.Main.Background};
 
-            --theme-palette-error-main: {palette.Error.Main};
-            --theme-palette-error-contrast-text: {palette.Error.ContrastText};
-
             --theme-palette-switch-color: {palette.Switch.Color};
             --theme-palette-switch-disabled-color: {palette.Switch.DisabledColor};
             --theme-palette-switch-disabled-opacity: {palette.Switch.DisabledOpacity};
@@ -188,6 +185,8 @@ namespace Skclusive.Material.Theme
 
             --theme-palette-background-paper: {palette.Background.Paper};
             --theme-palette-background-default: {palette.Background.Default};
+            --theme-palette-background-level1: {palette.Background.Level1};
+            --theme-palette-background-level2: {palette.Background.Level2};
 
             --theme-palette-action-active: {palette.Action.Active};
             --theme-palette-action-hover: {palette.Action.Hover};
@@ -199,21 +198,41 @@ namespace Skclusive.Material.Theme
             --theme-palette-primary-main: {palette.Primary.Main};
             --theme-palette-primary-light: {palette.Primary.Light};
             --theme-palette-primary-dark: {palette.Primary.Dark};
-            --theme-palette-primary-alternate: {palette.Primary.Alternate};
             --theme-palette-primary-contrast-text: {palette.Primary.ContrastText};
+            --theme-palette-primary-alternate: {palette.Primary.Alternate};
             --theme-palette-primary-current: {palette.Primary.Current};
             --theme-palette-primary-main-hover: {palette.Primary.MainHover};
             --theme-palette-primary-main-border: {palette.Primary.MainBorder};
             --theme-palette-primary-main-background: {palette.Primary.MainBackground};
 
-            --theme-palette-secondary-current: {palette.Secondary.Current};
             --theme-palette-secondary-main: {palette.Secondary.Main};
             --theme-palette-secondary-light: {palette.Secondary.Light};
             --theme-palette-secondary-dark: {palette.Secondary.Dark};
+            --theme-palette-secondary-contrast-text: {palette.Secondary.ContrastText};
             --theme-palette-secondary-main-hover: {palette.Secondary.MainHover};
             --theme-palette-secondary-main-border: {palette.Secondary.MainBorder};
             --theme-palette-secondary-main-background: {palette.Secondary.MainBackground};
-            --theme-palette-secondary-contrast-text: {palette.Secondary.ContrastText};
+            --theme-palette-secondary-current: {palette.Secondary.Current};
+
+            --theme-palette-error-main: {palette.Error.Main};
+            --theme-palette-error-light: {palette.Error.Light};
+            --theme-palette-error-dark: {palette.Error.Dark};
+            --theme-palette-error-contrast-text: {palette.Error.ContrastText};
+
+            --theme-palette-warning-main: {palette.Warning.Main};
+            --theme-palette-warning-light: {palette.Warning.Light};
+            --theme-palette-warning-dark: {palette.Warning.Dark};
+            --theme-palette-warning-contrast-text: {palette.Warning.ContrastText};
+
+            --theme-palette-info-main: {palette.Info.Main};
+            --theme-palette-info-light: {palette.Info.Light};
+            --theme-palette-info-dark: {palette.Info.Dark};
+            --theme-palette-info-contrast-text: {palette.Info.ContrastText};
+
+            --theme-palette-success-main: {palette.Success.Main};
+            --theme-palette-success-light: {palette.Success.Light};
+            --theme-palette-success-dark: {palette.Success.Dark};
+            --theme-palette-success-contrast-text: {palette.Success.ContrastText};
 
             --theme-palette-divider: {palette.Divider.Color};
             --theme-palette-divider-background-color: {palette.Divider.Background};
@@ -240,6 +259,8 @@ namespace Skclusive.Material.Theme
             --theme-custom-palette-opacity: {palette.Custom.PaletteOpacity};
             --theme-custom-layout-backward: {palette.Custom.LayoutBackward};
             --theme-custom-layout-forward: {palette.Custom.LayoutForward};
+            --theme-custom-palette-primary-main: {palette.Custom.PrimaryMain};
+            --theme-custom-palette-primary-contrast-text: {palette.Custom.PrimaryContrastText};
             ");
         }
     }

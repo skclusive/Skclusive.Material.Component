@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Components.Rendering;
 using Skclusive.Material.Core;
 using System.Collections.Generic;
 using Skclusive.Core.Component;
+using Microsoft.AspNetCore.Components.Web;
 
 namespace Skclusive.Material.Typography
 {
@@ -129,11 +130,15 @@ namespace Skclusive.Material.Typography
                 builder.AddAttribute(4, "onmouseleave", EventCallback.Factory.Create(this, HandleMouseLeaveAsync));
             if (OnMouseEnter.HasDelegate)
                 builder.AddAttribute(5, "onmouseenter", EventCallback.Factory.Create(this, HandleMouseEnterAsync));
+            if (OnFocus.HasDelegate)
+                builder.AddAttribute(6, "onfocus", EventCallback.Factory.Create<FocusEventArgs>(this, HandleFocusAsync));
+            if (OnBlur.HasDelegate)
+                builder.AddAttribute(7, "onblur", EventCallback.Factory.Create<FocusEventArgs>(this, HandleBlurAsync));
             if (!string.IsNullOrWhiteSpace(Id))
-                builder.AddAttribute(6, "id", Id);
-            builder.AddMultipleAttributes(7, Attributes);
+                builder.AddAttribute(8, "id", Id);
+            builder.AddMultipleAttributes(9, Attributes);
             builder.AddContent(8, ChildContent);
-            builder.AddElementReferenceCapture(9, (__value) => {
+            builder.AddElementReferenceCapture(10, (__value) => {
                 RootRef.Current = (ElementReference)__value;
             });
             builder.CloseElement();

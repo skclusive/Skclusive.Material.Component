@@ -5,9 +5,9 @@ namespace Skclusive.Material.Component
 {
     public static class MaterialExtension
     {
-        public static void TryAddMaterialServices(this IServiceCollection services)
+        public static void TryAddMaterialServices(this IServiceCollection services, IMaterialConfig config)
         {
-            services.TryAddMaterialScriptServices();
+            services.TryAddMaterialScriptServices(config);
         }
     }
 }

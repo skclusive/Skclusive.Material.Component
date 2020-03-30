@@ -1,0 +1,83 @@
+﻿@namespace Skclusive.Material.Container
+@inherits StyleComponentBase
+
+<Styled
+    Name="Container">
+
+    .Container-Root {
+        width: 100%;
+        display: block;
+        box-sizing: border-box;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    @media (min-width:600px) {
+        .Container-Root {
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+    }
+
+    .Container-DisableGutters {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    @media (min-width:600px) {
+        .Container-Fixed {
+            max-width: 600px;
+        }
+    }
+
+    @media (min-width:960px) {
+        .Container-Fixed {
+            max-width: 960px;
+        }
+    }
+
+    @media (min-width:1280px) {
+        .Container-Fixed {
+            max-width: 1280px;
+        }
+    }
+
+    @media (min-width:1920px) {
+        .Container-Fixed {
+            max-width: 1920px;
+        }
+    }
+
+    @media (min-width:0px) {
+        .Container-MaxWidth-ExtraSmall {
+            max-width: 444px;
+        }
+    }
+
+    @media (min-width:600px) {
+        .Container-MaxWidth-Small {
+            max-width: 600px;
+        }
+    }
+
+    @media (min-width:960px) {
+        .Container-MaxWidth-Medium {
+            max-width: 960px;
+        }
+    }
+
+    @media (min-width:1280px) {
+        .Container-MaxWidth-Large {
+            max-width: 1280px;
+        }
+    }
+
+    @media (min-width:1920px) {
+        .Container-MaxWidth-ExtraLarge {
+            max-width: 1920px;
+        }
+    }
+
+</Styled>

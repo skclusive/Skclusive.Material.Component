@@ -282,6 +282,8 @@ namespace Skclusive.Material.Transition
 
             EventDelegator.OnEvent += OnWindowResize;
 
+            // await Task.Delay(2000);
+
             await EventDelegator.RegisterAsync(default(ElementReference), "resize", 200);
         }
 

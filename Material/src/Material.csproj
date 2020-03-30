@@ -24,6 +24,7 @@
     <ProjectReference Include="..\..\Baseline\src\Baseline.csproj" Version="2.0.0" />
     <ProjectReference Include="..\..\Button\src\Button.csproj" Version="2.0.0" />
     <ProjectReference Include="..\..\Divider\src\Divider.csproj" Version="2.0.0" />
+    <ProjectReference Include="..\..\Container\src\Container.csproj" Version="2.0.0" />
     <ProjectReference Include="..\..\Card\src\Card.csproj" Version="2.0.0" />
     <ProjectReference Include="..\..\Form\src\Form.csproj" Version="2.0.0" />
     <ProjectReference Include="..\..\Grid\src\Grid.csproj" Version="2.0.0" />

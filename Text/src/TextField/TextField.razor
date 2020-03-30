@@ -12,7 +12,7 @@
     ReadOnly="@ReadOnly"
     Required="@Required"
     HiddenLabel="@HiddenLabel"
-    Variant="@Variant"
+    Variant="@_Variant"
     Margin="@Margin"
     @attributes="Attributes">
     @if (!string.IsNullOrWhiteSpace(Label))
@@ -22,12 +22,12 @@
             For="@Id"
             Disabled="@Disabled"
             Shrink="@_Shrink"
-            Variant="@Variant"
+            Variant="@_Variant"
             Context="InputLabelContext">
             @Label
         </InputLabel>
     }
-    @if (Variant == ControlVariant.Filled)
+    @if (Variant == TextFieldVariant.Filled)
     {
         <FilledInput
             @ref="FilledInput"
@@ -57,7 +57,7 @@
             </EndAdornment>
         </FilledInput>
     }
-    else if (Variant == ControlVariant.Outlined)
+    else if (Variant == TextFieldVariant.Outlined)
     {
         <OutlinedInput
             @ref="OutlinedInput"
@@ -124,7 +124,7 @@
         <FormHelperText
             Disabled="@Disabled"
             Id="@HelperId"
-            Variant="@Variant"
+            Variant="@_Variant"
             Context="HelperContext">
             @Helper
         </FormHelperText>

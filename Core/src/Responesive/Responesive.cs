@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 namespace Skclusive.Material.Core
 {
-    public class ResponsiveBase : MaterialComponentBase
+    public class ResponsiveComponent : MaterialComponentBase
     {
-        public ResponsiveBase() : base("Responsive")
+        public ResponsiveComponent() : base("Responsive")
         {
         }
 

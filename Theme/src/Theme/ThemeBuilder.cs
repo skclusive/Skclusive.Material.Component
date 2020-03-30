@@ -310,13 +310,6 @@ namespace Skclusive.Material.Theme
                     Background = "#fff"
                 },
 
-                Error = new ErrorConfig
-                {
-                    Main = "#f44336", /* need to find */
-
-                    ContrastText = "#fff" /* need to find */
-                },
-
                 Switch = new SwitchConfig
                 {
                     Color = "#fafafa",  /*--theme-palette-grey-50*/
@@ -345,7 +338,11 @@ namespace Skclusive.Material.Theme
                 {
                     Paper = "#fff",
 
-                    Default = "#fff"
+                    Default = "#fff",
+
+                    Level1 = "#fff",
+
+                    Level2 = "#f5f5f5"
                 },
 
                 Action = new ActionConfig
@@ -371,9 +368,9 @@ namespace Skclusive.Material.Theme
 
                     Dark = "rgb(17, 82, 147)",
 
-                    Alternate = "rgb(17, 82, 147)",
-
                     ContrastText = "#fff",
+
+                    Alternate = "rgb(17, 82, 147)",
 
                     Current = "rgb(17, 82, 147)",
 
@@ -386,13 +383,13 @@ namespace Skclusive.Material.Theme
 
                 Secondary = new SecondaryConfig
                 {
-                    Current = "rgb(154, 0, 54)",  /* need to find */
-
                     Main = "rgb(220, 0, 78)",
 
                     Light = "rgb(227, 51, 113)",
 
                     Dark = "rgb(154, 0, 54)",
+
+                    Current = "rgb(154, 0, 54)",  /* need to find */
 
                     MainHover = "rgba(220, 0, 78, 0.08)",
 
@@ -401,6 +398,50 @@ namespace Skclusive.Material.Theme
                     MainBackground = "rgb(241, 158, 187)",
 
                     ContrastText = "#fff"
+                },
+
+                Error = new ColorConfig
+                {
+                    Light = "#e57373",
+
+                    Main = "#f44336",
+
+                    Dark = "#d32f2f",
+
+                    ContrastText = "#fff"
+                },
+
+                Warning = new ColorConfig
+                {
+                    Light = "#ffb74d",
+
+                    Main = "#ff9800",
+
+                    Dark = "#f57c00",
+
+                    ContrastText = "rgba(0, 0, 0, 0.87)"
+                },
+
+                Info = new ColorConfig
+                {
+                    Light = "#64b5f6",
+
+                    Main = "#2196f3",
+
+                    Dark = "#1976d2",
+
+                    ContrastText = "#fff"
+                },
+
+                Success = new ColorConfig
+                {
+                    Light = "#81c784",
+
+                    Main = "#4caf50",
+
+                    Dark = "#388e3c",
+
+                    ContrastText = "rgba(0, 0, 0, 0.87)"
                 },
 
                 Divider = new DividerConfig
@@ -457,7 +498,11 @@ namespace Skclusive.Material.Theme
 
                     LayoutBackward = "#f5f5f5",
 
-                    LayoutForward = "#fff"
+                    LayoutForward = "#fff",
+
+                    PrimaryMain = "#1976d2",
+
+                    PrimaryContrastText = "#fff"
                 }
             };
 
@@ -490,13 +535,6 @@ namespace Skclusive.Material.Theme
                     Background = "#212121"
                 },
 
-                Error = new ErrorConfig
-                {
-                    Main = "#f44336", /* need to find */
-
-                    ContrastText = "#fff" /* need to find */
-                },
-
                 Switch = new SwitchConfig
                 {
                     Color = "#bdbdbd",  /*--theme-palette-grey-400*/
@@ -525,7 +563,11 @@ namespace Skclusive.Material.Theme
                 {
                     Paper = "#424242",
 
-                    Default = "#303030"  // or "#121212"?
+                    Default = "#121212", // or "#303030"?
+
+                    Level1 = "#212121",
+
+                    Level2 = "#333"
                 },
 
                 Action = new ActionConfig
@@ -551,9 +593,9 @@ namespace Skclusive.Material.Theme
 
                     Dark = "rgb(100, 141, 174)",
 
-                    Alternate = "rgb(166, 212, 250)",
-
                     ContrastText = "rgba(0, 0, 0, 0.87)",
+
+                    Alternate = "rgb(166, 212, 250)",
 
                     Current = "rgb(100, 141, 174)",
 
@@ -566,19 +608,63 @@ namespace Skclusive.Material.Theme
 
                 Secondary = new SecondaryConfig
                 {
-                    Current = "rgb(154, 0, 54)",  /* need to find */
-
                     Main = "#f48fb1",
 
                     Light = "rgb(246, 165, 192)",
 
                     Dark = "rgb(170, 100, 123)",
 
+                    ContrastText = "rgba(0, 0, 0, 0.87)",
+
                     MainHover = "rgba(244, 143, 177, 0.1)",
 
                     MainBorder = "rgba(244, 143, 177, 0.5)",
 
                     MainBackground = "rgb(122, 71, 88)",
+
+                    Current = "rgb(154, 0, 54)"  /* need to find */
+                },
+
+                Error = new ColorConfig
+                {
+                    Light = "#e57373",
+
+                    Main = "#f44336",
+
+                    Dark = "#d32f2f",
+
+                    ContrastText = "#fff"
+                },
+
+                Warning = new ColorConfig
+                {
+                    Light = "#ffb74d",
+
+                    Main = "#ff9800",
+
+                    Dark = "#f57c00",
+
+                    ContrastText = "rgba(0, 0, 0, 0.87)"
+                },
+
+                Info = new ColorConfig
+                {
+                    Light = "#64b5f6",
+
+                    Main = "#2196f3",
+
+                    Dark = "#1976d2",
+
+                    ContrastText = "#fff"
+                },
+
+                Success = new ColorConfig
+                {
+                    Light = "#81c784",
+
+                    Main = "#4caf50",
+
+                    Dark = "#388e3c",
 
                     ContrastText = "rgba(0, 0, 0, 0.87)"
                 },
@@ -637,7 +723,11 @@ namespace Skclusive.Material.Theme
 
                     LayoutBackward = "#333",
 
-                    LayoutForward = "#424242"
+                    LayoutForward = "#424242",
+
+                    PrimaryMain = "#333",
+
+                    PrimaryContrastText = "#fff"
                 }
             };
 

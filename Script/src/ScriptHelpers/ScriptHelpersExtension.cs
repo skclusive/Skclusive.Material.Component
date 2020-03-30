@@ -1,34 +1,35 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Skclusive.Core.Component;
 using Skclusive.Material.Core;
 
 namespace Skclusive.Material.Script
 {
     public static class ScriptHelpersExtension
     {
-        public static void TryAddMaterialScriptServices(this IServiceCollection services)
+        public static void TryAddMaterialScriptServices(this IServiceCollection services, ICoreConfig config)
         {
-            services.TryAddMaterialCoreServices();
+            services.TryAddMaterialCoreServices(config);
 
-            services.TryAddScoped<ScriptHelpers>();
+            services.TryAddTransient<ScriptHelpers>();
 
-            services.TryAddScoped<EventDelegator>();
+            services.TryAddTransient<EventDelegator>();
 
-            services.TryAddScoped<TrapFocusHelper>();
+            services.TryAddTransient<TrapFocusHelper>();
 
-            services.TryAddScoped<MediaQueryMatcher>();
+            services.TryAddTransient<MediaQueryMatcher>();
 
-            services.TryAddScoped<DetectThemeHelper>();
+            services.TryAddTransient<DetectThemeHelper>();
 
-            services.TryAddScoped<MenuListHelper>();
+            services.TryAddTransient<MenuListHelper>();
 
-            services.TryAddScoped<HistoryBackHelper>();
+            services.TryAddTransient<HistoryBackHelper>();
 
-            services.TryAddScoped<PopoverHelper>();
+            services.TryAddTransient<PopoverHelper>();
 
-            services.TryAddScoped<SlideHelper>();
+            services.TryAddTransient<SlideHelper>();
 
-            services.TryAddScoped<RadioGroupHelper>();
+            services.TryAddTransient<RadioGroupHelper>();
         }
     }
 }

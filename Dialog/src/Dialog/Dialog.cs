@@ -87,10 +87,10 @@ namespace Skclusive.Material.Dialog
         /// <summary>
         /// Determine the max-width of the dialog.
         /// The dialog width grows with the size of the screen.
-        /// Set to <c>DialogWidth.False</c> to disable <c>MaxWidth</c>.
+        /// Set to <c>MaxWidth.False</c> to disable <c>MaxWidth</c>.
         /// </summary>
         [Parameter]
-        public DialogWidth MaxWidth { set; get; } = DialogWidth.Small;
+        public MaxWidth MaxWidth { set; get; } = MaxWidth.Small;
 
         /// <summary>
         /// Callback fired when the backdrop is clicked.
