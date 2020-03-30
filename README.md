@@ -13,6 +13,8 @@ Documentations are availabe in [Skclusive.Material.Docs](https://github.com/skcl
 
 The Blazor Material-UI Docs project has been hosted [here](https://skclusive.github.io/Skclusive.Material.Docs/).
 
+![Blazor Material Docs](https://github.com/skclusive/Skclusive.Blazor.Samples/raw/master/images/dashboard-web.gif)
+
 # Samples Projects
 
 Sample projects using Skclusive.Material.Component are availabe in [Skclusive.Blazor.Samples](https://github.com/skclusive/Skclusive.Blazor.Samples) repository.
