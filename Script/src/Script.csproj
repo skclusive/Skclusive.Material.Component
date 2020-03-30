@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <VersionPrefix>2.0.0</VersionPrefix>
+    <VersionPrefix>2.0.0-rc</VersionPrefix>
     <VersionSuffix>$(VersionSuffix)</VersionSuffix>
     <TargetFramework>netstandard2.1</TargetFramework>
     <RazorLangVersion>3.0</RazorLangVersion>
@@ -18,7 +18,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\src\Core.csproj" Version="2.0.0" />
+    <ProjectReference Include="..\..\Core\src\Core.csproj" Version="2.0.0-rc" />
   </ItemGroup>
 
   <Target Name="BuildFrontend" BeforeTargets="Build">
