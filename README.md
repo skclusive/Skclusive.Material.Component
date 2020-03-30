@@ -1,7 +1,7 @@
 Skclusive.Material.Component
 =============================
 
-Material-UI Component library for Blazor
+Skclusive-UI Component library for Blazor using Material Design.
 
 ### Installation
 
@@ -11,33 +11,33 @@ Add a reference to the library from [![NuGet](https://img.shields.io/nuget/v/Skc
 
 Documentations are availabe in [Skclusive.Material.Docs](https://github.com/skclusive/Skclusive.Material.Docs) repository.
 
-The Blazor Material-UI Docs project has been hosted [here](https://skclusive.github.io/Skclusive.Material.Docs/).
+The Blazor Skclusive-UI Docs project has been hosted [here](https://skclusive.github.io/Skclusive.Material.Docs/).
 
-![Blazor Material Docs](https://github.com/skclusive/Skclusive.Material.Docs/raw/master/images/hosted-docs.gif)
+![Blazor Skclusive-UI Docs](https://github.com/skclusive/Skclusive.Material.Docs/raw/master/images/hosted-docs.gif)
 
 # Samples Projects
 
 Sample projects using Skclusive.Material.Component are availabe in [Skclusive.Blazor.Samples](https://github.com/skclusive/Skclusive.Blazor.Samples) repository.
 
-## Dashboard Sample (Material-UI)
+## Dashboard Sample (Skclusive-UI)
 
 The Blazor Material-UI Dashboard sample project has been hosted [here](https://skclusive.github.io/Skclusive.Blazor.Samples/Dashboard/).
 
 ![Blazor Dashboard](https://github.com/skclusive/Skclusive.Blazor.Samples/raw/master/images/dashboard-web.gif)
 
-## Dashboard Sample (Material-UI)
+## Dashboard Sample (Skclusive-UI)
 
-The Blazor Material-UI Dashboard app using [WebWindow](https://github.com/SteveSandersonMS/WebWindow) can be run natively using dotnet-core.
+The Blazor Skclusive-UI Dashboard app using [WebWindow](https://github.com/SteveSandersonMS/WebWindow) can be run natively using dotnet-core.
 
 ![Blazor Dashboard](https://github.com/skclusive/Skclusive.Blazor.Samples/raw/master/images/dashboard-webwindow.gif)
 
 ## Credits
 
-This is an attempt to port [Material-UI](https://github.com/mui-org/material-ui) to Blazor.
+This is an attempt to port popular react based [Material-UI](https://github.com/mui-org/material-ui) to Blazor.
 
 ## Sponsors & Backers
 
-Skclusive.Material.Component is not managed by a company or anything like that.
+Skclusive-UI is not managed by a company or anything like that.
 
 It is an independent project created in spare time.
 
