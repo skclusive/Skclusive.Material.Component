@@ -10,6 +10,7 @@
         data-mui-test="Modal"
         class="@_Class"
         style="@_Style"
+        @onclick="@HandleClick"
         @ref="@(new DelegateReference("ModalDelegateRef", RootRef, PortalContext.RefBack).Current)"
         @onkeydown="@HandleKeyDownAsync"
         @onkeydown:stopPropagation

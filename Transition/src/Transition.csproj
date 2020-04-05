@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <VersionPrefix>2.0.0-rc</VersionPrefix>
+    <VersionPrefix>2.0.0</VersionPrefix>
     <VersionSuffix>$(VersionSuffix)</VersionSuffix>
     <TargetFramework>netstandard2.1</TargetFramework>
     <RazorLangVersion>3.0</RazorLangVersion>
@@ -17,16 +17,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Skclusive.Transition.Component" Version="2.0.0-rc" />
+    <PackageReference Include="Skclusive.Transition.Component" Version="2.0.0" />
   </ItemGroup>
 
   <!-- <ItemGroup>
-    <ProjectReference Include="..\..\..\Skclusive.Transition.Component\src\Transition.csproj" Version="2.0.0-rc" />
+    <ProjectReference Include="..\..\..\Skclusive.Transition.Component\src\Transition.csproj" Version="2.0.0" />
   </ItemGroup> -->
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\src\Core.csproj" Version="2.0.0-rc" />
-    <ProjectReference Include="..\..\Script\src\Script.csproj" Version="2.0.0-rc" />
+    <ProjectReference Include="..\..\Core\src\Core.csproj" Version="2.0.0" />
+    <ProjectReference Include="..\..\Script\src\Script.csproj" Version="2.0.0" />
   </ItemGroup>
 
 </Project>

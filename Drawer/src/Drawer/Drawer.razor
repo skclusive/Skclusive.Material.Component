@@ -6,6 +6,7 @@
     <div
         class="@_Class"
         style="@_Style"
+        @onclick="@HandleClick"
         @ref="RootRef.Current"
         @attributes="Attributes">
         <Paper
@@ -22,6 +23,7 @@ else if (Variant == DrawerVariant.Persistent)
     <div
         class="@_Class"
         style="@_Style"
+        @onclick="@HandleClick"
         @ref="RootRef.Current"
         @attributes="Attributes">
         <Slide
@@ -55,6 +57,7 @@ else
         BackdropClass="@_BackdropClass"
         BackdropStyle="@_BackdropStyle"
         OnClose="@HandleClose"
+        OnClick="@HandleClick"
         @attributes="Attributes">
         <BackdropContent
             Context="ModalContext">
