@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <Target Name="BuildFrontend" BeforeTargets="Build">
-    <Exec Command="npm i" />
+    <Exec Command="npm install" />
     <Exec Command="npm run build" />
   </Target>
 
