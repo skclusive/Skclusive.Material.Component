@@ -1,20 +1,19 @@
 ﻿@namespace Skclusive.Material.Tooltip
 @inherits MaterialComponent
 
-<Portal DisablePortal="@DisablePortal" TargetRef="@Container" Context="PortalContext">
-    <div
-        style="@GetPopperStyle()"
-        @ref="@(new DelegateReference("ModalDelegateRef", RootRef, PortalContext.RefBack).Current)">
-        @ChildContent
-    </div>
-</Portal>
+@if (!KeepMounted && !Open && (!Transition || _exited))
+{
 
-@*<Component RootRef="@RootRef"
-           Class="@_Class"
-           Style="@_Style"
-           Tag="div"
-           @attributes="Attributes">
-    <Component RootRef="@TooltipRef" Tag="div" Style="@GetPopperStyle()" Context="whatever">
-        @ChildContent
-    </Component>
-</Component>*@
+}
+else
+{
+    <Portal DisablePortal="@DisablePortal" TargetRef="@Container" Context="PortalContext">
+        <div
+            class="@_Class"
+            style="@_Style"
+            @ref="@(new DelegateReference("ModalDelegateRef", RootRef, PortalContext.RefBack).Current)"
+            @attributes="Attributes">
+            @ChildContent
+        </div>
+    </Portal>
+}
