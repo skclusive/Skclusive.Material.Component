@@ -1,10 +1,47 @@
-﻿@namespace Skclusive.Material.Avatar
-@inherits Skclusive.Material.Tooltip.TooltipComponent
+﻿@using Skclusive.Material.Transition
+@using Skclusive.Material.Typography
+@namespace Skclusive.Material.Tooltip
+@inherits MaterialComponent
 
-<Component
-    RootRef="@RootRef"
-    Class="@_Class"
-    Style="@_Style"
-    @attributes="Attributes">
+<Component Tag="@(ContainerTag ?? "div")"
+           OnTouchStart="HandleTouchStartInternal"
+           OnTouchEnd="HandleTouchEndInternal"
+           OnMouseEnter="HandleMouseEnterInternal"
+           OnMouseLeave="HandleMouseLeaveInternal"
+           OnFocus="HandleFocusInternal"
+           OnBlur="HandleBlurInternal"
+           RootRef="@_popperAnchor"
+           Class="@ContainerClass"
+           Style="@(ContainerStyle ?? "display: inline-block")">
+
     @ChildContent
 </Component>
+
+<Grow In="@Open"
+      Timeout="750"
+      Context="GrowContext">
+
+    <Popper AnchorRef="@_popperAnchor"
+            Placement="@Placement"
+            Open="@Open"
+            PopperOptions="@PopperOptions"
+            @attributes="Attributes"
+            Transition
+            Class="@PopperClasses()">
+
+        <div>
+            @if (TitleComponent == null)
+            {
+                <Typography Variant="@TypographyVariant.Subtitle2">@Title</Typography>
+            }
+            else
+            {
+                @TitleComponent
+            }
+            @if (Arrow)
+            {
+                <span id="arrow" class="@ArrowClasses()" data-popper-arrow></span>
+            }
+        </div>
+    </Popper>
+</Grow>

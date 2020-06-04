@@ -1,7 +1,7 @@
 ﻿@namespace Skclusive.Material.Tooltip
 @inherits MaterialComponent
 
-@if (!KeepMounted && !Open && (!Transition || _exited))
+@if (!KeepMounted && !Open && (!Transition || TransitionExited()))
 {
 
 }
@@ -11,7 +11,7 @@ else
         <div
             class="@_Class"
             style="@_Style"
-            @ref="@(new DelegateReference("ModalDelegateRef", RootRef, PortalContext.RefBack).Current)"
+            @ref="@(new DelegateReference("PopperDelegateRef", RootRef, PortalContext.RefBack).Current)"
             @attributes="Attributes">
             @ChildContent
         </div>

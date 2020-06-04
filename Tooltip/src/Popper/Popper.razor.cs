@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Rendering;
 using Microsoft.JSInterop;
+using NLog;
 using Skclusive.Core.Component;
+using Skclusive.Transition.Component;
 
 namespace Skclusive.Material.Tooltip
 {
     public partial class Popper
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+
         [Inject]
         public IJSRuntime JsRuntime { get; set; }
 
@@ -37,11 +40,23 @@ namespace Skclusive.Material.Tooltip
         [Parameter]
         public PopperOptions PopperOptions { get; set; } = new PopperOptions();
 
+        [CascadingParameter]
+        public ITransitionContext TransitionContext { get; set; }
+
         public PopperInstance PopperInstance { get; private set; }
-        private bool _exited = true;
 
         public Popper() : base("Popper")
         {
+        }
+
+        private bool TransitionExited()
+        {
+            if (TransitionContext == null)
+            {
+                return false;
+            }
+
+            return TransitionContext.State == TransitionState.Exited;
         }
 
         public override async Task SetParametersAsync(ParameterView parameters)
@@ -59,12 +74,21 @@ namespace Skclusive.Material.Tooltip
             await base.SetParametersAsync(parameters);
         }
 
+        protected override void OnParametersSet()
+        {
+            if (TransitionContext != null)
+            {
+                TransitionContext.RefBack.Current = RootRef.Current;
+            }
+        }
+
         protected override async Task OnAfterRenderAsync()
         {
-            if (!KeepMounted && !Open && PopperInstance != null)
+            Logger.Info($"Popper:Render {TransitionContext?.State}");
+
+            if (!KeepMounted && !Open && PopperInstance != null && TransitionExited())
             {
-                await DestroyPopper(PopperInstance.Id);
-                PopperInstance = null;
+                await HandleClose();
             }
 
             if (Open && PopperInstance == null)
@@ -77,6 +101,13 @@ namespace Skclusive.Material.Tooltip
             {
                 await UpdatePopper(PopperInstance.Id);
             }
+        }
+
+        private async Task HandleClose()
+        {
+            Logger.Info($"Popper:handleClose {TransitionExited()}");
+            await DestroyPopper(PopperInstance.Id);
+            PopperInstance = null;
         }
 
         private void InitializeOptions()
@@ -130,19 +161,6 @@ namespace Skclusive.Material.Tooltip
             }
 
             base.Dispose();
-        }
-
-        public void HandleTransitionExited()
-        {
-            _exited = true;
-            Open = false;
-            StateHasChanged();
-        }
-
-        public void HandleTransitionEntered()
-        {
-            _exited = false;
-            StateHasChanged();
         }
 
         // TODO in .NET 5
