@@ -107,8 +107,6 @@ namespace Skclusive.Material.Tooltip
 
         protected override async Task OnAfterRenderAsync()
         {
-            Logger.Info($"Popper:Render {TransitionContext?.State}");
-
             if (!KeepMounted && !Open && PopperInstance != null && TransitionExited())
             {
                 await HandleClose();
