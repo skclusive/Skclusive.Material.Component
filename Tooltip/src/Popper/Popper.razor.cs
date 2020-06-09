@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 using NLog;
 using Skclusive.Core.Component;
-using Skclusive.Transition.Component;
 
 namespace Skclusive.Material.Tooltip
 {
@@ -40,23 +39,55 @@ namespace Skclusive.Material.Tooltip
         [Parameter]
         public PopperOptions PopperOptions { get; set; } = new PopperOptions();
 
-        [CascadingParameter]
-        public ITransitionContext TransitionContext { get; set; }
+        [Parameter]
+        public IReference ChildRef { get; set; } = new Reference();
+
+        [Parameter]
+        public RenderFragment<IPopperContext> ChildContent { get; set; }
 
         public PopperInstance PopperInstance { get; private set; }
+
+        protected bool Exited { get; private set; } = true;
+
 
         public Popper() : base("Popper")
         {
         }
 
+
+        private PopperContextBuilder PopperContextBuilder => new PopperContextBuilder().WithRefBack(ChildRef)
+            .WithOpen(Open)
+            .WithOnEnter(HandleEnter)
+            .WithOnExited(HandleExited);
+
+        protected IPopperContext GetPopperContext(IComponentContext context)
+        {
+            return PopperContextBuilder.WithRefBack(new DelegateReference(ChildRef, context.RefBack))
+                .Build();
+        }
+
         private bool TransitionExited()
         {
-            if (TransitionContext == null)
-            {
-                return false;
-            }
+            return Exited;
+        }
 
-            return TransitionContext.State == TransitionState.Exited;
+        protected void HandleEnter(IReference reference, bool appear)
+        {
+            Exited = false;
+
+            // StateHasChanged();
+        }
+
+        protected void HandleExited(IReference reference)
+        {
+            Exited = true;
+
+            // StateHasChanged();
+
+            //if (CloseAfterTransition)
+            //{
+            //    HandleClose();
+            //}
         }
 
         public override async Task SetParametersAsync(ParameterView parameters)
@@ -72,14 +103,6 @@ namespace Skclusive.Material.Tooltip
             }
 
             await base.SetParametersAsync(parameters);
-        }
-
-        protected override void OnParametersSet()
-        {
-            if (TransitionContext != null)
-            {
-                TransitionContext.RefBack.Current = RootRef.Current;
-            }
         }
 
         protected override async Task OnAfterRenderAsync()

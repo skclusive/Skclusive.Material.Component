@@ -17,18 +17,31 @@
     @ChildContent
 </Component>
 
-<Grow In="@Open"
-      Timeout="750"
-      Context="GrowContext">
-
-    <Popper AnchorRef="@_popperAnchor"
-            Placement="@Placement"
-            Open="@Open"
-            PopperOptions="@PopperOptions"
-            @attributes="Attributes"
-            Transition
-            Class="@PopperClasses()">
-
+<Popper AnchorRef="@_popperAnchor"
+        Placement="@Placement"
+        Open="@Open"
+        PopperOptions="@PopperOptions"
+        @attributes="Attributes"
+        Transition
+        Class="@PopperClasses()"
+        Context="PopperContext">
+    <Grow RootRef="@PopperContext.RefBack"
+          Appear
+          In="@PopperContext.Open"
+          TransitionDuration="@TransitionDuration"
+          AppearTimeout="@AppearTimeout"
+          EnterTimeout="@EnterTimeout"
+          ExitTimeout="@ExitTimeout"
+          MountOnEnter="@MountOnEnter"
+          UnmountOnExit="@UnmountOnExit"
+          OnEnter="@(CreateOnEnter(@PopperContext.OnEnter))"
+          OnExited="@(CreateOnExited(@PopperContext.OnExited))"
+          OnEntering="@HandleEntering"
+          OnEntered="@HandleEntered"
+          OnExit="@HandleExit"
+          OnExiting="@HandleExiting"
+          role="none presentation"
+          Context="GrowContext">
         <div>
             @if (TitleComponent == null)
             {
@@ -43,5 +56,5 @@
                 <span id="arrow" class="@ArrowClasses()" data-popper-arrow></span>
             }
         </div>
-    </Popper>
-</Grow>
+    </Grow>
+</Popper>

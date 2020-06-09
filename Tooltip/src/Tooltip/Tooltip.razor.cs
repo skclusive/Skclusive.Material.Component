@@ -49,6 +49,42 @@ namespace Skclusive.Material.Tooltip
         [Parameter]
         public string ContainerStyle { get; set; } = null;
 
+        [Parameter]
+        public int? TransitionDuration { set; get; }
+
+        [Parameter]
+        public int? AppearTimeout { set; get; }
+
+        [Parameter]
+        public int? EnterTimeout { set; get; }
+
+        [Parameter]
+        public int? ExitTimeout { set; get; }
+
+        [Parameter]
+        public bool MountOnEnter { set; get; }
+
+        [Parameter]
+        public bool UnmountOnExit { set; get; }
+
+        [Parameter]
+        public Action<IReference, bool> OnEnter { set; get; }
+
+        [Parameter]
+        public Action<IReference, bool> OnEntering { set; get; }
+
+        [Parameter]
+        public Action<IReference, bool> OnEntered { set; get; }
+
+        [Parameter]
+        public Action<IReference> OnExit { set; get; }
+
+        [Parameter]
+        public Action<IReference> OnExiting { set; get; }
+
+        [Parameter]
+        public Action<IReference> OnExited { set; get; }
+
         public ITransitionContext TransitionContext { get; set; }
 
         private IReference _popperAnchor = new Reference();
@@ -158,6 +194,47 @@ namespace Skclusive.Material.Tooltip
             {
                 return;
             }
+        }
+
+        public Action<IReference, bool> CreateOnEnter(Action<IReference, bool> onEnter)
+        {
+            return (IReference reference, bool appearing) =>
+            {
+                //_ = SetPositioningStylesAsync(reference.Current);
+                onEnter?.Invoke(reference, appearing);
+                OnEnter?.Invoke(reference, appearing);
+            };
+        }
+
+        public Action<IReference> CreateOnExited(Action<IReference> onExited)
+        {
+            return (IReference reference) =>
+            {
+                onExited?.Invoke(reference);
+                OnExited?.Invoke(reference);
+            };
+        }
+
+        protected void HandleEntering(IReference refback, bool appearing)
+        {
+            OnEntering?.Invoke(refback, appearing);
+
+            // _ = SetPositioningStylesAsync(refback.Current);
+        }
+
+        protected void HandleEntered(IReference refback, bool appeared)
+        {
+            OnEntered?.Invoke(refback, appeared);
+        }
+
+        protected void HandleExit(IReference refback)
+        {
+            OnExit?.Invoke(refback);
+        }
+
+        protected void HandleExiting(IReference refback)
+        {
+            OnExiting?.Invoke(refback);
         }
     }
 }
