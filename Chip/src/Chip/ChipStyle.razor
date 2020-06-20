@@ -1,4 +1,4 @@
-﻿@namespace Skclusive.Material.Chip
+@namespace Skclusive.Material.Chip
 @inherits StyleComponentBase
 
     <Styled Name="Chip">
@@ -15,7 +15,7 @@
         box-sizing: border-box;
         transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
         align-items: center;
-        font-size: var(--theme-typography-button-font-size, 0.875rem);
+        font-size: var(--theme-typography-chip-font-size, 0.8125rem);
         font-family: var(
         --theme-typography-button-font-family,
         "Roboto",
@@ -23,9 +23,9 @@
         "Arial",
         sans-serif
         );
-        font-weight: var(--theme-typography-button-font-weight, 500);
-        line-height: var(--theme-typography-button-line-height, 1.75);
-        letter-spacing: var(--theme-typography-button-letter-spacing, 0.02857em);
+        font-weight: var(--theme-typography-chip-font-weight, 400);
+        line-height: var(--theme-typography-chip-line-height, 1.43);
+        letter-spacing: var(--theme-typography-chip-letter-spacing, 0.01071em);
         white-space: nowrap;
         vertical-align: middle;
         justify-content: center;
@@ -54,9 +54,14 @@
 
         .Chip-Root:hover.Chip-Disabled {
         background-color: transparent;
-        }
+    }
 
-        .Chip-Label {
+    .Chip-Root.Chip-Basic {
+        cursor: default;
+        pointer-events: none;
+    }
+
+    .Chip-Label {
         cursor: inherit;
         display: flex;
         align-items: center;
