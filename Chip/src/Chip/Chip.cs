@@ -25,6 +25,21 @@ namespace Skclusive.Material.Chip
         public bool IsClickable { get; set; } = true;
 
         /// <summary>
+        /// If `true`, show a clickable delete icon and hide the chip when deleted.
+        /// </summary>
+        [Parameter]
+        public bool IsDeletable { get; set; }
+
+        /// <summary>
+        /// If `true`, the chip is not rendered. Usually this is a result of clicking the delete button of a deletable chip.
+        /// </summary>
+        [Parameter]
+        public bool IsDeleted { get; set; }
+
+        [Parameter]
+        public EventCallback<bool> IsDeletedChanged { get; set; }
+
+        /// <summary>
         /// The <see cref="ButtonType" /> of the button.
         /// </summary>
         [Parameter]
@@ -111,6 +126,9 @@ namespace Skclusive.Material.Chip
                 if (!IsClickable)
                     yield return $"Basic";
 
+                if (IsDeleted)
+                    yield return "Deleted";
+
             }
         }
 
@@ -174,6 +192,9 @@ namespace Skclusive.Material.Chip
                 yield return nameof(EndIcon);
 
                 yield return $"Icon-{nameof(Size)}-{Size}";
+
+                if (IsDeletable)
+                    yield return "EndIcon-Delete";
             }
         }
 
@@ -275,5 +296,18 @@ namespace Skclusive.Material.Chip
         {
             get => Enumerable.Empty<Tuple<string, object>>();
         }
+
+        protected virtual void _OnDeleteClick(MouseEventArgs e)
+        {
+            if (!IsDeletable)
+                return;
+            OnDeleteClick.InvokeAsync(e);
+            IsDeleted = true;
+            this.StateHasChanged();
+            IsDeletedChanged.InvokeAsync(true);
+        }
+
+        [Parameter]
+        public EventCallback<MouseEventArgs> OnDeleteClick { get; set; }
     }
 }

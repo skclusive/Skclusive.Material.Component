@@ -1,4 +1,4 @@
-﻿@namespace Skclusive.Material.Chip
+@namespace Skclusive.Material.Chip
 @using Skclusive.Material.Button
 
 @inherits ChipComponent
@@ -36,11 +36,18 @@
                 </span>
             }
             @ChildContent(context)
-            @if (EndIcon != null)
+            @if (EndIcon != null || IsDeletable)
             {
                 <span style="@_EndIconStyle"
-                      class="@_EndIconClass">
-                    @EndIcon
+                      class="@_EndIconClass" @onclick="_OnDeleteClick">
+                    @if (EndIcon != null)
+                    {
+                        @EndIcon
+                    }
+                    else if (IsDeletable)
+                    {
+                        <CloseCircleIcon/>
+                    }
                 </span>
             }
         </span>
