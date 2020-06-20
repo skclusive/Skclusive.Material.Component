@@ -309,5 +309,17 @@ namespace Skclusive.Material.Chip
 
         [Parameter]
         public EventCallback<MouseEventArgs> OnDeleteClick { get; set; }
+
+        /// <summary>
+        /// Avatar placed before the children instead of StartIcon.
+        /// </summary>
+        [Parameter]
+        public RenderFragment ChipAvatar { set; get; }
+
+
+        protected virtual string _AvatarClass
+        {
+            get => CssUtil.ToClass(Selector, new[] { "Avatar" });
+        }
     }
 }
