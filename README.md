@@ -1,11 +1,14 @@
 Skclusive.Material.Component
 =============================
 
-Skclusive-UI Component library for Blazor using Material Design.
-
-### Installation
-
-Add a reference to the library from [![NuGet](https://img.shields.io/nuget/v/Skclusive.Material.Component.svg)](https://www.nuget.org/packages/Skclusive.Material.Component/)
+## Skclusive-UI Component library for Blazor using Material Design.
+[![NuGet](https://img.shields.io/nuget/v/Skclusive.Material.Component.svg)](https://www.nuget.org/packages/Skclusive.Material.Component/)
+[![Gitter](https://badges.gitter.im/skclusive-ui/community.svg)](https://gitter.im/skclusive-ui/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![GitHub Stars](https://img.shields.io/github/stars/skclusive/Skclusive.Material.Component.svg)](https://github.com/skclusive/Skclusive.Material.Component/stargazers)
+[![GitHub Issues](https://img.shields.io/github/issues/skclusive/Skclusive.Material.Component.svg)](https://github.com/skclusive/Skclusive.Material.Component/issues)
+[![Live Demo](https://img.shields.io/badge/demo-online-green.svg)](https://skclusive.github.io/Skclusive.Material.Docs/)
+[![MIT](https://img.shields.io/github/license/skclusive/Skclusive.Material.Component.svg)](LICENSE)
+[![Patreon](https://img.shields.io/badge/Patreon-donation-blue)](https://www.patreon.com/skclusive)
 
 ## Documentation
 
