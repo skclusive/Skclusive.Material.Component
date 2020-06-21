@@ -108,8 +108,8 @@ namespace Skclusive.Material.Chip
                 if (Size != Size.Medium)
                     yield return $"{nameof(Size)}-{Size}";
 
-                if (Size != Size.Medium)
-                    yield return $"{Variant}-{nameof(Size)}-{Size}";
+                //if (Size != Size.Medium)
+                //    yield return $"{Variant}-{nameof(Size)}-{Size}";
 
                 if (Color == Color.Inherit)
                     yield return $"{nameof(Color)}-{nameof(Color.Inherit)}";
@@ -172,10 +172,12 @@ namespace Skclusive.Material.Chip
         {
             get
             {
+                yield return nameof(StartIcon);
+
+                yield return $"StartIcon-{nameof(Size)}-{Size}";
+
                 foreach (var x in IconClasses)
                     yield return x;
-
-                yield return nameof(StartIcon);
             }
         }
 
@@ -198,10 +200,12 @@ namespace Skclusive.Material.Chip
         {
             get
             {
+                yield return nameof(EndIcon);
+
                 foreach (var x in IconClasses)
                     yield return x;
 
-                yield return nameof(EndIcon);
+                yield return $"EndIcon-{nameof(Size)}-{Size}";
 
                 if (IsDeletable)
                     yield return "Icon-Delete";
@@ -294,6 +298,8 @@ namespace Skclusive.Material.Chip
             get
             {
                 yield return "Label";
+                if (Size != Size.Medium)
+                    yield return $"Label-{nameof(Size)}-{Size}";
             }
         }
 
@@ -333,6 +339,8 @@ namespace Skclusive.Material.Chip
                 var classes = new List<string>() { { "Avatar" } };
                 if (Color != Color.Default && Color != Color.Inherit)
                     classes.Add($"Avatar-{Color}");
+                if (Size != Size.Medium)
+                    classes.Add( $"Avatar-{nameof(Size)}-{Size}");
                 return CssUtil.ToClass(Selector, classes);
             }
         }

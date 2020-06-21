@@ -8,6 +8,8 @@
             background-color: var(--theme-palette-grey-light-or-dark, #e0e0e0);
             border-radius: 16px;
             padding: 0;
+            margin: 4px;
+            margin-right: 0;
             min-width: 64px;
             height: 32px;
             display: inline-flex;
@@ -46,7 +48,7 @@
             color: var(--theme-palette-action-disabled, rgba(0, 0, 0, 0.26));
         }
 
-         .Chip-Deleted {
+        .Chip-Deleted {
             display: none;
         }
 
@@ -63,7 +65,7 @@
         .Chip-Root.Chip-Basic {
             cursor: default;
             pointer-events: none;
-        }
+        }      
 
         .Chip-Label {
             cursor: inherit;
@@ -73,44 +75,6 @@
             white-space: nowrap;
             padding-left: 12px;
             padding-right: 12px;
-        }
-
-        .Chip-Text {
-        @*padding: 6px 8px;*@
-        }
-
-        .Chip-Text-Primary {
-            color: var(--theme-palette-primary-main, #1976d2);
-        }
-
-        .Chip-Text-Primary:hover {
-            background-color: var(
-                --theme-palette-primary-main-hover,
-                rgba(25, 118, 210, 0.08)
-            );
-        }
-
-        @media (hover: none) {
-            .Chip-Text-Primary:hover {
-                background-color: transparent;
-            }
-        }
-
-        .Chip-Text-Secondary {
-            color: var(--theme-palette-secondary-main, rgb(220, 0, 78));
-        }
-
-        .Chip-Text-Secondary:hover {
-            background-color: var(
-                --theme-palette-secondary-main-hover,
-                var(--theme-palette-secondary-main-hover, rgba(220, 0, 78, 0.08))
-            );
-        }
-
-        @media (hover: none) {
-            .Chip-Text-Secondary:hover {
-               background-color: transparent;
-            }
         }
 
         .Chip-Default {
@@ -182,16 +146,6 @@
             }
         }
 
-        .Chip-Default-Size-Small {
-            padding: 4px 10px;
-            font-size: calc(var(--theme-font-size-rem-factor, 0.0625) * 13rem);
-        }
-
-        .Chip-Default-Size-Large {
-            padding: 8px 22px;
-            font-size: calc(var(--theme-font-size-rem-factor, 0.0625) * 15rem);
-        }
-
         .Chip-Outlined {
             border: 1px solid var(--theme-palette-border-outlined, rgba(0, 0, 0, 0.23));
             background-color: transparent;
@@ -252,26 +206,6 @@
             border-color: currentColor;
         }
 
-        .Chip-Text-Size-Small {
-            padding: 4px 5px;
-            font-size: calc(var(--theme-font-size-rem-factor, 0.0625) * 13rem);
-        }
-
-        .Chip-Text-Size-Large {
-            padding: 8px 11px;
-            font-size: calc(var(--theme-font-size-rem-factor, 0.0625) * 15rem);
-        }
-
-        .Chip-Outlined-Size-Small {
-            padding: 3px 9px;
-            font-size: calc(var(--theme-font-size-rem-factor, 0.0625) * 13rem);
-        }
-
-        .Chip-Outlined-Size-Large {
-            padding: 7px 21px;
-            font-size: calc(var(--theme-font-size-rem-factor, 0.0625) * 15rem);
-        }
-
         .Chip-FullWidth {
             width: 100%;
         }
@@ -298,14 +232,14 @@
 
         .Chip-StartIcon {            
             display: inherit;
-            margin-left: -4px;
+            margin-left: -6px;
             margin-right: 8px;
         }
         
         .Chip-EndIcon {
             display: inherit;
             margin-left: 8px;
-            margin-right: -4px;
+            margin-right: -6px;
         }
     
         .Chip-Icon-Delete {
@@ -356,16 +290,42 @@
             color: var(--theme-palette-action-active, rgba(220, 0, 78, 1));
         }
 
+        .Chip-Size-Small {
+            height: 24px;
+            @*padding: 4px 10px;*@
+            font-size: calc(var(--theme-font-size-rem-factor, 0.0625) * 13rem);
+        }
+        
+        .Chip-Size-Large {
+          @*  padding: 8px 22px;*@
+            font-size: calc(var(--theme-font-size-rem-factor, 0.0625) * 15rem);
+        }
+
+        .Chip-Label-Size-Small {
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+
         .Chip-Icon-Size-Small > *:first-child {
             font-size: 18px;
         }
 
         .Chip-Icon-Size-Medium > *:first-child {
-            font-size: 20px;
+            font-size: 24px;
         }
 
         .Chip-Icon-Size-Large > *:first-child {
-            font-size: 22px;
+            font-size: 24px; @*todo*@
+        }
+        
+        .Chip-StartIcon-Size-Small {            
+            margin-left: -4px;
+            margin-right: 4px;
+        }
+        
+        .Chip-EndIcon-Size-Small {
+            margin-left: 4px;
+            margin-right: -4px;
         }
 
         .Chip-Avatar {
@@ -376,7 +336,7 @@
             margin-right: 8px;
             width: 24px;
             height: 24px;
-            border-radius: 12px;
+            border-radius: 50%;
             font-size: 0.75rem;
             background-color: var(--theme-palette-grey-light-or-dark, #bdbdbd);
         }
@@ -386,4 +346,16 @@
             background-color: rgb(17, 82, 147);
         }
 
+        .Chip-Avatar-Secondary {
+            color: #fff;
+            background-color: rgb(154, 0, 54);
+        }
+
+        .Chip-Avatar-Size-Small {
+            width: 18px;
+            height: 18px;
+            font-size: 0.625rem;
+            margin-left: -6px;
+            margin-right: 6px;
+        }
     </Styled>
