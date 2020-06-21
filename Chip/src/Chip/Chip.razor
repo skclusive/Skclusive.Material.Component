@@ -1,0 +1,60 @@
+@namespace Skclusive.Material.Chip
+@using Skclusive.Material.Button
+
+@inherits ChipComponent
+
+    <ButtonBase RootRef="@RootRef"
+                ChildRef="@ChildRef"
+                Class="@_Class"
+                Style="@_Style"
+                Href="@Href"
+                Component="@Component"
+                Type="@ButtonType.Button"
+                Disabled="@Disabled"
+                DisableRipple="@DisableRipple"
+                FocusRipple="@(!DisableFocusRipple)"
+                FocusVisibleClass="@_FocusVisibleClass"
+                OnFocus="@HandleFocus"
+                OnBlur="@HandleBlurAsync"
+                OnKeyDown="@HandleKeyDownAsync"
+                OnKeyUp="@HandleKeyUp"
+                OnMouseDown="@HandleMouseDownAsync"
+                OnMouseUp="@HandleMouseUpAsync"
+                OnMouseLeave="@HandleMouseLeaveAsync"
+                OnTouchStart="@HandleTouchStartAsync"
+                OnTouchMove="@HandleTouchMoveAsync"
+                OnTouchEnd="@HandleTouchEndAsync"
+                OnClick="@HandleClick"
+                @attributes="Attributes">
+        <span style="@_LabelStyle"
+              class="@_LabelClass">
+            @if (StartIcon != null)
+            {
+                <span style="@_StartIconStyle"
+                      class="@_StartIconClass">
+                    @StartIcon
+                </span>
+            }
+            else if (ChipAvatar !=null)
+            {
+                <span class="@_AvatarClass">
+                    @ChipAvatar
+                </span>
+            }
+            @ChildContent(context)
+            @if (EndIcon != null || IsDeletable)
+            {
+                <span style="@_EndIconStyle"
+                      class="@_EndIconClass" @onclick="_OnDeleteClick">
+                    @if (EndIcon != null)
+                    {
+                        @EndIcon
+                    }
+                    else if (IsDeletable)
+                    {
+                        <CloseCircleIcon/>
+                    }
+                </span>
+            }
+        </span>
+    </ButtonBase>

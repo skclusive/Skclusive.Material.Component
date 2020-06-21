@@ -1,0 +1,361 @@
+@namespace Skclusive.Material.Chip
+@inherits StyleComponentBase
+
+    <Styled Name="Chip">
+
+        .Chip-Root {
+            color: var(--theme-palette-grey-light-or-dark-contrast-text, rgba(0, 0, 0, 0.87));
+            background-color: var(--theme-palette-grey-light-or-dark, #e0e0e0);
+            border-radius: 16px;
+            padding: 0;
+            margin: 4px;
+            margin-right: 0;
+            min-width: 64px;
+            height: 32px;
+            display: inline-flex;
+            outline: 0;
+            box-sizing: border-box;
+            transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+            align-items: center;
+            font-size: var(--theme-typography-chip-font-size, 0.8125rem);
+            font-family: var(
+                --theme-typography-button-font-family,
+                "Roboto",
+                "Helvetica",
+                "Arial",
+                sans-serif
+            );
+            font-weight: var(--theme-typography-chip-font-weight, 400);
+            line-height: var(--theme-typography-chip-line-height, 1.43);
+            letter-spacing: var(--theme-typography-chip-letter-spacing, 0.01071em);
+            white-space: nowrap;
+            vertical-align: middle;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .Chip-Root:hover {
+            text-decoration: none;
+            background-color: var(
+                --theme-palette-text-primary-hover,
+                rgba(0, 0, 0, 0.08)
+            );
+        }
+
+        .Chip-Root.Chip-Disabled {
+            cursor: default;
+            pointer-events: none;
+            color: var(--theme-palette-action-disabled, rgba(0, 0, 0, 0.26));
+        }
+
+        .Chip-Deleted {
+            display: none;
+        }
+
+        @media (hover: none) {
+            .Chip-Root:hover {
+                background-color: transparent;
+            }
+        }
+
+         .Chip-Root:hover.Chip-Disabled {
+            background-color: transparent;
+        }
+
+        .Chip-Root.Chip-Basic {
+            cursor: default;
+            pointer-events: none;
+        }      
+
+        .Chip-Label {
+            cursor: inherit;
+            display: flex;
+            align-items: center;
+            user-select: none;
+            white-space: nowrap;
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+
+        .Chip-Default {
+            color: var(--theme-palette-grey300-contrast-text, rgba(0, 0, 0, 0.87));
+            background-color: var(--theme-palette-grey300, #e0e0e0);
+        }
+
+        .Chip-Default:hover {
+            background-color: var(--theme-palette-grey-A100, #d5d5d5);
+        }
+
+        .Chip-Default.Chip-FocusVisible {
+        }
+
+        .Chip-Default:active {
+        }
+
+        .Chip-Default.Chip-Disabled {
+            color: var(--theme-palette-action-disabled, rgba(0, 0, 0, 0.26));
+            box-shadow: none;
+            background-color: var(
+                --theme-palette-action-disabled-background,
+                rgba(0, 0, 0, 0.12)
+            );
+
+        }
+
+        @media (hover: none) {
+            .Chip-Default:hover {
+                background-color: #e0e0e0;
+            }
+        }
+
+        .Chip-Default:hover.Chip-Disabled {
+            background-color: var(
+                --theme-palette-action-disabled-background,
+                rgba(0, 0, 0, 0.12)
+            );
+
+        }
+
+        .Chip-Default-Primary {
+            color: var(--theme-palette-primary-contrast-text, #fff);
+            background-color: var(--theme-palette-primary-main, #1976d2);
+        }
+
+        .Chip-Default-Primary:hover {
+            background-color: var(--theme-palette-primary-current, rgba(25, 118, 210, 0.85));
+        }
+
+        @media (hover: none) {
+            .Chip-Default-Primary:hover {
+               background-color: var(--theme-palette-primary-main, rgba(25, 118, 210, 0.85));
+            }
+        }
+
+        .Chip-Default-Secondary {
+            color: var(--theme-palette-secondary-contrast-text, #fff);
+            background-color: var(--theme-palette-secondary-main, rgb(220, 0, 78));
+        }
+
+        .Chip-Default-Secondary:hover {
+            background-color: var(--theme-palette-secondary-dark, rgb(220, 0, 78, 0.85));
+        }
+
+        @media (hover: none) {
+            .Chip-Default-Secondary:hover {
+                background-color: var(--theme-palette-secondary-main, rgb(220, 0, 78, 0.85));
+            }
+        }
+
+        .Chip-Outlined {
+            border: 1px solid var(--theme-palette-border-outlined, rgba(0, 0, 0, 0.23));
+            background-color: transparent;
+        }
+
+        .Chip-Outlined.Chip-Disabled {
+            border: 1px solid var(--theme-palette-action-disabled, rgba(0, 0, 0, 0.26));
+
+        }
+
+        .Chip-Outlined-Primary {
+            color: var(--theme-palette-primary-main, #1976d2);
+            border: 1px solid
+            var(--theme-palette-primary-main-border, rgba(25, 118, 210, 0.5));
+        }
+
+        .Chip-Outlined-Primary:hover {
+            border: 1px solid var(--theme-palette-primary-main, #1976d2);
+            background-color: var(
+                --theme-palette-primary-main-hover,
+                rgba(25, 118, 210, 0.08)
+            );
+        }
+
+        @media (hover: none) {
+            .Chip-Outlined-Primary:hover {
+                background-color: transparent;
+            }
+        }
+
+        .Chip-Outlined-Secondary {
+            color: var(--theme-palette-secondary-main, rgb(220, 0, 78));
+            border: 1px solid
+            var(--theme-palette-secondary-main-border, rgba(220, 0, 78, 0.5));
+        }
+
+        .Chip-Outlined-Secondary:hover {
+            border: 1px solid var(--theme-palette-secondary-main, rgb(220, 0, 78));
+            background-color: var(
+                --theme-palette-secondary-main-hover,
+                rgba(220, 0, 78, 0.08)
+            );
+        }
+
+        .Chip-Outlined-Secondary.Chip-Disabled {
+          border: 1px solid var(--theme-palette-action-disabled, rgba(0, 0, 0, 0.26));
+
+        }
+
+        @media (hover: none) {
+            .Chip-Outlined-Secondary:hover {
+                background-color: transparent;
+            }
+        }
+
+        .Chip-Color-Inherit {
+            color: inherit;
+            border-color: currentColor;
+        }
+
+        .Chip-FullWidth {
+            width: 100%;
+        }
+
+        .Chip-Icon {
+            color: var(--theme-palette-action-active, rgba(0, 0, 0, 0.54));
+        }
+
+        .Chip-Icon-Default-Primary {
+            color: #fff;
+        }
+
+        .Chip-Icon-Default-Secondary {
+            color: #fff;
+        }
+
+        .Chip-Icon-Outlined-Primary {
+            color: #1976d2;
+        }
+
+        .Chip-Icon-Outlined-Secondary {
+            color: rgb(220, 0, 78);
+        }
+
+        .Chip-StartIcon {            
+            display: inherit;
+            margin-left: -6px;
+            margin-right: 8px;
+        }
+        
+        .Chip-EndIcon {
+            display: inherit;
+            margin-left: 8px;
+            margin-right: -6px;
+        }
+    
+        .Chip-Icon-Delete {
+            color: var(--theme-palette-action-active, rgba(0, 0, 0, 0.26));
+        }
+
+        .Chip-Icon-Delete:hover {
+            color: var(--theme-palette-action-active, rgba(0, 0, 0, 0.54));
+        }
+
+        .Chip-Icon-Default-Primary.Chip-Icon-Delete {
+            color: var(--theme-palette-action-active, rgba(255, 255, 255, 0.87));
+        }
+
+        .Chip-Icon-Default-Primary.Chip-Icon-Delete:hover {
+            color: var(--theme-palette-action-active, rgba(255, 255, 255, 1));
+        }
+
+        .Chip-Icon-Default-Secondary.Chip-Icon-Delete {
+            color: var(--theme-palette-action-active, rgba(255, 255, 255, 0.87));
+        }
+
+        .Chip-Icon-Default-Secondary.Chip-Icon-Delete:hover {
+            color: var(--theme-palette-action-active, rgba(255, 255, 255, 1));
+        }
+
+          .Chip-Icon-Outlined.Chip-Icon-Delete {
+            color: var(--theme-palette-action-active, rgba(0, 0, 0, 0.24));
+        }
+
+        .Chip-Icon-Outlined.Chip-Icon-Delete:hover {
+            color: var(--theme-palette-action-active, rgba(0, 0, 0, 0.4));
+        }
+
+        .Chip-Icon-Outlined-Primary.Chip-Icon-Delete {
+            color: var(--theme-palette-action-active, rgba(25, 118, 210, 0.54));
+        }
+
+        .Chip-Icon-Outlined-Primary.Chip-Icon-Delete:hover {
+            color: var(--theme-palette-action-active, rgba(25, 118, 210, 1));
+        }
+
+        .Chip-Icon-Outlined-Secondary.Chip-Icon-Delete {
+            color: var(--theme-palette-action-active, rgba(220, 0, 78, 0.54));
+        }
+
+        .Chip-Icon-Outlined-Secondary.Chip-Icon-Delete:hover {
+            color: var(--theme-palette-action-active, rgba(220, 0, 78, 1));
+        }
+
+        .Chip-Size-Small {
+            height: 24px;
+            @*padding: 4px 10px;*@
+            font-size: calc(var(--theme-font-size-rem-factor, 0.0625) * 13rem);
+        }
+        
+        .Chip-Size-Large {
+          @*  padding: 8px 22px;*@
+            font-size: calc(var(--theme-font-size-rem-factor, 0.0625) * 15rem);
+        }
+
+        .Chip-Label-Size-Small {
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+
+        .Chip-Icon-Size-Small > *:first-child {
+            font-size: 18px;
+        }
+
+        .Chip-Icon-Size-Medium > *:first-child {
+            font-size: 24px;
+        }
+
+        .Chip-Icon-Size-Large > *:first-child {
+            font-size: 24px; @*todo*@
+        }
+        
+        .Chip-StartIcon-Size-Small {            
+            margin-left: -4px;
+            margin-right: 4px;
+        }
+        
+        .Chip-EndIcon-Size-Small {
+            margin-left: 4px;
+            margin-right: -4px;
+        }
+
+        .Chip-Avatar {
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            margin-left: -8px;
+            margin-right: 8px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            font-size: 0.75rem;
+            background-color: var(--theme-palette-grey-light-or-dark, #bdbdbd);
+        }
+
+        .Chip-Avatar-Primary {
+            color: #fff;
+            background-color: rgb(17, 82, 147);
+        }
+
+        .Chip-Avatar-Secondary {
+            color: #fff;
+            background-color: rgb(154, 0, 54);
+        }
+
+        .Chip-Avatar-Size-Small {
+            width: 18px;
+            height: 18px;
+            font-size: 0.625rem;
+            margin-left: -6px;
+            margin-right: 6px;
+        }
+    </Styled>
