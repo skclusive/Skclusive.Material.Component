@@ -40,16 +40,10 @@ namespace Skclusive.Material.Chip
         public EventCallback<bool> IsDeletedChanged { get; set; }
 
         /// <summary>
-        /// The <see cref="ButtonType" /> of the button.
+        /// The <see cref="ChipVariant" /> defines the look of the chip.
         /// </summary>
         [Parameter]
-        public ButtonType Type { set; get; } = ButtonType.Button;
-
-        /// <summary>
-        /// The <see cref="ButtonVariant" /> of the button.
-        /// </summary>
-        [Parameter]
-        public ButtonVariant Variant { set; get; } = ButtonVariant.Text; // TODO: define ChipVariant
+        public ChipVariant Variant { set; get; } = ChipVariant.Default; 
 
         /// <summary>
         /// The <see cref="Skclusive.Core.Component.Size" /> of the button.
@@ -160,13 +154,28 @@ namespace Skclusive.Material.Chip
             get => CssUtil.ToClass(Selector, StartIconClasses, StartIconClass);
         }
 
+        protected virtual IEnumerable<string> IconClasses
+        {
+            get
+            {
+                yield return $"Icon";
+
+                yield return $"Icon-{Variant}";
+
+                if (Color != Color.Default && Color != Color.Inherit)
+                    yield return $"Icon-{Variant}-{Color}";
+
+                yield return $"Icon-{nameof(Size)}-{Size}";
+            }
+        }
         protected virtual IEnumerable<string> StartIconClasses
         {
             get
             {
-                yield return nameof(StartIcon);
+                foreach (var x in IconClasses)
+                    yield return x;
 
-                yield return $"Icon-{nameof(Size)}-{Size}";
+                yield return nameof(StartIcon);
             }
         }
 
@@ -189,12 +198,13 @@ namespace Skclusive.Material.Chip
         {
             get
             {
+                foreach (var x in IconClasses)
+                    yield return x;
+
                 yield return nameof(EndIcon);
 
-                yield return $"Icon-{nameof(Size)}-{Size}";
-
                 if (IsDeletable)
-                    yield return "EndIcon-Delete";
+                    yield return "Icon-Delete";
             }
         }
 
@@ -319,7 +329,12 @@ namespace Skclusive.Material.Chip
 
         protected virtual string _AvatarClass
         {
-            get => CssUtil.ToClass(Selector, new[] { "Avatar" });
+            get {
+                var classes = new List<string>() { { "Avatar" } };
+                if (Color != Color.Default && Color != Color.Inherit)
+                    classes.Add($"Avatar-{Color}");
+                return CssUtil.ToClass(Selector, classes);
+            }
         }
     }
 }

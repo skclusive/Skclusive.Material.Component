@@ -113,9 +113,88 @@
             }
         }
 
+        .Chip-Default {
+            color: var(--theme-palette-grey300-contrast-text, rgba(0, 0, 0, 0.87));
+            background-color: var(--theme-palette-grey300, #e0e0e0);
+        }
+
+        .Chip-Default:hover {
+            background-color: var(--theme-palette-grey-A100, #d5d5d5);
+        }
+
+        .Chip-Default.Chip-FocusVisible {
+        }
+
+        .Chip-Default:active {
+        }
+
+        .Chip-Default.Chip-Disabled {
+            color: var(--theme-palette-action-disabled, rgba(0, 0, 0, 0.26));
+            box-shadow: none;
+            background-color: var(
+                --theme-palette-action-disabled-background,
+                rgba(0, 0, 0, 0.12)
+            );
+
+        }
+
+        @media (hover: none) {
+            .Chip-Default:hover {
+                background-color: #e0e0e0;
+            }
+        }
+
+        .Chip-Default:hover.Chip-Disabled {
+            background-color: var(
+                --theme-palette-action-disabled-background,
+                rgba(0, 0, 0, 0.12)
+            );
+
+        }
+
+        .Chip-Default-Primary {
+            color: var(--theme-palette-primary-contrast-text, #fff);
+            background-color: var(--theme-palette-primary-main, #1976d2);
+        }
+
+        .Chip-Default-Primary:hover {
+            background-color: var(--theme-palette-primary-current, rgba(25, 118, 210, 0.85));
+        }
+
+        @media (hover: none) {
+            .Chip-Default-Primary:hover {
+               background-color: var(--theme-palette-primary-main, rgba(25, 118, 210, 0.85));
+            }
+        }
+
+        .Chip-Default-Secondary {
+            color: var(--theme-palette-secondary-contrast-text, #fff);
+            background-color: var(--theme-palette-secondary-main, rgb(220, 0, 78));
+        }
+
+        .Chip-Default-Secondary:hover {
+            background-color: var(--theme-palette-secondary-dark, rgb(220, 0, 78, 0.85));
+        }
+
+        @media (hover: none) {
+            .Chip-Default-Secondary:hover {
+                background-color: var(--theme-palette-secondary-main, rgb(220, 0, 78, 0.85));
+            }
+        }
+
+        .Chip-Default-Size-Small {
+            padding: 4px 10px;
+            font-size: calc(var(--theme-font-size-rem-factor, 0.0625) * 13rem);
+        }
+
+        .Chip-Default-Size-Large {
+            padding: 8px 22px;
+            font-size: calc(var(--theme-font-size-rem-factor, 0.0625) * 15rem);
+        }
+
         .Chip-Outlined {
             border: 1px solid var(--theme-palette-border-outlined, rgba(0, 0, 0, 0.23));
-            padding: 5px 15px;
+            background-color: transparent;
         }
 
         .Chip-Outlined.Chip-Disabled {
@@ -168,105 +247,6 @@
             }
         }
 
-        .Chip-Contained {
-            color: var(--theme-palette-grey300-contrast-text, rgba(0, 0, 0, 0.87));
-            box-shadow: var(
-                --theme-shadow2,
-                0px 3px 1px -2px rgba(0, 0, 0, 0.2),
-                0px 2px 2px 0px rgba(0, 0, 0, 0.14),
-                0px 1px 5px 0px rgba(0, 0, 0, 0.12)
-            );
-            background-color: var(--theme-palette-grey300, #e0e0e0);
-        }
-
-        .Chip-Contained:hover {
-            box-shadow: var(
-                --theme-shadow4,
-                0px 2px 4px -1px rgba(0, 0, 0, 0.2),
-                0px 4px 5px 0px rgba(0, 0, 0, 0.14),
-                0px 1px 10px 0px rgba(0, 0, 0, 0.12)
-            );
-            background-color: var(--theme-palette-grey-A100, #d5d5d5);
-        }
-
-        .Chip-Contained.Chip-FocusVisible {
-            box-shadow: var(
-                --theme-shadow6,
-                0px 3px 5px -1px rgba(0, 0, 0, 0.2),
-                0px 6px 10px 0px rgba(0, 0, 0, 0.14),
-                0px 1px 18px 0px rgba(0, 0, 0, 0.12)
-            );
-        }
-
-        .Chip-Contained:active {
-            box-shadow: var(
-                --theme-shadow8,
-                0px 5px 5px -3px rgba(0, 0, 0, 0.2),
-                0px 8px 10px 1px rgba(0, 0, 0, 0.14),
-                0px 3px 14px 2px rgba(0, 0, 0, 0.12)
-            );
-        }
-
-        .Chip-Contained.Chip-Disabled {
-            color: var(--theme-palette-action-disabled, rgba(0, 0, 0, 0.26));
-            box-shadow: none;
-            background-color: var(
-                --theme-palette-action-disabled-background,
-                rgba(0, 0, 0, 0.12)
-            );
-
-        }
-
-        @media (hover: none) {
-            .Chip-Contained:hover {
-                box-shadow: var(
-                    --theme-shadow2,
-                    0px 3px 1px -2px rgba(0, 0, 0, 0.2),
-                    0px 2px 2px 0px rgba(0, 0, 0, 0.14),
-                    0px 1px 5px 0px rgba(0, 0, 0, 0.12)
-                );
-                background-color: #e0e0e0;
-            }
-        }
-
-        .Chip-Contained:hover.Chip-Disabled {
-            background-color: var(
-                --theme-palette-action-disabled-background,
-                rgba(0, 0, 0, 0.12)
-            );
-
-        }
-
-        .Chip-Contained-Primary {
-            color: var(--theme-palette-primary-contrast-text, #fff);
-            background-color: var(--theme-palette-primary-main, #1976d2);
-        }
-
-        .Chip-Contained-Primary:hover {
-            background-color: var(--theme-palette-primary-current, rgb(17, 82, 147));
-        }
-
-        @media (hover: none) {
-            .Chip-Contained-Primary:hover {
-               background-color: var(--theme-palette-primary-main, #1976d2);
-            }
-        }
-
-        .Chip-Contained-Secondary {
-            color: var(--theme-palette-secondary-contrast-text, #fff);
-            background-color: var(--theme-palette-secondary-main, rgb(220, 0, 78));
-        }
-
-        .Chip-Contained-Secondary:hover {
-            background-color: var(--theme-palette-secondary-dark, rgb(154, 0, 54));
-        }
-
-        @media (hover: none) {
-            .Chip-Contained-Secondary:hover {
-                background-color: var(--theme-palette-secondary-main, rgb(220, 0, 78));
-            }
-        }
-
         .Chip-Color-Inherit {
             color: inherit;
             border-color: currentColor;
@@ -292,36 +272,88 @@
             font-size: calc(var(--theme-font-size-rem-factor, 0.0625) * 15rem);
         }
 
-        .Chip-Contained-Size-Small {
-            padding: 4px 10px;
-            font-size: calc(var(--theme-font-size-rem-factor, 0.0625) * 13rem);
-        }
-
-        .Chip-Contained-Size-Large {
-            padding: 8px 22px;
-            font-size: calc(var(--theme-font-size-rem-factor, 0.0625) * 15rem);
-        }
-
         .Chip-FullWidth {
             width: 100%;
         }
 
-        .Chip-StartIcon {
+        .Chip-Icon {
             color: var(--theme-palette-action-active, rgba(0, 0, 0, 0.54));
+        }
+
+        .Chip-Icon-Default-Primary {
+            color: #fff;
+        }
+
+        .Chip-Icon-Default-Secondary {
+            color: #fff;
+        }
+
+        .Chip-Icon-Outlined-Primary {
+            color: #1976d2;
+        }
+
+        .Chip-Icon-Outlined-Secondary {
+            color: rgb(220, 0, 78);
+        }
+
+        .Chip-StartIcon {            
             display: inherit;
             margin-left: -4px;
             margin-right: 8px;
         }
         
         .Chip-EndIcon {
-            color: var(--theme-palette-action-active, rgba(0, 0, 0, 0.54));
             display: inherit;
             margin-left: 8px;
             margin-right: -4px;
         }
     
-        .Chip-EndIcon-Delete:hover {
-            color: var(--theme-palette-action-active, rgba(0, 0, 0, 0.87));
+        .Chip-Icon-Delete {
+            color: var(--theme-palette-action-active, rgba(0, 0, 0, 0.26));
+        }
+
+        .Chip-Icon-Delete:hover {
+            color: var(--theme-palette-action-active, rgba(0, 0, 0, 0.54));
+        }
+
+        .Chip-Icon-Default-Primary.Chip-Icon-Delete {
+            color: var(--theme-palette-action-active, rgba(255, 255, 255, 0.87));
+        }
+
+        .Chip-Icon-Default-Primary.Chip-Icon-Delete:hover {
+            color: var(--theme-palette-action-active, rgba(255, 255, 255, 1));
+        }
+
+        .Chip-Icon-Default-Secondary.Chip-Icon-Delete {
+            color: var(--theme-palette-action-active, rgba(255, 255, 255, 0.87));
+        }
+
+        .Chip-Icon-Default-Secondary.Chip-Icon-Delete:hover {
+            color: var(--theme-palette-action-active, rgba(255, 255, 255, 1));
+        }
+
+          .Chip-Icon-Outlined.Chip-Icon-Delete {
+            color: var(--theme-palette-action-active, rgba(0, 0, 0, 0.24));
+        }
+
+        .Chip-Icon-Outlined.Chip-Icon-Delete:hover {
+            color: var(--theme-palette-action-active, rgba(0, 0, 0, 0.4));
+        }
+
+        .Chip-Icon-Outlined-Primary.Chip-Icon-Delete {
+            color: var(--theme-palette-action-active, rgba(25, 118, 210, 0.54));
+        }
+
+        .Chip-Icon-Outlined-Primary.Chip-Icon-Delete:hover {
+            color: var(--theme-palette-action-active, rgba(25, 118, 210, 1));
+        }
+
+        .Chip-Icon-Outlined-Secondary.Chip-Icon-Delete {
+            color: var(--theme-palette-action-active, rgba(220, 0, 78, 0.54));
+        }
+
+        .Chip-Icon-Outlined-Secondary.Chip-Icon-Delete:hover {
+            color: var(--theme-palette-action-active, rgba(220, 0, 78, 1));
         }
 
         .Chip-Icon-Size-Small > *:first-child {
@@ -347,6 +379,11 @@
             border-radius: 12px;
             font-size: 0.75rem;
             background-color: var(--theme-palette-grey-light-or-dark, #bdbdbd);
+        }
+
+        .Chip-Avatar-Primary {
+            color: #fff;
+            background-color: rgb(17, 82, 147);
         }
 
     </Styled>
