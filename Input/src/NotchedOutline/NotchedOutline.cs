@@ -4,6 +4,7 @@ using Skclusive.Material.Form;
 using System.Linq;
 using Skclusive.Core.Component;
 using System;
+using System.Globalization;
 
 namespace Skclusive.Material.Input
 {
@@ -71,7 +72,8 @@ namespace Skclusive.Material.Input
                 foreach (var item in base.Styles)
                     yield return item;
 
-                yield return Tuple.Create<string, object>("width", $"{(Notched ? _LabelWidth : 0.01)}px");
+                var finalWidth = Notched ? _LabelWidth : 0.01;
+                yield return Tuple.Create<string, object>("width", $"{finalWidth.ToString(CultureInfo.InvariantCulture)}px");
             }
         }
 
