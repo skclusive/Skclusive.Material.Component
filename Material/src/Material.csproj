@@ -35,6 +35,7 @@
     <ProjectReference Include="..\..\Table\src\Table.csproj" Version="2.0.0" />
     <ProjectReference Include="..\..\Text\src\Text.csproj" Version="2.0.0" />
     <ProjectReference Include="..\..\Toolbar\src\Toolbar.csproj" Version="2.0.0" />
+    <ProjectReference Include="..\..\Tooltip\src\Tooltip.csproj" />
     <ProjectReference Include="..\..\Transition\src\Transition.csproj" Version="2.0.0" />
     <ProjectReference Include="..\..\Typography\src\Typography.csproj" Version="2.0.0" />
     <ProjectReference Include="..\..\Hidden\src\Hidden.csproj" Version="2.0.0" />

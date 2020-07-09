@@ -1,0 +1,17 @@
+﻿@namespace Skclusive.Material.Tooltip
+@inherits MaterialComponentBase
+
+@if (!KeepMounted && !Open && (!Transition || TransitionExited()))
+{
+}
+else
+{
+    <Portal DisablePortal="@DisablePortal" TargetRef="@Container" Context="PortalContext">
+        <Component class="@_Class"
+                   style="@_Style"
+                   RootRef="@(new DelegateReference("PopperDelegateRef", RootRef, PortalContext.RefBack))"
+                   @attributes="Attributes">
+            @ChildContent.Invoke(GetPopperContext(context))
+        </Component>
+    </Portal>
+}

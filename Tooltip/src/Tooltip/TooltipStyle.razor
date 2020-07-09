@@ -1,0 +1,118 @@
+﻿@namespace Skclusive.Material.Tooltip
+@inherits StyleComponentBase
+
+<Styled Name="Tooltip">
+    .Tooltip-Popper {
+        z-index: var(--theme-zindex-tooltip, 1500);
+        pointer-events: none;
+    }
+    
+    .Tooltip-PopperInteractive {
+        pointer-events: auto;
+    }
+    
+    .Tooltip-Tooltip {
+        background-color: #717171; /*fade(theme.palette.grey[700], 0.9)*/
+        border-radius: calc(var(--theme-shape-border-radius, 4) * 1px);
+        color: var(--theme-palette-common-white, #fff);
+        font-family: var(--theme-typography-font-family, "Roboto", "Helvetica", "Arial", sans-serif);
+        padding: 4px 8px;
+        font-size: 0.625rem; /*theme.typography.pxToRem(10)*/
+        line-height: 1em;
+        max-width: 300px;
+        word-wrap: break-word;
+        font-weight: var(--theme-typography-font-weight-medium, 500);
+        opacity: 0.9;
+    }
+    
+    .Tooltip-Tooltip-Arrow {
+        position: relative;
+        margin: 0;
+    }
+    
+    .Tooltip-Arrow {
+        overflow: hidden;
+        position: absolute;
+        width: 1em;
+        height: 0.71em; /* = width / sqrt(2) = (length of the hypotenuse) */
+        box-sizing: border-box;
+        color: #717171; /*fade(theme.palette.grey[700], 0.9)*/
+    }
+    
+    .Tooltip-Arrow::before {
+        content: "";
+        margin: auto;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: currentColor;
+        transform: rotate(45deg);
+    }
+    
+    .Tooltip-Popper-Arrow-bottom {
+        top: 0;
+        left: 0;
+        margin-top: -0.71em;
+        margin-left: 4px;
+        margin-right: 4px;
+    }
+    
+    .Tooltip-Popper-Arrow-bottom::before {
+        transform-origin: 0 100%;
+    }
+    
+    .Tooltip-Touch {
+        padding: 8px 16px;
+        fontSize: 0.875rem; /*theme.typography.pxToRem(14)*/
+        lineHeight: 1em;
+        fontWeight: var(--theme-typography-font-weight-regular, 500);
+    }
+    
+    .Tooltip-Tooltip-Placement-left {
+        transform-origin: right center;
+        margin: 0 14px;
+    }
+    
+    @media (min-width: 600px): {
+        .Tooltip-Tooltip-Placement-left {
+            transform-origin: right center;
+            margin: 0 24px;
+        }
+    }
+    
+    .Tooltip-Tooltip-Placement-right {
+        transform-origin: left center;
+        margin: 0 14px;
+    }
+    
+    @media (min-width: 600px): {
+        .Tooltip-Tooltip-Placement-right {
+            transform-origin: left center;
+            margin: 0 24px;
+        }
+    }
+    
+    .Tooltip-Tooltip-Placement-top {
+        transform-origin: center bottom;
+        margin: 0 14px;
+    }
+    
+    @media (min-width: 600px): {
+        .Tooltip-Tooltip-Placement-top {
+            transform-origin: center bottom;
+            margin: 0 24px;
+        }
+    }
+    
+    .Tooltip-Tooltip-Placement-bottom {
+        transform-origin: center top;
+        margin: 0 14px;
+    }
+    
+    @media (min-width: 600px): {
+        .Tooltip-Tooltip-Placement-bottom {
+            transform-origin: center top;
+            margin: 0 24px;
+        }
+    }
+</Styled>

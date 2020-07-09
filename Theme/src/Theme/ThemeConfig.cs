@@ -18,6 +18,8 @@ namespace Skclusive.Material.Theme
 
         public string ZindexDrawer { set; get; }
 
+        public string ZindexTooltip { set; get; }
+
         public string Shadow0 { set; get; }
 
         public string Shadow1 { set; get; }

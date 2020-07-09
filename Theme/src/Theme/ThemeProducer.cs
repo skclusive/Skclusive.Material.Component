@@ -36,6 +36,7 @@ namespace Skclusive.Material.Theme
             --theme-html-font-size: {theme.HtmlFontSize};
             --theme-zindex-appbar: {theme.ZindexAppBar};
             --theme-zindex-drawer: {theme.ZindexDrawer};
+            --theme-zindex-tooltip: {theme.ZindexTooltip};
             --theme-font-size-coef: calc(var(--theme-font-size) / 14);
             --theme-font-size-rem-factor: calc(
                 var(--theme-font-size-coef) / var(--theme-html-font-size)

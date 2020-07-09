@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <VersionPrefix>2.0.0</VersionPrefix>
+    <VersionSuffix>$(VersionSuffix)</VersionSuffix>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <RazorLangVersion>3.0</RazorLangVersion>
+    <AssemblyName>Skclusive.Material.Tooltip</AssemblyName>
+    <PackageId>Skclusive.Material.Tooltip</PackageId>
+    <RootNamespace>Skclusive.Material.Tooltip</RootNamespace>
+    <Authors>Andrej Kmetík</Authors>
+    <Company></Company>
+    <Copyright></Copyright>
+    <PackageTags>blazor material ui tooltip popper</PackageTags>
+    <PackageProjectUrl>https://github.com/skclusive/Skclusive.Material.Tooltip</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/skclusive/Skclusive.Material.Tooltip</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NLog" Version="4.7.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\src\Core.csproj" Version="2.0.0" />
+    <ProjectReference Include="..\..\Transition\src\Transition.csproj" />
+    <ProjectReference Include="..\..\Typography\src\Typography.csproj" />
+  </ItemGroup>
+
+  <Target Name="BuildFrontend" BeforeTargets="Build">
+    <Exec Command="npm install" />
+    <Exec Command="npm run build" />
+  </Target>
+
+</Project>
