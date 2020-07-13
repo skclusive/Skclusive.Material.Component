@@ -3,6 +3,7 @@ using Skclusive.Core.Component;
 using Skclusive.Material.Core;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace Skclusive.Material.Progress
@@ -113,7 +114,7 @@ namespace Skclusive.Material.Progress
             {
                 decimal transform = Variant == CircularProgressVariant.Static ? -90 : EaseOut(Relative / 70) * 270;
 
-                return $"rotate({transform}deg)";
+                return $"rotate({transform.ToString(CultureInfo.InvariantCulture)}deg)";
             }
         }
 
@@ -155,7 +156,7 @@ namespace Skclusive.Material.Progress
                     (100 - Relative) / 100 * Circumference
                     : EaseIn((100 - Relative) / 100) * Circumference;
 
-                return $"{offset}px";
+                return $"{offset.ToString(CultureInfo.InvariantCulture)}px";
             }
         }
 
