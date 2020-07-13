@@ -7,6 +7,7 @@ using Skclusive.Core.Component;
 using Skclusive.Material.Core;
 using Skclusive.Material.Modal;
 using Skclusive.Material.Script;
+using System.Globalization;
 
 namespace Skclusive.Material.Popover
 {
@@ -448,7 +449,7 @@ namespace Skclusive.Material.Popover
 
             if (AnchorType == AnchorType.None)
             {
-                styles.Add("transform-origin", $"{horizontal}px {vertical}px");
+                styles.Add("transform-origin", $"{horizontal.ToString(CultureInfo.InvariantCulture)}px {vertical.ToString(CultureInfo.InvariantCulture)}px");
             }
             else
             {
@@ -493,9 +494,9 @@ namespace Skclusive.Material.Popover
                     horizontal += diff;
                 }
 
-                styles.Add("top", $"{top}px");
-                styles.Add("left", $"{left}px");
-                styles.Add("transform-origin", $"{horizontal}px {vertical}px");
+                styles.Add("top", $"{top.ToString(CultureInfo.InvariantCulture)}px");
+                styles.Add("left", $"{left.ToString(CultureInfo.InvariantCulture)}px");
+                styles.Add("transform-origin", $"{horizontal.ToString(CultureInfo.InvariantCulture)}px {vertical.ToString(CultureInfo.InvariantCulture)}px");
             }
 
             return styles;
