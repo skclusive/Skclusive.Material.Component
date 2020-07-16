@@ -81,8 +81,6 @@ namespace Skclusive.Material.Component
 
         protected TypographyVariant _Variant => (TypographyVariant)Enum.Parse(typeof(TypographyVariant), Variant.ToString());
 
-        protected bool FocusVisible { set; get; }
-
         protected override IEnumerable<string> Classes
         {
             get
@@ -90,28 +88,11 @@ namespace Skclusive.Material.Component
                 foreach (var item in base.Classes)
                     yield return item;
 
-                if (FocusVisible)
-                    yield return nameof(FocusVisible);
-
                 if (Component == "button")
                     yield return "Button";
 
                 yield return $"{nameof(Underline)}-{Underline}";
             }
-        }
-
-        protected override void HandleFocus(FocusEventArgs args)
-        {
-            FocusVisible = true;
-
-            base.HandleFocus(args);
-        }
-
-        protected override void HandleBlur(FocusEventArgs args)
-        {
-            FocusVisible = false;
-
-            base.HandleBlur(args);
         }
     }
 }
