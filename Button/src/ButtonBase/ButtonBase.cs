@@ -120,12 +120,14 @@ namespace Skclusive.Material.Button
         //    return base.SetParametersAsync(parameters);
         //}
 
-        protected override void HandleFocus(FocusEventArgs args)
+        protected override Task HandleFocus(FocusEventArgs args)
         {
             if (!(Disabled.HasValue && Disabled.Value))
             {
-                base.HandleFocus(args);
+                return base.HandleFocus(args);
             }
+
+            return Task.CompletedTask;
         }
 
         protected override async Task HandleBlurAsync(FocusEventArgs args)
@@ -169,7 +171,7 @@ namespace Skclusive.Material.Button
             Ripple?.Stop();
         }
 
-        protected override async Task HandleMouseLeaveAsync(EventArgs args)
+        protected override async Task HandleMouseLeaveAsync(MouseEventArgs args)
         {
             await base.HandleMouseLeaveAsync(args);
 

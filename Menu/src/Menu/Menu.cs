@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Skclusive.Core.Component;
@@ -161,37 +162,37 @@ namespace Skclusive.Material.Menu
         /// Callback fired before the Menu enters.
         /// </summary>
         [Parameter]
-        public Action<IReference, bool> OnEnter { set; get; }
+        public EventCallback<(IReference, bool)> OnEnter { set; get; }
 
         /// <summary>
         /// Callback fired when the Menu is entering.
         /// </summary>
         [Parameter]
-        public Action<IReference, bool> OnEntering { set; get; }
+        public EventCallback<(IReference, bool)> OnEntering { set; get; }
 
         /// <summary>
         /// Callback fired when the Menu has entered.
         /// </summary>
         [Parameter]
-        public Action<IReference, bool> OnEntered { set; get; }
+        public EventCallback<(IReference, bool)> OnEntered { set; get; }
 
         /// <summary>
         /// Callback fired before the Menu exits.
         /// </summary>
         [Parameter]
-        public Action<IReference> OnExit { set; get; }
+        public EventCallback<IReference> OnExit { set; get; }
 
         /// <summary>
         /// Callback fired when the Menu is exiting.
         /// </summary>
         [Parameter]
-        public Action<IReference> OnExiting { set; get; }
+        public EventCallback<IReference> OnExiting { set; get; }
 
         /// <summary>
         /// Callback fired when the Menu has exited.
         /// </summary>
         [Parameter]
-        public Action<IReference> OnExited { set; get; }
+        public EventCallback<IReference> OnExited { set; get; }
 
         [Parameter]
         public MenuVariant Variant { set; get; } = MenuVariant.SelectedMenu;
@@ -260,42 +261,44 @@ namespace Skclusive.Material.Menu
             }
         }
 
-        protected void HandleEnter(IReference refback, bool appearing)
+        protected Task HandleEnterAsync((IReference, bool) args)
         {
-            OnEnter?.Invoke(refback, appearing);
+            return OnEnter.InvokeAsync(args);
         }
 
-        protected void HandleEntering(IReference refback, bool appearing)
+        protected Task HandleEnteringAsync((IReference, bool) args)
         {
-            OnEntering?.Invoke(refback, appearing);
+            return OnEntering.InvokeAsync(args);
         }
 
-        protected void HandleEntered(IReference refback, bool appeared)
+        protected Task HandleEnteredAsync((IReference, bool) args)
         {
-            OnEntered?.Invoke(refback, appeared);
+            return OnEntered.InvokeAsync(args);
         }
 
-        protected void HandleExit(IReference refback)
+        protected Task HandleExitAsync(IReference refback)
         {
-            OnExit?.Invoke(refback);
+            return OnExit.InvokeAsync(refback);
         }
 
-        protected void HandleExiting(IReference refback)
+        protected Task HandleExitingAsync(IReference refback)
         {
-            OnExiting?.Invoke(refback);
+            return OnExiting.InvokeAsync(refback);
         }
 
-        protected void HandleExited(IReference refback)
+        protected Task HandleExitedAsync(IReference refback)
         {
-            OnExited?.Invoke(refback);
+            return OnExited.InvokeAsync(refback);
         }
 
-        protected override void HandleKeyDown(KeyboardEventArgs keyboardEvent)
+        protected override Task HandleKeyDown(KeyboardEventArgs keyboardEvent)
         {
             if (keyboardEvent.Key == "Tab")
             {
                 OnClose?.Invoke(MenuCloseReason.TabKeyDown);
             }
+
+            return Task.CompletedTask;
         }
 
         protected void HandleClose()

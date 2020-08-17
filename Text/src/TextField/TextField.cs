@@ -206,31 +206,31 @@ namespace Skclusive.Material.Text
             }
         }
 
-        protected override void HandleFocus(FocusEventArgs args)
+        protected override Task HandleFocus(FocusEventArgs args)
         {
             Focused = true;
 
             StateHasChanged();
 
-            base.HandleFocus(args);
+            return base.HandleFocus(args);
         }
 
-        protected override void HandleBlur(FocusEventArgs args)
+        protected override Task HandleBlur(FocusEventArgs args)
         {
             Focused = false;
 
             StateHasChanged();
 
-            base.HandleBlur(args);
+            return base.HandleBlur(args);
         }
 
-        protected virtual void HandleChange(ChangeEventArgs args)
+        protected virtual Task HandleChange(ChangeEventArgs args)
         {
             Value = args.Value?.ToString();
 
             StateHasChanged();
 
-            OnChange.InvokeAsync(args);
+            return OnChange.InvokeAsync(args);
         }
     }
 }

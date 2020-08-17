@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Skclusive.Core.Component;
 
 namespace Skclusive.Material.List
@@ -9,7 +10,7 @@ namespace Skclusive.Material.List
 
         string FocusVisibleClass { get; }
 
-        Action<EventArgs> OnClick { get; }
+        Func<EventArgs, Task> OnClick { get; }
     }
 
     public class ListItemContextBuilder : ComponentContextBuilder<ListItemContextBuilder, IListItemContext>
@@ -20,7 +21,7 @@ namespace Skclusive.Material.List
 
             public string FocusVisibleClass { get; internal set; }
 
-            public Action<EventArgs> OnClick { get; internal set; }
+            public Func<EventArgs, Task> OnClick { get; internal set; }
         }
 
         public ListItemContextBuilder() : base(new ListItemContext())
@@ -45,7 +46,7 @@ namespace Skclusive.Material.List
             return this;
         }
 
-        public ListItemContextBuilder WithOnClick(Action<EventArgs> onClick)
+        public ListItemContextBuilder WithOnClick(Func<EventArgs, Task> onClick)
         {
             ListContext.OnClick = onClick;
 

@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using static Skclusive.Material.Transition.TransitionUtil;
+using System.Linq;
 
 namespace Skclusive.Material.Transition
 {
@@ -48,25 +49,25 @@ namespace Skclusive.Material.Transition
         /// Callback fired before the Menu enters.
         /// </summary>
         [Parameter]
-        public Action<IReference, bool> OnEnter { set; get; }
+        public EventCallback<(IReference, bool)> OnEnter { set; get; }
 
         /// <summary>
         /// Callback fired when the Menu is entering.
         /// </summary>
         [Parameter]
-        public Action<IReference, bool> OnEntering { set; get; }
+        public EventCallback<(IReference, bool)> OnEntering { set; get; }
 
         /// <summary>
         /// Callback fired before the Menu exits.
         /// </summary>
         [Parameter]
-        public Action<IReference> OnExit { set; get; }
+        public EventCallback<IReference> OnExit { set; get; }
 
         /// <summary>
         /// Callback fired when the Menu has exited.
         /// </summary>
         [Parameter]
-        public Action<IReference> OnExited { set; get; }
+        public EventCallback<IReference> OnExited { set; get; }
 
         /// <summary>
         /// slide transition duration.
@@ -164,7 +165,8 @@ namespace Skclusive.Material.Transition
 
         protected IEnumerable<Tuple<string, object>> GetChildStyles(ITransitionContext context)
         {
-            yield return Tuple.Create<string, object>("visibility", context.State == TransitionState.Exited && !In ? "hidden" : "default");
+            return Enumerable.Empty<Tuple<string, object>>();
+            // yield return Tuple.Create<string, object>("visibility", context.State == TransitionState.Exited && !In ? "hidden" : "default");
         }
 
         protected ITransitionContext GetChildContext(ITransitionContext context)
@@ -176,25 +178,19 @@ namespace Skclusive.Material.Transition
             .Build();
         }
 
-        protected void HandleEnter(IReference refback, bool appear)
+        protected async Task HandleEnterAsync((IReference, bool) args)
         {
-            _ = HandleEnterAsync(refback, appear);
-        }
+            (IReference refback, bool appear) = args;
 
-        protected async Task HandleEnterAsync(IReference refback, bool appear)
-        {
             await SlideHelper.SetSlideTranslateValueAsync(Placement, refback.Current);
 
-            OnEnter?.Invoke(refback, appear);
+            await OnEnter.InvokeAsync(args);
         }
 
-        protected void HandleEntering(IReference refback, bool appearing)
+        protected async Task HandleEnteringAsync((IReference, bool) args)
         {
-            _ = HandleEnteringAsync(refback, appearing);
-        }
+            (IReference refback, bool appearing) = args;
 
-        protected async Task HandleEnteringAsync(IReference refback, bool appearing)
-        {
             var transition = CreateTransition("transform", GetEnterDuration(), TransitionDelay, TransitionEasing.EasingOut);
 
             var styles = new Dictionary<string, object>
@@ -207,12 +203,7 @@ namespace Skclusive.Material.Transition
 
             await DomHelpers.SetStyleAsync(refback.Current, styles, trigger: true);
 
-            OnEntering?.Invoke(refback, appearing);
-        }
-
-        protected void HandleExit(IReference refback)
-        {
-            _ = HandleExitAsync(refback);
+            await OnEntering.InvokeAsync(args);
         }
 
         protected async Task HandleExitAsync(IReference refback)
@@ -229,12 +220,7 @@ namespace Skclusive.Material.Transition
 
             await SlideHelper.SetSlideTranslateValueAsync(Placement, refback.Current);
 
-            OnExit?.Invoke(refback);
-        }
-
-        protected void HandleExited(IReference refback)
-        {
-            _ = HandleExitedAsync(refback);
+            await OnExit.InvokeAsync(refback);
         }
 
         protected async Task HandleExitedAsync(IReference refback)
@@ -250,7 +236,7 @@ namespace Skclusive.Material.Transition
 
             await DomHelpers.SetStyleAsync(refback.Current, styles, trigger: false);
 
-            OnExited?.Invoke(refback);
+            await OnExited.InvokeAsync(refback);
         }
 
         protected override async Task OnAfterUpdateAsync()

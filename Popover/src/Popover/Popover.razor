@@ -41,10 +41,10 @@
             UnmountOnExit="@UnmountOnExit"
             OnEnter="@(CreateOnEnter(@ModalContext.OnEnter))"
             OnExited="@(CreateOnExited(@ModalContext.OnExited))"
-            OnEntering="@HandleEntering"
-            OnEntered="@HandleEntered"
-            OnExit="@HandleExit"
-            OnExiting="@HandleExiting"
+            OnEntering="@HandleEnteringAsync"
+            OnEntered="@HandleEnteredAsync"
+            OnExit="@HandleExitAsync"
+            OnExiting="@HandleExitingAsync"
             role="none presentation"
             Context="FadeContext">
             <Paper

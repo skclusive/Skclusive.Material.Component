@@ -10,12 +10,12 @@
     ExitTimeout="@ExitTimeout"
     MountOnEnter="@MountOnEnter"
     UnmountOnExit="@UnmountOnExit"
-    OnEnter="@HandleEnter"
-    OnEntering="@HandleEntering"
-    OnEntered="@HandleEntered"
-    OnExit="@HandleExit"
-    OnExiting="@HandleExiting"
-    OnExited="@HandleExited">
+    OnEnter="@HandleEnterAsync"
+    OnEntering="@HandleEnteringAsync"
+    OnEntered="@HandleEnteredAsync"
+    OnExit="@HandleExitAsync"
+    OnExiting="@HandleExitingAsync"
+    OnExited="@HandleExitedAsync">
     <CollapseContainer
         In="@In"
         Class="@(CssUtil.ToClass(string.Empty, context.Classes))"

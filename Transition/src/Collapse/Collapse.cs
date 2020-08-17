@@ -35,37 +35,37 @@ namespace Skclusive.Material.Transition
         /// Callback fired before the Menu enters.
         /// </summary>
         [Parameter]
-        public Action<IReference, bool> OnEnter { set; get; }
+        public EventCallback<(IReference, bool)> OnEnter { set; get; }
 
         /// <summary>
         /// Callback fired when the Menu is entering.
         /// </summary>
         [Parameter]
-        public Action<IReference, bool> OnEntering { set; get; }
+        public EventCallback<(IReference, bool)> OnEntering { set; get; }
 
         /// <summary>
         /// Callback fired when the Menu has entered.
         /// </summary>
         [Parameter]
-        public Action<IReference, bool> OnEntered { set; get; }
+        public EventCallback<(IReference, bool)> OnEntered { set; get; }
 
         /// <summary>
         /// Callback fired before the Menu exits.
         /// </summary>
         [Parameter]
-        public Action<IReference> OnExit { set; get; }
+        public EventCallback<IReference> OnExit { set; get; }
 
         /// <summary>
         /// Callback fired when the Menu is exiting.
         /// </summary>
         [Parameter]
-        public Action<IReference> OnExiting { set; get; }
+        public EventCallback<IReference> OnExiting { set; get; }
 
         /// <summary>
         /// Callback fired when the Menu has exited.
         /// </summary>
         [Parameter]
-        public Action<IReference> OnExited { set; get; }
+        public EventCallback<IReference> OnExited { set; get; }
 
         /// <summary>
         /// collapse transition duration.
@@ -171,13 +171,10 @@ namespace Skclusive.Material.Transition
             return duration;
         }
 
-        protected void HandleEnter(IReference refback, bool appear)
+        protected async Task HandleEnterAsync((IReference, bool) args)
         {
-            _ = HandleEnterAsync(refback, appear);
-        }
+            (IReference refback, bool appear) = args;
 
-        protected async Task HandleEnterAsync(IReference refback, bool appear)
-        {
             var styles = new Dictionary<string, object>
             {
                 { "height", $"{CollapsedHeight}px" }
@@ -185,16 +182,13 @@ namespace Skclusive.Material.Transition
 
             await DomHelpers.SetStyleAsync(refback.Current, styles, trigger: true);
 
-            OnEnter?.Invoke(refback, appear);
+            await OnEnter.InvokeAsync(args);
         }
 
-        protected void HandleEntering(IReference refback, bool appearing)
+        protected async Task HandleEnteringAsync((IReference, bool) args)
         {
-            _ = HandleEnteringAsync(refback, appearing);
-        }
+            (IReference refback, bool appearing) = args;
 
-        protected async Task HandleEnteringAsync(IReference refback, bool appearing)
-        {
             var wrappedHeight = await DomHelpers.GetHeightAsync(WrapperRef.Current, true);
 
             var styles = new Dictionary<string, object>
@@ -205,16 +199,13 @@ namespace Skclusive.Material.Transition
 
             await DomHelpers.SetStyleAsync(refback.Current, styles, trigger: true);
 
-            OnEntering?.Invoke(refback, appearing);
+            await OnEntering.InvokeAsync(args);
         }
 
-        protected void HandleEntered(IReference refback, bool appeared)
+        protected async Task HandleEnteredAsync((IReference, bool) args)
         {
-            _ = HandleEnteredAsync(refback, appeared);
-        }
+            (IReference refback, bool appeared) = args;
 
-        protected async Task HandleEnteredAsync(IReference refback, bool appeared)
-        {
             var styles = new Dictionary<string, object>
             {
                 { "height", "auto" }
@@ -222,17 +213,12 @@ namespace Skclusive.Material.Transition
 
             await DomHelpers.SetStyleAsync(refback.Current, styles, trigger: true);
 
-            OnEntered?.Invoke(refback, appeared);
-        }
-
-        protected void HandleExit(IReference refback)
-        {
-            _ = HandleExitAsync(refback);
+            await OnEntered.InvokeAsync(args);
         }
 
         protected async Task HandleExitAsync(IReference refback)
         {
-             var wrappedHeight = await DomHelpers.GetHeightAsync(WrapperRef.Current, true);
+            var wrappedHeight = await DomHelpers.GetHeightAsync(WrapperRef.Current, true);
 
             var styles = new Dictionary<string, object>
             {
@@ -241,12 +227,7 @@ namespace Skclusive.Material.Transition
 
             await DomHelpers.SetStyleAsync(refback.Current, styles, trigger: true);
 
-            OnExit?.Invoke(refback);
-        }
-
-        protected void HandleExiting(IReference refback)
-        {
-            _ = HandleExitingAsync(refback);
+            await OnExit.InvokeAsync(refback);
         }
 
         protected async Task HandleExitingAsync(IReference refback)
@@ -259,12 +240,12 @@ namespace Skclusive.Material.Transition
 
             await DomHelpers.SetStyleAsync(refback.Current, styles, trigger: true);
 
-            OnExiting?.Invoke(refback);
+            await OnExiting.InvokeAsync(refback);
         }
 
-        protected void HandleExited(IReference refback)
+        protected Task HandleExitedAsync(IReference refback)
         {
-            OnExited?.Invoke(refback);
+            return OnExited.InvokeAsync(refback);
         }
 
         protected string GetTransition(int duration, int delay)

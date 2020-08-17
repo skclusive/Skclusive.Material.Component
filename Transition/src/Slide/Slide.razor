@@ -10,9 +10,9 @@
     ExitTimeout="@ExitTimeout"
     MountOnEnter="@MountOnEnter"
     UnmountOnExit="@UnmountOnExit"
-    OnEnter="@HandleEnter"
-    OnEntering="@HandleEntering"
-    OnExit="@HandleExit"
-    OnExited="@HandleExited">
+    OnEnter="@HandleEnterAsync"
+    OnEntering="@HandleEnteringAsync"
+    OnExit="@HandleExitAsync"
+    OnExited="@HandleExitedAsync">
     @ChildContent.Invoke(GetChildContext(context))
 </Transition>

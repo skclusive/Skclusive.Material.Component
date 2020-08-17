@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Skclusive.Core.Component;
 using Skclusive.Material.Core;
@@ -133,37 +134,37 @@ namespace Skclusive.Material.Dialog
         /// Transition <c>OnEnter</c> callback.
         /// </summary>
         [Parameter]
-        public Action<IReference, bool> OnEnter { set; get; }
+        public EventCallback<(IReference, bool)> OnEnter { set; get; }
 
         /// <summary>
         /// Transition <c>OnEntering</c> callback.
         /// </summary>
         [Parameter]
-        public Action<IReference, bool> OnEntering { set; get; }
+        public EventCallback<(IReference, bool)> OnEntering { set; get; }
 
         /// <summary>
         /// Transition <c>OnEntered</c> callback.
         /// </summary>
         [Parameter]
-        public Action<IReference, bool> OnEntered { set; get; }
+        public EventCallback<(IReference, bool)> OnEntered { set; get; }
 
         /// <summary>
         /// Transition <c>OnExit</c> callback.
         /// </summary>
         [Parameter]
-        public Action<IReference> OnExit { set; get; }
+        public EventCallback<IReference> OnExit { set; get; }
 
         /// <summary>
         /// Transition <c>OnExiting</c> callback.
         /// </summary>
         [Parameter]
-        public Action<IReference> OnExiting { set; get; }
+        public EventCallback<IReference> OnExiting { set; get; }
 
         /// <summary>
         /// Transition <c>OnExited</c> callback.
         /// </summary>
         [Parameter]
-        public Action<IReference> OnExited { set; get; }
+        public EventCallback<IReference> OnExited { set; get; }
 
         /// <summary>
         /// Callback fired when the dialog is getting closed.
@@ -207,19 +208,19 @@ namespace Skclusive.Material.Dialog
         [Parameter]
         public bool Square { set; get; } = true;
 
-        public Action<IReference, bool> CreateOnEnter(Action<IReference, bool> onEnter)
+        public Func<(IReference, bool), Task> CreateOnEnter(Func<(IReference, bool), Task> onEnter)
         {
-            return (IReference reference, bool appearing) => {
-                onEnter?.Invoke(reference, appearing);
-                OnEnter?.Invoke(reference, appearing);
+            return async ((IReference reference, bool appearing) args) => {
+                await onEnter?.Invoke(args);
+                await OnEnter.InvokeAsync(args);
             };
         }
 
-        public Action<IReference> CreateOnExited(Action<IReference> onExited)
+        public Func<IReference, Task> CreateOnExited(Func<IReference, Task> onExited)
         {
-            return (IReference reference) => {
-                onExited?.Invoke(reference);
-                OnExited?.Invoke(reference);
+            return async (IReference reference) => {
+                await onExited?.Invoke(reference);
+                await OnExited.InvokeAsync(reference);
             };
         }
 
@@ -327,24 +328,24 @@ namespace Skclusive.Material.Dialog
             OnEscapeKeyDown?.Invoke();
         }
 
-        protected void HandleEntering(IReference refback, bool appearing)
+        protected Task HandleEnteringAsync((IReference, bool) args)
         {
-            OnEntering?.Invoke(refback, appearing);
+            return OnEntering.InvokeAsync(args);
         }
 
-        protected void HandleEntered(IReference refback, bool appeared)
+        protected Task HandleEnteredAsync((IReference, bool) args)
         {
-            OnEntered?.Invoke(refback, appeared);
+            return OnEntered.InvokeAsync(args);
         }
 
-        protected void HandleExit(IReference refback)
+        protected Task HandleExitAsync(IReference refback)
         {
-            OnExit?.Invoke(refback);
+            return OnExit.InvokeAsync(refback);
         }
 
-        protected void HandleExiting(IReference refback)
+        protected Task HandleExitingAsync(IReference refback)
         {
-            OnExiting?.Invoke(refback);
+            return OnExiting.InvokeAsync(refback);
         }
     }
 }

@@ -239,8 +239,8 @@ namespace Skclusive.Material.Modal
                 .WithBackdropInvisible(BackdropInvisible)
                 .WithBackdropClass(_BackdropClass)
                 .WithBackdropStyle(_BackdropStyle)
-                .WithOnEnter(HandleEnter)
-                .WithOnExited(HandleExited)
+                .WithOnEnter(HandleEnterAsync)
+                .WithOnExited(HandleExitedAsync)
                 .WithOnBackdropClick(HandleBackdropClick);
 
         protected IModalContext ModalContext => ModalContextBuilder.Build();
@@ -263,14 +263,16 @@ namespace Skclusive.Material.Modal
             }
         }
 
-        protected void HandleEnter(IReference reference, bool appear)
+        protected Task HandleEnterAsync((IReference, bool) args)
         {
             Exited = false;
+
+            return Task.CompletedTask;
 
             // StateHasChanged();
         }
 
-        protected void HandleExited(IReference reference)
+        protected Task HandleExitedAsync(IReference reference)
         {
             Exited = true;
 
@@ -280,6 +282,8 @@ namespace Skclusive.Material.Modal
             {
                 HandleClose();
             }
+
+            return Task.CompletedTask;
         }
 
         protected void HandleMounted()
@@ -318,7 +322,7 @@ namespace Skclusive.Material.Modal
             }
         }
 
-        protected override void HandleKeyDown(KeyboardEventArgs keyboardEvent)
+        protected override Task HandleKeyDown(KeyboardEventArgs keyboardEvent)
         {
             if (keyboardEvent.Key == "Escape" && IsTopModal)
             {
@@ -329,6 +333,8 @@ namespace Skclusive.Material.Modal
                     OnClose?.Invoke(ModalCloseReason.Escape);
                 }
             }
+
+            return Task.CompletedTask;
         }
     }
 }

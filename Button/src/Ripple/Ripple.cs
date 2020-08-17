@@ -50,7 +50,7 @@ namespace Skclusive.Material.Button
         public int Timeout { set; get; }
 
         [Parameter]
-        public Action<IReference> OnExited { set; get; }
+        public EventCallback<IReference> OnExited { set; get; }
 
         /// <summary>
         /// <c>class</c> applied on the child element.
@@ -140,9 +140,9 @@ namespace Skclusive.Material.Button
             {
                 Leaving = true;
 
-                if (OnExited != null)
+                if (OnExited.HasDelegate)
                 {
-                    RunTimeout(() => OnExited(Reference.Empty), Timeout);
+                    RunTimeout(() => OnExited.InvokeAsync(Reference.Empty), Timeout);
                 }
             }
         }

@@ -30,6 +30,8 @@ namespace Skclusive.Material.Script
             services.TryAddTransient<SlideHelper>();
 
             services.TryAddTransient<RadioGroupHelper>();
+
+            services.AddSingleton<IScriptTypeProvider, ScriptHelpersScriptProvider>();
         }
     }
 }

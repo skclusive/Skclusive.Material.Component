@@ -278,8 +278,6 @@ namespace Skclusive.Material.Input
         protected async Task HandleInputAsync(ChangeEventArgs args)
         {
             await OnChange.InvokeAsync(args);
-
-            await Task.CompletedTask;
         }
 
         private string LastValue { set; get; }

@@ -96,6 +96,7 @@ namespace Skclusive.Material.Tab
 
         public TabsContextBuilder With(ITabsContext context)
         {
+            WithValue(context.Value);
             WithVariant(context.Variant);
             WithFullWidth(context.FullWidth);
             WithIndicator(context.Indicator);

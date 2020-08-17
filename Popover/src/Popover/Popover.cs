@@ -129,40 +129,40 @@ namespace Skclusive.Material.Popover
         /// Callback fired before the Ppopover enters.
         /// </summary>
         [Parameter]
-        public Action<IReference, bool> OnEnter { set; get; }
+        public EventCallback<(IReference, bool)> OnEnter { set; get; }
 
         /// <summary>
         /// Callback fired when the Ppopover is entering.
         /// </summary>
         [Parameter]
-        public Action<IReference, bool> OnEntering { set; get; }
+        public EventCallback<(IReference, bool)> OnEntering { set; get; }
 
         /// <summary>
         /// Callback fired when the Ppopover has entered.
         /// </summary>
         [Parameter]
-        public Action<IReference, bool> OnEntered { set; get; }
+        public EventCallback<(IReference, bool)> OnEntered { set; get; }
 
         /// <summary>
         /// Callback fired before the Ppopover exits.
         /// </summary>
         [Parameter]
-        public Action<IReference> OnExit { set; get; }
+        public EventCallback<IReference> OnExit { set; get; }
 
         /// <summary>
         /// Callback fired when the Ppopover is exiting.
         /// </summary>
         [Parameter]
-        public Action<IReference> OnExiting { set; get; }
+        public EventCallback<IReference> OnExiting { set; get; }
 
         /// <summary>
         /// Callback fired when the Ppopover has exited.
         /// </summary>
         [Parameter]
-        public Action<IReference> OnExited { set; get; }
+        public EventCallback<IReference> OnExited { set; get; }
 
         [Parameter]
-        public Action OnClose { set; get; }
+        public EventCallback OnClose { set; get; }
 
         /// <summary>
         /// <c>class</c> applied on the <c>Paper</c> element.
@@ -293,22 +293,27 @@ namespace Skclusive.Material.Popover
 
         protected IReference PaperRef { get; set; } = new Reference();
 
-        public Action<IReference, bool> CreateOnEnter(Action<IReference, bool> onEnter)
+        public Func<(IReference, bool), Task> CreateOnEnter(Func<(IReference, bool), Task> onEnter)
         {
-            return (IReference reference, bool appearing) =>
+            return async ((IReference, bool) args) =>
             {
-                _ = SetPositioningStylesAsync(reference.Current);
-                onEnter?.Invoke(reference, appearing);
-                OnEnter?.Invoke(reference, appearing);
+                (IReference reference, bool appearing) = args;
+
+                await SetPositioningStylesAsync(reference.Current);
+
+                await onEnter?.Invoke(args);
+
+                await OnEnter.InvokeAsync(args);
             };
         }
 
-        public Action<IReference> CreateOnExited(Action<IReference> onExited)
+        public Func<IReference, Task> CreateOnExited(Func<IReference, Task> onExited)
         {
-            return (IReference reference) =>
+            return async (IReference reference) =>
             {
-                onExited?.Invoke(reference);
-                OnExited?.Invoke(reference);
+                await onExited?.Invoke(reference);
+
+                await OnExited.InvokeAsync(reference);
             };
         }
 
@@ -364,7 +369,7 @@ namespace Skclusive.Material.Popover
 
         protected void HandleClose(ModalCloseReason reason)
         {
-            OnClose?.Invoke();
+            OnClose.InvokeAsync(reason);
         }
 
         protected void HandleEscapeKeyDown()
@@ -372,26 +377,26 @@ namespace Skclusive.Material.Popover
             OnEscapeKeyDown?.Invoke();
         }
 
-        protected void HandleEntering(IReference refback, bool appearing)
+        protected Task HandleEnteringAsync((IReference, bool) args)
         {
-            OnEntering?.Invoke(refback, appearing);
+            return OnEntering.InvokeAsync(args);
 
             // _ = SetPositioningStylesAsync(refback.Current);
         }
 
-        protected void HandleEntered(IReference refback, bool appeared)
+        protected Task HandleEnteredAsync((IReference, bool) args)
         {
-            OnEntered?.Invoke(refback, appeared);
+            return OnEntered.InvokeAsync(args);
         }
 
-        protected void HandleExit(IReference refback)
+        protected Task HandleExitAsync(IReference refback)
         {
-            OnExit?.Invoke(refback);
+            return OnExit.InvokeAsync(refback);
         }
 
-        protected void HandleExiting(IReference refback)
+        protected Task HandleExitingAsync(IReference refback)
         {
-            OnExiting?.Invoke(refback);
+            return OnExiting.InvokeAsync(refback);
         }
 
         protected async Task<double> GetContentAnchorOffsetAsync(ElementReference? element)
