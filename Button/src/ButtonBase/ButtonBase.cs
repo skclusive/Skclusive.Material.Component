@@ -171,7 +171,7 @@ namespace Skclusive.Material.Button
             Ripple?.Stop();
         }
 
-        protected override async Task HandleMouseLeaveAsync(MouseEventArgs args)
+        protected override async Task HandleMouseLeaveAsync(EventArgs args)
         {
             await base.HandleMouseLeaveAsync(args);
 
