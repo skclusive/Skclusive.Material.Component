@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <VersionPrefix>3.0.1-preview1</VersionPrefix>
+    <VersionPrefix>3.0.2-preview1</VersionPrefix>
     <VersionSuffix>$(VersionSuffix)</VersionSuffix>
     <TargetFramework>net5.0</TargetFramework>
     <AssemblyName>Skclusive.Material.Form</AssemblyName>
@@ -16,8 +16,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\src\Core.csproj" Version="3.0.1-preview1" />
-    <ProjectReference Include="..\..\Typography\src\Typography.csproj" Version="3.0.1-preview1" />
+    <ProjectReference Include="..\..\Core\src\Core.csproj" Version="3.0.2-preview1" />
+    <ProjectReference Include="..\..\Typography\src\Typography.csproj" Version="3.0.2-preview1" />
   </ItemGroup>
 
 </Project>
