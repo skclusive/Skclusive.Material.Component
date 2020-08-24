@@ -17,7 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\src\Core.csproj" Version="3.0.2-preview1" />
-    <ProjectReference Include="..\..\Button\src\Button.csproj" Version="3.0.2-preview1" />
+    <ProjectReference Include="..\..\Avatar\src\Avatar.csproj" Version="3.0.2-preview1" />
     <ProjectReference Include="..\..\Icon\src\Icon.csproj" Version="3.0.2-preview1" />
     <ProjectReference Include="..\..\Transition\src\Transition.csproj" Version="3.0.2-preview1" />
   </ItemGroup>

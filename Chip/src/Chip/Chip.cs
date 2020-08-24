@@ -5,10 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components.Web;
-using Skclusive.Material.Button;
 using Skclusive.Material.Core;
 using Skclusive.Script.DomHelpers;
-using TouchPoint = Skclusive.Material.Button.TouchPoint;
+using Skclusive.Material.Icon;
+using Skclusive.Material.Avatar;
 
 namespace Skclusive.Material.Chip
 {
@@ -19,31 +19,34 @@ namespace Skclusive.Material.Chip
         }
 
         /// <summary>
+        /// html component tag to be used as container.
+        /// </summary>
+        [Parameter]
+        public string Component { set; get; } = "div";
+
+        /// <summary>
         /// If `true`, the chip will hover on mouse over and ripple on click.
         /// </summary>
         [Parameter]
-        public bool IsClickable { get; set; } = true;
+        public bool? Clickable { get; set; }
+
+        [Parameter]
+        public string Label { get; set; }
+
+        [Parameter]
+        public RenderFragment LabelContent { get; set; }
 
         /// <summary>
-        /// If `true`, show a clickable delete icon and hide the chip when deleted.
+        /// Avatar placed before the children instead of DeleteIcon.
         /// </summary>
         [Parameter]
-        public bool IsDeletable { get; set; }
-
-        /// <summary>
-        /// If `true`, the chip is not rendered. Usually this is a result of clicking the delete button of a deletable chip.
-        /// </summary>
-        [Parameter]
-        public bool IsDeleted { get; set; }
-
-        [Parameter]
-        public EventCallback<bool> IsDeletedChanged { get; set; }
+        public RenderFragment AvatarContent { set; get; }
 
         /// <summary>
         /// The <see cref="ChipVariant" /> defines the look of the chip.
         /// </summary>
         [Parameter]
-        public ChipVariant Variant { set; get; } = ChipVariant.Default; 
+        public ChipVariant Variant { set; get; } = ChipVariant.Default;
 
         /// <summary>
         /// The <see cref="Skclusive.Core.Component.Size" /> of the button.
@@ -52,228 +55,16 @@ namespace Skclusive.Material.Chip
         public Size Size { set; get; } = Size.Medium;
 
         /// <summary>
-        /// If `true`, the button will take up the full width of its container.
-        /// </summary>
-        [Parameter]
-        public bool FullWidth { set; get; }
-
-        /// <summary>
         /// Element placed before the children.
         /// </summary>
         [Parameter]
-        public RenderFragment StartIcon { set; get; }
+        public RenderFragment IconContent { set; get; }
 
         /// <summary>
         /// Element placed after the children.
         /// </summary>
         [Parameter]
-        public RenderFragment EndIcon { set; get; }
-
-        /// <summary>
-        /// The <c>style</c> applied on the start icon.
-        /// </summary>
-        [Parameter]
-        public string StartIconStyle { set; get; }
-
-        /// <summary>
-        /// The <c>class</c> applied on the start icon.
-        /// </summary>
-        [Parameter]
-        public string StartIconClass { set; get; }
-
-        /// <summary>
-        /// The <c>style</c> applied on the end icon.
-        /// </summary>
-        [Parameter]
-        public string EndIconStyle { set; get; }
-
-        /// <summary>
-        /// The <c>class</c> applied on the end icon.
-        /// </summary>
-        [Parameter]
-        public string EndIconClass { set; get; }
-
-        protected override IEnumerable<string> Classes
-        {
-            get
-            {
-                foreach (var item in base.Classes)
-                    yield return item;
-
-                yield return Variant.ToString();
-
-                if (Color != Color.Default && Color != Color.Inherit)
-                    yield return $"{Variant}-{Color}";
-
-                if (Size != Size.Medium)
-                    yield return $"{nameof(Size)}-{Size}";
-
-                //if (Size != Size.Medium)
-                //    yield return $"{Variant}-{nameof(Size)}-{Size}";
-
-                if (Color == Color.Inherit)
-                    yield return $"{nameof(Color)}-{nameof(Color.Inherit)}";
-
-                if (FullWidth)
-                    yield return nameof(FullWidth);
-
-                if (!IsClickable)
-                    yield return $"Basic";
-
-                if (IsDeleted)
-                    yield return "Deleted";
-
-            }
-        }
-
-        protected virtual string _FocusVisibleClass
-        {
-            get => CssUtil.ToClass(Selector, FocusVisibleClasses, FocusVisibleClass);
-        }
-
-        protected virtual IEnumerable<string> FocusVisibleClasses
-        {
-            get
-            {
-                yield return "FocusVisible";
-            }
-        }
-
-        protected virtual string _StartIconStyle
-        {
-            get => CssUtil.ToStyle(StartIconStyles, StartIconStyle);
-        }
-
-        protected virtual IEnumerable<Tuple<string, object>> StartIconStyles
-        {
-            get => Enumerable.Empty<Tuple<string, object>>();
-        }
-
-        protected virtual string _StartIconClass
-        {
-            get => CssUtil.ToClass(Selector, StartIconClasses, StartIconClass);
-        }
-
-        protected virtual IEnumerable<string> IconClasses
-        {
-            get
-            {
-                yield return $"Icon";
-
-                yield return $"Icon-{Variant}";
-
-                if (Color != Color.Default && Color != Color.Inherit)
-                    yield return $"Icon-{Variant}-{Color}";
-
-                yield return $"Icon-{nameof(Size)}-{Size}";
-            }
-        }
-        protected virtual IEnumerable<string> StartIconClasses
-        {
-            get
-            {
-                yield return nameof(StartIcon);
-
-                yield return $"StartIcon-{nameof(Size)}-{Size}";
-
-                foreach (var x in IconClasses)
-                    yield return x;
-            }
-        }
-
-        protected virtual string _EndIconStyle
-        {
-            get => CssUtil.ToStyle(EndIconStyles, EndIconStyle);
-        }
-
-        protected virtual IEnumerable<Tuple<string, object>> EndIconStyles
-        {
-            get => Enumerable.Empty<Tuple<string, object>>();
-        }
-
-        protected virtual string _EndIconClass
-        {
-            get => CssUtil.ToClass(Selector, EndIconClasses, EndIconClass);
-        }
-
-        protected virtual IEnumerable<string> EndIconClasses
-        {
-            get
-            {
-                yield return nameof(EndIcon);
-
-                foreach (var x in IconClasses)
-                    yield return x;
-
-                yield return $"EndIcon-{nameof(Size)}-{Size}";
-
-                if (IsDeletable)
-                    yield return "Icon-Delete";
-            }
-        }
-
-        /// <summary>
-        /// Reference attached to the child element of the component.
-        /// </summary>
-        [Parameter]
-        public IReference ChildRef { get; set; } = new Reference();
-
-        /// <summary>
-        /// ChildContent of the current component which gets component <see cref="IComponentContext" />.
-        /// </summary>
-        [Parameter]
-        public RenderFragment<IComponentContext> ChildContent { get; set; }
-
-        /// <summary>
-        /// html component tag to be used as container.
-        /// </summary>
-        [Parameter]
-        public string Component { set; get; }
-
-        /// <summary>
-        /// If `true`, the ripple effect will be disabled.
-        ///
-        /// ⚠️ Without a ripple there is no styling for :focus-visible by default. Be sure
-        /// to highlight the element by applying separate styles with the `focusVisibleClassName`.
-        /// </summary>
-        //[Parameter]
-        internal bool DisableRipple => !IsClickable;
-
-        /// <summary>
-        /// If <c>true</c>, the touch ripple effect will be disabled.
-        /// </summary>
-        //[Parameter]
-        internal bool DisableTouchRipple => !IsClickable;
-
-        /// <summary>
-        /// If <c>true</c>, the  keyboard focus ripple will be disabled.
-        /// <c>disableRipple</c> must also be true.
-        /// </summary>
-        //[Parameter]
-        internal bool DisableFocusRipple => !IsClickable;
-
-        /// <summary>
-        /// This prop can help a person know which element has the keyboard focus.
-        /// The class name will be applied when the element gain the focus through a keyboard interaction.
-        /// It's a polyfill for the [CSS :focus-visible selector](https://drafts.csswg.org/selectors-4/#the-focus-visible-pseudo).
-        /// The rationale for using this feature [is explained here](https://github.com/WICG/focus-visible/blob/master/explainer.md).
-        /// A [polyfill can be used](https://github.com/WICG/focus-visible) to apply a `focus-visible` class to other components
-        /// if needed.
-        /// </summary>
-        [Parameter]
-        public string FocusVisibleClass { set; get; }
-
-        /// <summary>
-        /// The <c>class</c> applied to the label.
-        /// </summary>
-        [Parameter]
-        public string LabelClass { set; get; }
-
-        /// <summary>
-        /// <c>style</c> applied on the label.
-        /// </summary>
-        [Parameter]
-        public string LabelStyle { set; get; }
+        public RenderFragment DeleteIconContent { set; get; }
 
         /// <summary>
         /// The URL to link to when the button is clicked.
@@ -288,18 +79,267 @@ namespace Skclusive.Material.Chip
         [Parameter]
         public Color Color { set; get; } = Color.Default;
 
+        [Parameter]
+        public EventCallback<EventArgs> OnDelete { get; set; }
+
+        [Inject]
+        public DomHelpers DomHelpers { set; get; }
+
+        protected bool Deletable => OnDelete.HasDelegate;
+
+        protected bool HasIcon => IsClickable || Deletable;
+
+        protected string _Role => HasIcon ? "button" : Role;
+
+        protected int? _TabIndex => HasIcon ? 0 : TabIndex;
+
+        protected bool HasLabelContent => LabelContent != null;
+
+        protected bool HasAvatarContent => AvatarContent != null;
+
+        protected bool HasIconContent => IconContent != null;
+
+        protected bool HasDeleteIconContent => DeleteIconContent != null;
+
+        protected bool IsClickable => (!Clickable.HasValue || Clickable.Value) && OnClick.HasDelegate ? true : Clickable.HasValue && Clickable.Value;
+
+        protected ISvgIconContext IconContext => new SvgIconContextBuilder()
+           .WithClass(_IconClass)
+           .WithStyle(_IconStyle)
+           .Build();
+
+        protected ISvgIconContext DeleteIconContext => new SvgIconContextBuilder()
+           .WithClass(_DeleteIconClass)
+           .WithStyle(_DeleteIconStyle)
+           // .WithOnClick() TODO: pass OnClick
+           .Build();
+
+        protected IAvatarContext AvatarContext => new AvatarContextBuilder()
+           .WithClass(_AvatarClass)
+           .WithStyle(_AvatarStyle)
+           .Build();
+
+        protected override async Task HandleKeyUpAsync(KeyboardEventArgs args)
+        {
+            await base.HandleKeyUpAsync(args);
+
+            var key = args.Key;
+
+            if (key == " " || key == "Enter")
+            {
+                await HandleClickAsync(args);
+            }
+            else if (Deletable && (key == "Backspace" || key == "Delete"))
+            {
+                await OnDelete.InvokeAsync(args);
+            }
+            else if (key == "Escape")
+            {
+                await DomHelpers.BlurAsync(RootRef.Current);
+            }
+        }
+
+        protected async Task HandleDeleteClickAsync(EventArgs args)
+        {
+            await OnDelete.InvokeAsync(args);
+        }
+
+        protected override IEnumerable<string> Classes
+        {
+            get
+            {
+                foreach (var item in base.Classes)
+                    yield return item;
+
+                if (Size == Size.Small)
+                yield return $"{nameof(Size)}-{nameof(Size.Small)}";
+
+                if (Color != Color.Default)
+                yield return $"{nameof(Color)}-{Color}";
+
+                if (IsClickable)
+                {
+                    yield return $"{nameof(Clickable)}";
+
+                    if (Color != Color.Default)
+                    yield return $"{nameof(Clickable)}-{nameof(Color)}-{Color}";
+                }
+
+                if (Deletable)
+                {
+                    yield return $"{nameof(Deletable)}";
+
+                    if (Color != Color.Default)
+                    yield return $"{nameof(Clickable)}-{nameof(Color)}-{Color}";
+                }
+
+                if (Variant == ChipVariant.Outlined)
+                {
+                    yield return $"{nameof(ChipVariant.Outlined)}";
+
+                    if (Color == Color.Primary)
+                    yield return $"{nameof(ChipVariant.Outlined)}-{nameof(Color.Primary)}";
+
+                    if (Color == Color.Secondary)
+                    yield return $"{nameof(ChipVariant.Outlined)}-{nameof(Color.Secondary)}";
+                }
+            }
+        }
+
+        /// <summary>
+        /// The <c>style</c> applied on the end icon.
+        /// </summary>
+        [Parameter]
+        public string IconStyle { set; get; }
+
+        /// <summary>
+        /// The <c>class</c> applied on the end icon.
+        /// </summary>
+        [Parameter]
+        public string IconClass { set; get; }
+
+        protected virtual string _IconStyle
+        {
+            get => CssUtil.ToStyle(IconStyles, IconStyle);
+        }
+
+        protected virtual IEnumerable<Tuple<string, object>> IconStyles
+        {
+            get => Enumerable.Empty<Tuple<string, object>>();
+        }
+
+        protected virtual string _IconClass
+        {
+            get => CssUtil.ToClass($"{Selector}-Icon", IconClasses, IconClass);
+        }
+
+        protected virtual IEnumerable<string> IconClasses
+        {
+            get
+            {
+                yield return string.Empty;
+
+                if (Size == Size.Small)
+                yield return $"{nameof(Size.Small)}";
+
+                if (Color != Color.Default)
+                yield return $"{nameof(Color)}-{Color}";
+            }
+        }
+
+        /// <summary>
+        /// The <c>style</c> applied on the start icon.
+        /// </summary>
+        [Parameter]
+        public string DeleteIconStyle { set; get; }
+
+        /// <summary>
+        /// The <c>class</c> applied on the start icon.
+        /// </summary>
+        [Parameter]
+        public string DeleteIconClass { set; get; }
+
+        protected virtual string _DeleteIconStyle
+        {
+            get => CssUtil.ToStyle(DeleteIconStyles, DeleteIconStyle);
+        }
+
+        protected virtual IEnumerable<Tuple<string, object>> DeleteIconStyles
+        {
+            get => Enumerable.Empty<Tuple<string, object>>();
+        }
+
+        protected virtual string _DeleteIconClass
+        {
+            get => CssUtil.ToClass($"{Selector}-DeleteIcon", DeleteIconClasses, DeleteIconClass);
+        }
+
+        protected virtual IEnumerable<string> DeleteIconClasses
+        {
+            get
+            {
+                yield return string.Empty;
+
+                if (Size == Size.Small)
+                yield return $"{nameof(Size.Small)}";
+
+                if (Color != Color.Default)
+                {
+                    if (Variant != ChipVariant.Outlined)
+                    yield return $"{nameof(Color)}-{Color}";
+
+                    if (Variant == ChipVariant.Outlined)
+                    yield return $"{nameof(ChipVariant.Outlined)}-{nameof(Color)}-{Color}";
+                }
+            }
+        }
+
+        /// <summary>
+        /// The <c>style</c> applied on the end icon.
+        /// </summary>
+        [Parameter]
+        public string AvatarStyle { set; get; }
+
+        /// <summary>
+        /// The <c>class</c> applied on the end icon.
+        /// </summary>
+        [Parameter]
+        public string AvatarClass { set; get; }
+
+        protected virtual string _AvatarStyle
+        {
+            get => CssUtil.ToStyle(AvatarStyles, AvatarStyle);
+        }
+
+        protected virtual IEnumerable<Tuple<string, object>> AvatarStyles
+        {
+            get => Enumerable.Empty<Tuple<string, object>>();
+        }
+
+        protected virtual string _AvatarClass
+        {
+            get => CssUtil.ToClass($"{Selector}-Avatar", AvatarClasses, AvatarClass);
+        }
+
+        protected virtual IEnumerable<string> AvatarClasses
+        {
+            get
+            {
+                yield return string.Empty;
+
+                if (Size == Size.Small)
+                yield return $"{nameof(Size.Small)}";
+
+                if (Color != Color.Default)
+                yield return $"{nameof(Color)}-{Color}";
+            }
+        }
+
+        /// <summary>
+        /// The <c>class</c> applied to the label.
+        /// </summary>
+        [Parameter]
+        public string LabelClass { set; get; }
+
+        /// <summary>
+        /// <c>style</c> applied on the label.
+        /// </summary>
+        [Parameter]
+        public string LabelStyle { set; get; }
+
         protected virtual string _LabelClass
         {
-            get => CssUtil.ToClass(Selector, LabelClasses, LabelClass);
+            get => CssUtil.ToClass($"{Selector}-Label", LabelClasses, LabelClass);
         }
 
         protected virtual IEnumerable<string> LabelClasses
         {
             get
             {
-                yield return "Label";
-                if (Size != Size.Medium)
-                    yield return $"Label-{nameof(Size)}-{Size}";
+                yield return string.Empty;
+
+                if (Size == Size.Small)
+                yield return $"{nameof(Size.Small)}";
             }
         }
 
@@ -311,38 +351,6 @@ namespace Skclusive.Material.Chip
         protected virtual IEnumerable<Tuple<string, object>> LabelStyles
         {
             get => Enumerable.Empty<Tuple<string, object>>();
-        }
-
-        protected virtual void _OnDeleteClick(MouseEventArgs e)
-        {
-            if (!IsDeletable)
-                return;
-            OnDeleteClick.InvokeAsync(e);
-            IsDeleted = true;
-            this.StateHasChanged();
-            IsDeletedChanged.InvokeAsync(true);
-        }
-
-        [Parameter]
-        public EventCallback<MouseEventArgs> OnDeleteClick { get; set; }
-
-        /// <summary>
-        /// Avatar placed before the children instead of StartIcon.
-        /// </summary>
-        [Parameter]
-        public RenderFragment ChipAvatar { set; get; }
-
-
-        protected virtual string _AvatarClass
-        {
-            get {
-                var classes = new List<string>() { { "Avatar" } };
-                if (Color != Color.Default && Color != Color.Inherit)
-                    classes.Add($"Avatar-{Color}");
-                if (Size != Size.Medium)
-                    classes.Add( $"Avatar-{nameof(Size)}-{Size}");
-                return CssUtil.ToClass(Selector, classes);
-            }
         }
     }
 }

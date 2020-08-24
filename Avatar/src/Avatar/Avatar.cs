@@ -98,5 +98,36 @@ namespace Skclusive.Material.Avatar
                 yield return "Image";
             }
         }
+
+        [CascadingParameter]
+        public IAvatarContext AvatarContext { set; get; }
+
+        protected override string _Class
+        {
+            get
+            {
+                var _class = base._Class;
+                var _contextClass = AvatarContext?.Class;
+                if (!string.IsNullOrWhiteSpace(_contextClass))
+                {
+                    _class = $"{_class} {_contextClass}";
+                }
+                return _class;
+            }
+        }
+
+        public override string _Style
+        {
+            get
+            {
+                var _style = base._Style;
+                var _contextStyle = AvatarContext?.Style;
+                if (!string.IsNullOrWhiteSpace(_contextStyle))
+                {
+                    _style = $"{_style};{_contextStyle}";
+                }
+                return _style;
+            }
+        }
     }
 }

@@ -10,6 +10,9 @@
     ViewBox="@ViewBox"
     Color="@Color"
     FontSize="@FontSize"
+    OnClick="@HandleClickAsync"
+    OnClickStop="@OnClickStop"
+    OnClickPrevent="@OnClickPrevent"
     @attributes="Attributes">
     <g>
         <path fill="none" d="M0 0h24v24H0z" clipRule="evenodd" />

@@ -45,8 +45,9 @@
     <ProjectReference Include="..\..\Dialog\src\Dialog.csproj" Version="3.0.2-preview1" />
     <ProjectReference Include="..\..\Menu\src\Menu.csproj" Version="3.0.2-preview1" />
     <ProjectReference Include="..\..\Tab\src\Tab.csproj" Version="3.0.2-preview1" />
-    <ProjectReference Include="..\..\Baseline\src\Baseline.csproj" />
-    <ProjectReference Include="..\..\PopOver\src\PopOver.csproj" />
+    <ProjectReference Include="..\..\Baseline\src\Baseline.csproj" Version="3.0.2-preview1" />
+    <ProjectReference Include="..\..\PopOver\src\PopOver.csproj" Version="3.0.2-preview1" />
+    <ProjectReference Include="..\..\Chip\src\Chip.csproj" Version="3.0.2-preview1" />
   </ItemGroup>
 
 </Project>

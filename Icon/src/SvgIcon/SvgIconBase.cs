@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using System;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Components;
 using Skclusive.Core.Component;
 
 namespace Skclusive.Material.Icon
@@ -44,5 +46,57 @@ namespace Skclusive.Material.Icon
         /// </summary>
         [Parameter]
         public FontSize FontSize { set; get; } = FontSize.Default;
+
+        [CascadingParameter]
+        public ISvgIconContext SvgIconContext { set; get; }
+
+        /// <summary>
+        /// onclick event handler
+        /// </summary>
+        [Parameter]
+        public EventCallback<EventArgs> OnClick { set; get; }
+
+        [Parameter]
+        public bool? OnClickStop { set; get; }
+
+        [Parameter]
+        public bool? OnClickPrevent { set; get; }
+
+        protected bool PreventDefault => OnClickPrevent.HasValue && OnClickPrevent.Value;
+
+        protected bool StopPropagation => OnClickStop.HasValue && OnClickStop.Value;
+
+        protected virtual async Task HandleClickAsync(EventArgs args)
+        {
+            await OnClick.InvokeAsync(args);
+        }
+
+        protected override string _Class
+        {
+            get
+            {
+                var _class = base._Class;
+                var _contextClass = SvgIconContext?.Class;
+                if (!string.IsNullOrWhiteSpace(_contextClass))
+                {
+                    _class = $"{_class} {_contextClass}";
+                }
+                return _class;
+            }
+        }
+
+        public override string _Style
+        {
+            get
+            {
+                var _style = base._Style;
+                var _contextStyle = SvgIconContext?.Style;
+                if (!string.IsNullOrWhiteSpace(_contextStyle))
+                {
+                    _style = $"{_style};{_contextStyle}";
+                }
+                return _style;
+            }
+        }
     }
 }
