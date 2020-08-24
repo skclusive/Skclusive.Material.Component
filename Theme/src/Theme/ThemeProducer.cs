@@ -9,70 +9,112 @@ namespace Skclusive.Material.Theme
                 }";
         }
 
-        public static string BuildMediaScheme(ThemeConfig theme)
+        public static string BuildMediaScheme(Theme theme)
         {
-            var scheme = theme.IsDark ? "dark" : "light";
+            var scheme = theme.IsDark() ? "dark" : "light";
 
             return @$"@media (prefers-color-scheme: {scheme}) {{
                 {BuildScheme(theme)}
             }}";
         }
 
-        public static string BuildCommon(ThemeConfig theme)
+        /*
+        new items
+            --theme-typography-font-size-20
+            --theme-typography-font-size-12
+            --theme-palette-current-background
+        */
+        /* deprecated
+
+            --theme-typography-font-size-medium
+            --theme-typography-font-size-normal
+            --theme-palette-common-background
+
+
+            --theme-palette-color: {palette.Common.Color};
+
+            --theme-palette-warning-main: {palette.Warning.Main};
+            --theme-palette-warning-light: {palette.Warning.Light};
+            --theme-palette-warning-dark: {palette.Warning.Dark};
+            --theme-palette-warning-contrast-text: {palette.Warning.ContrastText};
+
+            --theme-palette-info-main: {palette.Info.Main};
+            --theme-palette-info-light: {palette.Info.Light};
+            --theme-palette-info-dark: {palette.Info.Dark};
+            --theme-palette-info-contrast-text: {palette.Info.ContrastText};
+
+            --theme-palette-success-main: {palette.Success.Main};
+            --theme-palette-success-light: {palette.Success.Light};
+            --theme-palette-success-dark: {palette.Success.Dark};
+            --theme-palette-success-contrast-text: {palette.Success.ContrastText};
+
+            --theme-palette-main-background-default: {palette.Main.Background};
+
+            --theme-palette-text-color: {palette.Text.Color};
+
+                        --theme-palette-background-level1: {palette.Background.Level1};
+            --theme-palette-background-level2: {palette.Background.Level2};
+
+        */
+
+        public static string BuildCommon(Theme theme)
         {
             var palette = theme.Palette;
 
             var typography = theme.Typography;
 
-            return  Wrap(@$"
+            return  Wrap($@"
             --theme-palette-common-white: {palette.Common.White};
             --theme-palette-common-black: {palette.Common.Black};
 
             --theme-spacing: {theme.Spacing};
-            --theme-shape-border-radius: {theme.ShapeBorderRadius};
-            --theme-transition-box-shadow: {theme.TransitionBoxShadow};
+            --theme-shape-border-radius: {theme.Shape.BorderRadius};
+            --theme-transition-box-shadow: {theme.Transitions.Make("box-shadow")};
 
-            --theme-font-size: {theme.FontSize};
-            --theme-html-font-size: {theme.HtmlFontSize};
-            --theme-zindex-appbar: {theme.ZindexAppBar};
-            --theme-zindex-drawer: {theme.ZindexDrawer};
+            --theme-font-size: {typography.FontSize};
+            --theme-html-font-size: {typography.HtmlFontSize};
+            --theme-zindex-appbar: {theme.ZIndex.AppBar};
+            --theme-zindex-drawer: {theme.ZIndex.Drawer};
             --theme-font-size-coef: calc(var(--theme-font-size) / 14);
             --theme-font-size-rem-factor: calc(
                 var(--theme-font-size-coef) / var(--theme-html-font-size)
             );
 
-            --theme-shadow0: {theme.Shadow0};
-            --theme-shadow1: {theme.Shadow1};
-            --theme-shadow2: {theme.Shadow2};
-            --theme-shadow3: {theme.Shadow3};
-            --theme-shadow4: {theme.Shadow4};
-            --theme-shadow5: {theme.Shadow5};
-            --theme-shadow6: {theme.Shadow6};
-            --theme-shadow7: {theme.Shadow7};
-            --theme-shadow8: {theme.Shadow8};
-            --theme-shadow9: {theme.Shadow9};
-            --theme-shadow10: {theme.Shadow10};
-            --theme-shadow11: {theme.Shadow11};
-            --theme-shadow12: {theme.Shadow12};
-            --theme-shadow13: {theme.Shadow13};
-            --theme-shadow14: {theme.Shadow14};
-            --theme-shadow15: {theme.Shadow15};
-            --theme-shadow16: {theme.Shadow16};
-            --theme-shadow17: {theme.Shadow17};
-            --theme-shadow18: {theme.Shadow18};
-            --theme-shadow19: {theme.Shadow19};
-            --theme-shadow20: {theme.Shadow20};
-            --theme-shadow21: {theme.Shadow21};
-            --theme-shadow22: {theme.Shadow22};
-            --theme-shadow23: {theme.Shadow23};
-            --theme-shadow24: {theme.Shadow24};
+            --theme-shadow0: {theme.Shadows[0]};
+            --theme-shadow1: {theme.Shadows[1]};
+            --theme-shadow2: {theme.Shadows[2]};
+            --theme-shadow3: {theme.Shadows[3]};
+            --theme-shadow4: {theme.Shadows[4]};
+            --theme-shadow5: {theme.Shadows[5]};
+            --theme-shadow6: {theme.Shadows[6]};
+            --theme-shadow7: {theme.Shadows[7]};
+            --theme-shadow8: {theme.Shadows[8]};
+            --theme-shadow9: {theme.Shadows[9]};
+            --theme-shadow10: {theme.Shadows[10]};
+            --theme-shadow11: {theme.Shadows[11]};
+            --theme-shadow12: {theme.Shadows[12]};
+            --theme-shadow13: {theme.Shadows[13]};
+            --theme-shadow14: {theme.Shadows[14]};
+            --theme-shadow15: {theme.Shadows[15]};
+            --theme-shadow16: {theme.Shadows[16]};
+            --theme-shadow17: {theme.Shadows[17]};
+            --theme-shadow18: {theme.Shadows[18]};
+            --theme-shadow19: {theme.Shadows[19]};
+            --theme-shadow20: {theme.Shadows[20]};
+            --theme-shadow21: {theme.Shadows[21]};
+            --theme-shadow22: {theme.Shadows[22]};
+            --theme-shadow23: {theme.Shadows[23]};
+            --theme-shadow24: {theme.Shadows[24]};
 
             --theme-typography-font-size: var(--theme-font-size);
             --theme-typography-html-font-size: var(--theme-html-font-size);
 
+            --theme-typography-font-size-20: {typography.PxToRem(20)};
+            --theme-typography-font-size-12: {typography.PxToRem(12)};
+
             --theme-typography-font-family: {typography.FontFamily};
-            --theme-typography-font-size-medium: {typography.FontSizeMedium};
-            --theme-typography-font-size-normal: {typography.FontSizeNormal};
+            --theme-typography-font-size-medium: var(--theme-typography-font-size-20);
+            --theme-typography-font-size-normal: var(--theme-typography-font-size-12);
             --theme-typography-font-weight-light: {typography.FontWeightLight};
             --theme-typography-font-weight-regular: {typography.FontWeightRegular};
             --theme-typography-font-weight-medium: {typography.FontWeightMedium};
@@ -160,33 +202,30 @@ namespace Skclusive.Material.Theme
             ");
         }
 
-        public static string BuildScheme(ThemeConfig theme)
+        public static string BuildScheme(Theme theme)
         {
             var palette = theme.Palette;
 
-            return  Wrap(@$"
-            --theme-mode-dark: {(theme.IsDark ? 1 : 0)};
+            var isDark = theme.IsDark();
 
-            --theme-palette-color: {palette.Common.Color};
-            --theme-palette-common-background: {palette.Common.Background};
+            return  Wrap($@"
+            --theme-mode-dark: {(isDark ? 1 : 0)};
 
-            --theme-palette-main-background-default: {palette.Main.Background};
+            --theme-palette-current-background: {(isDark ? palette.Common.White : palette.Common.Black)};
 
-            --theme-palette-switch-color: {palette.Switch.Color};
-            --theme-palette-switch-disabled-color: {palette.Switch.DisabledColor};
-            --theme-palette-switch-disabled-opacity: {palette.Switch.DisabledOpacity};
+            --theme-palette-common-background: var(--theme-palette-current-background);
 
-            --theme-palette-text-color: {palette.Text.Color};
+            --theme-palette-switch-color: {(isDark ? palette.Grey.X400 : palette.Grey.X50)};
+            --theme-palette-switch-disabled-color: {(isDark ? palette.Grey.X800 : palette.Grey.X400)};
+            --theme-palette-switch-disabled-opacity: {(isDark ? 0.1 : 0.12)};
+
             --theme-palette-text-primary: {palette.Text.Primary};
-            --theme-palette-text-primary-hover: {palette.Text.PrimaryHover};
             --theme-palette-text-secondary: {palette.Text.Secondary};
             --theme-palette-text-disabled: {palette.Text.Disabled};
             --theme-palette-text-hint: {palette.Text.Hint};
 
             --theme-palette-background-paper: {palette.Background.Paper};
             --theme-palette-background-default: {palette.Background.Default};
-            --theme-palette-background-level1: {palette.Background.Level1};
-            --theme-palette-background-level2: {palette.Background.Level2};
 
             --theme-palette-action-active: {palette.Action.Active};
             --theme-palette-action-hover: {palette.Action.Hover};
@@ -199,60 +238,43 @@ namespace Skclusive.Material.Theme
             --theme-palette-primary-light: {palette.Primary.Light};
             --theme-palette-primary-dark: {palette.Primary.Dark};
             --theme-palette-primary-contrast-text: {palette.Primary.ContrastText};
-            --theme-palette-primary-alternate: {palette.Primary.Alternate};
-            --theme-palette-primary-current: {palette.Primary.Current};
-            --theme-palette-primary-main-hover: {palette.Primary.MainHover};
-            --theme-palette-primary-main-border: {palette.Primary.MainBorder};
-            --theme-palette-primary-main-background: {palette.Primary.MainBackground};
+            --theme-palette-primary-alternate: {(isDark ? palette.Primary.Light : palette.Primary.Dark)};
+            --theme-palette-primary-hover: {palette.Primary.Main.Fade(palette.Action.HoverOpacity)};
+            --theme-palette-primary-background: {(isDark ? palette.Primary.Main.Darken(0.5m) : palette.Primary.Main.Lighten(0.62m))};
 
             --theme-palette-secondary-main: {palette.Secondary.Main};
             --theme-palette-secondary-light: {palette.Secondary.Light};
             --theme-palette-secondary-dark: {palette.Secondary.Dark};
             --theme-palette-secondary-contrast-text: {palette.Secondary.ContrastText};
-            --theme-palette-secondary-main-hover: {palette.Secondary.MainHover};
-            --theme-palette-secondary-main-border: {palette.Secondary.MainBorder};
-            --theme-palette-secondary-main-background: {palette.Secondary.MainBackground};
-            --theme-palette-secondary-current: {palette.Secondary.Current};
+            --theme-palette-secondary-hover: {palette.Secondary.Main.Fade(palette.Action.HoverOpacity)};
+            --theme-palette-secondary-border: {palette.Secondary.Main.Fade(0.5m)};
+            --theme-palette-secondary-background:  {(isDark ? palette.Secondary.Main.Darken(0.5m) : palette.Secondary.Main.Lighten(0.62m))};
+            --theme-palette-secondary-alternate: {(isDark ? palette.Secondary.Light : palette.Secondary.Dark)};
 
             --theme-palette-error-main: {palette.Error.Main};
             --theme-palette-error-light: {palette.Error.Light};
             --theme-palette-error-dark: {palette.Error.Dark};
             --theme-palette-error-contrast-text: {palette.Error.ContrastText};
 
-            --theme-palette-warning-main: {palette.Warning.Main};
-            --theme-palette-warning-light: {palette.Warning.Light};
-            --theme-palette-warning-dark: {palette.Warning.Dark};
-            --theme-palette-warning-contrast-text: {palette.Warning.ContrastText};
+            --theme-palette-divider: {palette.Divider};
+            --theme-palette-divider-background-color: {palette.Divider.Fade(0.08m)};
+            --theme-palette-divider-border-bottom: {(isDark ? palette.Divider.Fade(1).Lighten(0.88m) : palette.Divider.Fade(1).Darken(0.68m))};
 
-            --theme-palette-info-main: {palette.Info.Main};
-            --theme-palette-info-light: {palette.Info.Light};
-            --theme-palette-info-dark: {palette.Info.Dark};
-            --theme-palette-info-contrast-text: {palette.Info.ContrastText};
+            --theme-palette-border-outlined: {(isDark ? "rgba(255, 255, 255, 0.23)" : "rgba(0, 0, 0, 0.23)")};
 
-            --theme-palette-success-main: {palette.Success.Main};
-            --theme-palette-success-light: {palette.Success.Light};
-            --theme-palette-success-dark: {palette.Success.Dark};
-            --theme-palette-success-contrast-text: {palette.Success.ContrastText};
+            --theme-palette-table-row-background-selected: {(isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.04)")};
+            --theme-palette-table-row-background-hover:  {(isDark ? "rgba(255, 255, 255, 0.14)" : "rgba(0, 0, 0, 0.07)")};
 
-            --theme-palette-divider: {palette.Divider.Color};
-            --theme-palette-divider-background-color: {palette.Divider.Background};
-            --theme-palette-divider-border-bottom: {palette.Divider.BorderBottom};
+            --theme-palette-grey50: {palette.Grey.X50};
+            --theme-palette-grey300: {palette.Grey.X300};
+            --theme-palette-grey300-contrast-text: {PaletteFactory.ToContrastText(palette.Grey.X300, palette.ContrastThreshold)};
+            --theme-palette-greyA100: {palette.Grey.A100};
+            --theme-palette-grey-contrast-text-default: {PaletteFactory.ToContrastText(isDark ? palette.Grey.X900 : palette.Grey.X100, palette.ContrastThreshold)};
+            --theme-palette-grey-background-default: {(isDark ? palette.Grey.X900 : palette.Grey.X100)};
+            --theme-palette-avatar-background: {(isDark ? palette.Grey.X600 : palette.Grey.X400)};
 
-            --theme-palette-border-outlined: {palette.Border.Outlined};
-            --theme-palette-border-bottom: {palette.Border.Bottom};
-
-            --theme-palette-table-row-background-selected: {palette.Table.RowSelected};
-            --theme-palette-table-row-background-hover: {palette.Table.RowHover};
-
-            --theme-palette-grey300: {palette.Grey.C300};
-            --theme-palette-grey-50: {palette.Grey.C50};
-            --theme-palette-grey-A100: {palette.Grey.A100};
-            --theme-palette-grey300-contrast-text: {palette.Grey.ContrastTextC300};
-            --theme-palette-grey-background-default: {palette.Grey.Background};
-            --theme-palette-grey: {palette.Grey.Color};
-            --theme-palette-grey-light-or-dark: {palette.Grey.LightOrDark};
-            --theme-palette-grey-light-or-dark-contrast-text: {palette.Grey.LightOrDarkContrastText};
-
+            --theme-custom-light-or-dark: {palette.Custom.LightOrDark};
+            --theme-custom-light-or-dark-contrast-text: {palette.Custom.LightOrDarkContrastText};
             --theme-custom-content-background-color: {palette.Custom.ContentBackground};
             --theme-custom-content-background-default: {palette.Custom.ContentBackgroundDefault};
             --theme-custom-palette-common-alternate: {palette.Custom.PaletteCommonAlternate};

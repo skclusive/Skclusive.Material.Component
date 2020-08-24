@@ -3,25 +3,25 @@
 
 <style
     data-name="ThemeProviderCommon">
-    @(new MarkupString(ThemeProducer.BuildScheme(_Config)))
+    @(new MarkupString(ThemeProducer.BuildScheme(_Theme)))
 </style>
 
 @if (IsAuto)
 {
     <style
         data-name="ThemeProviderDark">
-        @(new MarkupString(ThemeProducer.BuildMediaScheme(Dark)))
+        @(new MarkupString(ThemeProducer.BuildMediaScheme(_Dark)))
     </style>
     <style
         data-name="ThemeProviderLight">
-        @(new MarkupString(ThemeProducer.BuildMediaScheme(Light)))
+        @(new MarkupString(ThemeProducer.BuildMediaScheme(_Light)))
     </style>
 }
 else
 {
     <style
         data-name="ThemeProviderSchema">
-        @(new MarkupString(ThemeProducer.BuildScheme(_Config)))
+        @(new MarkupString(ThemeProducer.BuildScheme(_Theme)))
     </style>
 }
 
@@ -31,10 +31,16 @@ else
     public ThemeConfig Config { set; get; }
 
     [Parameter]
-    public ThemeConfig Light { set; get; } = ThemeBuilder.LIGHT;
+    public ThemeConfig Light { set; get; } = new ThemeConfig { Palette = new PaletteConfig { Type = PaletteType.Light } };
 
     [Parameter]
-    public ThemeConfig Dark { set; get; } = ThemeBuilder.DARK;
+    public ThemeConfig Dark { set; get; } = new ThemeConfig { Palette = new PaletteConfig { Type = PaletteType.Dark } };
 
     protected ThemeConfig _Config => Config ?? (Theme == Skclusive.Core.Component.Theme.Dark ? Dark : Light);
+
+    protected Theme _Theme => ThemeFactory.CreateTheme(_Config);
+
+    protected Theme _Dark => ThemeFactory.CreateTheme(Dark);
+
+    protected Theme _Light => ThemeFactory.CreateTheme(Light);
 }

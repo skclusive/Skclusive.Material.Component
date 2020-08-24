@@ -28,7 +28,7 @@
     .Switch-SwitchBase {
         top: 0;
         left: 0;
-        color: var(--theme-palette-switch-color, #fafafa);
+        color: var(--theme-palette-switch-color);
         z-index: 1;
         position: absolute;
         transition: left 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
@@ -71,7 +71,7 @@
     }
 
     .Switch-Color-Primary.Switch-Checked:hover {
-        background-color: var(--theme-palette-primary-main-hover: rgba(25, 118, 210, 0.08));
+        background-color: var(--theme-palette-primary-hover: rgba(25, 118, 210, 0.08));
     }
 
     @media (hover: none) {

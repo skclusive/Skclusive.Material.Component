@@ -6,7 +6,7 @@
 
 @code
 {
-    private Theme Theme { set; get; } = Theme.Light;
+    private Skclusive.Core.Component.Theme Theme { set; get; } = Skclusive.Core.Component.Theme.Light;
 
     private IDisposable TimeoutDisposal { set; get; }
 
@@ -21,7 +21,7 @@
         return Task.CompletedTask;
     }
 
-    protected void OnThemeChanged(object sender, Theme theme)
+    protected void OnThemeChanged(object sender, Skclusive.Core.Component.Theme theme)
     {
         Theme = theme;
 
