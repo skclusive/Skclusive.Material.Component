@@ -2,7 +2,7 @@ using System.Text.Json.Serialization;
 
 namespace Skclusive.Material.Theme
 {
-    public class Custom
+    public class TypeCustom
     {
         [JsonPropertyName("lightOrDark")]
         public string LightOrDark { set; get; }

@@ -23,5 +23,8 @@ namespace Skclusive.Material.Theme
 
         [JsonPropertyName("selected")]
         public string Selected { get; set; }
+
+        [JsonPropertyName("custom")]
+        public IDictionary<string, string> Custom { get; set; }
     }
 }

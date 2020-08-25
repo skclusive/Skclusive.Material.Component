@@ -9,7 +9,9 @@ namespace Skclusive.Material.Theme
         {
             Black = "#000",
 
-            White = "#fff"
+            White = "#fff",
+
+            Custom = new Dictionary<string, string>(),
         };
 
         public static readonly TypeColor Amber = new TypeColor
@@ -288,7 +290,7 @@ namespace Skclusive.Material.Theme
 
             A400 = "#303030",
 
-            A700 = "#616161"
+            A700 = "#616161",
         };
 
         public static readonly TypeColor Indigo = new TypeColor
@@ -617,6 +619,8 @@ namespace Skclusive.Material.Theme
 
                 // Text hints.
                 Hint = "rgba(0, 0, 0, 0.38)",
+
+                Custom = new Dictionary<string, string>(),
             },
 
             // The color used to divide different elements.
@@ -628,7 +632,9 @@ namespace Skclusive.Material.Theme
             {
                 Paper = TypeColors.Common.White,
 
-                Default = TypeColors.Grey.X50
+                Default = TypeColors.Grey.X50,
+
+                Custom = new Dictionary<string, string>(),
             },
 
             // The colors used to style the action elements.
@@ -650,9 +656,11 @@ namespace Skclusive.Material.Theme
 
                 // The background color of a disabled action.
                 DisabledBackground = "rgba(0, 0, 0, 0.12)",
+
+                Custom = new Dictionary<string, string>(),
             },
 
-            Custom = new Custom
+            Custom = new TypeCustom
             {
                 LightOrDark = "#e0e0e0",
 
@@ -694,6 +702,8 @@ namespace Skclusive.Material.Theme
                 Hint = "rgba(255, 255, 255, 0.5)",
 
                 // Icon = "rgba(255, 255, 255, 0.5)"
+
+                Custom = new Dictionary<string, string>(),
             },
 
             // The color used to divide different elements.
@@ -705,7 +715,9 @@ namespace Skclusive.Material.Theme
             {
                 Paper = TypeColors.Grey.X800,
 
-                Default = "#303030"
+                Default = "#303030",
+
+                Custom = new Dictionary<string, string>(),
             },
 
             // The colors used to style the action elements.
@@ -727,9 +739,11 @@ namespace Skclusive.Material.Theme
 
                 // The background color of a disabled action.
                 DisabledBackground = "rgba(255, 255, 255, 0.12)",
+
+                Custom = new Dictionary<string, string>(),
             },
 
-            Custom = new Custom
+            Custom = new TypeCustom
             {
                 LightOrDark = "#616161",
 

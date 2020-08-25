@@ -4,6 +4,22 @@ namespace Skclusive.Material.Theme
 {
     public static class Shadow
     {
+        private static readonly string ShadowKeyUmbraOpacity = "0.2";
+
+        private static readonly string ShadowKeyPenumbraOpacity = "0.14";
+
+        private static readonly string ShadowAmbientShadowOpacity = "0.12";
+
+        public static string CreateShadow(params int[] px)
+        {
+            return string.Join(",", new string []
+             {
+                $"{px[0]}px {px[1]}px {px[2]}px {px[3]}px rgba(0,0,0,{ShadowKeyUmbraOpacity})",
+                $"{px[4]}px {px[5]}px {px[6]}px {px[7]}px rgba(0,0,0,{ShadowKeyPenumbraOpacity})",
+                $"{px[8]}px {px[9]}px {px[10]}px {px[11]}px rgba(0,0,0,{ShadowAmbientShadowOpacity})"
+             });
+        }
+
         public static string[] Shadows = new string []
         {
             "none",
@@ -32,21 +48,5 @@ namespace Skclusive.Material.Theme
             CreateShadow(0, 11, 14, -7, 0, 23, 36, 3, 0, 9, 44, 8),
             CreateShadow(0, 11, 15, -7, 0, 24, 38, 3, 0, 9, 46, 8)
         };
-
-        private static string ShadowKeyUmbraOpacity = "0.2";
-
-        private static string ShadowKeyPenumbraOpacity = "0.14";
-
-        private static string ShadowAmbientShadowOpacity = "0.12";
-
-        public static string CreateShadow(params int[] px)
-        {
-            return string.Join(",", new string []
-             {
-                $"{px[0]}px {px[1]}px {px[2]}px {px[3]}px rgba(0,0,0,{ShadowKeyUmbraOpacity})",
-                $"{px[4]}px {px[5]}px {px[6]}px {px[7]}px rgba(0,0,0,{ShadowKeyPenumbraOpacity})",
-                $"{px[8]}px {px[9]}px {px[10]}px {px[11]}px rgba(0,0,0,{ShadowAmbientShadowOpacity})"
-             });
-        }
     }
 }

@@ -11,5 +11,8 @@ namespace Skclusive.Material.Theme
 
         [JsonPropertyName("paper")]
         public string Paper { get; set; }
+
+        [JsonPropertyName("custom")]
+        public IDictionary<string, string> Custom { get; set; }
     }
 }

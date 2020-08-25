@@ -19,6 +19,6 @@ namespace Skclusive.Material.Theme
         public TypeText Text { get; set; }
 
         [JsonPropertyName("custom")]
-        public Custom Custom { get; set; }
+        public TypeCustom Custom { get; set; }
     }
 }

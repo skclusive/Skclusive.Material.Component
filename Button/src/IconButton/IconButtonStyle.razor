@@ -6,7 +6,7 @@
 
     .IconButton-Root {
         flex: 0 0 auto;
-        color: var(--theme-palette-action-active, rgba(0, 0, 0, 0.54));
+        color: var(--theme-palette-action-active);
         padding: 12px;
         overflow: visible;
         font-size: calc(var(--theme-font-size-rem-factor, 0.0625) * 1.5rem);
@@ -16,14 +16,11 @@
     }
 
     .IconButton-Root:hover {
-        background-color: var(
-            --theme-palette-primary-hover,
-            rgba(25, 118, 210, 0.08)
-        );
+        background-color: var(--theme-palette-primary-hover);
     }
 
     .IconButton-Root.IconButton-Disabled {
-        color: var(--theme-palette-action-disabled, rgba(0, 0, 0, 0.26));
+        color: var(--theme-palette-action-disabled);
         background-color: transparent;
     }
 
@@ -54,14 +51,11 @@
     }
 
     .IconButton-Color-Primary {
-        color: var(--theme-palette-primary-main, #1976d2);
+        color: var(--theme-palette-primary-main);
     }
 
     .IconButton-Color-Primary:hover {
-        background-color: var(
-            --theme-palette-primary-hover,
-            rgba(25, 118, 210, 0.08)
-        );
+        background-color: var(--theme-palette-primary-hover);
     }
 
     @media (hover: none) {
@@ -71,14 +65,11 @@
     }
 
     .IconButton-Color-Secondary {
-        color: var(--theme-palette-secondary-main, rgb(220, 0, 78));
+        color: var(--theme-palette-secondary-main);
     }
 
     .IconButton-Color-Secondary:hover {
-        background-color: var(
-            --theme-palette-secondary-hover,
-            rgba(220, 0, 78, 0.08)
-        );
+        background-color: var(--theme-palette-secondary-hover);
     }
 
     @media (hover: none) {

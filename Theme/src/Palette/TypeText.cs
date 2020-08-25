@@ -17,5 +17,8 @@ namespace Skclusive.Material.Theme
 
         [JsonPropertyName("secondary")]
         public string Secondary { get; set; }
+
+        [JsonPropertyName("custom")]
+        public IDictionary<string, string> Custom { get; set; }
     }
 }

@@ -8,8 +8,8 @@
         position: relative;
         transition: background-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
         background-color: rgba(calc(255 * var(--theme-mode-dark)), calc(255 * var(--theme-mode-dark)), calc(255 * var(--theme-mode-dark)), 0.09);
-        border-top-left-radius: calc(var(--theme-shape-border-radius, 4) * 1px);
-        border-top-right-radius: calc(var(--theme-shape-border-radius, 4) * 1px);
+        border-top-left-radius: calc(var(--theme-shape-border-radius) * 1px);
+        border-top-right-radius: calc(var(--theme-shape-border-radius) * 1px);
     }
 
     .FilledInput-Root:hover {
@@ -38,7 +38,7 @@
         position: absolute;
         transform: scaleX(0);
         transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-        border-bottom: 2px solid var(--theme-palette-primary-alternate, rgb(17, 82, 147));
+        border-bottom: 2px solid var(--theme-palette-primary-alternate);
         pointer-events: none;
     }
 
@@ -48,7 +48,7 @@
 
     .FilledInput-Underline.FilledInput-Error:after {
         transform: scaleX(1);
-        border-bottom-color: var(--theme-palette-error-main, #f44336);
+        border-bottom-color: var(--theme-palette-error-main);
     }
 
     .FilledInput-Underline:before {
@@ -63,7 +63,7 @@
     }
 
     .FilledInput-Underline:hover:before {
-        border-bottom: 1px solid var(--theme-palette-text-primary, rgba(0, 0, 0, 0.87));
+        border-bottom: 1px solid var(--theme-palette-text-primary);
     }
 
     .FilledInput-Underline.FilledInput-Disabled:before {

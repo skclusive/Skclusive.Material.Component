@@ -47,6 +47,6 @@ namespace Skclusive.Material.Theme
         public PaletteType? Type { get; set; }
 
         [JsonPropertyName("custom")]
-        public Custom Custom { get; set; }
+        public TypeCustom Custom { get; set; }
     }
 }

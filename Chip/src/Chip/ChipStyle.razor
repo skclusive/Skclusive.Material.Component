@@ -15,7 +15,7 @@
   box-sizing: border-box;
   transition: background-Color- 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   align-items: center;
-  font-family: var(--theme-typography-font-family, "Roboto", "Helvetica", "Arial", sans-serif);
+  font-family: var(--theme-typography-font-family);
   white-space: nowrap;
   border-radius: 16px;
   vertical-align: middle;
@@ -34,13 +34,13 @@
 }
 
 .Chip-Color-Primary {
-  color: var(--theme-palette-primary-contrast-text, #fff);
-  background-color: var(--theme-palette-primary-main, #1976d2);
+  color: var(--theme-palette-primary-contrast-text);
+  background-color: var(--theme-palette-primary-main);
 }
 
 .Chip-Color-Secondary {
-  color: var(--theme-palette-secondary-contrast-text, #fff);
-  background-color: var(--theme-palette-secondary-main, rgb(220, 0, 78));
+  color: var(--theme-palette-secondary-contrast-text);
+  background-color: var(--theme-palette-secondary-main);
 }
 
 .Chip-Clickable {
@@ -53,7 +53,7 @@
 }
 
 .Chip-Clickable:active {
-  box-shadow: var(--theme-shadow1, 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12));
+  box-shadow: var(--theme-shadow1);
   background-color: rgb(115, 115, 115);
 }
 
