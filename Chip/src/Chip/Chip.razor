@@ -42,20 +42,24 @@
     </span>
     @if (Deletable)
     {
-        @if (HasDeleteIconContent)
-        {
-            <CascadingValue
-                Value="DeleteIconContext">
-                @DeleteIconContent
-            </CascadingValue>
-        }
-        else
-        {
-            <CancelIcon
-                Class="@_DeleteIconClass"
-                Style="@_DeleteIconStyle"
-                OnClick="@HandleDeleteClickAsync"
-                OnClickStop="true" />
-        }
+        <span
+            class="@_DeleteContainerClass"
+            style="@_DeleteContainerStyle"
+            @onclick="@HandleDeleteClickAsync"
+            @onclick:stopPropagation>
+            @if (HasDeleteIconContent)
+            {
+                    <CascadingValue
+                        Value="DeleteIconContext">
+                        @DeleteIconContent
+                    </CascadingValue>
+            }
+            else
+            {
+                <CancelIcon
+                    Class="@_DeleteIconClass"
+                    Style="@_DeleteIconStyle" />
+            }
+        </span>
     }
 </Component>

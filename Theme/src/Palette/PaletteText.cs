@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace Skclusive.Material.Theme
 {
-    public partial class TypeText
+    public partial class PaletteText
     {
         [JsonPropertyName("disabled")]
         public string Disabled { get; set; }

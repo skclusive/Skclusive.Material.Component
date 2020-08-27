@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace Skclusive.Material.Theme
 {
-    public partial class TypeAction
+    public partial class PaletteAction
     {
         [JsonPropertyName("active")]
         public string Active { get; set; }

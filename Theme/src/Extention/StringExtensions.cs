@@ -15,5 +15,10 @@ namespace Skclusive.Material.Theme
 
             return String.Concat(chars);
         }
+
+        public static string ToContrastText(this string background, decimal contrastThreshold = 3)
+        {
+            return background.ContrastRatio(PaletteColors.Dark.Text.Primary) >= contrastThreshold ? PaletteColors.Dark.Text.Primary : PaletteColors.Light.Text.Primary;
+        }
     }
 }

@@ -4,6 +4,7 @@
 @if (Variant == DrawerVariant.Permanent)
 {
     <div
+        @key="@Variant"
         class="@_Class"
         style="@_Style"
         @onclick="@HandleClick"
@@ -21,6 +22,7 @@
 else if (Variant == DrawerVariant.Persistent)
 {
     <div
+        @key="@Variant"
         class="@_Class"
         style="@_Style"
         @onclick="@HandleClick"
@@ -48,6 +50,7 @@ else if (Variant == DrawerVariant.Persistent)
 else
 {
     <Modal
+        @key="@Variant"
         Absolute="@Absolute"
         Class="@_Class"
         Style="@_Style"

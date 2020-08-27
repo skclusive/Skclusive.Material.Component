@@ -2,10 +2,10 @@ using System.Collections.Generic;
 
 namespace Skclusive.Material.Theme
 {
-    public class TypeColors
+    public class PaletteColors
     {
 
-        public static readonly CommonColors Common = new CommonColors
+        public static readonly PaletteCommon Common = new PaletteCommon
         {
             Black = "#000",
 
@@ -14,7 +14,7 @@ namespace Skclusive.Material.Theme
             Custom = new Dictionary<string, string>(),
         };
 
-        public static readonly TypeColor Amber = new TypeColor
+        public static readonly PaletteShade Amber = new PaletteShade
         {
             X50 = "#fff8e1",
 
@@ -45,7 +45,7 @@ namespace Skclusive.Material.Theme
             A700 = "#ffab00"
         };
 
-        public static readonly TypeColor Blue = new TypeColor
+        public static readonly PaletteShade Blue = new PaletteShade
         {
             X50 = "#e3f2fd",
 
@@ -76,7 +76,7 @@ namespace Skclusive.Material.Theme
             A700 = "#2962ff"
         };
 
-        public static readonly TypeColor BlueGrey = new TypeColor
+        public static readonly PaletteShade BlueGrey = new PaletteShade
         {
             X50 = "#eceff1",
 
@@ -107,7 +107,7 @@ namespace Skclusive.Material.Theme
             A700 = "#455a64"
         };
 
-        public static readonly TypeColor Brown = new TypeColor
+        public static readonly PaletteShade Brown = new PaletteShade
         {
             X50 = "#efebe9",
 
@@ -138,7 +138,7 @@ namespace Skclusive.Material.Theme
             A700 = "#5d4037"
         };
 
-        public static readonly TypeColor Cyan = new TypeColor
+        public static readonly PaletteShade Cyan = new PaletteShade
         {
             X50 = "#e0f7fa",
 
@@ -169,7 +169,7 @@ namespace Skclusive.Material.Theme
             A700 = "#00b8d4"
         };
 
-        public static readonly TypeColor DeepOrange = new TypeColor
+        public static readonly PaletteShade DeepOrange = new PaletteShade
         {
             X50 = "#fbe9e7",
 
@@ -200,7 +200,7 @@ namespace Skclusive.Material.Theme
             A700 = "#dd2c00"
         };
 
-        public static readonly TypeColor DeepPurple = new TypeColor
+        public static readonly PaletteShade DeepPurple = new PaletteShade
         {
             X50 = "#ede7f6",
 
@@ -231,7 +231,7 @@ namespace Skclusive.Material.Theme
             A700 = "#6200ea"
         };
 
-        public static readonly TypeColor Green = new TypeColor
+        public static readonly PaletteShade Green = new PaletteShade
         {
             X50 = "#e8f5e9",
 
@@ -262,7 +262,7 @@ namespace Skclusive.Material.Theme
             A700 = "#00c853"
         };
 
-        public static readonly TypeColor Grey = new TypeColor
+        public static readonly PaletteShade Grey = new PaletteShade
         {
             X50 = "#fafafa",
 
@@ -293,7 +293,7 @@ namespace Skclusive.Material.Theme
             A700 = "#616161",
         };
 
-        public static readonly TypeColor Indigo = new TypeColor
+        public static readonly PaletteShade Indigo = new PaletteShade
         {
             X50 = "#e8eaf6",
 
@@ -324,7 +324,7 @@ namespace Skclusive.Material.Theme
             A700 = "#304ffe"
         };
 
-        public static readonly TypeColor LightBlue = new TypeColor
+        public static readonly PaletteShade LightBlue = new PaletteShade
         {
             X50 = "#e1f5fe",
 
@@ -355,7 +355,7 @@ namespace Skclusive.Material.Theme
             A700 = "#0091ea"
         };
 
-        public static readonly TypeColor LightGreen = new TypeColor
+        public static readonly PaletteShade LightGreen = new PaletteShade
         {
             X50 = "#f1f8e9",
 
@@ -386,7 +386,7 @@ namespace Skclusive.Material.Theme
             A700 = "#64dd17"
         };
 
-        public static readonly TypeColor Lime = new TypeColor
+        public static readonly PaletteShade Lime = new PaletteShade
         {
             X50 = "#f9fbe7",
 
@@ -417,7 +417,7 @@ namespace Skclusive.Material.Theme
             A700 = "#aeea00"
         };
 
-        public static readonly TypeColor Orange = new TypeColor
+        public static readonly PaletteShade Orange = new PaletteShade
         {
             X50 = "#fff3e0",
 
@@ -448,7 +448,7 @@ namespace Skclusive.Material.Theme
             A700 = "#ff6d00"
         };
 
-        public static readonly TypeColor Pink = new TypeColor
+        public static readonly PaletteShade Pink = new PaletteShade
         {
             X50 = "#fce4ec",
 
@@ -479,7 +479,7 @@ namespace Skclusive.Material.Theme
             A700 = "#c51162"
         };
 
-        public static readonly TypeColor Purple = new TypeColor
+        public static readonly PaletteShade Purple = new PaletteShade
         {
             X50 = "#f3e5f5",
 
@@ -510,7 +510,7 @@ namespace Skclusive.Material.Theme
             A700 = "#aa00ff"
         };
 
-        public static readonly TypeColor Red = new TypeColor
+        public static readonly PaletteShade Red = new PaletteShade
         {
             X50 = "#ffebee",
 
@@ -541,7 +541,7 @@ namespace Skclusive.Material.Theme
             A700 = "#d50000"
         };
 
-        public static readonly TypeColor Teal = new TypeColor
+        public static readonly PaletteShade Teal = new PaletteShade
         {
             X50 = "#e0f2f1",
 
@@ -572,7 +572,7 @@ namespace Skclusive.Material.Theme
             A700 = "#00bfa5"
         };
 
-        public static readonly TypeColor Yellow = new TypeColor
+        public static readonly PaletteShade Yellow = new PaletteShade
         {
             X50 = "#fffde7",
 
@@ -603,10 +603,10 @@ namespace Skclusive.Material.Theme
             A700 = "#ffd600"
         };
 
-        public static readonly TypeObject Light = new TypeObject
+        public static readonly PaletteObject Light = new PaletteObject
         {
             // The colors used to style the text.
-            Text = new TypeText
+            Text = new PaletteText
             {
                 // The most important text.
                 Primary = "rgba(0, 0, 0, 0.87)",
@@ -628,17 +628,17 @@ namespace Skclusive.Material.Theme
 
             // The background colors used to style the surfaces.
             // Consistency between these values is important.
-            Background = new TypeBackground
+            Background = new PaletteBackground
             {
-                Paper = TypeColors.Common.White,
+                Paper = PaletteColors.Common.White,
 
-                Default = TypeColors.Grey.X50,
+                Default = PaletteColors.Grey.X50,
 
                 Custom = new Dictionary<string, string>(),
             },
 
             // The colors used to style the action elements.
-            Action = new TypeAction
+            Action = new PaletteAction
             {
                 // The color of an active action like an icon button.
                 Active = "rgba(0, 0, 0, 0.54)",
@@ -660,7 +660,7 @@ namespace Skclusive.Material.Theme
                 Custom = new Dictionary<string, string>(),
             },
 
-            Custom = new TypeCustom
+            Custom = new PaletteCustom
             {
                 LightOrDark = "#e0e0e0",
 
@@ -684,13 +684,13 @@ namespace Skclusive.Material.Theme
             }
         };
 
-        public static readonly TypeObject Dark = new TypeObject
+        public static readonly PaletteObject Dark = new PaletteObject
         {
             // The colors used to style the text.
-            Text = new TypeText
+            Text = new PaletteText
             {
                 // The most important text.
-                Primary = TypeColors.Common.White,
+                Primary = PaletteColors.Common.White,
 
                 // Secondary text.
                 Secondary = "rgba(255, 255, 255, 0.7)",
@@ -711,9 +711,9 @@ namespace Skclusive.Material.Theme
 
             // The background colors used to style the surfaces.
             // Consistency between these values is important.
-            Background = new TypeBackground
+            Background = new PaletteBackground
             {
-                Paper = TypeColors.Grey.X800,
+                Paper = PaletteColors.Grey.X800,
 
                 Default = "#303030",
 
@@ -721,10 +721,10 @@ namespace Skclusive.Material.Theme
             },
 
             // The colors used to style the action elements.
-            Action = new TypeAction
+            Action = new PaletteAction
             {
                 // The color of an active action like an icon button.
-                Active = TypeColors.Common.White,
+                Active = PaletteColors.Common.White,
 
                 // The color of an hovered action.
                 Hover = "rgba(255, 255, 255, 0.1)",
@@ -743,7 +743,7 @@ namespace Skclusive.Material.Theme
                 Custom = new Dictionary<string, string>(),
             },
 
-            Custom = new TypeCustom
+            Custom = new PaletteCustom
             {
                 LightOrDark = "#616161",
 

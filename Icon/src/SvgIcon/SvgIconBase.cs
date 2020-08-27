@@ -47,9 +47,6 @@ namespace Skclusive.Material.Icon
         [Parameter]
         public FontSize FontSize { set; get; } = FontSize.Default;
 
-        [CascadingParameter]
-        public ISvgIconContext SvgIconContext { set; get; }
-
         /// <summary>
         /// onclick event handler
         /// </summary>
@@ -62,6 +59,11 @@ namespace Skclusive.Material.Icon
         [Parameter]
         public bool? OnClickPrevent { set; get; }
 
+        [CascadingParameter]
+        public ISvgIconContext SvgIconContext { set; get; }
+
+        protected override IComponentContext _Context => SvgIconContext;
+
         protected bool PreventDefault => OnClickPrevent.HasValue && OnClickPrevent.Value;
 
         protected bool StopPropagation => OnClickStop.HasValue && OnClickStop.Value;
@@ -69,34 +71,6 @@ namespace Skclusive.Material.Icon
         protected virtual async Task HandleClickAsync(EventArgs args)
         {
             await OnClick.InvokeAsync(args);
-        }
-
-        protected override string _Class
-        {
-            get
-            {
-                var _class = base._Class;
-                var _contextClass = SvgIconContext?.Class;
-                if (!string.IsNullOrWhiteSpace(_contextClass))
-                {
-                    _class = $"{_class} {_contextClass}";
-                }
-                return _class;
-            }
-        }
-
-        public override string _Style
-        {
-            get
-            {
-                var _style = base._Style;
-                var _contextStyle = SvgIconContext?.Style;
-                if (!string.IsNullOrWhiteSpace(_contextStyle))
-                {
-                    _style = $"{_style};{_contextStyle}";
-                }
-                return _style;
-            }
         }
     }
 }

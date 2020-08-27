@@ -170,7 +170,7 @@ namespace Skclusive.Material.Chip
                     yield return $"{nameof(Deletable)}";
 
                     if (Color != Color.Default)
-                    yield return $"{nameof(Clickable)}-{nameof(Color)}-{Color}";
+                    yield return $"{nameof(Deletable)}-{nameof(Color)}-{Color}";
                 }
 
                 if (Variant == ChipVariant.Outlined)
@@ -351,6 +351,41 @@ namespace Skclusive.Material.Chip
         protected virtual IEnumerable<Tuple<string, object>> LabelStyles
         {
             get => Enumerable.Empty<Tuple<string, object>>();
+        }
+
+          /// <summary>
+        /// The <c>style</c> applied on the end icon.
+        /// </summary>
+        [Parameter]
+        public string DeleteContainerStyle { set; get; }
+
+        /// <summary>
+        /// The <c>class</c> applied on the end icon.
+        /// </summary>
+        [Parameter]
+        public string DeleteContainerClass { set; get; }
+
+        protected virtual string _DeleteContainerStyle
+        {
+            get => CssUtil.ToStyle(DeleteContainerStyles, DeleteContainerStyle);
+        }
+
+        protected virtual IEnumerable<Tuple<string, object>> DeleteContainerStyles
+        {
+            get => Enumerable.Empty<Tuple<string, object>>();
+        }
+
+        protected virtual string _DeleteContainerClass
+        {
+            get => CssUtil.ToClass($"{Selector}-DeleteContainer", DeleteContainerClasses, DeleteContainerClass);
+        }
+
+        protected virtual IEnumerable<string> DeleteContainerClasses
+        {
+            get
+            {
+                yield return $"{Size}";
+            }
         }
     }
 }

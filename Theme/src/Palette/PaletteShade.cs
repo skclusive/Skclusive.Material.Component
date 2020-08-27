@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace Skclusive.Material.Theme
 {
-    public partial class TypeColor
+    public partial class PaletteShade
     {
         [JsonPropertyName("100")]
         public string X100 { get; set; }
@@ -48,11 +48,11 @@ namespace Skclusive.Material.Theme
         [JsonPropertyName("A700")]
         public string A700 { get; set; }
 
-        public TypeColor()
+        public PaletteShade()
         {
         }
 
-        public TypeColor(TypeColor color)
+        public PaletteShade(PaletteShade color)
         {
             X50 = color.X50;
 

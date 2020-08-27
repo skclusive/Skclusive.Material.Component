@@ -8,13 +8,13 @@ namespace Skclusive.Material.Theme
     public partial class PaletteConfig
     {
         [JsonPropertyName("action")]
-        public TypeAction Action { get; set; }
+        public PaletteAction Action { get; set; }
 
         [JsonPropertyName("background")]
-        public TypeBackground Background { get; set; }
+        public PaletteBackground Background { get; set; }
 
         [JsonPropertyName("common")]
-        public CommonColors Common { get; set; }
+        public PaletteCommon Common { get; set; }
 
         [JsonPropertyName("contrastThreshold")]
         public decimal? ContrastThreshold { get; set; }
@@ -29,7 +29,7 @@ namespace Skclusive.Material.Theme
         public Dictionary<string, object> GetContrastText { get; set; }
 
         [JsonPropertyName("grey")]
-        public TypeColor Grey { get; set; }
+        public PaletteShade Grey { get; set; }
 
         [JsonPropertyName("primary")]
         public PaletteColorConfig Primary { get; set; }
@@ -38,7 +38,7 @@ namespace Skclusive.Material.Theme
         public PaletteColorConfig Secondary { get; set; }
 
         [JsonPropertyName("text")]
-        public TypeText Text { get; set; }
+        public PaletteText Text { get; set; }
 
         [JsonPropertyName("tonalOffset")]
         public decimal? TonalOffset { get; set; }
@@ -47,6 +47,6 @@ namespace Skclusive.Material.Theme
         public PaletteType? Type { get; set; }
 
         [JsonPropertyName("custom")]
-        public TypeCustom Custom { get; set; }
+        public PaletteCustom Custom { get; set; }
     }
 }

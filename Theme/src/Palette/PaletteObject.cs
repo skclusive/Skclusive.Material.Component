@@ -4,21 +4,21 @@ using System.Text.Json.Serialization;
 
 namespace Skclusive.Material.Theme
 {
-    public partial class TypeObject
+    public partial class PaletteObject
     {
         [JsonPropertyName("action")]
-        public TypeAction Action { get; set; }
+        public PaletteAction Action { get; set; }
 
         [JsonPropertyName("background")]
-        public TypeBackground Background { get; set; }
+        public PaletteBackground Background { get; set; }
 
         [JsonPropertyName("divider")]
         public string Divider { get; set; }
 
         [JsonPropertyName("text")]
-        public TypeText Text { get; set; }
+        public PaletteText Text { get; set; }
 
         [JsonPropertyName("custom")]
-        public TypeCustom Custom { get; set; }
+        public PaletteCustom Custom { get; set; }
     }
 }

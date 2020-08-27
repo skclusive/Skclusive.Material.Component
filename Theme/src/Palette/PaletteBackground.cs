@@ -4,13 +4,13 @@ using System.Text.Json.Serialization;
 
 namespace Skclusive.Material.Theme
 {
-    public partial class CommonColors
+    public partial class PaletteBackground
     {
-        [JsonPropertyName("black")]
-        public string Black { get; set; }
+        [JsonPropertyName("default")]
+        public string Default { get; set; }
 
-        [JsonPropertyName("white")]
-        public string White { get; set; }
+        [JsonPropertyName("paper")]
+        public string Paper { get; set; }
 
         [JsonPropertyName("custom")]
         public IDictionary<string, string> Custom { get; set; }

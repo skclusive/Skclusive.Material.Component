@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace Skclusive.Material.Theme
 {
-    public partial class PaletteColorConfig : TypeColor
+    public partial class PaletteColorConfig : PaletteShade
     {
         [JsonPropertyName("contrastText")]
         public string ContrastText { get; set; }
@@ -25,7 +25,7 @@ namespace Skclusive.Material.Theme
         {
         }
 
-        public PaletteColorConfig(TypeColor color) : base(color)
+        public PaletteColorConfig(PaletteShade color) : base(color)
         {
         }
 

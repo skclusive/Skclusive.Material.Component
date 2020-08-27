@@ -70,6 +70,12 @@ namespace Skclusive.Material.Transition
         public EventCallback<IReference> OnExited { set; get; }
 
         /// <summary>
+        /// slide transition appear.
+        /// </summary>
+        [Parameter]
+        public bool Appear { set; get; } = true;
+
+        /// <summary>
         /// slide transition duration.
         /// </summary>
         [Parameter]

@@ -20,7 +20,7 @@ namespace Skclusive.Material.Theme
 
             var dark = color.Dark ?? darkShade(color) ?? main.Darken(tonalOffset * 1.5m);
 
-            var contrastText = color.ContrastText ?? ToContrastText(main, contrastThreshold);
+            var contrastText = color.ContrastText ?? main.ToContrastText(contrastThreshold);
 
             var custom = color.Custom ?? new Dictionary<string, string>();
 
@@ -43,14 +43,9 @@ namespace Skclusive.Material.Theme
             return AugmentColor(colorConfig, p => p.X500, p => p.X300, p => p.X700, tonalOffset, contrastThreshold);
         }
 
-        public static string ToContrastText(string background, decimal contrastThreshold = 3)
+        private static PaletteCommon ToCommon(PaletteCommon input, PaletteCommon defaultx)
         {
-            return background.ContrastRatio(TypeColors.Dark.Text.Primary) >= contrastThreshold ? TypeColors.Dark.Text.Primary : TypeColors.Light.Text.Primary;
-        }
-
-        private static CommonColors ToCommon(CommonColors input, CommonColors defaultx)
-        {
-            return new CommonColors
+            return new PaletteCommon
             {
                 White = input?.White ?? defaultx.White,
 
@@ -60,9 +55,9 @@ namespace Skclusive.Material.Theme
             };
         }
 
-        private static TypeColor ToColor(TypeColor input, TypeColor defaultx)
+        private static PaletteShade ToColor(PaletteShade input, PaletteShade defaultx)
         {
-            return new TypeColor
+            return new PaletteShade
             {
                 X50 = input?.X50 ?? defaultx.X50,
 
@@ -94,9 +89,9 @@ namespace Skclusive.Material.Theme
             };
         }
 
-        private static TypeBackground ToBackground(TypeBackground input, TypeBackground defaultx)
+        private static PaletteBackground ToBackground(PaletteBackground input, PaletteBackground defaultx)
         {
-            return new TypeBackground
+            return new PaletteBackground
             {
                 Paper = input?.Paper ?? defaultx.Paper,
 
@@ -106,9 +101,9 @@ namespace Skclusive.Material.Theme
             };
         }
 
-        private static TypeCustom ToCustom(TypeCustom input, TypeCustom defaultx)
+        private static PaletteCustom ToCustom(PaletteCustom input, PaletteCustom defaultx)
         {
-            return new TypeCustom
+            return new PaletteCustom
             {
                 LightOrDark = input?.LightOrDark ?? defaultx.LightOrDark,
 
@@ -132,9 +127,9 @@ namespace Skclusive.Material.Theme
             };
         }
 
-        private static TypeAction ToAction(TypeAction input, TypeAction defaultx)
+        private static PaletteAction ToAction(PaletteAction input, PaletteAction defaultx)
         {
-            return new TypeAction
+            return new PaletteAction
             {
                 Active = input?.Active ?? defaultx.Active,
 
@@ -152,9 +147,9 @@ namespace Skclusive.Material.Theme
             };
         }
 
-        private static TypeText ToText(TypeText input, TypeText defaultx)
+        private static PaletteText ToText(PaletteText input, PaletteText defaultx)
         {
-            return new TypeText
+            return new PaletteText
             {
                 Primary = input?.Primary ?? defaultx.Primary,
 
@@ -176,31 +171,31 @@ namespace Skclusive.Material.Theme
 
             var primary = AugmentColor(config?.Primary ?? new PaletteColorConfig
             {
-                Light = TypeColors.Indigo.X300,
+                Light = PaletteColors.Indigo.X300,
 
-                Main = TypeColors.Indigo.X500,
+                Main = PaletteColors.Indigo.X500,
 
-                Dark = TypeColors.Indigo.X700
+                Dark = PaletteColors.Indigo.X700
 
             }, tonalOffset, contrastThreshold);
 
             var secondary = AugmentColor(config?.Secondary ?? new PaletteColorConfig
             {
-                Light = TypeColors.Pink.A200,
+                Light = PaletteColors.Pink.A200,
 
-                Main = TypeColors.Pink.A400,
+                Main = PaletteColors.Pink.A400,
 
-                Dark = TypeColors.Pink.A700
+                Dark = PaletteColors.Pink.A700
             },
             p => p.A400, p => p.A200, p => p.A700, tonalOffset, contrastThreshold);
 
             var error = AugmentColor(config?.Error ?? new PaletteColorConfig
             {
-                Light = TypeColors.Red.X300,
+                Light = PaletteColors.Red.X300,
 
-                Main = TypeColors.Red.X500,
+                Main = PaletteColors.Red.X500,
 
-                Dark = TypeColors.Red.X700
+                Dark = PaletteColors.Red.X700
 
             }, tonalOffset, contrastThreshold);
 
@@ -222,19 +217,19 @@ namespace Skclusive.Material.Theme
 
                 TonalOffset = tonalOffset,
 
-                Divider = config?.Divider ?? (isLight ? TypeColors.Light.Divider : TypeColors.Dark.Divider),
+                Divider = config?.Divider ?? (isLight ? PaletteColors.Light.Divider : PaletteColors.Dark.Divider),
 
-                Grey = ToColor(config?.Grey, TypeColors.Grey),
+                Grey = ToColor(config?.Grey, PaletteColors.Grey),
 
-                Common = ToCommon(config?.Common, TypeColors.Common),
+                Common = ToCommon(config?.Common, PaletteColors.Common),
 
-                Text = ToText(config?.Text, (isLight ? TypeColors.Light.Text : TypeColors.Dark.Text)),
+                Text = ToText(config?.Text, (isLight ? PaletteColors.Light.Text : PaletteColors.Dark.Text)),
 
-                Background = ToBackground(config?.Background, (isLight ? TypeColors.Light.Background : TypeColors.Dark.Background)),
+                Background = ToBackground(config?.Background, (isLight ? PaletteColors.Light.Background : PaletteColors.Dark.Background)),
 
-                Action = ToAction(config?.Action, (isLight ? TypeColors.Light.Action : TypeColors.Dark.Action)),
+                Action = ToAction(config?.Action, (isLight ? PaletteColors.Light.Action : PaletteColors.Dark.Action)),
 
-                Custom = ToCustom(config?.Custom, (isLight ? TypeColors.Light.Custom : TypeColors.Dark.Custom)),
+                Custom = ToCustom(config?.Custom, (isLight ? PaletteColors.Light.Custom : PaletteColors.Dark.Custom)),
             };
 
             return palette;
