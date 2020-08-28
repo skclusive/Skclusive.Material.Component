@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace Skclusive.Material.Theme
 {
-    public class Theme
+    public class ThemeValue
     {
         [JsonPropertyName("shape")]
         public Shape Shape { set; get; }

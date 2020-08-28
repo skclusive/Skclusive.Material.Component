@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Skclusive.Material.Theme
 {
-    public class ThemeProducer
+    public class ThemeProducer : IThemeProducer
     {
         private static string Wrap(string style)
         {
@@ -12,7 +12,7 @@ namespace Skclusive.Material.Theme
                 }";
         }
 
-        public static string BuildMediaScheme(Theme theme)
+        public virtual string BuildMediaScheme(ThemeValue theme)
         {
             var scheme = theme.IsDark() ? "dark" : "light";
 
@@ -21,7 +21,7 @@ namespace Skclusive.Material.Theme
             }}";
         }
 
-        public static string BuildCommon(Theme theme)
+        public virtual string BuildCommon(ThemeValue theme)
         {
             var palette = theme.Palette;
 
@@ -161,7 +161,7 @@ namespace Skclusive.Material.Theme
             ");
         }
 
-        public static string BuildScheme(Theme theme)
+        public virtual string BuildScheme(ThemeValue theme)
         {
             var palette = theme.Palette;
 
@@ -303,7 +303,7 @@ namespace Skclusive.Material.Theme
             ");
         }
 
-        private static string Variables(string prefix, IDictionary<string, string> values)
+        protected virtual string Variables(string prefix, IDictionary<string, string> values)
         {
             var variables = values.Select(value => $"{prefix}-custom-{value.Key}: {value.Value};");
 

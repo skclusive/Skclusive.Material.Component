@@ -1,33 +1,47 @@
 ﻿@namespace Skclusive.Material.Theme
-@inherits ThemeComponentBase
+@inject IThemeService ThemeService
 
-<style skclusive>
-    @(new MarkupString(ThemeProducer.BuildCommon(_Theme)))
-@if (IsAuto)
-{
-    @(new MarkupString(ThemeProducer.BuildMediaScheme(_Dark)))
-    @(new MarkupString(ThemeProducer.BuildMediaScheme(_Light)))
-}
-else
-{
-    @(new MarkupString(ThemeProducer.BuildScheme(_Theme)))
-}
-</style>
+<CascadingValue
+    Value="@ThemeContext">
+    <SingleRender>
+        <ThemeRenderer
+            Default="@Default"
+            Light="@Light"
+            Dark="@Dark" />
+        <InjectedStyles />
+        @ChildContent
+        <InjectedScripts />
+    </SingleRender>
+</CascadingValue>
 
 @code
 {
     [Parameter]
-    public Theme Default { set; get; }
+    public RenderFragment ChildContent { set; get; }
 
     [Parameter]
-    public Theme Light { set; get; }
+    public ThemeValue Light { set; get; }
 
     [Parameter]
-    public Theme Dark { set; get; }
+    public ThemeValue Dark { set; get; }
 
-    protected Theme _Theme => Default ?? (Theme == Skclusive.Core.Component.Theme.Dark ? Dark : Light);
+    [Parameter]
+    public ThemeValue Default { set; get; }
 
-    protected Theme _Dark => Dark ?? ThemeFactory.CreateTheme(new ThemeConfig { Palette = new PaletteConfig { Type = PaletteType.Dark } });
+    protected IThemeContext ThemeContext => new ThemeContext(ThemeService.Current);
 
-    protected Theme _Light => Light ?? ThemeFactory.CreateTheme(new ThemeConfig { Palette = new PaletteConfig { Type = PaletteType.Light } });
+    protected override void OnInitialized()
+    {
+        ThemeService.OnChange += OnThemeChange;
+    }
+
+    protected void OnThemeChange(object sender, Theme current)
+    {
+        _ = InvokeAsync(StateHasChanged);
+    }
+
+    protected void Dispose()
+    {
+        ThemeService.OnChange -= OnThemeChange;
+    }
 }

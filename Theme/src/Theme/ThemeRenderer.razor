@@ -1,0 +1,34 @@
+﻿@namespace Skclusive.Material.Theme
+@inherits ThemeComponentBase
+@inject IThemeProducer ThemeProducer
+
+<style skclusive>
+    @(new MarkupString(ThemeProducer.BuildCommon(_Theme)))
+@if (IsAuto)
+{
+    @(new MarkupString(ThemeProducer.BuildMediaScheme(_Dark)))
+    @(new MarkupString(ThemeProducer.BuildMediaScheme(_Light)))
+}
+else
+{
+    @(new MarkupString(ThemeProducer.BuildScheme(_Theme)))
+}
+</style>
+
+@code
+{
+    [Parameter]
+    public ThemeValue Default { set; get; }
+
+    [Parameter]
+    public ThemeValue Light { set; get; }
+
+    [Parameter]
+    public ThemeValue Dark { set; get; }
+
+    protected ThemeValue _Theme => Default ?? (Theme == Theme.Dark ? Dark : Light);
+
+    protected ThemeValue _Dark => Dark ?? ThemeFactory.CreateTheme(new ThemeConfig { Palette = new PaletteConfig { Type = PaletteType.Dark } });
+
+    protected ThemeValue _Light => Light ?? ThemeFactory.CreateTheme(new ThemeConfig { Palette = new PaletteConfig { Type = PaletteType.Light } });
+}

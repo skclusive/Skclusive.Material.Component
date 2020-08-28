@@ -7,13 +7,13 @@ namespace Skclusive.Material.Theme
 {
     public static class ThemeFactory
     {
-        public static Theme CreateTheme(ThemeConfig config)
+        public static ThemeValue CreateTheme(ThemeConfig config)
         {
             var palette = PaletteFactory.CreatePalette(config?.Palette);
 
             var typographyFunc = config?.TypographyFunc ?? ((Palette p) => config?.Typography);
 
-            var theme = new Theme
+            var theme = new ThemeValue
             {
                 Direction = config?.Direction ?? Direction.LTR,
 
