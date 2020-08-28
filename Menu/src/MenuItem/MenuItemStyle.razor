@@ -1,43 +1,38 @@
 ﻿@namespace Skclusive.Material.Menu
 @inherits StyleComponentBase
 
-<Styled
-    Name="MenuItem">
+.MenuItem-Root {
+    width: auto;
+    overflow: hidden;
+    box-sizing: border-box;
+    min-height: 48px;
+    line-height: 1.5;
+    padding-top: 6px;
+    white-space: nowrap;
+    padding-bottom: 6px;
+    font-size: var(--theme-typography-body1-font-size);
+    font-family: var(--theme-typography-body1-font-family);
+    font-weight: var(--theme-typography-body1-font-weight);
+    letter-spacing: var(--theme-typography-body1-letter-spacing);
+}
 
+@media (min-width:600px) {
     .MenuItem-Root {
-        width: auto;
-        overflow: hidden;
-        box-sizing: border-box;
-        min-height: 48px;
-        line-height: 1.5;
-        padding-top: 6px;
-        white-space: nowrap;
-        padding-bottom: 6px;
-        font-size: var(--theme-typography-body1-font-size);
-        font-family: var(--theme-typography-body1-font-family);
-        font-weight: var(--theme-typography-body1-font-weight);
-        letter-spacing: var(--theme-typography-body1-letter-spacing);
-    }
-
-    @media (min-width:600px) {
-        .MenuItem-Root {
-            min-height: auto;
-        }
-    }
-
-    .MenuItem-Dense {
         min-height: auto;
-        font-size: var(--theme-typography-body2-font-size);
-        font-family: var(--theme-typography-body2-font-family);
-        font-weight: var(--theme-typography-body2-font-weight);
-        line-height: var(--theme-typography-body2-line-height);
-        letter-spacing: var(--theme-typography-body2-letter-spacing);
     }
+}
 
-    .MenuItem-Selected {
-    }
+.MenuItem-Dense {
+    min-height: auto;
+    font-size: var(--theme-typography-body2-font-size);
+    font-family: var(--theme-typography-body2-font-family);
+    font-weight: var(--theme-typography-body2-font-weight);
+    line-height: var(--theme-typography-body2-line-height);
+    letter-spacing: var(--theme-typography-body2-letter-spacing);
+}
 
-    .MenuItem-Gutters {
-    }
+.MenuItem-Selected {
+}
 
-</Styled>
+.MenuItem-Gutters {
+}

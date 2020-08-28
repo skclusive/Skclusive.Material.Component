@@ -1,100 +1,95 @@
 ﻿@namespace Skclusive.Material.Tab
 @inherits StyleComponentBase
 
-<Styled
-    Name="Tab">
+.Tab-Root {
+    padding: 6px 12px;
+    overflow: hidden;
+    position: relative;
+    max-width: 264px;
+    min-width: 72px;
+    box-sizing: border-box;
+    min-height: 48px;
+    text-align: center;
+    flex-shrink: 0;
+    white-space: normal;
+    font-size: var(--theme-typography-button-font-size);
+    font-family: var(--theme-typography-button-font-family);
+    font-weight: var(--theme-typography-button-font-weight);
+    line-height: var(--theme-typography-button-line-height);
+    letter-spacing: var(--theme-typography-button-letter-spacing);
+    text-transform: var(--theme-typography-button-text-transform);
+}
 
+@media (min-width:600px) {
     .Tab-Root {
-        padding: 6px 12px;
-        overflow: hidden;
-        position: relative;
-        max-width: 264px;
-        min-width: 72px;
-        box-sizing: border-box;
-        min-height: 48px;
-        text-align: center;
-        flex-shrink: 0;
-        white-space: normal;
-        font-size: var(--theme-typography-button-font-size);
-        font-family: var(--theme-typography-button-font-family);
-        font-weight: var(--theme-typography-button-font-weight);
-        line-height: var(--theme-typography-button-line-height);
-        letter-spacing: var(--theme-typography-button-letter-spacing);
-        text-transform: var(--theme-typography-button-text-transform);
+        font-size: calc(var(--theme-font-size-rem-factor, 0.0625) * 13rem);
+        min-width: 160px;
+        padding: 6px 24px
     }
+}
 
-    @media (min-width:600px) {
-        .Tab-Root {
-            font-size: calc(var(--theme-font-size-rem-factor, 0.0625) * 13rem);
-            min-width: 160px;
-            padding: 6px 24px
-        }
-    }
+.Tab-LabelIcon {
+    min-height: 72px;
+    padding-top: 9px;
+}
 
-    .Tab-LabelIcon {
-        min-height: 72px;
-        padding-top: 9px;
-    }
+.Tab-LabelIcon .Tab-Wrapper > *:first-child {
+    margin-bottom: 6px;
+}
 
-    .Tab-LabelIcon .Tab-Wrapper > *:first-child {
-        margin-bottom: 6px;
-    }
+.Tab-TextColor-Inherit {
+    color: inherit;
+    opacity: 0.7;
+}
 
-    .Tab-TextColor-Inherit {
-        color: inherit;
-        opacity: 0.7;
-    }
+.Tab-TextColor-Inherit.Tab-Selected {
+    opacity: 1;
+}
 
-    .Tab-TextColor-Inherit.Tab-Selected {
-        opacity: 1;
-    }
+.Tab-TextColor-Inherit.Tab-Disabled {
+    opacity: 0.5;
+}
 
-    .Tab-TextColor-Inherit.Tab-Disabled {
-        opacity: 0.5;
-    }
+.Tab-TextColor-Primary {
+    color: var(--theme-palette-text-secondary);
+}
 
-    .Tab-TextColor-Primary {
-        color: var(--theme-palette-text-secondary);
-    }
+.Tab-TextColor-Primary.Tab-Selected {
+    color: var(--theme-palette-primary-main);
+}
 
-    .Tab-TextColor-Primary.Tab-Selected {
-        color: var(--theme-palette-primary-main);
-    }
+.Tab-TextColor-Primary.Tab-Disabled {
+    color: var(--theme-palette-text-disabled);
+}
 
-    .Tab-TextColor-Primary.Tab-Disabled {
-        color: var(--theme-palette-text-disabled);
-    }
+.Tab-TextColor-Secondary {
+    color: var(--theme-palette-text-secondary);
+}
 
-    .Tab-TextColor-Secondary {
-        color: var(--theme-palette-text-secondary);
-    }
+.Tab-TextColor-Secondary.Tab-Selected {
+    color: var(--theme-palette-secondary-main);
+}
 
-    .Tab-TextColor-Secondary.Tab-Selected {
-        color: var(--theme-palette-secondary-main);
-    }
+.Tab-TextColor-Secondary.Tab-Disabled {
+    color: var(--theme-palette-text-disabled);
+}
 
-    .Tab-TextColor-Secondary.Tab-Disabled {
-        color: var(--theme-palette-text-disabled);
-    }
+.Tab-FullWidth {
+    flex-grow: 1;
+    max-width: none;
+    flex-basis: 0;
+    flex-shrink: 1;
+}
 
-    .Tab-FullWidth {
-        flex-grow: 1;
-        max-width: none;
-        flex-basis: 0;
-        flex-shrink: 1;
-    }
+.Tab-Wrapped {
+    font-size: calc(var(--theme-font-size-rem-factor, 0.0625) * 12rem);
+    line-height: 1.5;
+}
 
-    .Tab-Wrapped {
-        font-size: calc(var(--theme-font-size-rem-factor, 0.0625) * 12rem);
-        line-height: 1.5;
-    }
-
-    .Tab-Wrapper {
-        width: 100%;
-        display: inline-flex;
-        align-items: center;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-</Styled>
+.Tab-Wrapper {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}

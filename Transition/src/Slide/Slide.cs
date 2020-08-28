@@ -276,16 +276,14 @@ namespace Skclusive.Material.Transition
 
             // await Task.Delay(2000);
 
-            await EventDelegator.RegisterAsync(default(ElementReference), "resize", 200);
+            await EventDelegator.InitAsync(default(ElementReference), "resize", 200);
         }
 
-        protected override void Dispose()
+        protected override ValueTask DisposeAsync()
         {
-            base.Dispose();
-
             EventDelegator.OnEvent -= OnWindowResize;
 
-            EventDelegator.Dispose();
+            return EventDelegator.DisposeAsync();
         }
     }
 }

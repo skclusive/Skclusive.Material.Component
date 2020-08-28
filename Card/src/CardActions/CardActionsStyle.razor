@@ -1,17 +1,12 @@
 ﻿@namespace Skclusive.Material.Card
 @inherits StyleComponentBase
 
-<Styled
-    Name="CardActions">
+.CardActions-Root {
+    display: flex;
+    padding: 8px;
+    align-items: center;
+}
 
-    .CardActions-Root {
-        display: flex;
-        padding: 8px;
-        align-items: center;
-    }
-
-    .CardActions-Spacing > * + * {
-        margin-left: 8px;
-    }
-
-</Styled>
+.CardActions-Spacing > * + * {
+    margin-left: 8px;
+}

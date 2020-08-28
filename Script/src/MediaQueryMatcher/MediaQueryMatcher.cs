@@ -4,7 +4,7 @@ using Microsoft.JSInterop;
 
 namespace Skclusive.Material.Script
 {
-    public class MediaQueryMatcher
+    public class MediaQueryMatcher : IAsyncDisposable
     {
         public MediaQueryMatcher(IJSRuntime jsruntime)
         {
@@ -20,26 +20,23 @@ namespace Skclusive.Material.Script
         private readonly static EventArgs EVENT_ARGS = new EventArgs();
 
         [JSInvokable]
-        public Task OnChangeAsync(bool match)
+        public ValueTask OnChangeAsync(bool match)
         {
             OnChange?.Invoke(EVENT_ARGS, match);
 
-            return Task.CompletedTask;
+            return default;
         }
 
-        public async Task RegisterAsync(string media)
+        public async ValueTask InitAsync(string media)
         {
             Id = await JSRuntime.InvokeAsync<object>("Skclusive.Material.Script.registerMediaQuery", media, DotNetObjectReference.Create(this));
         }
 
-        public async Task UnRegisterAsync()
+        public ValueTask DisposeAsync()
         {
-            Id = await JSRuntime.InvokeAsync<object>("Skclusive.Material.Script.unRegisterMediaQuery", Id);
-        }
+            OnChange = null;
 
-        public void Dispose()
-        {
-            _ = UnRegisterAsync();
+            return JSRuntime.InvokeVoidAsync("Skclusive.Material.Script.unRegisterMediaQuery", Id);
         }
     }
 }

@@ -6,7 +6,7 @@ using Skclusive.Core.Component;
 
 namespace Skclusive.Material.Script
 {
-    public class DetectThemeHelper
+    public class DetectThemeHelper : IAsyncDisposable
     {
         public DetectThemeHelper(IJSRuntime jsruntime)
         {
@@ -29,26 +29,23 @@ namespace Skclusive.Material.Script
         private readonly static EventArgs EVENT_ARGS = new EventArgs();
 
         [JSInvokable]
-        public Task OnChangeAsync(string theme)
+        public ValueTask OnChangeAsync(string theme)
         {
             OnChange?.Invoke(EVENT_ARGS, THEME_MAPPING[theme]);
 
-            return Task.CompletedTask;
+            return default;
         }
 
-        public async Task RegisterAsync()
+        public async ValueTask InitAsync()
         {
             Id = await JSRuntime.InvokeAsync<object>("Skclusive.Material.Script.registerDetectTheme", DotNetObjectReference.Create(this));
         }
 
-        public async Task UnRegisterAsync()
+        public ValueTask DisposeAsync()
         {
-            Id = await JSRuntime.InvokeAsync<object>("Skclusive.Material.Script.unRegisterDetectTheme", Id);
-        }
+            OnChange = null;
 
-        public void Dispose()
-        {
-            _ = UnRegisterAsync();
+            return JSRuntime.InvokeVoidAsync("Skclusive.Material.Script.unRegisterDetectTheme", Id);
         }
     }
 }

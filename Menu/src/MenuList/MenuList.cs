@@ -100,14 +100,12 @@ namespace Skclusive.Material.Menu
         {
             await base.OnAfterMountAsync();
 
-            await MenuListHelper.RegisterAsync(RootRef.Current, DisableListWrap);
+            await MenuListHelper.InitAsync(RootRef.Current, DisableListWrap);
         }
 
-        protected override void Dispose()
+        protected override ValueTask DisposeAsync()
         {
-            base.Dispose();
-
-            MenuListHelper.Dispose();
+            return MenuListHelper.DisposeAsync();
         }
     }
 }

@@ -43,12 +43,6 @@ namespace Skclusive.Material.Popover
         public IReference PortalTargetBodyRef { get; set; }
 
         /// <summary>
-        /// Reference attached to the container element of the popover.
-        /// </summary>
-        [Parameter]
-        public IReference ContainerRef { set; get; } = new Reference();
-
-        /// <summary>
         /// Reference attached to the anchor element of the popover.
         /// </summary>
         [Parameter]
@@ -561,16 +555,14 @@ namespace Skclusive.Material.Popover
 
             EventDelegator.OnEvent += OnWindowResize;
 
-            await EventDelegator.RegisterAsync(default(ElementReference), "resize", 200);
+            await EventDelegator.InitAsync(default(ElementReference), "resize", 200);
         }
 
-        protected override void Dispose()
+        protected override ValueTask DisposeAsync()
         {
-            base.Dispose();
-
             EventDelegator.OnEvent -= OnWindowResize;
 
-            EventDelegator.Dispose();
+            return EventDelegator.DisposeAsync();
         }
     }
 }

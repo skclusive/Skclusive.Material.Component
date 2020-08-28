@@ -1,9 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Microsoft.JSInterop;
 
 namespace Skclusive.Material.Script
 {
-    public class ScriptHelpers
+    public class ScriptHelpers : IAsyncDisposable
     {
         private IJSRuntime JSRuntime { get; }
 
@@ -15,6 +16,11 @@ namespace Skclusive.Material.Script
         public async Task GoBackAsync()
         {
             await JSRuntime.InvokeVoidAsync("Skclusive.Material.Script.goBack", -1);
+        }
+
+        public ValueTask DisposeAsync()
+        {
+            return default;
         }
     }
 }

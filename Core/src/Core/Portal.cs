@@ -7,7 +7,7 @@ using Skclusive.Script.DomHelpers;
 
 namespace Skclusive.Material.Core
 {
-    public class Portal : MaterialContextComponent, IDisposable
+    public class Portal : MaterialContextComponent
     {
         [Inject]
         public DomHelpers DomHelpers { set; get; }
@@ -66,21 +66,17 @@ namespace Skclusive.Material.Core
 
             if (!DisablePortal)
             {
-                // await Task.Delay(2000);
-
                 await DomHelpers.MoveContentAsync(SourceRef.Current, TargetRef?.Current, TargetBodyRef?.Current);
             }
         }
 
-        protected override void Dispose()
+        protected override async ValueTask DisposeAsync()
         {
-            base.Dispose();
-
             if (!DisablePortal)
             {
                 if (ChildRef.Current != null)
                 {
-                    _ = DomHelpers.RemoveNodeAsync(ChildRef.Current);
+                    await DomHelpers.RemoveNodeAsync(ChildRef.Current);
                 }
             }
         }

@@ -1,22 +1,17 @@
 ﻿@namespace Skclusive.Material.Card
 @inherits StyleComponentBase
 
-<Styled
-    Name="CardMedia">
+.CardMedia-Root {
+    display: block;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
-    .CardMedia-Root {
-        display: block;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-    }
+.CardMedia-Media {
+    width: 100%;
+}
 
-    .CardMedia-Media {
-        width: 100%;
-    }
-
-    .CardMedia-Imgage {
-        object-fit: cover;
-    }
-
-</Styled>
+.CardMedia-Imgage {
+    object-fit: cover;
+}

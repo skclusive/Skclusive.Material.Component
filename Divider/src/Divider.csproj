@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <VersionPrefix>3.0.3-preview1</VersionPrefix>
+    <VersionPrefix>3.0.4-preview1</VersionPrefix>
     <VersionSuffix>$(VersionSuffix)</VersionSuffix>
     <TargetFramework>net5.0</TargetFramework>
     <AssemblyName>Skclusive.Material.Divider</AssemblyName>
@@ -16,7 +16,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\src\Core.csproj" Version="3.0.3-preview1" />
+    <ProjectReference Include="..\..\Core\src\Core.csproj" Version="3.0.4-preview1" />
   </ItemGroup>
 
 </Project>

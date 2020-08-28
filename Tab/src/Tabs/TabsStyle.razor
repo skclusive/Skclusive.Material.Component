@@ -1,57 +1,52 @@
 ﻿@namespace Skclusive.Material.Tab
 @inherits StyleComponentBase
 
-<Styled
-    Name="Tabs">
+.Tabs-Root {
+    display: flex;
+    overflow: hidden;
+    min-height: 48px;
+    -webkit-overflow-scrolling: touch;
+}
 
-    .Tabs-Root {
-        display: flex;
-        overflow: hidden;
-        min-height: 48px;
-        -webkit-overflow-scrolling: touch;
-    }
+.Tabs-Vertical {
+    flex-direction: column;
+}
 
-    .Tabs-Vertical {
-        flex-direction: column;
-    }
+.Tabs-Container {
+    display: flex;
+}
 
-    .Tabs-Container {
-        display: flex;
-    }
+.Tabs-Container-Vertical {
+    flex-direction: column;
+}
 
-    .Tabs-Container-Vertical {
-        flex-direction: column;
-    }
+.Tabs-Container-Centered {
+    justify-content: center;
+}
 
-    .Tabs-Container-Centered {
-        justify-content: center;
-    }
+.Tabs-Scroller {
+    flex: 1 1 auto;
+    display: inline-block;
+    position: relative;
+    white-space: nowrap;
+}
 
-    .Tabs-Scroller {
-        flex: 1 1 auto;
-        display: inline-block;
-        position: relative;
-        white-space: nowrap;
-    }
+.Tabs-Scroller-Fixed {
+    width: 100%;
+    overflow-x: hidden;
+}
 
-    .Tabs-Scroller-Fixed {
-        width: 100%;
-        overflow-x: hidden;
-    }
+.Tabs-Scroller-Scrollable {
+    overflow-x: scroll;
+    scrollbar-width: none;
+}
 
-    .Tabs-Scroller-Scrollable {
-        overflow-x: scroll;
-        scrollbar-width: none;
-    }
+.Tabs-Scroller-Scrollable::-webkit-scrollbar {
+    display: none;
+}
 
-    .Tabs-Scroller-Scrollable::-webkit-scrollbar {
+@media (max-width:599.95px) {
+    .Tabs-ScrollButton-Desktop {
         display: none;
     }
-
-    @media (max-width:599.95px) {
-        .Tabs-ScrollButton-Desktop {
-            display: none;
-        }
-    }
-
-</Styled>
+}

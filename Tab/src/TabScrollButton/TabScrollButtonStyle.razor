@@ -1,21 +1,16 @@
 ﻿@namespace Skclusive.Material.Tab
 @inherits StyleComponentBase
 
-<Styled
-    Name="TabScrollButton">
+.TabScrollButton-Root {
+    width: 40px;
+    flex-shrink: 0;
+}
 
-    .TabScrollButton-Root {
-        width: 40px;
-        flex-shrink: 0;
-    }
+.TabScrollButton-Vertical {
+    width: 100%;
+    height: 40px;
+}
 
-    .TabScrollButton-Vertical {
-        width: 100%;
-        height: 40px;
-    }
-
-    .TabScrollButton-Vertical svg {
-        transform: rotate(90deg);
-    }
-
-</Styled>
+.TabScrollButton-Vertical svg {
+    transform: rotate(90deg);
+}

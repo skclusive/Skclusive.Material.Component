@@ -1,42 +1,37 @@
 ﻿@namespace Skclusive.Material.Baseline
 @inherits StyleComponentBase
 
-<Styled
-    Name="Baseline">
+html {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
-    html {
-        box-sizing: border-box;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-    }
+*, *::before, *::after {
+    box-sizing: inherit;
+}
 
-    *, *::before, *::after {
-        box-sizing: inherit;
-    }
+strong, b {
+    font-weight: bolder;
+}
 
-    strong, b {
-        font-weight: bolder;
-    }
+body {
+    color: var(--theme-palette-text-primary);
+    margin: 0;
+    font-size: var(--theme-typography-body2-font-size);
+    font-family: var(--theme-typography-body2-font-family);
+    font-weight: var(--theme-typography-body2-font-weight);
+    line-height: var(--theme-typography-body2-line-height);
+    letter-spacing: var(--theme-typography-body2-letter-spacing);
+    background-color: var(--theme-palette-background-default);
+}
 
+@media print {
     body {
-        color: var(--theme-palette-text-primary);
-        margin: 0;
-        font-size: var(--theme-typography-body2-font-size);
-        font-family: var(--theme-typography-body2-font-family);
-        font-weight: var(--theme-typography-body2-font-weight);
-        line-height: var(--theme-typography-body2-line-height);
-        letter-spacing: var(--theme-typography-body2-letter-spacing);
-        background-color: var(--theme-palette-background-default);
+        background-color: var(--theme-palette-common-white);
     }
+}
 
-    @media print {
-        body {
-            background-color: var(--theme-palette-common-white);
-        }
-    }
-
-    body::backdrop {
-        background-color: var(--theme-palette-background-default);
-    }
-
-</Styled>
+body::backdrop {
+    background-color: var(--theme-palette-background-default);
+}

@@ -28,19 +28,17 @@ else
 @code
 {
     [Parameter]
-    public ThemeConfig Config { set; get; }
+    public Theme Default { set; get; }
 
     [Parameter]
-    public ThemeConfig Light { set; get; } = new ThemeConfig { Palette = new PaletteConfig { Type = PaletteType.Light } };
+    public Theme Light { set; get; }
 
     [Parameter]
-    public ThemeConfig Dark { set; get; } = new ThemeConfig { Palette = new PaletteConfig { Type = PaletteType.Dark } };
+    public Theme Dark { set; get; }
 
-    protected ThemeConfig _Config => Config ?? (Theme == Skclusive.Core.Component.Theme.Dark ? Dark : Light);
+    protected Theme _Theme => Default ?? (Theme == Skclusive.Core.Component.Theme.Dark ? Dark : Light);
 
-    protected Theme _Theme => ThemeFactory.CreateTheme(_Config);
+    protected Theme _Dark => Dark ?? ThemeFactory.CreateTheme(new ThemeConfig { Palette = new PaletteConfig { Type = PaletteType.Dark } });
 
-    protected Theme _Dark => ThemeFactory.CreateTheme(Dark);
-
-    protected Theme _Light => ThemeFactory.CreateTheme(Light);
+    protected Theme _Light => Light ?? ThemeFactory.CreateTheme(new ThemeConfig { Palette = new PaletteConfig { Type = PaletteType.Light } });
 }

@@ -301,11 +301,11 @@ namespace Skclusive.Material.Modal
             // remove from manager
         }
 
-        protected override void Dispose()
+        protected override ValueTask DisposeAsync()
         {
-            base.Dispose();
-
             HandleClose();
+
+            return default;
         }
 
         protected override async Task OnAfterRenderAsync()

@@ -4,10 +4,11 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 using Skclusive.Core.Component;
 using Skclusive.Script.DomHelpers;
+using System;
 
 namespace Skclusive.Material.Script
 {
-    public class PopoverHelper
+    public class PopoverHelper : IAsyncDisposable
     {
         public PopoverHelper(IJSRuntime jsruntime, DomHelpers domHelpers)
         {
@@ -20,17 +21,17 @@ namespace Skclusive.Material.Script
 
         private DomHelpers DomHelpers { get; }
 
-        public async Task<double> GetContentAnchorOffsetAsync(ElementReference? contentAnchor, ElementReference? element)
+        public ValueTask<double> GetContentAnchorOffsetAsync(ElementReference? contentAnchor, ElementReference? element)
         {
-            return await JSRuntime.InvokeAsync<double>("Skclusive.Material.Script.getContentAnchorOffset", contentAnchor, element);
+            return JSRuntime.InvokeAsync<double>("Skclusive.Material.Script.getContentAnchorOffset", contentAnchor, element);
         }
 
-        public async Task<Boundry> GetAnchorBoundryAsync(ElementReference? anchorRef, ElementReference? paperRef)
+        public ValueTask<Boundry> GetAnchorBoundryAsync(ElementReference? anchorRef, ElementReference? paperRef)
         {
-            return await JSRuntime.InvokeAsync<Boundry>("Skclusive.Material.Script.getAnchorBoundry", anchorRef, paperRef);
+            return JSRuntime.InvokeAsync<Boundry>("Skclusive.Material.Script.getAnchorBoundry", anchorRef, paperRef);
         }
 
-        public async Task<Boundry> GetOffsetAsync(ElementReference? element)
+        public async ValueTask<Boundry> GetOffsetAsync(ElementReference? element)
         {
             var offset = await DomHelpers.GetElementOffsetAsync(element);
 
@@ -42,14 +43,20 @@ namespace Skclusive.Material.Script
             };
         }
 
-        public Task<Offset> GetWindowOffsetAsync(ElementReference? element)
+        public ValueTask<Offset> GetWindowOffsetAsync(ElementReference? element)
         {
             return DomHelpers.GetWindowOffsetAsync(element);
         }
 
-        public Task SetPositioningStylesAsync(ElementReference? element, IDictionary<string, object> styles, bool trigger = true)
+        public ValueTask SetPositioningStylesAsync(ElementReference? element, IDictionary<string, object> styles, bool trigger = true)
         {
             return DomHelpers.SetStyleAsync(element, styles, trigger);
+        }
+
+
+        public ValueTask DisposeAsync()
+        {
+            return default;
         }
     }
 }

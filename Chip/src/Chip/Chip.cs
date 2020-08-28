@@ -111,7 +111,6 @@ namespace Skclusive.Material.Chip
         protected ISvgIconContext DeleteIconContext => new SvgIconContextBuilder()
            .WithClass(_DeleteIconClass)
            .WithStyle(_DeleteIconStyle)
-           // .WithOnClick() TODO: pass OnClick
            .Build();
 
         protected IAvatarContext AvatarContext => new AvatarContextBuilder()

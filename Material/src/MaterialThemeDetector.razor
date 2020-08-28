@@ -1,4 +1,4 @@
-﻿@implements IDisposable
+﻿@implements IAsyncDisposable
 @inject DetectThemeHelper DetectThemeHelper
 
 <ThemeProvider
@@ -15,7 +15,7 @@
         DetectThemeHelper.OnChange += OnThemeChanged;
 
         TimeoutDisposal = ExecutionPlan.Delay(500, () => {
-            _ = DetectThemeHelper.RegisterAsync();
+            _ = DetectThemeHelper.InitAsync();
         });
 
         return Task.CompletedTask;
@@ -25,15 +25,15 @@
     {
         Theme = theme;
 
-        StateHasChanged();
+        _ = InvokeAsync(StateHasChanged);
     }
 
-    public void Dispose()
+    public ValueTask DisposeAsync()
     {
         TimeoutDisposal?.Dispose();
 
         DetectThemeHelper.OnChange -= OnThemeChanged;
 
-        _ = DetectThemeHelper.UnRegisterAsync();
+        return DetectThemeHelper.DisposeAsync();
     }
 }

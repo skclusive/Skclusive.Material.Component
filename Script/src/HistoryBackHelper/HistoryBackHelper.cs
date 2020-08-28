@@ -1,10 +1,11 @@
+using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 
 namespace Skclusive.Material.Script
 {
-    public class HistoryBackHelper
+    public class HistoryBackHelper : IAsyncDisposable
     {
         public HistoryBackHelper(IJSRuntime jsruntime)
         {
@@ -15,19 +16,14 @@ namespace Skclusive.Material.Script
 
         private IJSRuntime JSRuntime { get; }
 
-        public async Task RegisterAsync(ElementReference reference, string name, int delay = 0)
+        public async ValueTask InitAsync(ElementReference reference, string name, int delay = 0)
         {
             Id = await JSRuntime.InvokeAsync<object>("Skclusive.Material.Script.registerHistoryBack", reference, name, delay);
         }
 
-        public async Task UnRegisterAsync()
+        public ValueTask DisposeAsync()
         {
-            Id = await JSRuntime.InvokeAsync<object>("Skclusive.Material.Script.unRegisterHistoryBack", Id);
-        }
-
-        public void Dispose()
-        {
-            _ = UnRegisterAsync();
+            return JSRuntime.InvokeVoidAsync("Skclusive.Material.Script.unRegisterHistoryBack", Id);
         }
     }
 }

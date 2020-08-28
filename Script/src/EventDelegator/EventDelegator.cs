@@ -5,7 +5,7 @@ using Microsoft.JSInterop;
 
 namespace Skclusive.Material.Script
 {
-    public class EventDelegator
+    public class EventDelegator : IAsyncDisposable
     {
         public EventDelegator(IJSRuntime jsruntime)
         {
@@ -21,26 +21,23 @@ namespace Skclusive.Material.Script
         private readonly static EventArgs EVENT_ARGS = new EventArgs();
 
         [JSInvokable]
-        public Task OnEventAsync(string json)
+        public ValueTask OnEventAsync(string json)
         {
             OnEvent?.Invoke(EVENT_ARGS, json);
 
-            return Task.CompletedTask;
+            return default;
         }
 
-        public async Task RegisterAsync(ElementReference reference, string name, int delay)
+        public async ValueTask InitAsync(ElementReference reference, string name, int delay)
         {
             Id = await JSRuntime.InvokeAsync<object>("Skclusive.Material.Script.registerEvent", reference, name, DotNetObjectReference.Create(this), delay);
         }
 
-        public async Task UnRegisterAsync()
+        public ValueTask DisposeAsync()
         {
-            Id = await JSRuntime.InvokeAsync<object>("Skclusive.Material.Script.unRegisterEvent", Id);
-        }
+            OnEvent = null;
 
-        public void Dispose()
-        {
-            _ = UnRegisterAsync();
+            return JSRuntime.InvokeVoidAsync("Skclusive.Material.Script.unRegisterEvent", Id);
         }
     }
 }
