@@ -1,29 +1,18 @@
 ﻿@namespace Skclusive.Material.Theme
 @inherits ThemeComponentBase
 
-<style
-    data-name="ThemeProviderCommon">
+<style skclusive>
     @(new MarkupString(ThemeProducer.BuildCommon(_Theme)))
-</style>
-
 @if (IsAuto)
 {
-    <style
-        data-name="ThemeProviderDark">
-        @(new MarkupString(ThemeProducer.BuildMediaScheme(_Dark)))
-    </style>
-    <style
-        data-name="ThemeProviderLight">
-        @(new MarkupString(ThemeProducer.BuildMediaScheme(_Light)))
-    </style>
+    @(new MarkupString(ThemeProducer.BuildMediaScheme(_Dark)))
+    @(new MarkupString(ThemeProducer.BuildMediaScheme(_Light)))
 }
 else
 {
-    <style
-        data-name="ThemeProviderSchema">
-        @(new MarkupString(ThemeProducer.BuildScheme(_Theme)))
-    </style>
+    @(new MarkupString(ThemeProducer.BuildScheme(_Theme)))
 }
+</style>
 
 @code
 {

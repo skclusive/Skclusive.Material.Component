@@ -1,5 +1,5 @@
 ﻿@namespace Skclusive.Material.Text
-@inherits TextFieldComponent
+@inherits MaterialComponentBase
 
 <FormControl
     RootRef="@RootRef"
@@ -30,7 +30,7 @@
     @if (Variant == TextFieldVariant.Filled)
     {
         <FilledInput
-            @ref="FilledInput"
+            RootRef="@InputRef"
             Disabled="@Disabled"
             Id="@Id"
             Type="@Type"
@@ -60,7 +60,7 @@
     else if (Variant == TextFieldVariant.Outlined)
     {
         <OutlinedInput
-            @ref="OutlinedInput"
+            RootRef="@InputRef"
             Disabled="@Disabled"
             Id="@Id"
             Notched="@_Shrink"
@@ -91,8 +91,8 @@
     }
     else
     {
-        <StandardInput
-            @ref="Input"
+        <TextInput
+            RootRef="@InputRef"
             Disabled="@Disabled"
             Id="@Id"
             Type="@Type"
@@ -117,7 +117,7 @@
             <EndAdornment>
                 @EndAdornment
             </EndAdornment>
-        </StandardInput>
+        </TextInput>
     }
     @if (!string.IsNullOrWhiteSpace(Helper))
     {
