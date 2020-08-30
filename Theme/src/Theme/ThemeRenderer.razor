@@ -2,21 +2,24 @@
 @inherits ThemeComponentBase
 @inject IThemeProducer ThemeProducer
 
-<style skclusive>
-    @(new MarkupString(ThemeProducer.BuildCommon(_Theme)))
-@if (IsAuto)
-{
-    @(new MarkupString(ThemeProducer.BuildMediaScheme(_Dark)))
-    @(new MarkupString(ThemeProducer.BuildMediaScheme(_Light)))
-}
-else
-{
-    @(new MarkupString(ThemeProducer.BuildScheme(_Theme)))
-}
+<style
+    skclusive
+    @ref="@RootRef.Current">
+    @Common
+    @if (IsAuto)
+    {
+        @MediaScheme
+    } else
+    {
+        @Scheme
+    }
 </style>
 
 @code
 {
+    [Parameter]
+    public IReference RootRef { set; get; } = new Reference();
+
     [Parameter]
     public ThemeValue Default { set; get; }
 
@@ -31,4 +34,14 @@ else
     protected ThemeValue _Dark => Dark ?? ThemeFactory.CreateTheme(new ThemeConfig { Palette = new PaletteConfig { Type = PaletteType.Dark } });
 
     protected ThemeValue _Light => Light ?? ThemeFactory.CreateTheme(new ThemeConfig { Palette = new PaletteConfig { Type = PaletteType.Light } });
+
+    protected MarkupString Common => new MarkupString(ThemeProducer.BuildCommon(_Theme));
+
+    protected MarkupString Scheme => new MarkupString(ThemeProducer.BuildScheme(_Theme));
+
+    protected MarkupString MediaScheme => new MarkupString(string.Join("\n", new string[]
+    {
+        ThemeProducer.BuildMediaScheme(_Dark),
+        ThemeProducer.BuildMediaScheme(_Light)
+    }));
 }

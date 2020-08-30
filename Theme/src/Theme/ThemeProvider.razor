@@ -8,7 +8,12 @@
             Default="@Default"
             Light="@Light"
             Dark="@Dark" />
-        <InjectedStyles />
+        <Head
+            Disable="@(!Head)"
+            Context="HeadContext">
+            <InjectedStyles
+                RootRef="@HeadContext.RefBack" />
+        </Head>
         @ChildContent
         <InjectedScripts />
     </SingleRender>
@@ -16,6 +21,9 @@
 
 @code
 {
+    [Parameter]
+    public bool Head { set; get; } = false;
+
     [Parameter]
     public RenderFragment ChildContent { set; get; }
 
