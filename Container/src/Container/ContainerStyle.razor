@@ -7,14 +7,21 @@
     box-sizing: border-box;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: calc(var(--theme-spacing) * 2px);
+    padding-right: calc(var(--theme-spacing) * 2px);
 }
 
 @media (min-width:600px) {
     .Container-Root {
-        padding-left: 24px;
-        padding-right: 24px;
+        padding-left: calc(var(--theme-spacing) * 3px);
+        padding-right: calc(var(--theme-spacing) * 3px);
+    }
+}
+
+@media (min-width:960px) {
+    .Container-Root {
+        padding-left: calc(var(--theme-spacing) * 4px);
+        padding-right: calc(var(--theme-spacing) * 4px);
     }
 }
 
@@ -25,25 +32,25 @@
 
 @media (min-width:600px) {
     .Container-Fixed {
-        max-width: 600px;
+        max-width: calc(var(--theme-breakpoints-values-sm) * 1px);
     }
 }
 
 @media (min-width:960px) {
     .Container-Fixed {
-        max-width: 960px;
+        max-width: calc(var(--theme-breakpoints-values-md) * 1px);
     }
 }
 
 @media (min-width:1280px) {
     .Container-Fixed {
-        max-width: 1280px;
+        max-width: calc(var(--theme-breakpoints-values-lg) * 1px);
     }
 }
 
 @media (min-width:1920px) {
     .Container-Fixed {
-        max-width: 1920px;
+        max-width: calc(var(--theme-breakpoints-values-xl) * 1px);
     }
 }
 
@@ -55,24 +62,24 @@
 
 @media (min-width:600px) {
     .Container-MaxWidth-Small {
-        max-width: 600px;
+        max-width: calc(var(--theme-breakpoints-values-sm) * 1px);
     }
 }
 
 @media (min-width:960px) {
     .Container-MaxWidth-Medium {
-        max-width: 960px;
+        max-width: calc(var(--theme-breakpoints-values-md) * 1px);
     }
 }
 
 @media (min-width:1280px) {
     .Container-MaxWidth-Large {
-        max-width: 1280px;
+        max-width: calc(var(--theme-breakpoints-values-lg) * 1px);
     }
 }
 
 @media (min-width:1920px) {
     .Container-MaxWidth-ExtraLarge {
-        max-width: 1920px;
+        max-width: calc(var(--theme-breakpoints-values-xl) * 1px);
     }
 }

@@ -2,7 +2,7 @@
 @inherits StyleComponentBase
 
 .Chip-Root {
-    color: var(--theme-palette-chip-color);
+    color: var(--theme-component-chip-color);
     border: none;
     cursor: default;
     height: 32px;
@@ -19,7 +19,7 @@
     vertical-align: middle;
     justify-content: center;
     text-decoration: none;
-    background-color: var(--theme-palette-chip-background-color);
+    background-color: var(--theme-component-chip-background-color);
 }
 
 .Chip-Root.Chip-Disabled {
@@ -47,49 +47,49 @@
 }
 
 .Chip-Clickable:hover, .Chip-Clickable:focus {
-    background-color: var(--theme-palette-chip-clickable-focus);
+    background-color: var(--theme-component-chip-clickable-focus);
 }
 
 .Chip-Clickable:active {
     box-shadow: var(--theme-shadow1);
-    background-color: var(--theme-palette-chip-clickable-active);
+    background-color: var(--theme-component-chip-clickable-active);
 }
 
 .Chip-Clickable-Color-Primary:hover, .Chip-Clickable-Color-Primary:focus {
-    background-color: var(--theme-palette-chip-clickable-primary-focus);
+    background-color: var(--theme-component-chip-clickable-primary-focus);
 }
 
 .Chip-Clickable-Color-Primary:active {
-    background-color: var(--theme-palette-chip-clickable-primary-active);
+    background-color: var(--theme-component-chip-clickable-primary-active);
 }
 
 .Chip-Clickable-Color-Secondary:hover, .Chip-Clickable-Color-Secondary:focus {
-    background-color: var(--theme-palette-chip-clickable-secondary-focus);
+    background-color: var(--theme-component-chip-clickable-secondary-focus);
 }
 
 .Chip-Clickable-Color-Secondary:active {
-    background-color: var(--theme-palette-chip-clickable-secondary-active);
+    background-color: var(--theme-component-chip-clickable-secondary-active);
 }
 
 .Chip-Deletable:focus {
-    background-color: var(--theme-palette-chip-deletable-focus);
+    background-color: var(--theme-component-chip-deletable-focus);
 }
 
 .Chip-Deletable-Color-Primary:focus {
-    background-color: var(--theme-palette-chip-deletable-primary-focus);
+    background-color: var(--theme-component-chip-deletable-primary-focus);
 }
 
 .Chip-Deletable-Color-Secondary:focus {
-    background-color: var(--theme-palette-chip-deletable-secondary-focus);
+    background-color: var(--theme-component-chip-deletable-secondary-focus);
 }
 
 .Chip-Outlined {
-    border: 1px solid var(--theme-palette-border-outlined);
+    border: 1px solid var(--theme-component-chip-border-outlined);
     background-color: transparent;
 }
 
 .Chip-Clickable.Chip-Outlined:hover, .Chip-Clickable.Chip-Outlined:focus, .Chip-Deletable.Chip-Outlined:focus {
-    background-color: var(--theme-palette-chip-outlined-focus);
+    background-color: var(--theme-component-chip-outlined-focus);
 }
 
 .Chip-Outlined .Chip-Avatar {
@@ -122,7 +122,7 @@
 }
 
 .Chip-Clickable.Chip-Outlined-Primary:hover, .Chip-Clickable.Chip-Outlined-Primary:focus, .Chip-Deletable.Chip-Outlined-Primary:focus {
-    background-color: var(--theme-palette-chip-outlined-primary-focus);
+    background-color: var(--theme-component-chip-outlined-primary-focus);
 }
 
 .Chip-Outlined-Secondary {
@@ -131,11 +131,11 @@
 }
 
 .Chip-Clickable.Chip-Outlined-Secondary:hover, .Chip-Clickable.Chip-Outlined-Secondary:focus, .Chip-Deletable.Chip-Outlined-Secondary:focus {
-    background-color: var(--theme-palette-chip-outlined-secondary-focus);
+    background-color: var(--theme-component-chip-outlined-secondary-focus);
 }
 
 .Chip-Avatar {
-    color: var(--theme-palette-chip-avatar-color);
+    color: var(--theme-component-chip-avatar-color);
     width: 24px;
     height: 24px;
     font-size: calc(var(--theme-font-size-rem-factor, 0.0625) * 12rem);
@@ -162,7 +162,7 @@
 }
 
 .Chip-Icon {
-    color: var(--theme-palette-chip-icon-color);
+    color: var(--theme-component-chip-icon-color);
     margin-left: 5px;
     margin-right: -6px;
 }
@@ -198,7 +198,7 @@
 }
 
 .Chip-DeleteIcon {
-    color: var(--theme-palette-chip-delete-icon-color);
+    color: var(--theme-component-chip-delete-icon-color);
     width: 22px;
     cursor: pointer;
     height: 22px;
@@ -207,7 +207,7 @@
 }
 
 .Chip-DeleteIcon:hover {
-    color: var(--theme-palette-chip-delete-icon-color-hover);
+    color: var(--theme-component-chip-delete-icon-color-hover);
 }
 
 .Chip-DeleteIcon-Small {
@@ -218,7 +218,7 @@
 }
 
 .Chip-DeleteIcon-Color-Primary {
-    color: var(--theme-palette-chip-delete-icon-primary-color);
+    color: var(--theme-component-chip-delete-icon-primary-color);
 }
 
 .Chip-DeleteIcon-Color-Primary:hover, .Chip-DeleteIcon-Color-Primary:active {
@@ -226,7 +226,7 @@
 }
 
 .Chip-DeleteIcon-Color-Secondary {
-    color: var(--theme-palette-chip-delete-icon-secondary-color);
+    color: var(--theme-component-chip-delete-icon-secondary-color);
 }
 
 .Chip-DeleteIcon-Color-Secondary:hover, .Chip-DeleteIcon-Color-Secondary:active {
@@ -234,7 +234,7 @@
 }
 
 .Chip-DeleteIcon-Outlined-Color-Primary {
-    color: var(--theme-palette-chip-delete-icon-outlined-primary-color);
+    color: var(--theme-component-chip-delete-icon-outlined-primary-color);
 }
 
 .Chip-DeleteIcon-Outlined-Color-Primary:hover, .Chip-DeleteIcon-Outlined-Color-Primary:active {
@@ -242,7 +242,7 @@
 }
 
 .Chip-DeleteIcon-Outlined-Color-Secondary {
-    color: var(--theme-palette-chip-delete-icon-outlined-secondary-color);
+    color: var(--theme-component-chip-delete-icon-outlined-secondary-color);
 }
 
 .Chip-DeleteIcon-Outlined-Color-Secondary:hover, .Chip-DeleteIcon-Outlined-Color-Secondary:active {

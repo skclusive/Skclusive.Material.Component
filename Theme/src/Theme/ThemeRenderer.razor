@@ -26,7 +26,7 @@ else
     [Parameter]
     public ThemeValue Dark { set; get; }
 
-    protected ThemeValue _Theme => Default ?? (Theme == Theme.Dark ? Dark : Light);
+    protected ThemeValue _Theme => Default ?? (Theme == Theme.Dark ? _Dark : _Light);
 
     protected ThemeValue _Dark => Dark ?? ThemeFactory.CreateTheme(new ThemeConfig { Palette = new PaletteConfig { Type = PaletteType.Dark } });
 

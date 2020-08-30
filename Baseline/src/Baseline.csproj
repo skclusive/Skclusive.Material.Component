@@ -16,7 +16,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\src\Core.csproj" Version="3.0.4-preview1" />
+    <ProjectReference Include="..\..\Theme\src\Theme.csproj" Version="3.0.4-preview1" />
   </ItemGroup>
 
 </Project>

@@ -16,6 +16,14 @@
     <RepositoryUrl>https://github.com/skclusive/Skclusive.Material.Script</RepositoryUrl>
   </PropertyGroup>
 
+  <!-- <ItemGroup>
+    <PackageReference Include="Skclusive.Script.DomHelpers" Version="3.0.4-preview1" />
+  </ItemGroup> -->
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Skclusive.Script.DomHelpers\src\DomHelpers.csproj" Version="3.0.4-preview1" />
+  </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\..\Core\src\Core.csproj" Version="3.0.4-preview1" />
   </ItemGroup>

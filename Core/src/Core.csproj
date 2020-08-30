@@ -17,13 +17,9 @@
 
   <!-- <ItemGroup>
     <PackageReference Include="Skclusive.Core.Component" Version="3.0.4-preview1" />
-    <PackageReference Include="Skclusive.Script.DomHelpers" Version="3.0.4-preview1" />
-    <PackageReference Include="Skclusive.Transition.Component" Version="3.0.4-preview1" />
   </ItemGroup> -->
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Skclusive.Core.Component\src\Component.csproj" Version="3.0.4-preview1" />
-    <ProjectReference Include="..\..\..\Skclusive.Script.DomHelpers\src\DomHelpers.csproj" Version="3.0.4-preview1" />
-    <ProjectReference Include="..\..\..\Skclusive.Transition.Component\src\Transition.csproj" Version="3.0.4-preview1" />
   </ItemGroup>
 </Project>

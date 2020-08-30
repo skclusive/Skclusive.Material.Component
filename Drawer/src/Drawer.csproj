@@ -16,10 +16,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\src\Core.csproj" Version="3.0.4-preview1" />
-    <ProjectReference Include="..\..\Modal\src\Modal.csproj" Version="3.0.4-preview1" />
-    <ProjectReference Include="..\..\Transition\src\Transition.csproj" Version="3.0.4-preview1" />
     <ProjectReference Include="..\..\Paper\src\Paper.csproj" Version="3.0.4-preview1" />
+    <ProjectReference Include="..\..\Modal\src\Modal.csproj" Version="3.0.4-preview1" />
   </ItemGroup>
 
 </Project>

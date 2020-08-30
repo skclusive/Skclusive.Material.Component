@@ -6,9 +6,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components.Web;
 using Skclusive.Material.Core;
-using Skclusive.Script.DomHelpers;
 using Skclusive.Material.Icon;
 using Skclusive.Material.Avatar;
+using Skclusive.Script.DomHelpers;
 
 namespace Skclusive.Material.Chip
 {

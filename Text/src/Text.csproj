@@ -16,8 +16,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\src\Core.csproj" Version="3.0.4-preview1" />
-    <ProjectReference Include="..\..\Form\src\Form.csproj" Version="3.0.4-preview1" />
     <ProjectReference Include="..\..\Input\src\Input.csproj" Version="3.0.4-preview1" />
   </ItemGroup>
 

@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <VersionPrefix>3.0.4-preview1</VersionPrefix>
+    <VersionSuffix>$(VersionSuffix)</VersionSuffix>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>Skclusive.Material.Link</AssemblyName>
+    <PackageId>Skclusive.Material.Link</PackageId>
+    <RootNamespace>Skclusive.Material.Link</RootNamespace>
+    <Authors>Skclusive</Authors>
+    <Company>Skclusive</Company>
+    <Copyright>Skclusive</Copyright>
+    <PackageTags>blazor material ui Link</PackageTags>
+    <PackageProjectUrl>https://github.com/skclusive/Skclusive.Material.Component</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/skclusive/Skclusive.Material.Component</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Typography\src\Typography.csproj" Version="3.0.4-preview1" />
+  </ItemGroup>
+
+</Project>
