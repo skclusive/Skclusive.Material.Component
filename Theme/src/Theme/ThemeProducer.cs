@@ -61,6 +61,11 @@ namespace Skclusive.Material.Theme
             --theme-html-font-size: {typography.HtmlFontSize.ToString(CultureInfo.InvariantCulture)};
             --theme-zindex-appbar: {theme.ZIndex.AppBar.ToString(CultureInfo.InvariantCulture)};
             --theme-zindex-drawer: {theme.ZIndex.Drawer.ToString(CultureInfo.InvariantCulture)};
+            --theme-zindex-modal: {theme.ZIndex.Modal.ToString(CultureInfo.InvariantCulture)};
+            --theme-zindex-snackbar: {theme.ZIndex.Snackbar.ToString(CultureInfo.InvariantCulture)};
+            --theme-zindex-tooltip: {theme.ZIndex.Tooltip.ToString(CultureInfo.InvariantCulture)};
+            --theme-zindex-speed-dial: {theme.ZIndex.SpeedDial.ToString(CultureInfo.InvariantCulture)};
+            --theme-zindex-mobile-stepper: {theme.ZIndex.MobileStepper.ToString(CultureInfo.InvariantCulture)};
             --theme-font-size-coef: calc(var(--theme-font-size) / 14);
             --theme-font-size-rem-factor: calc(var(--theme-font-size-coef) / var(--theme-html-font-size));
 
