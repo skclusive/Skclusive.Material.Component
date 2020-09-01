@@ -2,44 +2,60 @@
 
 import { generateId } from "../DomHelpers/DomHelpers";
 
-const eventPool = {};
+export class MediaQueryMatcher {
+  static cache = {};
 
-export function registerMediaQuery(query, target) {
-  const id = generateId();
+  static construct(query, target) {
+    const id = generateId();
 
   query = query.replace(/^@media( ?)/m, '');
 
-  const queryList = window.matchMedia(query);
+    const callback = MediaQueryMatcher.callback(id);
 
-  const callback = eventCallback(id);
+    MediaQueryMatcher.cache[id] = {
+      id,
+      query,
+      target,
+      callback,
+    };
 
-  queryList.addListener(callback);
+    MediaQueryMatcher.initialize(id);
 
-  const dispose = () => queryList.removeListener(callback);
-
-  eventPool[id] = { id, queryList, target, dispose };
-
-  setTimeout(callback);
-
-  return id;
-}
-
-function eventCallback(id) {
-  return e => {
-    const record = eventPool[id];
-    if (record && record.target) {
-      record.target.invokeMethodAsync(
-        'OnChangeAsync',
-        !!record.queryList.matches
-      );
-    }
-  };
-}
-
-export function unRegisterMediaQuery(id) {
-  const record = eventPool[id];
-  if (record && record.dispose) {
-    record.dispose();
+    return id;
   }
-  delete eventPool[id];
+
+  static initialize(id) {
+    const record = MediaQueryMatcher.cache[id];
+    if (record) {
+      const { query, callback } = record;
+      const queryList = window.matchMedia(query);
+      queryList.addListener(callback);
+
+      Object.assign(record, { queryList });
+
+      setTimeout(callback);
+    }
+  }
+
+  static callback(id) {
+    return (e) => {
+      const record = MediaQueryMatcher.cache[id];
+      if (record && record.target) {
+        record.target.invokeMethodAsync(
+          'OnChangeAsync',
+          !!record.queryList.matches
+        );
+      }
+    };
+  }
+
+  static dispose(id) {
+    const record = MediaQueryMatcher.cache[id];
+    if (record && record.callback) {
+      const { query, callback } = record;
+      const queryList = window.matchMedia(query);
+      queryList.removeListener(callback);
+    }
+    delete MediaQueryMatcher.cache[id];
+  }
 }

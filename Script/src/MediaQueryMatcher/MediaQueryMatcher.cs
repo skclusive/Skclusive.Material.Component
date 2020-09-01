@@ -29,14 +29,14 @@ namespace Skclusive.Material.Script
 
         public async ValueTask InitAsync(string media)
         {
-            Id = await JSRuntime.InvokeAsync<object>("Skclusive.Material.Script.registerMediaQuery", media, DotNetObjectReference.Create(this));
+            Id = await JSRuntime.InvokeAsync<object>("Skclusive.Material.Script.MediaQueryMatcher.construct", media, DotNetObjectReference.Create(this));
         }
 
         public ValueTask DisposeAsync()
         {
             OnChange = null;
 
-            return JSRuntime.InvokeVoidAsync("Skclusive.Material.Script.unRegisterMediaQuery", Id);
+            return JSRuntime.InvokeVoidAsync("Skclusive.Material.Script.MediaQueryMatcher.dispose", Id);
         }
     }
 }

@@ -2,40 +2,57 @@
 
 import { generateId } from "../DomHelpers/DomHelpers";
 
-const eventPool = {};
+export class HistoryBackHelper {
+  static cache = {};
 
-export function registerHistoryBack(node, name, delay) {
-  const id = generateId();
-  let callback = eventCallback(id);
-  node.addEventListener(name, callback);
+  static construct(node, name, delay) {
+    const id = generateId();
 
-  const dispose = () => node.removeEventListener(name, callback);
+    const callback = HistoryBackHelper.callback(id);
 
-  eventPool[id] = { id, delay, dispose };
+    HistoryBackHelper.cache[id] = {
+      id,
+      node,
+      name,
+      delay,
+      callback,
+    };
 
-  return id;
-}
+    HistoryBackHelper.initialize(id);
 
-function eventCallback(id) {
-  return e => {
-    e.preventDefault();
-    e.stopPropagation();
-    e.currentTarget.blur();
-    const record = eventPool[id];
-    if (record) {
-      if (record.delay) {
-        setTimeout(() => history.back(), record.delay);
-      } else {
-        history.back();
-      }
-    }
-  };
-}
-
-export function unRegisterHistoryBack(id) {
-  const record = eventPool[id];
-  if (record && record.dispose) {
-    record.dispose();
+    return id;
   }
-  delete eventPool[id];
+
+  static initialize(id) {
+    const record = HistoryBackHelper.cache[id];
+    if (record) {
+      const { node, name, callback } = record;
+      node.addEventListener(name, callback);
+    }
+  }
+
+  static callback(id) {
+    return (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      e.currentTarget.blur();
+      const record = HistoryBackHelper.cache[id];
+      if (record) {
+        if (record.delay) {
+          setTimeout(() => history.back(), record.delay);
+        } else {
+          history.back();
+        }
+      }
+    };
+  }
+
+  static dispose(id) {
+    const record = HistoryBackHelper.cache[id];
+    if (record && record.callback) {
+      const { node, name, callback } = record;
+      node.removeEventListener(name, callback);
+    }
+    delete HistoryBackHelper.cache[id];
+  }
 }

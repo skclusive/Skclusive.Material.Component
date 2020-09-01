@@ -18,12 +18,12 @@ namespace Skclusive.Material.Script
 
         public async ValueTask InitAsync(ElementReference reference, string name, int delay = 0)
         {
-            Id = await JSRuntime.InvokeAsync<object>("Skclusive.Material.Script.registerHistoryBack", reference, name, delay);
+            Id = await JSRuntime.InvokeAsync<object>("Skclusive.Material.Script.HistoryBackHelper.construct", reference, name, delay);
         }
 
         public ValueTask DisposeAsync()
         {
-            return JSRuntime.InvokeVoidAsync("Skclusive.Material.Script.unRegisterHistoryBack", Id);
+            return JSRuntime.InvokeVoidAsync("Skclusive.Material.Script.HistoryBackHelper.dispose", Id);
         }
     }
 }

@@ -38,14 +38,14 @@ namespace Skclusive.Material.Script
 
         public async ValueTask InitAsync()
         {
-            Id = await JSRuntime.InvokeAsync<object>("Skclusive.Material.Script.registerDetectTheme", DotNetObjectReference.Create(this));
+            Id = await JSRuntime.InvokeAsync<object>("Skclusive.Material.Script.ThemeDetector.construct", DotNetObjectReference.Create(this));
         }
 
         public ValueTask DisposeAsync()
         {
             OnChange = null;
 
-            return JSRuntime.InvokeVoidAsync("Skclusive.Material.Script.unRegisterDetectTheme", Id);
+            return JSRuntime.InvokeVoidAsync("Skclusive.Material.Script.ThemeDetector.dispose", Id);
         }
     }
 }

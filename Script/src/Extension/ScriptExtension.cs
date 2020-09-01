@@ -14,8 +14,6 @@ namespace Skclusive.Material.Script
 
             services.TryAddDomHelpersServices(config);
 
-            services.TryAddTransient<ScriptHelpers>();
-
             services.TryAddTransient<EventDelegator>();
 
             services.TryAddTransient<MediaQueryMatcher>();

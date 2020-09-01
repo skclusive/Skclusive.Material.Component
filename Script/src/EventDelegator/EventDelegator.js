@@ -2,37 +2,55 @@
 
 import { generateId, debounce } from '../DomHelpers/DomHelpers';
 
-const eventPool = {};
+export class EventDelegator {
+  static cache = {};
 
-export function registerEvent(node, name, target, delay) {
-  const id = generateId();
-  const source = node instanceof Element ? node : window;
-  let callback = eventCallback(id);
-  if (delay) {
-    callback = debounce(callback, delay);
-  }
-  source.addEventListener(name, callback);
+  static construct(node, name, target, delay) {
+    const id = generateId();
 
-  const dispose = () => source.removeEventListener(name, callback);
+    const source = node instanceof Element ? node : window;
 
-  eventPool[id] = { id, source, target, dispose };
-
-  return id;
-}
-
-function eventCallback(id) {
-  return e => {
-    const record = eventPool[id];
-    if (record && record.target) {
-      record.target.invokeMethodAsync('OnEventAsync', JSON.stringify(e));
+    let callback = EventDelegator.callback(id);
+    if (delay) {
+      callback = debounce(callback, delay);
     }
-  };
-}
 
-export function unRegisterEvent(id) {
-  const record = eventPool[id];
-  if (record && record.dispose) {
-    record.dispose();
+    EventDelegator.cache[id] = {
+      id,
+      source,
+      name,
+      target,
+      callback,
+    };
+
+    EventDelegator.initialize(id);
+
+    return id;
   }
-  delete eventPool[id];
+
+  static initialize(id) {
+    const record = EventDelegator.cache[id];
+    if (record) {
+      const { name, source, callback } = record;
+      source.addEventListener(name, callback);
+    }
+  }
+
+  static callback(id) {
+    return (e) => {
+      const record = EventDelegator.cache[id];
+      if (record && record.target) {
+        record.target.invokeMethodAsync('OnEventAsync', JSON.stringify(e));
+      }
+    };
+  }
+
+  static dispose(id) {
+    const record = EventDelegator.cache[id];
+    if (record && record.callback) {
+      const { name, source, callback } = record;
+      source.removeEventListener(name, callback);
+    }
+    delete EventDelegator.cache[id];
+  }
 }

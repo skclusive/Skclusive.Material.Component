@@ -30,14 +30,14 @@ namespace Skclusive.Material.Script
 
         public async ValueTask InitAsync(ElementReference reference, string name, int delay)
         {
-            Id = await JSRuntime.InvokeAsync<object>("Skclusive.Material.Script.registerEvent", reference, name, DotNetObjectReference.Create(this), delay);
+            Id = await JSRuntime.InvokeAsync<object>("Skclusive.Material.Script.EventDelegator.construct", reference, name, DotNetObjectReference.Create(this), delay);
         }
 
         public ValueTask DisposeAsync()
         {
             OnEvent = null;
 
-            return JSRuntime.InvokeVoidAsync("Skclusive.Material.Script.unRegisterEvent", Id);
+            return JSRuntime.InvokeVoidAsync("Skclusive.Material.Script.EventDelegator.dispose", Id);
         }
     }
 }
