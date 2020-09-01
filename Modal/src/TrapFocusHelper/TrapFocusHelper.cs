@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 
-namespace Skclusive.Material.Script
+namespace Skclusive.Material.Modal
 {
     public class TrapFocusHelper : IAsyncDisposable
     {
@@ -20,12 +20,12 @@ namespace Skclusive.Material.Script
         {
             if (!reference.HasValue) return;
 
-            Id = await JSRuntime.InvokeAsync<object>("Skclusive.Material.Script.initTrapFocus", reference, disableAutoFocus, disableRestoreFocus, disableEnforceFocus, isEnabled);
+            Id = await JSRuntime.InvokeAsync<object>("Skclusive.Material.Modal.TrapFocusHelper.construct", reference, disableAutoFocus, disableRestoreFocus, disableEnforceFocus, isEnabled);
         }
 
         public ValueTask DisposeAsync()
         {
-            return JSRuntime.InvokeVoidAsync("Skclusive.Material.Script.disposeTrapFocus", Id);
+            return JSRuntime.InvokeVoidAsync("Skclusive.Material.Modal.TrapFocusHelper.dispose", Id);
         }
     }
 }

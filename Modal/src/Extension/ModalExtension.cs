@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Skclusive.Core.Component;
 using Skclusive.Material.Core;
 using Skclusive.Material.Transition;
@@ -11,7 +12,11 @@ namespace Skclusive.Material.Modal
         {
             services.TryAddMaterialTransitionServices(config);
 
+            services.TryAddTransient<TrapFocusHelper>();
+
             services.TryAddStyleTypeProvider<ModalStyleProvider>();
+
+            services.TryAddScriptTypeProvider<ModalScriptProvider>();
         }
     }
 }

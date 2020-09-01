@@ -3,7 +3,6 @@
 import { goBack } from "../DomHelpers/DomHelpers";
 import { registerHistoryBack, unRegisterHistoryBack } from "../HistoryBackHelper/HistoryBackHelper";
 import { registerEvent, unRegisterEvent } from "../EventDelegator/EventDelegator";
-import { initTrapFocus, disposeTrapFocus } from "../TrapFocusHelper/TrapFocusHelper";
 import { registerMediaQuery, unRegisterMediaQuery } from "../MediaQueryMatcher/MediaQueryMatcher";
 import { registerDetectTheme, unRegisterDetectTheme } from "../DetectThemeHelper/DetectThemeHelper";
 
@@ -18,8 +17,6 @@ window.Skclusive = {
       goBack,
       registerEvent,
       unRegisterEvent,
-      initTrapFocus,
-      disposeTrapFocus,
       registerMediaQuery,
       unRegisterMediaQuery,
       registerHistoryBack,

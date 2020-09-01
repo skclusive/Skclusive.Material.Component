@@ -18,14 +18,11 @@ namespace Skclusive.Material.Script
 
             services.TryAddTransient<EventDelegator>();
 
-            services.TryAddTransient<TrapFocusHelper>();
-
             services.TryAddTransient<MediaQueryMatcher>();
 
             services.TryAddTransient<DetectThemeHelper>();
 
             services.TryAddTransient<HistoryBackHelper>();
-
 
             services.TryAddScriptTypeProvider<MaterialScriptProvider>();
         }
