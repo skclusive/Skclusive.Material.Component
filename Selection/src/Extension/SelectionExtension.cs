@@ -5,6 +5,7 @@ using Skclusive.Material.Icon;
 using Skclusive.Material.Button;
 using Skclusive.Material.Form;
 using Skclusive.Material.Theme;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace Skclusive.Material.Selection
 {
@@ -18,7 +19,11 @@ namespace Skclusive.Material.Selection
 
             services.TryAddButtonServices(config);
 
+            services.TryAddTransient<RadioGroupHelper>();
+
             services.TryAddStyleTypeProvider<SelectionStyleProvider>();
+
+            services.TryAddScriptTypeProvider<SelectionScriptProvider>();
 
             services.TryAddStyleProducer<SelectionStyleProducer>();
         }

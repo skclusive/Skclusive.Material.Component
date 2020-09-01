@@ -7,7 +7,7 @@ import { registerEvent, unRegisterEvent } from "../EventDelegator/EventDelegator
 import { initTrapFocus, disposeTrapFocus } from "../TrapFocusHelper/TrapFocusHelper";
 import { registerMediaQuery, unRegisterMediaQuery } from "../MediaQueryMatcher/MediaQueryMatcher";
 import { registerDetectTheme, unRegisterDetectTheme } from "../DetectThemeHelper/DetectThemeHelper";
-import { focusRadioGroup } from "../RadioGroupHelper/RadioGroupHelper";
+
 // @ts-ignore
 window.Skclusive = {
   // @ts-ignore
@@ -29,7 +29,6 @@ window.Skclusive = {
       unRegisterHistoryBack,
       registerDetectTheme,
       unRegisterDetectTheme,
-      focusRadioGroup
     }
   }
 };

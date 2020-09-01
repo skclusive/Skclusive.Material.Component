@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 
-namespace Skclusive.Material.Script
+namespace Skclusive.Material.Selection
 {
     public class RadioGroupHelper : IAsyncDisposable
     {
@@ -18,7 +18,7 @@ namespace Skclusive.Material.Script
         {
             if (nodeRef.HasValue)
             {
-                await JSRuntime.InvokeVoidAsync("Skclusive.Material.Script.focusRadioGroup", nodeRef);
+                await JSRuntime.InvokeVoidAsync("Skclusive.Material.Selection.focusRadioGroup", nodeRef);
             }
         }
 
