@@ -28,4 +28,9 @@
     <ProjectReference Include="..\..\Script\src\Script.csproj" Version="3.0.4-preview1" />
   </ItemGroup>
 
+  <Target Name="BuildFrontend" BeforeTargets="Build">
+    <Exec Command="npm install" />
+    <Exec Command="npm run build" />
+  </Target>
+
 </Project>
