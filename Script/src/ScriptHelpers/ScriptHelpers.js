@@ -2,7 +2,6 @@
 
 import { goBack } from "../DomHelpers/DomHelpers";
 import { registerHistoryBack, unRegisterHistoryBack } from "../HistoryBackHelper/HistoryBackHelper";
-import { getSlideTranslateValue, setSlideTranslateValue } from "../SlideHelper/SlideHelper";
 import { registerEvent, unRegisterEvent } from "../EventDelegator/EventDelegator";
 import { initTrapFocus, disposeTrapFocus } from "../TrapFocusHelper/TrapFocusHelper";
 import { registerMediaQuery, unRegisterMediaQuery } from "../MediaQueryMatcher/MediaQueryMatcher";
@@ -17,8 +16,6 @@ window.Skclusive = {
     ...(window.Skclusive || {}).Material,
     Script: {
       goBack,
-      getSlideTranslateValue,
-      setSlideTranslateValue,
       registerEvent,
       unRegisterEvent,
       initTrapFocus,

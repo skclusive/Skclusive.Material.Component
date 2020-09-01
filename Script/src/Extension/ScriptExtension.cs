@@ -26,7 +26,6 @@ namespace Skclusive.Material.Script
 
             services.TryAddTransient<HistoryBackHelper>();
 
-            services.TryAddTransient<SlideHelper>();
 
             services.TryAddScriptTypeProvider<MaterialScriptProvider>();
         }

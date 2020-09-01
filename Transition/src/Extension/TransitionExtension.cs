@@ -5,6 +5,7 @@ using Skclusive.Material.Core;
 using Skclusive.Material.Transition;
 using Skclusive.Material.Script;
 using Skclusive.Material.Theme;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace Skclusive.Material.Transition
 {
@@ -18,7 +19,11 @@ namespace Skclusive.Material.Transition
 
             services.TryAddTransitionServices(config);
 
+            services.TryAddTransient<SlideHelper>();
+
             services.TryAddStyleTypeProvider<TransitionStyleProvider>();
+
+            services.TryAddScriptTypeProvider<TransitionScriptProvider>();
         }
     }
 }

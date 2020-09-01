@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 using Skclusive.Core.Component;
 
-namespace Skclusive.Material.Script
+namespace Skclusive.Material.Transition
 {
     public class SlideHelper
     {
@@ -18,7 +18,7 @@ namespace Skclusive.Material.Script
         {
             if (element.HasValue)
             {
-                return await JSRuntime.InvokeAsync<string>("Skclusive.Material.Script.getSlideTranslateValue", placement.ToString().ToLower(), element);
+                return await JSRuntime.InvokeAsync<string>("Skclusive.Material.Transition.getSlideTranslateValue", placement.ToString().ToLower(), element);
             }
 
             return null;
@@ -28,7 +28,7 @@ namespace Skclusive.Material.Script
         {
             if (element.HasValue)
             {
-                await JSRuntime.InvokeVoidAsync("Skclusive.Material.Script.setSlideTranslateValue", placement.ToString().ToLower(), element);
+                await JSRuntime.InvokeVoidAsync("Skclusive.Material.Transition.setSlideTranslateValue", placement.ToString().ToLower(), element);
             }
         }
     }
