@@ -1,6 +1,9 @@
 ﻿// @ts-check
 
-import { MenuListHelper } from "../MenuListHelper/MenuListHelper";
+import {
+  getContentAnchorOffset,
+  getAnchorBoundry,
+} from "../PopoverHelper/PopoverHelper";
 
 // @ts-ignore
 window.Skclusive = {
@@ -9,8 +12,9 @@ window.Skclusive = {
   Material: {
     // @ts-ignore
     ...(window.Skclusive || {}).Material,
-    Menu: {
-      MenuListHelper,
+    Popover: {
+      getContentAnchorOffset,
+      getAnchorBoundry,
     },
   },
 };

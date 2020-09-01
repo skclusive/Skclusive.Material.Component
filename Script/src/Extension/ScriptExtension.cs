@@ -26,8 +26,6 @@ namespace Skclusive.Material.Script
 
             services.TryAddTransient<HistoryBackHelper>();
 
-            services.TryAddTransient<PopoverHelper>();
-
             services.TryAddTransient<SlideHelper>();
 
             services.TryAddTransient<RadioGroupHelper>();

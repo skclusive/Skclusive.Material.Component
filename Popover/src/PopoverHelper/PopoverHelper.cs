@@ -6,7 +6,7 @@ using Skclusive.Core.Component;
 using Skclusive.Script.DomHelpers;
 using System;
 
-namespace Skclusive.Material.Script
+namespace Skclusive.Material.Popover
 {
     public class PopoverHelper : IAsyncDisposable
     {
@@ -23,12 +23,12 @@ namespace Skclusive.Material.Script
 
         public ValueTask<double> GetContentAnchorOffsetAsync(ElementReference? contentAnchor, ElementReference? element)
         {
-            return JSRuntime.InvokeAsync<double>("Skclusive.Material.Script.getContentAnchorOffset", contentAnchor, element);
+            return JSRuntime.InvokeAsync<double>("Skclusive.Material.Popover.getContentAnchorOffset", contentAnchor, element);
         }
 
         public ValueTask<Boundry> GetAnchorBoundryAsync(ElementReference? anchorRef, ElementReference? paperRef)
         {
-            return JSRuntime.InvokeAsync<Boundry>("Skclusive.Material.Script.getAnchorBoundry", anchorRef, paperRef);
+            return JSRuntime.InvokeAsync<Boundry>("Skclusive.Material.Popover.getAnchorBoundry", anchorRef, paperRef);
         }
 
         public async ValueTask<Boundry> GetOffsetAsync(ElementReference? element)

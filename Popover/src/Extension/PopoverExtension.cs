@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Skclusive.Core.Component;
 using Skclusive.Material.Core;
 using Skclusive.Material.Modal;
@@ -14,7 +15,11 @@ namespace Skclusive.Material.Popover
 
             services.TryAddModalServices(config);
 
+            services.TryAddTransient<PopoverHelper>();
+
             services.TryAddStyleTypeProvider<PopoverStyleProvider>();
+
+            services.TryAddScriptTypeProvider<PopoverScriptProvider>();
         }
     }
 }

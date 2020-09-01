@@ -4,7 +4,7 @@ import {
   getScrollParent,
   ownerDocument,
   ownerWindow
-} from "../DomHelpers/DomHelpers";
+} from "./DomHelpers";
 
 export function getContentAnchorOffset(contentAnchor, element) {
   let contentAnchorOffset = 0;

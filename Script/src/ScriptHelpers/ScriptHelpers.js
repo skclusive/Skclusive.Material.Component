@@ -6,7 +6,6 @@ import { getSlideTranslateValue, setSlideTranslateValue } from "../SlideHelper/S
 import { registerEvent, unRegisterEvent } from "../EventDelegator/EventDelegator";
 import { initTrapFocus, disposeTrapFocus } from "../TrapFocusHelper/TrapFocusHelper";
 import { registerMediaQuery, unRegisterMediaQuery } from "../MediaQueryMatcher/MediaQueryMatcher";
-import { getAnchorBoundry, getContentAnchorOffset } from "../PopoverHelper/PopoverHelper";
 import { registerDetectTheme, unRegisterDetectTheme } from "../DetectThemeHelper/DetectThemeHelper";
 import { focusRadioGroup } from "../RadioGroupHelper/RadioGroupHelper";
 // @ts-ignore
@@ -28,8 +27,6 @@ window.Skclusive = {
       unRegisterMediaQuery,
       registerHistoryBack,
       unRegisterHistoryBack,
-      getAnchorBoundry,
-      getContentAnchorOffset,
       registerDetectTheme,
       unRegisterDetectTheme,
       focusRadioGroup
