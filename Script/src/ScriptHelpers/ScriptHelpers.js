@@ -7,7 +7,6 @@ import { registerEvent, unRegisterEvent } from "../EventDelegator/EventDelegator
 import { initTrapFocus, disposeTrapFocus } from "../TrapFocusHelper/TrapFocusHelper";
 import { registerMediaQuery, unRegisterMediaQuery } from "../MediaQueryMatcher/MediaQueryMatcher";
 import { getAnchorBoundry, getContentAnchorOffset } from "../PopoverHelper/PopoverHelper";
-import { registerMenuList, unRegisterMenuList } from "../MenuListHelper/MenuListHelper";
 import { registerDetectTheme, unRegisterDetectTheme } from "../DetectThemeHelper/DetectThemeHelper";
 import { focusRadioGroup } from "../RadioGroupHelper/RadioGroupHelper";
 // @ts-ignore
@@ -31,8 +30,6 @@ window.Skclusive = {
       unRegisterHistoryBack,
       getAnchorBoundry,
       getContentAnchorOffset,
-      registerMenuList,
-      unRegisterMenuList,
       registerDetectTheme,
       unRegisterDetectTheme,
       focusRadioGroup

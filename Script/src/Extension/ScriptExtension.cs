@@ -24,8 +24,6 @@ namespace Skclusive.Material.Script
 
             services.TryAddTransient<DetectThemeHelper>();
 
-            services.TryAddTransient<MenuListHelper>();
-
             services.TryAddTransient<HistoryBackHelper>();
 
             services.TryAddTransient<PopoverHelper>();

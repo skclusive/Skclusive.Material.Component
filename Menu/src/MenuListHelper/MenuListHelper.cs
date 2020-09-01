@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 
-namespace Skclusive.Material.Script
+namespace Skclusive.Material.Menu
 {
     public class MenuListHelper : IAsyncDisposable
     {
@@ -18,12 +18,12 @@ namespace Skclusive.Material.Script
 
         public async ValueTask InitAsync(ElementReference? list, bool disableListWrap)
         {
-            Id = await JSRuntime.InvokeAsync<object>("Skclusive.Material.Script.registerMenuList", list, disableListWrap);
+            Id = await JSRuntime.InvokeAsync<object>("Skclusive.Material.Menu.MenuListHelper.construct", list, disableListWrap);
         }
 
         public ValueTask DisposeAsync()
         {
-            return JSRuntime.InvokeVoidAsync("Skclusive.Material.Script.unRegisterMenuList", Id);
+            return JSRuntime.InvokeVoidAsync("Skclusive.Material.Menu.MenuListHelper.construct", Id);
         }
     }
 }

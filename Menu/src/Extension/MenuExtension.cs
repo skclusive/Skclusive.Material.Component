@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Skclusive.Core.Component;
 using Skclusive.Material.Core;
 using Skclusive.Material.List;
@@ -14,7 +15,11 @@ namespace Skclusive.Material.Menu
 
             services.TryAddPopoverServices(config);
 
+            services.TryAddTransient<MenuListHelper>();
+
             services.TryAddStyleTypeProvider<MenuStyleProvider>();
+
+            services.TryAddScriptTypeProvider<MenuScriptProvider>();
         }
     }
 }
