@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <VersionPrefix>3.0.4-preview1</VersionPrefix>
+    <VersionPrefix>3.0.0-preview2</VersionPrefix>
     <VersionSuffix>$(VersionSuffix)</VersionSuffix>
     <TargetFramework>net5.0</TargetFramework>
     <AssemblyName>Skclusive.Material.Input</AssemblyName>
@@ -16,15 +16,15 @@
   </PropertyGroup>
 
     <!-- <ItemGroup>
-    <PackageReference Include="Skclusive.Script.DomHelpers" Version="3.0.4-preview1" />
+    <PackageReference Include="Skclusive.Script.DomHelpers" Version="3.0.0-preview2" />
   </ItemGroup> -->
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Skclusive.Script.DomHelpers\src\DomHelpers.csproj" Version="3.0.4-preview1" />
+    <ProjectReference Include="..\..\..\Skclusive.Script.DomHelpers\src\DomHelpers.csproj" Version="3.0.0-preview2" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Form\src\Form.csproj" Version="3.0.4-preview1" />
+    <ProjectReference Include="..\..\Form\src\Form.csproj" Version="3.0.0-preview2" />
   </ItemGroup>
 
 </Project>

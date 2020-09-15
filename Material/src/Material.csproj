@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <VersionPrefix>3.0.4-preview1</VersionPrefix>
+    <VersionPrefix>3.0.0-preview2</VersionPrefix>
     <VersionSuffix>$(VersionSuffix)</VersionSuffix>
     <TargetFramework>net5.0</TargetFramework>
     <AssemblyName>Skclusive.Material.Component</AssemblyName>
@@ -16,26 +16,26 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Baseline\src\Baseline.csproj" Version="3.0.4-preview1" />
-    <ProjectReference Include="..\..\Responsive\src\Responsive.csproj" Version="3.0.4-preview1" />
-    <ProjectReference Include="..\..\Divider\src\Divider.csproj" Version="3.0.4-preview1" />
-    <ProjectReference Include="..\..\AppBar\src\AppBar.csproj" Version="3.0.4-preview1" />
-    <ProjectReference Include="..\..\Toolbar\src\Toolbar.csproj" Version="3.0.4-preview1" />
-    <ProjectReference Include="..\..\Container\src\Container.csproj" Version="3.0.4-preview1" />
-    <ProjectReference Include="..\..\Grid\src\Grid.csproj" Version="3.0.4-preview1" />
-    <ProjectReference Include="..\..\Badge\src\Badge.csproj" Version="3.0.4-preview1" />
-    <ProjectReference Include="..\..\Hidden\src\Hidden.csproj" Version="3.0.4-preview1" />
-    <ProjectReference Include="..\..\Card\src\Card.csproj" Version="3.0.4-preview1" />
-    <ProjectReference Include="..\..\Link\src\Link.csproj" Version="3.0.4-preview1" />
-    <ProjectReference Include="..\..\Chip\src\Chip.csproj" Version="3.0.4-preview1" />
-    <ProjectReference Include="..\..\Progress\src\Progress.csproj" Version="3.0.4-preview1" />
-    <ProjectReference Include="..\..\Selection\src\Selection.csproj" Version="3.0.4-preview1" />
-    <ProjectReference Include="..\..\Table\src\Table.csproj" Version="3.0.4-preview1" />
-    <ProjectReference Include="..\..\Tab\src\Tab.csproj" Version="3.0.4-preview1" />
-    <ProjectReference Include="..\..\Drawer\src\Drawer.csproj" Version="3.0.4-preview1" />
-    <ProjectReference Include="..\..\Text\src\Text.csproj" Version="3.0.4-preview1" />
-    <ProjectReference Include="..\..\Menu\src\Menu.csproj" Version="3.0.4-preview1" />
-    <ProjectReference Include="..\..\Dialog\src\Dialog.csproj" Version="3.0.4-preview1" />
+    <ProjectReference Include="..\..\Baseline\src\Baseline.csproj" Version="3.0.0-preview2" />
+    <ProjectReference Include="..\..\Responsive\src\Responsive.csproj" Version="3.0.0-preview2" />
+    <ProjectReference Include="..\..\Divider\src\Divider.csproj" Version="3.0.0-preview2" />
+    <ProjectReference Include="..\..\AppBar\src\AppBar.csproj" Version="3.0.0-preview2" />
+    <ProjectReference Include="..\..\Toolbar\src\Toolbar.csproj" Version="3.0.0-preview2" />
+    <ProjectReference Include="..\..\Container\src\Container.csproj" Version="3.0.0-preview2" />
+    <ProjectReference Include="..\..\Grid\src\Grid.csproj" Version="3.0.0-preview2" />
+    <ProjectReference Include="..\..\Badge\src\Badge.csproj" Version="3.0.0-preview2" />
+    <ProjectReference Include="..\..\Hidden\src\Hidden.csproj" Version="3.0.0-preview2" />
+    <ProjectReference Include="..\..\Card\src\Card.csproj" Version="3.0.0-preview2" />
+    <ProjectReference Include="..\..\Link\src\Link.csproj" Version="3.0.0-preview2" />
+    <ProjectReference Include="..\..\Chip\src\Chip.csproj" Version="3.0.0-preview2" />
+    <ProjectReference Include="..\..\Progress\src\Progress.csproj" Version="3.0.0-preview2" />
+    <ProjectReference Include="..\..\Selection\src\Selection.csproj" Version="3.0.0-preview2" />
+    <ProjectReference Include="..\..\Table\src\Table.csproj" Version="3.0.0-preview2" />
+    <ProjectReference Include="..\..\Tab\src\Tab.csproj" Version="3.0.0-preview2" />
+    <ProjectReference Include="..\..\Drawer\src\Drawer.csproj" Version="3.0.0-preview2" />
+    <ProjectReference Include="..\..\Text\src\Text.csproj" Version="3.0.0-preview2" />
+    <ProjectReference Include="..\..\Menu\src\Menu.csproj" Version="3.0.0-preview2" />
+    <ProjectReference Include="..\..\Dialog\src\Dialog.csproj" Version="3.0.0-preview2" />
   </ItemGroup>
 
 </Project>

@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <VersionPrefix>3.0.4-preview1</VersionPrefix>
+    <VersionPrefix>3.0.0-preview2</VersionPrefix>
     <VersionSuffix>$(VersionSuffix)</VersionSuffix>
     <TargetFramework>net5.0</TargetFramework>
     <AssemblyName>Skclusive.Material.Responsive</AssemblyName>
@@ -16,7 +16,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Theme\src\Theme.csproj" Version="3.0.4-preview1" />
+    <ProjectReference Include="..\..\Theme\src\Theme.csproj" Version="3.0.0-preview2" />
   </ItemGroup>
 
 </Project>
