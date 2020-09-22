@@ -3,6 +3,7 @@ using Skclusive.Core.Component;
 using Skclusive.Material.Core;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace Skclusive.Material.Button
@@ -95,13 +96,13 @@ namespace Skclusive.Material.Button
                 foreach (var item in base.Styles)
                     yield return item;
 
-                yield return Tuple.Create<string, object>(nameof(Width), $"{Width}px");
+                yield return Tuple.Create<string, object>(nameof(Width), $"{Width.ToString(CultureInfo.InvariantCulture)}px");
 
-                yield return Tuple.Create<string, object>(nameof(Height), $"{Height}px");
+                yield return Tuple.Create<string, object>(nameof(Height), $"{Height.ToString(CultureInfo.InvariantCulture)}px");
 
-                yield return Tuple.Create<string, object>(nameof(Top), $"{Top}px");
+                yield return Tuple.Create<string, object>(nameof(Top), $"{Top.ToString(CultureInfo.InvariantCulture)}px");
 
-                yield return Tuple.Create<string, object>(nameof(Left), $"{Left}px");
+                yield return Tuple.Create<string, object>(nameof(Left), $"{Left.ToString(CultureInfo.InvariantCulture)}px");
             }
         }
 

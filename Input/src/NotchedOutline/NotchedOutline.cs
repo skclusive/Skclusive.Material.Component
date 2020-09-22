@@ -56,7 +56,7 @@ namespace Skclusive.Material.Input
                 foreach (var item in base.Styles)
                     yield return item;
 
-                yield return Tuple.Create<string, object>("padding-left", $"{(8 + (Notched ? 0 : _LabelWidth / 2))}px");
+                yield return Tuple.Create<string, object>("padding-left", $"{(8 + (Notched ? 0 : _LabelWidth / 2).ToString(CultureInfo.InvariantCulture))}px");
             }
         }
 

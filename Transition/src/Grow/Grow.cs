@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using static Skclusive.Material.Transition.TransitionUtil;
+using System.Globalization;
 
 namespace Skclusive.Material.Transition
 {
@@ -159,13 +160,13 @@ namespace Skclusive.Material.Transition
             return duration;
         }
 
-        private static string ToScale(double value) => $"scale({value}, {Math.Pow(value, 2)})";
+        private static string ToScale(double value) => $"scale({value.ToString(CultureInfo.InvariantCulture)}, {Math.Pow(value, 2).ToString(CultureInfo.InvariantCulture)})";
 
         protected IEnumerable<Tuple<string, object>> GetChildStyles(ITransitionContext context)
         {
             var opacity = context.State == TransitionState.Entering || context.State == TransitionState.Entered ? 1 : 0;
 
-            yield return Tuple.Create<string, object>("opacity", opacity);
+            yield return Tuple.Create<string, object>("opacity", opacity.ToString(CultureInfo.InvariantCulture));
 
             yield return Tuple.Create<string, object>("visibility", context.State == TransitionState.Exited && !In ? "hidden" : "default");
 
@@ -260,7 +261,7 @@ namespace Skclusive.Material.Transition
 
             var transform = CreateTransition("transform", duration * 0.666, delay, TransitionEasing.EasingSharp);
 
-            return $"{opacity},{transform}";
+            return $"{opacity.ToString(CultureInfo.InvariantCulture)},{transform.ToString(CultureInfo.InvariantCulture)}";
         }
 
         protected void SetTransition(IReference refback, int duration, int delay)

@@ -4,6 +4,7 @@ using Skclusive.Material.Core;
 using Skclusive.Transition.Component;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace Skclusive.Material.Transition
@@ -63,7 +64,7 @@ namespace Skclusive.Material.Transition
                 foreach (var item in base.Styles)
                     yield return item;
 
-                yield return Tuple.Create<string, object>("min-height", $"{CollapsedHeight}px");
+                yield return Tuple.Create<string, object>("min-height", $"{CollapsedHeight.ToString(CultureInfo.InvariantCulture)}px");
             }
         }
 

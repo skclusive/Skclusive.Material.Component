@@ -3,6 +3,7 @@ using Skclusive.Core.Component;
 using Skclusive.Material.Core;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace Skclusive.Material.Progress
@@ -113,11 +114,11 @@ namespace Skclusive.Material.Progress
             {
                 decimal transform = Variant == CircularProgressVariant.Static ? -90 : EaseOut(Relative / 70) * 270;
 
-                return $"rotate({transform}deg)";
+                return $"rotate({transform.ToString(CultureInfo.InvariantCulture)}deg)";
             }
         }
 
-        protected string ValueNow => $"{Math.Round(Relative)}";
+        protected string ValueNow => $"{Math.Round(Relative).ToString(CultureInfo.InvariantCulture)}";
 
         protected override IEnumerable<Tuple<string, object>> Styles
         {
@@ -126,9 +127,9 @@ namespace Skclusive.Material.Progress
                 foreach (var item in base.Styles)
                     yield return item;
 
-                yield return Tuple.Create<string, object>("width", $"{Size}px");
+                yield return Tuple.Create<string, object>("width", $"{Size.ToString(CultureInfo.InvariantCulture)}px");
 
-                yield return Tuple.Create<string, object>("height", $"{Size}px");
+                yield return Tuple.Create<string, object>("height", $"{Size.ToString(CultureInfo.InvariantCulture)}px");
 
                 if (Variant == CircularProgressVariant.Determinate || Variant == CircularProgressVariant.Static)
                 {
@@ -137,7 +138,7 @@ namespace Skclusive.Material.Progress
             }
         }
 
-        protected string ViewBox => $"{SIZE / 2} {SIZE / 2} {SIZE} {SIZE}";
+        protected string ViewBox => $"{(SIZE / 2).ToString(CultureInfo.InvariantCulture)} {(SIZE / 2).ToString(CultureInfo.InvariantCulture)} {SIZE.ToString(CultureInfo.InvariantCulture)} {SIZE.ToString(CultureInfo.InvariantCulture)}";
 
         protected decimal Cx => SIZE;
 
@@ -155,7 +156,7 @@ namespace Skclusive.Material.Progress
                     (100 - Relative) / 100 * Circumference
                     : EaseIn((100 - Relative) / 100) * Circumference;
 
-                return $"{offset}px";
+                return $"{offset.ToString(CultureInfo.InvariantCulture)}px";
             }
         }
 
