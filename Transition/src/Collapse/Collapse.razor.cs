@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using static Skclusive.Material.Transition.TransitionUtil;
+using System.Globalization;
 
 namespace Skclusive.Material.Transition
 {
@@ -177,7 +178,7 @@ namespace Skclusive.Material.Transition
 
             var styles = new Dictionary<string, object>
             {
-                { "height", $"{CollapsedHeight}px" }
+                { "height", $"{CollapsedHeight.ToString(CultureInfo.InvariantCulture)}px" }
             };
 
             await DomHelpers.SetStyleAsync(refback.Current, styles, trigger: true);
@@ -193,7 +194,7 @@ namespace Skclusive.Material.Transition
 
             var styles = new Dictionary<string, object>
             {
-                { "height", $"{wrappedHeight}px" },
+                { "height", $"{wrappedHeight.ToString(CultureInfo.InvariantCulture)}px" },
                 { "transition-duration", $"{GetEnterDuration()}ms" }
             };
 
@@ -222,7 +223,7 @@ namespace Skclusive.Material.Transition
 
             var styles = new Dictionary<string, object>
             {
-                { "height", $"{wrappedHeight}px" }
+                { "height", $"{wrappedHeight.ToString(CultureInfo.InvariantCulture)}px" }
             };
 
             await DomHelpers.SetStyleAsync(refback.Current, styles, trigger: true);
@@ -234,7 +235,7 @@ namespace Skclusive.Material.Transition
         {
             var styles = new Dictionary<string, object>
             {
-                { "height", $"{CollapsedHeight}px" },
+                { "height", $"{CollapsedHeight.ToString(CultureInfo.InvariantCulture)}px" },
                 { "transition-duration", $"{GetExitDuration()}ms" }
             };
 

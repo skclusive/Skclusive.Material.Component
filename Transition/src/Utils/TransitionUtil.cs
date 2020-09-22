@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 
 namespace Skclusive.Material.Transition
 {
@@ -20,7 +21,7 @@ namespace Skclusive.Material.Transition
 
         public static string CreateTransition(string action, double duration, int delay, TransitionEasing easing = TransitionEasing.EasingOut)
         {
-            return $"{action} {duration}ms {EASING_MAPPING[easing]} {delay}ms";
+            return $"{action} {duration.ToString(CultureInfo.InvariantCulture)}ms {EASING_MAPPING[easing]} {delay.ToString(CultureInfo.InvariantCulture)}ms";
         }
     }
 }

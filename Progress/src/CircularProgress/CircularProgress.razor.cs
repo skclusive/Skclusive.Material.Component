@@ -118,7 +118,7 @@ namespace Skclusive.Material.Progress
             }
         }
 
-        protected string ValueNow => $"{Math.Round(Relative)}";
+        protected string ValueNow => $"{Math.Round(Relative).ToString(CultureInfo.InvariantCulture)}";
 
         protected override IEnumerable<Tuple<string, object>> Styles
         {
@@ -127,9 +127,9 @@ namespace Skclusive.Material.Progress
                 foreach (var item in base.Styles)
                     yield return item;
 
-                yield return Tuple.Create<string, object>("width", $"{Size}px");
+                yield return Tuple.Create<string, object>("width", $"{Size.ToString(CultureInfo.InvariantCulture)}px");
 
-                yield return Tuple.Create<string, object>("height", $"{Size}px");
+                yield return Tuple.Create<string, object>("height", $"{Size.ToString(CultureInfo.InvariantCulture)}px");
 
                 if (Variant == CircularProgressVariant.Determinate || Variant == CircularProgressVariant.Static)
                 {
@@ -138,7 +138,7 @@ namespace Skclusive.Material.Progress
             }
         }
 
-        protected string ViewBox => $"{SIZE / 2} {SIZE / 2} {SIZE} {SIZE}";
+        protected string ViewBox => $"{(SIZE / 2).ToString(CultureInfo.InvariantCulture)} {(SIZE / 2).ToString(CultureInfo.InvariantCulture)} {SIZE.ToString(CultureInfo.InvariantCulture)} {SIZE.ToString(CultureInfo.InvariantCulture)}";
 
         protected decimal Cx => SIZE;
 

@@ -3,6 +3,7 @@ using Skclusive.Core.Component;
 using Skclusive.Material.Core;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace Skclusive.Material.Progress
@@ -85,7 +86,7 @@ namespace Skclusive.Material.Progress
                 {
                     value = Math.Round(Value);
                 }
-                return value != null ? $"{value}" : null;
+                return value.HasValue ? $"{value.Value.ToString(CultureInfo.InvariantCulture)}" : null;
             }
         }
 
@@ -114,7 +115,7 @@ namespace Skclusive.Material.Progress
             {
                 if (Variant == LinearProgressVariant.Determinate || Variant == LinearProgressVariant.Buffer)
                 {
-                    yield return Tuple.Create<string, object>("transform", $"translateX({Value - 100}%)");
+                    yield return Tuple.Create<string, object>("transform", $"translateX({(Value - 100).ToString(CultureInfo.InvariantCulture)}%)");
                 }
             }
         }
@@ -130,7 +131,7 @@ namespace Skclusive.Material.Progress
             {
                 if (Variant == LinearProgressVariant.Buffer)
                 {
-                    yield return Tuple.Create<string, object>("transform", $"translateX({ValueBuffer - 100}%)");
+                    yield return Tuple.Create<string, object>("transform", $"translateX({(ValueBuffer - 100).ToString(CultureInfo.InvariantCulture)}%)");
                 }
             }
         }
