@@ -1,21 +1,21 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.JSInterop;
 using Skclusive.Core.Component;
+using Microsoft.JSInterop;
 
 namespace Skclusive.Material.Script
 {
     public class DetectThemeHelper : IAsyncDisposable
     {
-        public DetectThemeHelper(IJSRuntime jsruntime)
+        public DetectThemeHelper(IScriptService scriptService)
         {
-            JSRuntime = jsruntime;
+            ScriptService = scriptService;
         }
 
         private object Id;
 
-        private IJSRuntime JSRuntime { get; }
+        private IScriptService ScriptService { get; }
 
         public event EventHandler<Theme> OnChange;
 
@@ -38,14 +38,17 @@ namespace Skclusive.Material.Script
 
         public async ValueTask InitAsync()
         {
-            Id = await JSRuntime.InvokeAsync<object>("Skclusive.Material.Script.ThemeDetector.construct", DotNetObjectReference.Create(this));
+            Id = await ScriptService.InvokeAsync<object>("Skclusive.Material.Script.ThemeDetector.construct", DotNetObjectReference.Create(this));
         }
 
-        public ValueTask DisposeAsync()
+        public async ValueTask DisposeAsync()
         {
             OnChange = null;
 
-            return JSRuntime.InvokeVoidAsync("Skclusive.Material.Script.ThemeDetector.dispose", Id);
+            if (Id != null)
+            {
+                await ScriptService.InvokeVoidAsync("Skclusive.Material.Script.ThemeDetector.dispose", Id);
+            }
         }
     }
 }

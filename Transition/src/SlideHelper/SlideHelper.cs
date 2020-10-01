@@ -1,24 +1,23 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
 using Skclusive.Core.Component;
 
 namespace Skclusive.Material.Transition
 {
     public class SlideHelper
     {
-        private IJSRuntime JSRuntime { get; }
+        private IScriptService ScriptService { get; }
 
-        public SlideHelper(IJSRuntime jsruntime)
+        public SlideHelper(IScriptService scriptService)
         {
-            JSRuntime = jsruntime;
+            ScriptService = scriptService;
         }
 
         public async Task<string> GetSlideTranslateValueAsync(Placement placement, ElementReference? element)
         {
             if (element.HasValue)
             {
-                return await JSRuntime.InvokeAsync<string>("Skclusive.Material.Transition.getSlideTranslateValue", placement.ToString().ToLower(), element);
+                return await ScriptService.InvokeAsync<string>("Skclusive.Material.Transition.getSlideTranslateValue", placement.ToString().ToLower(), element);
             }
 
             return null;
@@ -28,7 +27,7 @@ namespace Skclusive.Material.Transition
         {
             if (element.HasValue)
             {
-                await JSRuntime.InvokeVoidAsync("Skclusive.Material.Transition.setSlideTranslateValue", placement.ToString().ToLower(), element);
+                await ScriptService.InvokeVoidAsync("Skclusive.Material.Transition.setSlideTranslateValue", placement.ToString().ToLower(), element);
             }
         }
     }

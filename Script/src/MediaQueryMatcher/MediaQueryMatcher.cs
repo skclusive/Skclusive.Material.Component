@@ -1,19 +1,20 @@
 using System;
 using System.Threading.Tasks;
+using Skclusive.Core.Component;
 using Microsoft.JSInterop;
 
 namespace Skclusive.Material.Script
 {
     public class MediaQueryMatcher : IAsyncDisposable
     {
-        public MediaQueryMatcher(IJSRuntime jsruntime)
+        public MediaQueryMatcher(IScriptService scriptService)
         {
-            JSRuntime = jsruntime;
+            ScriptService = scriptService;
         }
 
         private object Id;
 
-        private IJSRuntime JSRuntime { get; }
+        private IScriptService ScriptService { get; }
 
         public event EventHandler<bool> OnChange;
 
@@ -29,14 +30,17 @@ namespace Skclusive.Material.Script
 
         public async ValueTask InitAsync(string media)
         {
-            Id = await JSRuntime.InvokeAsync<object>("Skclusive.Material.Script.MediaQueryMatcher.construct", media, DotNetObjectReference.Create(this));
+            Id = await ScriptService.InvokeAsync<object>("Skclusive.Material.Script.MediaQueryMatcher.construct", media, DotNetObjectReference.Create(this));
         }
 
-        public ValueTask DisposeAsync()
+        public async ValueTask DisposeAsync()
         {
             OnChange = null;
 
-            return JSRuntime.InvokeVoidAsync("Skclusive.Material.Script.MediaQueryMatcher.dispose", Id);
+            if (Id != null)
+            {
+                await ScriptService.InvokeVoidAsync("Skclusive.Material.Script.MediaQueryMatcher.dispose", Id);
+            }
         }
     }
 }

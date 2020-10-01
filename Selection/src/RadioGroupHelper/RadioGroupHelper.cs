@@ -1,24 +1,24 @@
 using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
+using Skclusive.Core.Component;
 
 namespace Skclusive.Material.Selection
 {
     public class RadioGroupHelper : IAsyncDisposable
     {
-        public RadioGroupHelper(IJSRuntime jsruntime)
+        public RadioGroupHelper(IScriptService scriptService)
         {
-            JSRuntime = jsruntime;
+            ScriptService = scriptService;
         }
 
-        private IJSRuntime JSRuntime { get; }
+        private IScriptService ScriptService { get; }
 
         public async ValueTask FocusAsync(ElementReference? nodeRef)
         {
             if (nodeRef.HasValue)
             {
-                await JSRuntime.InvokeVoidAsync("Skclusive.Material.Selection.focusRadioGroup", nodeRef);
+                await ScriptService.InvokeVoidAsync("Skclusive.Material.Selection.focusRadioGroup", nodeRef);
             }
         }
 

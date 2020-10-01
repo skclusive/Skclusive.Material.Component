@@ -1,29 +1,32 @@
 using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
+using Skclusive.Core.Component;
 
 namespace Skclusive.Material.Script
 {
     public class HistoryBackHelper : IAsyncDisposable
     {
-        public HistoryBackHelper(IJSRuntime jsruntime)
+        public HistoryBackHelper(IScriptService scriptService)
         {
-            JSRuntime = jsruntime;
+            ScriptService = scriptService;
         }
 
         private object Id;
 
-        private IJSRuntime JSRuntime { get; }
+        private IScriptService ScriptService { get; }
 
         public async ValueTask InitAsync(ElementReference reference, string name, int delay = 0)
         {
-            Id = await JSRuntime.InvokeAsync<object>("Skclusive.Material.Script.HistoryBackHelper.construct", reference, name, delay);
+            Id = await ScriptService.InvokeAsync<object>("Skclusive.Material.Script.HistoryBackHelper.construct", reference, name, delay);
         }
 
-        public ValueTask DisposeAsync()
+        public async ValueTask DisposeAsync()
         {
-            return JSRuntime.InvokeVoidAsync("Skclusive.Material.Script.HistoryBackHelper.dispose", Id);
+            if (Id != null)
+            {
+                await ScriptService.InvokeVoidAsync("Skclusive.Material.Script.HistoryBackHelper.dispose", Id);
+            }
         }
     }
 }

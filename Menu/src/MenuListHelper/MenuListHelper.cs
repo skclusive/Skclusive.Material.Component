@@ -1,29 +1,32 @@
 using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
+using Skclusive.Core.Component;
 
 namespace Skclusive.Material.Menu
 {
     public class MenuListHelper : IAsyncDisposable
     {
-        public MenuListHelper(IJSRuntime jsruntime)
+        public MenuListHelper(IScriptService scriptService)
         {
-            JSRuntime = jsruntime;
+            ScriptService = scriptService;
         }
 
         private object Id;
 
-        private IJSRuntime JSRuntime { get; }
+        private IScriptService ScriptService { get; }
 
         public async ValueTask InitAsync(ElementReference? list, bool disableListWrap)
         {
-            Id = await JSRuntime.InvokeAsync<object>("Skclusive.Material.Menu.MenuListHelper.construct", list, disableListWrap);
+            Id = await ScriptService.InvokeAsync<object>("Skclusive.Material.Menu.MenuListHelper.construct", list, disableListWrap);
         }
 
-        public ValueTask DisposeAsync()
+        public async ValueTask DisposeAsync()
         {
-            return JSRuntime.InvokeVoidAsync("Skclusive.Material.Menu.MenuListHelper.construct", Id);
+            if (Id != null)
+            {
+                await ScriptService.InvokeVoidAsync("Skclusive.Material.Menu.MenuListHelper.construct", Id);
+            }
         }
     }
 }

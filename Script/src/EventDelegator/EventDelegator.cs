@@ -1,20 +1,21 @@
 using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
+using Skclusive.Core.Component;
 using Microsoft.JSInterop;
 
 namespace Skclusive.Material.Script
 {
     public class EventDelegator : IAsyncDisposable
     {
-        public EventDelegator(IJSRuntime jsruntime)
+        public EventDelegator(IScriptService scriptService)
         {
-            JSRuntime = jsruntime;
+            ScriptService = scriptService;
         }
 
         private object Id;
 
-        private IJSRuntime JSRuntime { get; }
+        private IScriptService ScriptService { get; }
 
         public event EventHandler<string> OnEvent;
 
@@ -30,14 +31,17 @@ namespace Skclusive.Material.Script
 
         public async ValueTask InitAsync(ElementReference reference, string name, int delay)
         {
-            Id = await JSRuntime.InvokeAsync<object>("Skclusive.Material.Script.EventDelegator.construct", reference, name, DotNetObjectReference.Create(this), delay);
+            Id = await ScriptService.InvokeAsync<object>("Skclusive.Material.Script.EventDelegator.construct", reference, name, DotNetObjectReference.Create(this), delay);
         }
 
-        public ValueTask DisposeAsync()
+        public async ValueTask DisposeAsync()
         {
             OnEvent = null;
 
-            return JSRuntime.InvokeVoidAsync("Skclusive.Material.Script.EventDelegator.dispose", Id);
-        }
+            if (Id != null)
+            {
+                await ScriptService.InvokeVoidAsync("Skclusive.Material.Script.EventDelegator.dispose", Id);
+            }
+         }
     }
 }
