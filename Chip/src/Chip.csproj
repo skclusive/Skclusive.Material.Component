@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <VersionPrefix>3.0.0-preview2</VersionPrefix>
+    <VersionPrefix>5.0.0-rc1</VersionPrefix>
     <VersionSuffix>$(VersionSuffix)</VersionSuffix>
     <TargetFramework>net5.0</TargetFramework>
     <AssemblyName>Skclusive.Material.Chip</AssemblyName>
@@ -15,17 +15,17 @@
     <RepositoryUrl>https://github.com/skclusive/Skclusive.Material.Component</RepositoryUrl>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Skclusive.Script.DomHelpers" Version="5.0.0-rc1" />
+  </ItemGroup>
+
   <!-- <ItemGroup>
-    <PackageReference Include="Skclusive.Script.DomHelpers" Version="3.0.0-preview2" />
+    <ProjectReference Include="..\..\..\Skclusive.Script.DomHelpers\src\DomHelpers.csproj" Version="5.0.0-rc1" />
   </ItemGroup> -->
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Skclusive.Script.DomHelpers\src\DomHelpers.csproj" Version="3.0.0-preview2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\Avatar\src\Avatar.csproj" Version="3.0.0-preview2" />
-    <ProjectReference Include="..\..\Icon\src\Icon.csproj" Version="3.0.0-preview2" />
+    <ProjectReference Include="..\..\Avatar\src\Avatar.csproj" Version="5.0.0-rc1" />
+    <ProjectReference Include="..\..\Icon\src\Icon.csproj" Version="5.0.0-rc1" />
   </ItemGroup>
 
 </Project>

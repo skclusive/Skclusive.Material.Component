@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <VersionPrefix>3.0.0-preview2</VersionPrefix>
+    <VersionPrefix>5.0.0-rc1</VersionPrefix>
     <VersionSuffix>$(VersionSuffix)</VersionSuffix>
     <TargetFramework>net5.0</TargetFramework>
     <AssemblyName>Skclusive.Material.Popover</AssemblyName>
@@ -16,13 +16,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Modal\src\Modal.csproj" Version="3.0.0-preview2" />
-    <ProjectReference Include="..\..\Paper\src\Paper.csproj" Version="3.0.0-preview2" />
+    <ProjectReference Include="..\..\Modal\src\Modal.csproj" Version="5.0.0-rc1" />
+    <ProjectReference Include="..\..\Paper\src\Paper.csproj" Version="5.0.0-rc1" />
   </ItemGroup>
 
   <Target Name="BuildFrontend" BeforeTargets="Build">
     <Exec Command="npm install" />
     <Exec Command="npm run build" />
   </Target>
+
+  <PropertyGroup>
+    <DefaultItemExcludes>$(DefaultItemExcludes);package.json;package-lock.json;node_modules\**\*</DefaultItemExcludes>
+  </PropertyGroup>
 
 </Project>

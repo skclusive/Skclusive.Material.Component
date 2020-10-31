@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <VersionPrefix>3.0.0-preview2</VersionPrefix>
+    <VersionPrefix>5.0.0-rc1</VersionPrefix>
     <VersionSuffix>$(VersionSuffix)</VersionSuffix>
     <TargetFramework>net5.0</TargetFramework>
     <AssemblyName>Skclusive.Material.Avatar</AssemblyName>
@@ -16,7 +16,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Theme\src\Theme.csproj" Version="3.0.0-preview2" />
+    <ProjectReference Include="..\..\Theme\src\Theme.csproj" Version="5.0.0-rc1" />
   </ItemGroup>
 
 </Project>
