@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Components;
 using Skclusive.Core.Component;
 using Skclusive.Material.Core;
-using Skclusive.Material.Script;
+using Skclusive.Script.DomHelpers;
 
 namespace Skclusive.Material.Modal
 {

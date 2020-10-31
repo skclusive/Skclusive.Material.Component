@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Skclusive.Core.Component;
 using Skclusive.Material.Core;
-using Skclusive.Material.Script;
 using Skclusive.Transition.Component;
 using Skclusive.Script.DomHelpers;
 using System;

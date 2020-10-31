@@ -25,7 +25,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Theme\src\Theme.csproj" Version="3.0.0-preview2" />
-    <ProjectReference Include="..\..\Script\src\Script.csproj" Version="3.0.0-preview2" />
   </ItemGroup>
 
   <Target Name="BuildFrontend" BeforeTargets="Build">

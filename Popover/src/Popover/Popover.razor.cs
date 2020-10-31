@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Components;
 using Skclusive.Core.Component;
 using Skclusive.Material.Core;
 using Skclusive.Material.Modal;
-using Skclusive.Material.Script;
+using Skclusive.Script.DomHelpers;
 using System.Globalization;
 
 namespace Skclusive.Material.Popover

@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Skclusive.Material.Core;
-using Skclusive.Material.Script;
+using Skclusive.Script.DomHelpers;
 
 namespace Skclusive.Material.Selection
 {

@@ -75,10 +75,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Progress", "Progress", "{3E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Progress", "Progress\src\Progress.csproj", "{A5133B12-3021-4C73-A807-DD11AEC13726}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Script", "Script", "{55E87A10-16A2-43DA-89BD-8A5A22F6C718}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Script", "Script\src\Script.csproj", "{B7006487-B9BC-46CF-8BA6-F46D37408519}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Selection", "Selection", "{E4E6B5F0-9094-4D10-8C67-B638F1EC6C33}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selection", "Selection\src\Selection.csproj", "{6DF48E34-0F0E-4AC9-83DD-5D9F17AEA14D}"
