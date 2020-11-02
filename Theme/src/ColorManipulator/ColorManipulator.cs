@@ -29,7 +29,7 @@ namespace Skclusive.Material.Theme
                     hexes = hexes.Select(n => $"{n}{n}").ToList();
                 }
 
-                var values = hexes.Select(value => int.Parse(value, NumberStyles.HexNumber));
+                var values = hexes.Select(value => int.Parse(value, NumberStyles.HexNumber, CultureInfo.InvariantCulture));
 
                 builder.Append(string.Join(", ", values));
 
@@ -103,7 +103,7 @@ namespace Skclusive.Material.Theme
             var values = color.Substring(marker + 1, (color.Length - 1) - (marker + 1))
             .Split(",")
             .Select(value => value.Trim().Replace("%", ""))
-            .Select(value => decimal.Parse(value)).ToArray();
+            .Select(value => decimal.Parse(value, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture)).ToArray();
 
             return (type, values);
         }
