@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <VersionPrefix>5.0.0-rc1</VersionPrefix>
+    <VersionPrefix>5.0.0-rc2</VersionPrefix>
     <VersionSuffix>$(VersionSuffix)</VersionSuffix>
     <TargetFramework>net5.0</TargetFramework>
     <AssemblyName>Skclusive.Material.Theme</AssemblyName>
@@ -24,7 +24,7 @@
   </ItemGroup> -->
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\src\Core.csproj" Version="5.0.0-rc1" />
+    <ProjectReference Include="..\..\Core\src\Core.csproj" />
   </ItemGroup>
 
 </Project>

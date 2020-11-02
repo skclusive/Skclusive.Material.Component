@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <VersionPrefix>5.0.0-rc1</VersionPrefix>
+    <VersionPrefix>5.0.0-rc2</VersionPrefix>
     <VersionSuffix>$(VersionSuffix)</VersionSuffix>
     <TargetFramework>net5.0</TargetFramework>
     <AssemblyName>Skclusive.Material.Component</AssemblyName>
@@ -16,26 +16,26 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Baseline\src\Baseline.csproj" Version="5.0.0-rc1" />
-    <ProjectReference Include="..\..\Responsive\src\Responsive.csproj" Version="5.0.0-rc1" />
-    <ProjectReference Include="..\..\Divider\src\Divider.csproj" Version="5.0.0-rc1" />
-    <ProjectReference Include="..\..\AppBar\src\AppBar.csproj" Version="5.0.0-rc1" />
-    <ProjectReference Include="..\..\Toolbar\src\Toolbar.csproj" Version="5.0.0-rc1" />
-    <ProjectReference Include="..\..\Container\src\Container.csproj" Version="5.0.0-rc1" />
-    <ProjectReference Include="..\..\Grid\src\Grid.csproj" Version="5.0.0-rc1" />
-    <ProjectReference Include="..\..\Badge\src\Badge.csproj" Version="5.0.0-rc1" />
-    <ProjectReference Include="..\..\Hidden\src\Hidden.csproj" Version="5.0.0-rc1" />
-    <ProjectReference Include="..\..\Card\src\Card.csproj" Version="5.0.0-rc1" />
-    <ProjectReference Include="..\..\Link\src\Link.csproj" Version="5.0.0-rc1" />
-    <ProjectReference Include="..\..\Chip\src\Chip.csproj" Version="5.0.0-rc1" />
-    <ProjectReference Include="..\..\Progress\src\Progress.csproj" Version="5.0.0-rc1" />
-    <ProjectReference Include="..\..\Selection\src\Selection.csproj" Version="5.0.0-rc1" />
-    <ProjectReference Include="..\..\Table\src\Table.csproj" Version="5.0.0-rc1" />
-    <ProjectReference Include="..\..\Tab\src\Tab.csproj" Version="5.0.0-rc1" />
-    <ProjectReference Include="..\..\Drawer\src\Drawer.csproj" Version="5.0.0-rc1" />
-    <ProjectReference Include="..\..\Text\src\Text.csproj" Version="5.0.0-rc1" />
-    <ProjectReference Include="..\..\Menu\src\Menu.csproj" Version="5.0.0-rc1" />
-    <ProjectReference Include="..\..\Dialog\src\Dialog.csproj" Version="5.0.0-rc1" />
+    <ProjectReference Include="..\..\Baseline\src\Baseline.csproj" />
+    <ProjectReference Include="..\..\Responsive\src\Responsive.csproj" />
+    <ProjectReference Include="..\..\Divider\src\Divider.csproj" />
+    <ProjectReference Include="..\..\AppBar\src\AppBar.csproj" />
+    <ProjectReference Include="..\..\Toolbar\src\Toolbar.csproj" />
+    <ProjectReference Include="..\..\Container\src\Container.csproj" />
+    <ProjectReference Include="..\..\Grid\src\Grid.csproj" />
+    <ProjectReference Include="..\..\Badge\src\Badge.csproj" />
+    <ProjectReference Include="..\..\Hidden\src\Hidden.csproj" />
+    <ProjectReference Include="..\..\Card\src\Card.csproj" />
+    <ProjectReference Include="..\..\Link\src\Link.csproj" />
+    <ProjectReference Include="..\..\Chip\src\Chip.csproj" />
+    <ProjectReference Include="..\..\Progress\src\Progress.csproj" />
+    <ProjectReference Include="..\..\Selection\src\Selection.csproj" />
+    <ProjectReference Include="..\..\Table\src\Table.csproj" />
+    <ProjectReference Include="..\..\Tab\src\Tab.csproj" />
+    <ProjectReference Include="..\..\Drawer\src\Drawer.csproj" />
+    <ProjectReference Include="..\..\Text\src\Text.csproj" />
+    <ProjectReference Include="..\..\Menu\src\Menu.csproj" />
+    <ProjectReference Include="..\..\Dialog\src\Dialog.csproj" />
   </ItemGroup>
 
 </Project>
