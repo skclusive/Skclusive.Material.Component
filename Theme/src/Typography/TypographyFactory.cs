@@ -31,7 +31,7 @@ namespace Skclusive.Material.Theme
 
             var coef = (decimal)fontSize / 14;
 
-            Func<short, string> pxToRem = config?.PxToRem ?? ((short size) => $"{Decimal.Round(((decimal)size / htmlFontSize) * coef, 2)}rem".Replace(".00", ""));
+            Func<short, string> pxToRem = config?.PxToRem ?? ((short size) => $"{Decimal.Round(((decimal)size / htmlFontSize) * coef, 2).ToString(CultureInfo.InvariantCulture)}rem".Replace(".00", ""));
 
             TypographySegment BuildVariant(TypographySegmentConfig option, short fontWeight, short size, decimal lineHeight, decimal letterSpacing, string transform = null)
             {
