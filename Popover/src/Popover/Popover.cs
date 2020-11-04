@@ -255,7 +255,7 @@ namespace Skclusive.Material.Popover
         public double AnchorTop { set; get; }
 
         /// <summary>
-        /// This determines which anchor prop to refer to to setvthe position of the popover.
+        /// This determines which anchor prop to refer to when setting the position of the popover.
         /// </summary>
         [Parameter]
         public AnchorType AnchorType { set; get; } = AnchorType.Element;
