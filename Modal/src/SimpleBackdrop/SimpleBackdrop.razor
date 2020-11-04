@@ -8,6 +8,8 @@
     style="@_Style"
     aria-hidden
     @onclick="HandleClickAsync"
+    @oncontextmenu="HandleClickAsync"
+    @oncontextmenu:preventDefault="true"
     @attributes="Attributes">
     @ChildContent?.Invoke(Context)
 </div>
