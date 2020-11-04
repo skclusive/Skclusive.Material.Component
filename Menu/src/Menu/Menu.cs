@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Skclusive.Core.Component;
 using Skclusive.Material.Core;
+using Skclusive.Material.Popover;
 
 namespace Skclusive.Material.Menu
 {
@@ -156,6 +157,42 @@ namespace Skclusive.Material.Menu
         /// </summary>
         [Parameter]
         public VerticalOrigin TransformVerticalOrigin { set; get; } = VerticalOrigin.Top;
+
+        /// <summary>
+        /// This is the point on the menu which will attach to the anchor's horizontal origin.
+        /// </summary>
+        [Parameter]
+        public double? TransformHorizontalOriginValue { set; get; }
+
+        /// <summary>
+        /// This is the point on the menu which will attach to the anchor's vertical origin.
+        /// </summary>
+        [Parameter]
+        public double? TransformVerticalOriginValue { set; get; }
+
+        /// <summary>
+        /// This is the position that may be used
+        /// to set the left position of the menu.
+        /// The coordinates are relative to
+        /// the application's client area.
+        /// </summary>
+        [Parameter]
+        public double AnchorLeft { set; get; }
+
+        /// <summary>
+        /// This is the position that may be used
+        /// to set the top position of the menu.
+        /// The coordinates are relative to
+        /// the application's client area.
+        /// </summary>
+        [Parameter]
+        public double AnchorTop { set; get; }
+
+        /// <summary>
+        /// This determines which anchor prop to refer to when setting the position of the menu.
+        /// </summary>
+        [Parameter]
+        public AnchorType AnchorType { set; get; } = AnchorType.Element;
 
         /// <summary>
         /// Callback fired before the Menu enters.
