@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <VersionPrefix>5.0.0-rc2</VersionPrefix>
+    <VersionPrefix>5.0.0-rc3</VersionPrefix>
     <VersionSuffix>$(VersionSuffix)</VersionSuffix>
     <TargetFramework>net5.0</TargetFramework>
     <AssemblyName>Skclusive.Material.Chip</AssemblyName>
