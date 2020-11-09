@@ -161,7 +161,7 @@ namespace Skclusive.Material.Input
 
         protected string _Input => InputComponent ?? (Multiline ? "textarea" : "input");
 
-        protected bool IsControlled => Value != null;
+        protected bool IsControlled => OnChange.HasDelegate;
 
         protected string ValueState { set; get; }
 
@@ -263,16 +263,20 @@ namespace Skclusive.Material.Input
 
         protected async Task HandleChangeAsync(ChangeEventArgs args)
         {
+            var value = args.Value?.ToString();
+
             if (!IsControlled)
             {
-                ValueState = args.Value?.ToString();
+                ValueState = value;
 
                 DirtyCheck(ValueState);
 
                 await InvokeAsync(StateHasChanged);
             }
-
-            await OnChange.InvokeAsync(args);
+            else if (!object.Equals(value, Value))
+            {
+                await OnChange.InvokeAsync(args);
+            }
         }
 
         protected async Task HandleInputAsync(ChangeEventArgs args)
@@ -300,26 +304,27 @@ namespace Skclusive.Material.Input
         {
             var value = await DomHelpers.GetInputValueAsync(Input.RootRef.Current);
 
-            value = string.IsNullOrEmpty(value) ? null : value;
-
-            if (IsControlled)
+            if (!string.IsNullOrEmpty(value))
             {
-                if (!object.Equals(Value, value))
+                if (IsControlled)
                 {
-                    await OnChange.InvokeAsync(new ChangeEventArgs
+                    if (!object.Equals(Value, value))
                     {
-                        Value = value
-                    });
+                        await OnChange.InvokeAsync(new ChangeEventArgs
+                        {
+                            Value = value
+                        });
+                    }
                 }
-            }
-            else
-            {
-                ValueState = value;
-            }
+                else
+                {
+                    ValueState = value;
+                }
 
-            DirtyCheck(value);
+                DirtyCheck(value);
 
-            await InvokeAsync(StateHasChanged);
+                await InvokeAsync(StateHasChanged);
+            }
         }
     }
 }

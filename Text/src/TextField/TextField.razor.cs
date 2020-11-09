@@ -187,7 +187,7 @@ namespace Skclusive.Material.Text
 
                 LabelWidth = offset.Width;
 
-                StateHasChanged();
+                await InvokeAsync(StateHasChanged);
             }
 
             if (AutoFocus)
@@ -198,31 +198,33 @@ namespace Skclusive.Material.Text
             }
         }
 
-        protected override Task HandleFocus(FocusEventArgs args)
+        protected override async Task HandleFocus(FocusEventArgs args)
         {
             Focused = true;
 
-            StateHasChanged();
+            await InvokeAsync(StateHasChanged);
 
-            return base.HandleFocus(args);
+            await base.HandleFocus(args);
         }
 
-        protected override Task HandleBlur(FocusEventArgs args)
+        protected override async Task HandleBlur(FocusEventArgs args)
         {
             Focused = false;
 
-            StateHasChanged();
+            await InvokeAsync(StateHasChanged);
 
-            return base.HandleBlur(args);
+            await base.HandleBlur(args);
         }
 
-        protected virtual Task HandleChange(ChangeEventArgs args)
+        protected virtual async Task HandleChange(ChangeEventArgs args)
         {
-            Value = args.Value?.ToString();
+            var value = args.Value?.ToString();
 
-            StateHasChanged();
+            Value = value;
 
-            return OnChange.InvokeAsync(args);
+            await InvokeAsync(StateHasChanged);
+
+            await OnChange.InvokeAsync(args);
         }
     }
 }
