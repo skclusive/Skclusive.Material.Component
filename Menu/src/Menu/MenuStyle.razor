@@ -1,19 +1,14 @@
 ﻿@namespace Skclusive.Material.Menu
 @inherits StyleComponentBase
 
-<Styled
-    Name="Menu">
+.Menu-Root {
+}
 
-    .Menu-Root {
-    }
+.Menu-Paper {
+    max-height: calc(100% - 96px);
+    -webkit-overflow-scrolling: touch;
+}
 
-    .Menu-Paper {
-        max-height: calc(100% - 96px);
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .Menu-List {
-        outline: 0;
-    }
-
-</Styled>
+.Menu-List {
+    outline: 0;
+}

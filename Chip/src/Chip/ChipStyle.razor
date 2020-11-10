@@ -1,0 +1,260 @@
+@namespace Skclusive.Material.Chip
+@inherits StyleComponentBase
+
+.Chip-Root {
+    color: var(--theme-component-chip-color);
+    border: none;
+    cursor: default;
+    height: 32px;
+    display: inline-flex;
+    outline: 0;
+    padding: 0;
+    font-size: calc(var(--theme-font-size-rem-factor, 0.0625) * 13rem);
+    box-sizing: border-box;
+    transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    align-items: center;
+    font-family: var(--theme-typography-font-family);
+    white-space: nowrap;
+    border-radius: 16px;
+    vertical-align: middle;
+    justify-content: center;
+    text-decoration: none;
+    background-color: var(--theme-component-chip-background-color);
+}
+
+.Chip-Root.Chip-Disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.Chip-Size-Small {
+    height: 24px;
+}
+
+.Chip-Color-Primary {
+    color: var(--theme-palette-primary-contrast-text);
+    background-color: var(--theme-palette-primary-main);
+}
+
+.Chip-Color-Secondary {
+    color: var(--theme-palette-secondary-contrast-text);
+    background-color: var(--theme-palette-secondary-main);
+}
+
+.Chip-Clickable {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.Chip-Clickable:hover, .Chip-Clickable:focus {
+    background-color: var(--theme-component-chip-clickable-focus);
+}
+
+.Chip-Clickable:active {
+    box-shadow: var(--theme-shadow1);
+    background-color: var(--theme-component-chip-clickable-active);
+}
+
+.Chip-Clickable-Color-Primary:hover, .Chip-Clickable-Color-Primary:focus {
+    background-color: var(--theme-component-chip-clickable-primary-focus);
+}
+
+.Chip-Clickable-Color-Primary:active {
+    background-color: var(--theme-component-chip-clickable-primary-active);
+}
+
+.Chip-Clickable-Color-Secondary:hover, .Chip-Clickable-Color-Secondary:focus {
+    background-color: var(--theme-component-chip-clickable-secondary-focus);
+}
+
+.Chip-Clickable-Color-Secondary:active {
+    background-color: var(--theme-component-chip-clickable-secondary-active);
+}
+
+.Chip-Deletable:focus {
+    background-color: var(--theme-component-chip-deletable-focus);
+}
+
+.Chip-Deletable-Color-Primary:focus {
+    background-color: var(--theme-component-chip-deletable-primary-focus);
+}
+
+.Chip-Deletable-Color-Secondary:focus {
+    background-color: var(--theme-component-chip-deletable-secondary-focus);
+}
+
+.Chip-Outlined {
+    border: 1px solid var(--theme-component-chip-border-outlined);
+    background-color: transparent;
+}
+
+.Chip-Clickable.Chip-Outlined:hover, .Chip-Clickable.Chip-Outlined:focus, .Chip-Deletable.Chip-Outlined:focus {
+    background-color: var(--theme-component-chip-outlined-focus);
+}
+
+.Chip-Outlined .Chip-Avatar {
+    margin-left: 4px;
+}
+
+.Chip-Outlined .Chip-Avatar-Small {
+    margin-left: 2px;
+}
+
+.Chip-Outlined .Chip-Icon {
+    margin-left: 4px;
+}
+
+.Chip-Outlined .Chip-Icon-Small {
+    margin-left: 2px;
+}
+
+.Chip-Outlined .Chip-DeleteIcon {
+    margin-right: 5px;
+}
+
+.Chip-Outlined .Chip-DeleteIcon-Small {
+    margin-right: 3px;
+}
+
+.Chip-Outlined-Primary {
+    color: var(--theme-palette-primary-main);
+    border: 1px solid var(--theme-palette-primary-main);
+}
+
+.Chip-Clickable.Chip-Outlined-Primary:hover, .Chip-Clickable.Chip-Outlined-Primary:focus, .Chip-Deletable.Chip-Outlined-Primary:focus {
+    background-color: var(--theme-component-chip-outlined-primary-focus);
+}
+
+.Chip-Outlined-Secondary {
+    color: var(--theme-palette-secondary-main);
+    border: 1px solid var(--theme-palette-secondary-main);
+}
+
+.Chip-Clickable.Chip-Outlined-Secondary:hover, .Chip-Clickable.Chip-Outlined-Secondary:focus, .Chip-Deletable.Chip-Outlined-Secondary:focus {
+    background-color: var(--theme-component-chip-outlined-secondary-focus);
+}
+
+.Chip-Avatar {
+    color: var(--theme-component-chip-avatar-color);
+    width: 24px;
+    height: 24px;
+    font-size: calc(var(--theme-font-size-rem-factor, 0.0625) * 12rem);
+    margin-left: 5px;
+    margin-right: -6px;
+}
+
+.Chip-Avatar-Small {
+    width: 18px;
+    height: 18px;
+    font-size: calc(var(--theme-font-size-rem-factor, 0.0625) * 10rem);
+    margin-left: 4px;
+    margin-right: -4px;
+}
+
+.Chip-Avatar-Color-Primary {
+    color: var(--theme-palette-primary-contrast-text);
+    background-color: var(--theme-palette-primary-dark);
+}
+
+.Chip-Avatar-Color-Secondary {
+    color: var(--theme-palette-secondary-contrast-text);
+    background-color: var(--theme-palette-secondary-dark);
+}
+
+.Chip-Icon {
+    color: var(--theme-component-chip-icon-color);
+    margin-left: 5px;
+    margin-right: -6px;
+}
+
+.Chip-Icon-Small {
+    width: 18px;
+    height: 18px;
+    margin-left: 4px;
+    margin-right: -4px;
+}
+
+.Chip-Icon-Color-Primary {
+    color: inherit;
+}
+
+.Chip-Icon-Color-Secondary {
+    color: inherit;
+}
+
+.Chip-Label {
+    cursor: inherit;
+    display: flex;
+    align-items: center;
+    user-select: none;
+    white-space: nowrap;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.Chip-Label-Small {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.Chip-DeleteIcon {
+    color: var(--theme-component-chip-delete-icon-color);
+    width: 22px;
+    cursor: pointer;
+    height: 22px;
+    margin: 0 5px 0 -6px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.Chip-DeleteIcon:hover {
+    color: var(--theme-component-chip-delete-icon-color-hover);
+}
+
+.Chip-DeleteIcon-Small {
+    width: 16px;
+    height: 16px;
+    margin-left: -4px;
+    margin-right: 4px;
+}
+
+.Chip-DeleteIcon-Color-Primary {
+    color: var(--theme-component-chip-delete-icon-primary-color);
+}
+
+.Chip-DeleteIcon-Color-Primary:hover, .Chip-DeleteIcon-Color-Primary:active {
+    color: var(--theme-palette-primary-contrast-text);
+}
+
+.Chip-DeleteIcon-Color-Secondary {
+    color: var(--theme-component-chip-delete-icon-secondary-color);
+}
+
+.Chip-DeleteIcon-Color-Secondary:hover, .Chip-DeleteIcon-Color-Secondary:active {
+    color: var(--theme-palette-secondary-contrast-text);
+}
+
+.Chip-DeleteIcon-Outlined-Color-Primary {
+    color: var(--theme-component-chip-delete-icon-outlined-primary-color);
+}
+
+.Chip-DeleteIcon-Outlined-Color-Primary:hover, .Chip-DeleteIcon-Outlined-Color-Primary:active {
+    color: var(--theme-palette-primary-main);
+}
+
+.Chip-DeleteIcon-Outlined-Color-Secondary {
+    color: var(--theme-component-chip-delete-icon-outlined-secondary-color);
+}
+
+.Chip-DeleteIcon-Outlined-Color-Secondary:hover, .Chip-DeleteIcon-Outlined-Color-Secondary:active {
+    color: var(--theme-palette-secondary-main);
+}
+
+.Chip-DeleteContainer-Medium {
+    width: 22px;
+    height: 22px;
+}
+
+.Chip-DeleteContainer-Small {
+    width: 16px;
+    height: 16px;
+}

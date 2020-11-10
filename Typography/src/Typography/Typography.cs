@@ -136,9 +136,13 @@ namespace Skclusive.Material.Typography
                 builder.AddAttribute(7, "onblur", EventCallback.Factory.Create<FocusEventArgs>(this, HandleBlurAsync));
             if (!string.IsNullOrWhiteSpace(Id))
                 builder.AddAttribute(8, "id", Id);
-            builder.AddMultipleAttributes(9, Attributes);
-            builder.AddContent(8, ChildContent);
-            builder.AddElementReferenceCapture(10, (__value) => {
+            if (OnClickStop.HasValue)
+                builder.AddEventStopPropagationAttribute(9, "onclick", OnClickStop.Value);
+            if (OnClickPrevent.HasValue)
+                builder.AddEventPreventDefaultAttribute(10, "onclick", OnClickPrevent.Value);
+            builder.AddMultipleAttributes(11, Attributes);
+            builder.AddContent(12, ChildContent);
+            builder.AddElementReferenceCapture(13, (__value) => {
                 RootRef.Current = (ElementReference)__value;
             });
             builder.CloseElement();

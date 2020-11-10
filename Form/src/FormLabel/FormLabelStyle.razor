@@ -1,39 +1,28 @@
 ﻿@namespace Skclusive.Material.Form
 @inherits StyleComponentBase
 
-<Styled
-    Name="FormLabel">
+.FormLabel-Root {
+    color: var(--theme-palette-text-secondary);
+    padding: 0;
+    line-height: 1;
+    font-size: var(--theme-typography-body1-font-size);
+    font-family: var(--theme-typography-body1-font-family);
+    font-weight: var(--theme-typography-body1-font-weight);
+    letter-spacing: var(--theme-typography-body1-letter-spacing);
+}
 
-    .FormLabel-Root {
-        color: var(--theme-palette-text-secondary, rgba(0, 0, 0, 0.54));
-        padding: 0;
-        line-height: 1;
-        font-size: var(--theme-typography-body1-font-size, 1rem);
-        font-family: var(
-            --theme-typography-body1-font-family,
-            "Roboto",
-            "Helvetica",
-            "Arial",
-            sans-serif
-        );
-        font-weight: var(--theme-typography-body1-font-weight, 400);
-        letter-spacing: var(--theme-typography-body1-letter-spacing, 0.00938em);
-    }
+.FormLabel-Root.FormLabel-Focused {
+    color: var(--theme-palette-primary-alternate);
+}
 
-    .FormLabel-Root.FormLabel-Focused {
-        color: var(--theme-palette-primary-current, rgb(17, 82, 147));
-    }
+.FormLabel-Root.FormLabel-Disabled {
+    color: var(--theme-palette-text-disabled);
+}
 
-    .FormLabel-Root.FormLabel-Disabled {
-        color: var(--theme-palette-text-disabled, rgba(0, 0, 0, 0.38));
-    }
+.FormLabel-Root.FormLabel-Error {
+    color: var(--theme-palette-error-main);
+}
 
-    .FormLabel-Root.FormLabel-Error {
-        color: var(--theme-palette-error-main, #f44336);
-    }
-
-    .FormLabel-Asterisk.FormLabel-Error {
-        color: var(--theme-palette-error-main, #f44336);
-    }
-
-</Styled>
+.FormLabel-Asterisk.FormLabel-Error {
+    color: var(--theme-palette-error-main);
+}

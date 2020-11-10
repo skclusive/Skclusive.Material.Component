@@ -23,7 +23,7 @@ namespace Skclusive.Material.Core
 
         public bool HasContent => ChildContent != null;
 
-        protected IComponentContext Context => new ComponentContextBuilder()
+        protected virtual IComponentContext Context => new ComponentContextBuilder()
            .WithClass(Class)
            .WithStyle(Style)
            .WithRefBack(ChildRef)

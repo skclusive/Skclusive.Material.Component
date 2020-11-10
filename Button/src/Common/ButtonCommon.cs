@@ -7,9 +7,9 @@ using System;
 
 namespace Skclusive.Material.Button
 {
-    public abstract class ButtonCommonComponent : MaterialComponentBase
+    public abstract class ButtonCommon : MaterialComponentBase
     {
-        protected ButtonCommonComponent(string selector) : base(selector)
+        protected ButtonCommon(string selector) : base(selector)
         {
         }
 

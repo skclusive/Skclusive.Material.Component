@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Skclusive.Core.Component;
 
 namespace Skclusive.Material.Modal
@@ -13,9 +14,9 @@ namespace Skclusive.Material.Modal
 
         string BackdropStyle { get; }
 
-        Action<IReference, bool> OnEnter { get; }
+        Func<(IReference, bool), Task> OnEnter { get; }
 
-        Action<IReference> OnExited { get; }
+        Func<IReference, Task> OnExited { get; }
 
         Action OnBackdropClick { get; }
     }
@@ -32,9 +33,9 @@ namespace Skclusive.Material.Modal
 
             public string BackdropStyle  { get; internal set; }
 
-            public Action<IReference, bool> OnEnter { get; internal set; }
+            public Func<(IReference, bool), Task> OnEnter { get; internal set; }
 
-            public Action<IReference> OnExited { get; internal set; }
+            public Func<IReference, Task> OnExited { get; internal set; }
 
             public Action OnBackdropClick { get; internal set; }
         }
@@ -74,14 +75,14 @@ namespace Skclusive.Material.Modal
         }
 
 
-        public ModalContextBuilder WithOnEnter(Action<IReference, bool> onEnter)
+        public ModalContextBuilder WithOnEnter(Func<(IReference, bool), Task> onEnter)
         {
             MContext.OnEnter = onEnter;
 
             return this;
         }
 
-        public ModalContextBuilder WithOnExited(Action<IReference> onExited)
+        public ModalContextBuilder WithOnExited(Func<IReference, Task> onExited)
         {
             MContext.OnExited = onExited;
 

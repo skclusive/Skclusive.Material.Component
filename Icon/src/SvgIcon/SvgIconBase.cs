@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using System;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Components;
 using Skclusive.Core.Component;
 
 namespace Skclusive.Material.Icon
@@ -44,5 +46,31 @@ namespace Skclusive.Material.Icon
         /// </summary>
         [Parameter]
         public FontSize FontSize { set; get; } = FontSize.Default;
+
+        /// <summary>
+        /// onclick event handler
+        /// </summary>
+        [Parameter]
+        public EventCallback<EventArgs> OnClick { set; get; }
+
+        [Parameter]
+        public bool? OnClickStop { set; get; }
+
+        [Parameter]
+        public bool? OnClickPrevent { set; get; }
+
+        [CascadingParameter]
+        public ISvgIconContext SvgIconContext { set; get; }
+
+        protected override IComponentContext _Context => SvgIconContext;
+
+        protected bool PreventDefault => OnClickPrevent.HasValue && OnClickPrevent.Value;
+
+        protected bool StopPropagation => OnClickStop.HasValue && OnClickStop.Value;
+
+        protected virtual async Task HandleClickAsync(EventArgs args)
+        {
+            await OnClick.InvokeAsync(args);
+        }
     }
 }

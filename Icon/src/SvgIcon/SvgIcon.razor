@@ -1,5 +1,5 @@
 ﻿@namespace Skclusive.Material.Icon
-@inherits SvgIconComponent
+@inherits SvgIconBase
 
 <svg
     class="@_Class"
@@ -9,6 +9,9 @@
     color="@HtmlColor"
     role="@_Role"
     aria-hidden="@Hidden"
+    @onclick="@HandleClickAsync"
+    @onclick:preventDefault="@PreventDefault"
+    @onclick:stopPropagation="@StopPropagation"
     @attributes="Attributes">
     @if (!Hidden)
     {

@@ -1,18 +1,18 @@
 ﻿@namespace Skclusive.Material.Transition
-@inherits SlideComponent
+@inherits MaterialComponentBase
 
 <Transition
     In="@In"
-    Appear="true"
+    Appear="@Appear"
     Timeout="@Timeout"
     AppearTimeout="@AppearTimeout"
     EnterTimeout="@EnterTimeout"
     ExitTimeout="@ExitTimeout"
     MountOnEnter="@MountOnEnter"
     UnmountOnExit="@UnmountOnExit"
-    OnEnter="@HandleEnter"
-    OnEntering="@HandleEntering"
-    OnExit="@HandleExit"
-    OnExited="@HandleExited">
+    OnEnter="@HandleEnterAsync"
+    OnEntering="@HandleEnteringAsync"
+    OnExit="@HandleExitAsync"
+    OnExited="@HandleExitedAsync">
     @ChildContent.Invoke(GetChildContext(context))
 </Transition>

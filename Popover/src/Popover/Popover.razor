@@ -1,5 +1,5 @@
 ﻿@namespace Skclusive.Material.Popover
-@inherits PopoverComponent
+@inherits MaterialComponent
 
 <Modal
     Absolute="@Absolute"
@@ -12,7 +12,6 @@
     Class="@_Class"
     Style="@_Style"
     RootRef="@RootRef"
-    ContainerRef="@ContainerRef"
     OnClose="@HandleClose"
     OnKeyDown="@HandleKeyDownAsync"
     OnEscapeKeyDown="@HandleEscapeKeyDown"
@@ -41,10 +40,10 @@
             UnmountOnExit="@UnmountOnExit"
             OnEnter="@(CreateOnEnter(@ModalContext.OnEnter))"
             OnExited="@(CreateOnExited(@ModalContext.OnExited))"
-            OnEntering="@HandleEntering"
-            OnEntered="@HandleEntered"
-            OnExit="@HandleExit"
-            OnExiting="@HandleExiting"
+            OnEntering="@HandleEnteringAsync"
+            OnEntered="@HandleEnteredAsync"
+            OnExit="@HandleExitAsync"
+            OnExiting="@HandleExitingAsync"
             role="none presentation"
             Context="FadeContext">
             <Paper

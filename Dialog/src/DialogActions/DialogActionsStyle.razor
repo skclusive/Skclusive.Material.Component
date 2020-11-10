@@ -1,19 +1,14 @@
 ﻿@namespace Skclusive.Material.Dialog
 @inherits StyleComponentBase
 
-<Styled
-    Name="DialogActions">
+.DialogActions-Root {
+    flex: 0 0 auto;
+    display: flex;
+    padding: 8px;
+    align-items: center;
+    justify-content: flex-end;
+}
 
-    .DialogActions-Root {
-        flex: 0 0 auto;
-        display: flex;
-        padding: 8px;
-        align-items: center;
-        justify-content: flex-end;
-    }
-
-    .DialogActions-Spacing > * + * {
-        margin-left: 8px;
-    }
-
-</Styled>
+.DialogActions-Spacing > * + * {
+    margin-left: 8px;
+}

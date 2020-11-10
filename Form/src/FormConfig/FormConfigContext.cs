@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Skclusive.Core.Component;
@@ -46,16 +47,16 @@ namespace Skclusive.Material.Form
             }
         }
 
-        protected override void HandleFocus(FocusEventArgs args)
+        protected override async Task HandleFocus(FocusEventArgs args)
         {
-            base.HandleFocus(args);
+            await base.HandleFocus(args);
 
             FormContext?.OnFocus();
         }
 
-        protected override void HandleBlur(FocusEventArgs args)
+        protected override async Task HandleBlur(FocusEventArgs args)
         {
-            base.HandleBlur(args);
+            await base.HandleBlur(args);
 
             FormContext?.OnBlur();
         }

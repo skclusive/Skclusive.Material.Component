@@ -86,7 +86,11 @@ namespace Skclusive.Material.Hidden
 
         protected override void BuildRenderTree(RenderTreeBuilder builder)
         {
-            builder.AddContent(0, ChildContent(Context));
+            var context = Context;
+            builder.OpenComponent<CascadingValue<IComponentContext>>(0);
+            builder.AddAttribute(1, "Value", context);
+            builder.AddAttribute(2, "ChildContent", ChildContent(context));
+            builder.CloseComponent();
         }
 
         protected IComponentContext Context => new ComponentContextBuilder()

@@ -1,5 +1,5 @@
 ﻿@namespace Skclusive.Material.Menu
-@inherits MenuComponent
+@inherits MaterialComponent
 
  <Popover
     Class="@_Class"
@@ -27,12 +27,12 @@
     ExitTimeout="@ExitTimeout"
     MountOnEnter="@MountOnEnter"
     UnmountOnExit="@UnmountOnExit"
-    OnEnter="@HandleEnter"
-    OnExited="@HandleExited"
-    OnEntering="@HandleEntering"
-    OnEntered="@HandleEntered"
-    OnExit="@HandleExit"
-    OnExiting="@HandleExiting"
+    OnEnter="@HandleEnterAsync"
+    OnExited="@HandleExitedAsync"
+    OnEntering="@HandleEnteringAsync"
+    OnEntered="@HandleEnteredAsync"
+    OnExit="@HandleExitAsync"
+    OnExiting="@HandleExitingAsync"
     PaperStyle="@_PaperStyle"
     PaperClass="@_PaperClass"
     @attributes="Attributes">

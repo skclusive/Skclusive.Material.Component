@@ -1,5 +1,5 @@
 ﻿@namespace Skclusive.Material.Button
-@inherits ButtonBaseComponent
+@inherits ButtonCommon
 
 @if (Navigation)
 {
@@ -16,6 +16,8 @@
         Role="@Role"
         Disabled="@Disabled"
         Tabindex="@((Disabled.HasValue && Disabled.Value) ? -1 : TabIndex)"
+        OnClickStop="@OnClickStop"
+        OnClickPrevent="@OnClickPrevent"
         @attributes="Attributes">
         @ChildContent(context)
         @if(!DisableRipple && !(Disabled.HasValue && Disabled.Value))
@@ -51,6 +53,8 @@ else
         OnTouchEnd="@HandleTouchEndAsync"
         OnDragLeave="@HandleDragLeaveAsync"
         OnClick="@HandleClick"
+        OnClickStop="@OnClickStop"
+        OnClickPrevent="@OnClickPrevent"
         @attributes="Attributes">
         @ChildContent(context)
         @if(!DisableRipple && !(Disabled.HasValue && Disabled.Value))

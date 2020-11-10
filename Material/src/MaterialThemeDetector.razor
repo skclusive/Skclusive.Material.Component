@@ -1,21 +1,17 @@
-﻿@implements IDisposable
+﻿@implements IAsyncDisposable
+@inject IThemeService ThemeService
 @inject DetectThemeHelper DetectThemeHelper
-
-<ThemeProvider
-    Theme="@Theme" />
 
 @code
 {
-    private Theme Theme { set; get; } = Theme.Light;
-
-    private IDisposable TimeoutDisposal { set; get; }
+   private IDisposable TimeoutDisposal { set; get; }
 
     protected override Task OnInitializedAsync()
     {
         DetectThemeHelper.OnChange += OnThemeChanged;
 
         TimeoutDisposal = ExecutionPlan.Delay(500, () => {
-            _ = DetectThemeHelper.RegisterAsync();
+            _ = DetectThemeHelper.InitAsync();
         });
 
         return Task.CompletedTask;
@@ -23,17 +19,15 @@
 
     protected void OnThemeChanged(object sender, Theme theme)
     {
-        Theme = theme;
-
-        StateHasChanged();
+        ThemeService.ChangeTheme(theme);
     }
 
-    public void Dispose()
+    public ValueTask DisposeAsync()
     {
         TimeoutDisposal?.Dispose();
 
         DetectThemeHelper.OnChange -= OnThemeChanged;
 
-        _ = DetectThemeHelper.UnRegisterAsync();
+        return DetectThemeHelper.DisposeAsync();
     }
 }

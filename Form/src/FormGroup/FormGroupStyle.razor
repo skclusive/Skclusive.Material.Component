@@ -1,17 +1,12 @@
 ﻿@namespace Skclusive.Material.Form
 @inherits StyleComponentBase
 
-<Styled
-    Name="FormGroup">
+.FormGroup-Root {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
 
-    .FormGroup-Root {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-    }
-
-    .FormGroup-Row {
-        flex-direction: row;
-    }
-
-</Styled>
+.FormGroup-Row {
+    flex-direction: row;
+}

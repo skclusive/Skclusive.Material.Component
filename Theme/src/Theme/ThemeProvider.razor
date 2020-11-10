@@ -1,40 +1,55 @@
 ﻿@namespace Skclusive.Material.Theme
-@inherits ThemeComponentBase
+@inject IThemeService ThemeService
 
-<style
-    data-name="ThemeProviderCommon">
-    @(new MarkupString(ThemeProducer.BuildScheme(_Config)))
-</style>
-
-@if (IsAuto)
-{
-    <style
-        data-name="ThemeProviderDark">
-        @(new MarkupString(ThemeProducer.BuildMediaScheme(Dark)))
-    </style>
-    <style
-        data-name="ThemeProviderLight">
-        @(new MarkupString(ThemeProducer.BuildMediaScheme(Light)))
-    </style>
-}
-else
-{
-    <style
-        data-name="ThemeProviderSchema">
-        @(new MarkupString(ThemeProducer.BuildScheme(_Config)))
-    </style>
-}
+<CascadingValue
+    Value="@ThemeContext">
+    <SingleRender>
+        <ThemeRenderer
+            Default="@Default"
+            Light="@Light"
+            Dark="@Dark" />
+        <Head
+            Disable="@(!Head)"
+            Context="HeadContext">
+            <InjectedStyles
+                RootRef="@HeadContext.RefBack" />
+        </Head>
+        @ChildContent
+        <InjectedScripts />
+    </SingleRender>
+</CascadingValue>
 
 @code
 {
     [Parameter]
-    public ThemeConfig Config { set; get; }
+    public bool Head { set; get; } = false;
 
     [Parameter]
-    public ThemeConfig Light { set; get; } = ThemeBuilder.LIGHT;
+    public RenderFragment ChildContent { set; get; }
 
     [Parameter]
-    public ThemeConfig Dark { set; get; } = ThemeBuilder.DARK;
+    public ThemeValue Light { set; get; }
 
-    protected ThemeConfig _Config => Config ?? (Theme == Skclusive.Core.Component.Theme.Dark ? Dark : Light);
+    [Parameter]
+    public ThemeValue Dark { set; get; }
+
+    [Parameter]
+    public ThemeValue Default { set; get; }
+
+    protected IThemeContext ThemeContext => new ThemeContext(ThemeService.Current);
+
+    protected override void OnInitialized()
+    {
+        ThemeService.OnChange += OnThemeChange;
+    }
+
+    protected void OnThemeChange(object sender, Theme current)
+    {
+        _ = InvokeAsync(StateHasChanged);
+    }
+
+    protected void Dispose()
+    {
+        ThemeService.OnChange -= OnThemeChange;
+    }
 }

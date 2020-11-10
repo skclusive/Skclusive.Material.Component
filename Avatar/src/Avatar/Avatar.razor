@@ -1,11 +1,14 @@
 ﻿@namespace Skclusive.Material.Avatar
-@inherits AvatarComponent
+@inherits MaterialComponent
 
 <Component
     RootRef="@RootRef"
     Tag="@Component"
     Class="@_Class"
     Style="@_Style"
+    OnClick="@HandleClickAsync"
+    OnClickStop="@OnClickStop"
+    OnClickPrevent="@OnClickPrevent"
     @attributes="Attributes">
     @if (IsImage)
     {

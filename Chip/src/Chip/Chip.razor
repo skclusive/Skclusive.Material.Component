@@ -1,0 +1,65 @@
+@namespace Skclusive.Material.Chip
+@inherits MaterialComponentBase
+
+<Component
+    Tag="@Component"
+    RootRef="@RootRef"
+    Class="@_Class"
+    Style="@_Style"
+    Role="@_Role"
+    TabIndex="@_TabIndex"
+    Disabled="@Disabled"
+    OnKeyDown="@HandleKeyDownAsync"
+    OnKeyUp="@HandleKeyUpAsync"
+    OnClick="@HandleClickAsync"
+    href="@Href"
+    @attributes="Attributes">
+    @if (HasAvatarContent)
+    {
+        <CascadingValue
+            Value="AvatarContext">
+            @AvatarContent
+        </CascadingValue>
+    }
+    else if (HasIconContent)
+    {
+        <CascadingValue
+            Value="IconContext">
+            @IconContent
+        </CascadingValue>
+    }
+    <span
+        style="@_LabelStyle"
+        class="@_LabelClass">
+        @if (HasLabelContent)
+        {
+            @LabelContent
+        }
+        else
+        {
+            @Label
+        }
+    </span>
+    @if (Deletable)
+    {
+        <span
+            class="@_DeleteContainerClass"
+            style="@_DeleteContainerStyle"
+            @onclick="@HandleDeleteClickAsync"
+            @onclick:stopPropagation>
+            @if (HasDeleteIconContent)
+            {
+                    <CascadingValue
+                        Value="DeleteIconContext">
+                        @DeleteIconContent
+                    </CascadingValue>
+            }
+            else
+            {
+                <CancelIcon
+                    Class="@_DeleteIconClass"
+                    Style="@_DeleteIconStyle" />
+            }
+        </span>
+    }
+</Component>

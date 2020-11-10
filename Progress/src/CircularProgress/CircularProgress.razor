@@ -1,24 +1,22 @@
-﻿@namespace Skclusive.Material.Progress
-@inherits CircularProgressComponent
+﻿@using System.Globalization
+@namespace Skclusive.Material.Progress
+@inherits MaterialComponentBase
 
-<div
-    @ref="RootRef.Current"
-    role="progressbar"
-    class="@_Class"
-    style="@_Style"
-    aria-valuenow="@ValueNow"
-    @attributes="Attributes">
-    <svg
-        class="@_SvgClass"
-        style="@_SvgStyle"
-        viewBox="@ViewBox">
-        <circle
-            class="@_CircleClass"
-            style="@_CircleStyle"
-            cx="@Cx"
-            cy="@Cy"
-            r="@Radius"
-            fill="none"
-            stroke-width="@Thickness"/>
+<div @ref="RootRef.Current"
+     role="progressbar"
+     class="@_Class"
+     style="@_Style"
+     aria-valuenow="@ValueNow"
+     @attributes="Attributes">
+    <svg class="@_SvgClass"
+         style="@_SvgStyle"
+         viewBox="@ViewBox">
+        <circle class="@_CircleClass"
+                style="@_CircleStyle"
+                cx="@Cx.ToString(CultureInfo.InvariantCulture)"
+                cy="@Cy.ToString(CultureInfo.InvariantCulture)"
+                r="@Radius.ToString(CultureInfo.InvariantCulture)"
+                fill="none"
+                stroke-width="@Thickness.ToString(CultureInfo.InvariantCulture)" />
     </svg>
 </div>

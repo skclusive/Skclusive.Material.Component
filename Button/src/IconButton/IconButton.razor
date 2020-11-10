@@ -1,5 +1,5 @@
 ﻿@namespace Skclusive.Material.Button
-@inherits IconButtonComponent
+@inherits ButtonCommon
 
 <ButtonBase
     RootRef="@RootRef"
@@ -23,6 +23,8 @@
     OnTouchMove="@HandleTouchMoveAsync"
     OnTouchEnd="@HandleTouchEndAsync"
     OnClick="@HandleClick"
+    OnClickStop="@OnClickStop"
+    OnClickPrevent="@OnClickPrevent"
     @attributes="Attributes">
     <span
         style="@_LabelStyle"

@@ -1,141 +1,127 @@
 ﻿@namespace Skclusive.Material.Button
 @inherits StyleComponentBase
 
-<Styled
-    Name="Fab">
+.Fab-Root {
+    color: var(--theme-palette-grey300-contrast-text);
+    width: 56px;
+    height: 56px;
+    padding: 0;
+    min-width: 0;
+    box-shadow: var(--theme-shadow6);
+    box-sizing: border-box;
+    min-height: 36px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    font-size: var(--theme-typography-button-font-size);
+    font-family: var(--theme-typography-button-font-family);
+    font-weight: var(--theme-typography-button-font-weight);
+    line-height: var(--theme-typography-button-line-height);
+    letter-spacing: var(--theme-typography-button-letter-spacing);
+    text-transform: var(--theme-typography-button-text-transform);
+    border-radius: 50%;
+    background-color: var(--theme-palette-grey300);
+}
 
-    .Fab-Root {
-        color: var(--theme-palette-grey300-contrast-text, rgba(0, 0, 0, 0.87));
-        width: 56px;
-        height: 56px;
-        padding: 0;
-        min-width: 0;
-        box-shadow: var(--theme-shadow6, 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
-            0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12));
-        box-sizing: border-box;
-        min-height: 36px;
-        transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-        font-size: var(--theme-typography-button-font-size, 0.875rem);
-        font-family: var(
-            --theme-typography-button-font-family,
-            "Roboto",
-            "Helvetica",
-            "Arial",
-            sans-serif
-        );
-        font-weight: var(--theme-typography-button-font-weight, 500);
-        line-height: var(--theme-typography-button-line-height, 1.75);
-        letter-spacing: var(--theme-typography-button-letter-spacing, 0.02857em);
-        text-transform: var(--theme-typography-button-text-transform, uppercase);
-        border-radius: 50%;
-        background-color: var(--theme-palette-grey300, #e0e0e0);
-    }
+.Fab-Root:active {
+    box-shadow: var(--theme-shadow12);
+}
 
-    .Fab-Root:active {
-        box-shadow: var(--theme-shadow12, 0px 7px 8px -4px rgba(0, 0, 0, 0.2),
-            0px 12px 17px 2px rgba(0, 0, 0, 0.14), 0px 5px 22px 4px rgba(0, 0, 0, 0.12));
-    }
+.Fab-Root.Fab-FocusVisible {
+    box-shadow: var(--theme-shadow6);
+}
 
-    .Fab-Root.Fab-FocusVisible {
-        box-shadow: var(--theme-shadow6, 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
-            0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12));
-    }
+.Fab-Root:hover {
+    text-decoration: none;
+    background-color: var(--theme-palette-greyA100);
+}
 
+.Fab-Root.Fab-Disabled {
+    color: var(--theme-palette-action-disabled);
+    box-shadow: var(--theme-shadow0, none);
+    background-color: var(--theme-palette-action-disabled-background);
+}
+
+@media (hover: none) {
     .Fab-Root:hover {
-        text-decoration: none;
-        background-color: var(--theme-palette-grey-A100, #d5d5d5);
+        background-color: var(--theme-palette-grey300);
     }
+}
 
-    .Fab-Root.Fab-Disabled {
-        color: var(--theme-palette-action-disabled, rgba(0, 0, 0, 0.26));
-        box-shadow: var(--theme-shadow0, none);
-        background-color: var(--theme-palette-action-disabled-background, rgba(0, 0, 0, 0.12));
-    }
+.Fab-Root:hover.Fab-Disabled {
+    background-color: var(--theme-palette-action-disabled-background);
+}
 
-    @media (hover: none) {
-        .Fab-Root:hover {
-            background-color: var(--theme-palette-grey300, #e0e0e0);
-        }
-    }
+.Fab-Label {
+    width: 100%;
+    display: inherit;
+    align-items: inherit;
+    justify-content: inherit;
+}
 
-    .Fab-Root:hover.Fab-Disabled {
-        background-color: var(--theme-palette-action-disabled-background, rgba(0, 0, 0, 0.12));
-    }
+.Fab-Primary {
+    color: var(--theme-palette-primary-contrast-text);
+    background-color: var(--theme-palette-primary-main);
+}
 
-    .Fab-Label {
-        width: 100%;
-        display: inherit;
-        align-items: inherit;
-        justify-content: inherit;
-    }
+.Fab-Primary:hover {
+    background-color: var(--theme-palette-primary-dark);
+}
 
-    .Fab-Primary {
-        color: var(--theme-palette-primary-contrast-text, #fff);
-        background-color: var(--theme-palette-primary-main, #1976d2);
-    }
-
+@media (hover: none) {
     .Fab-Primary:hover {
-        background-color: var(--theme-palette-primary-current, rgb(17, 82, 147));
+        background-color: var(--theme-palette-primary-main);
     }
+}
 
-    @media (hover: none) {
-        .Fab-Primary:hover {
-            background-color: var(--theme-palette-primary-main, #1976d2);
-        }
-    }
+.Fab-Secondary {
+    color: var(--theme-palette-secondary-contrast-text);
+    background-color: var(--theme-palette-secondary-main);
+}
 
-    .Fab-Secondary {
-        color: var(--theme-palette-secondary-contrast-text, #fff);
-        background-color: var(--theme-palette-secondary-main, rgb(220, 0, 78));
-    }
+.Fab-Secondary:hover {
+    background-color: var(--theme-palette-secondary-dark);
+}
 
+@media (hover: none) {
     .Fab-Secondary:hover {
-        background-color: var(--theme-palette-secondary-dark, rgb(154, 0, 54));
+        background-color: var(--theme-palette-secondary-main);
     }
+}
 
-    @media (hover: none) {
-        .Fab-Secondary:hover {
-            background-color: var(--theme-palette-secondary-main, rgb(220, 0, 78));
-        }
-    }
+.Fab-Extended {
+    width: auto;
+    height: 48px;
+    padding: 0 16px;
+    min-width: 48px;
+    min-height: auto;
+    border-radius: 24px;
+}
 
-    .Fab-Extended {
-        width: auto;
-        height: 48px;
-        padding: 0 16px;
-        min-width: 48px;
-        min-height: auto;
-        border-radius: 24px;
-    }
+.Fab-Extended.Fab-Size-Small {
+    width: auto;
+    height: 34px;
+    padding: 0 8px;
+    min-width: 34px;
+    border-radius: 17px;
+}
 
-    .Fab-Extended.Fab-Size-Small {
-        width: auto;
-        height: 34px;
-        padding: 0 8px;
-        min-width: 34px;
-        border-radius: 17px;
-    }
+.Fab-Extended.Fab-Size-Medium {
+    width: auto;
+    height: 40px;
+    padding: 0 16px;
+    min-width: 40px;
+    border-radius: 20px;
+}
 
-    .Fab-Extended.Fab-Size-Medium {
-        width: auto;
-        height: 40px;
-        padding: 0 16px;
-        min-width: 40px;
-        border-radius: 20px;
-    }
+.Fab-Color-Inherit {
+    color: inherit;
+}
 
-    .Fab-Color-Inherit {
-        color: inherit;
-    }
+.Fab-Size-Small {
+    width: 40px;
+    height: 40px;
+}
 
-    .Fab-Size-Small {
-        width: 40px;
-        height: 40px;
-    }
-
-    .Fab-Size-Medium {
-        width: 48px;
-        height: 48px;
-    }
-
-</Styled>
+.Fab-Size-Medium {
+    width: 48px;
+    height: 48px;
+}
