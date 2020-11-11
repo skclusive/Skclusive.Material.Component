@@ -79,13 +79,19 @@ namespace Skclusive.Material.Input
         /// Number of rows to display when multiline option is set to true.
         /// </summary>
         [Parameter]
-        public int Rows { set; get; }
+        public int? Rows { set; get; }
 
         /// <summary>
         /// Maximum number of rows to display when multiline option is set to true.
         /// </summary>
         [Parameter]
-        public int RowsMax { set; get; }
+        public int? RowsMax { set; get; }
+
+        /// <summary>
+        /// maximum number of characters allowed in the <input> element
+        /// </summary>
+        [Parameter]
+        public int? MaxLength { set; get; }
 
         /// <summary>
         /// Should be <c>true</c> when the component hosts a select.
