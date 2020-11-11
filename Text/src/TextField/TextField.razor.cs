@@ -37,6 +37,12 @@ namespace Skclusive.Material.Text
         public bool Focused { set; get; }
 
         /// <summary>
+        /// Number of rows to display when multiline option is set to true.
+        /// </summary>
+        [Parameter]
+        public int Rows { set; get; }
+
+        /// <summary>
         /// If <c>true</c>, the label will indicate that the input is required.
         /// </summary>
         [Parameter]
