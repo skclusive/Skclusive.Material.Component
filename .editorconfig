@@ -8,3 +8,6 @@ end_of_line = crlf
 insert_final_newline = false
 trim_trailing_whitespace = true
 indent_size = 4
+
+[*.{cs,razor}]
+dotnet_diagnostic.CA1304.severity = error
