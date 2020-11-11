@@ -56,7 +56,7 @@ namespace Skclusive.Material.Button
 
         protected bool LastDisabled { set; get; }
 
-        protected string _Type => _Component == "button" ? Type.ToString().ToLower() : null;
+        protected string _Type => _Component == "button" ? Type.ToString().ToLowerInvariant() : null;
 
         protected bool Navigation => !string.IsNullOrWhiteSpace(Href) && _Component == "a";
 

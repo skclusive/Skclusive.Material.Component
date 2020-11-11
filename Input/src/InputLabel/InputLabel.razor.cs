@@ -42,7 +42,7 @@ namespace Skclusive.Material.Input
 
         protected bool _Shrink => Shrink.HasValue ? Shrink.Value : ((_Filled.HasValue && _Filled.Value) || (_Focused.HasValue && _Focused.Value) || (_HasStartAdornment.HasValue && _HasStartAdornment.Value));
 
-        protected string DataShrink => _Shrink.ToString().ToLower();
+        protected string DataShrink => _Shrink.ToString().ToLowerInvariant();
 
         protected override IEnumerable<string> Classes
         {
