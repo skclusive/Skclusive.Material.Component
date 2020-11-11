@@ -139,6 +139,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Link", "Link", "{F3262C3E-F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link", "Link\src\Link.csproj", "{99B30DAF-C3DF-4A92-A374-FBAA7BE3AE21}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Globals", "Globals", "{64BE657C-D1C8-4A96-A565-152DE0B0A4C0}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
