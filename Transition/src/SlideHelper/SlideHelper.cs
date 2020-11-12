@@ -17,7 +17,7 @@ namespace Skclusive.Material.Transition
         {
             if (element.HasValue)
             {
-                return await ScriptService.InvokeAsync<string>("Skclusive.Material.Transition.getSlideTranslateValue", placement.ToString().ToLower(), element);
+                return await ScriptService.InvokeAsync<string>("Skclusive.Material.Transition.getSlideTranslateValue", placement.ToString().ToLowerInvariant(), element);
             }
 
             return null;
@@ -27,7 +27,7 @@ namespace Skclusive.Material.Transition
         {
             if (element.HasValue)
             {
-                await ScriptService.InvokeVoidAsync("Skclusive.Material.Transition.setSlideTranslateValue", placement.ToString().ToLower(), element);
+                await ScriptService.InvokeVoidAsync("Skclusive.Material.Transition.setSlideTranslateValue", placement.ToString().ToLowerInvariant(), element);
             }
         }
     }
