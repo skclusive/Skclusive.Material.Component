@@ -157,6 +157,12 @@ namespace Skclusive.Material.Input
         public EventCallback<ChangeEventArgs> OnChange { set; get; }
 
         /// <summary>
+        /// Binding callback fired when the value is changed.
+        /// </summary>
+        [Parameter]
+        public EventCallback<string> ValueChanged { get; set; }
+
+        /// <summary>
         /// <c>class</c> applied on the <c>Input</c> element.
         /// </summary>
         [Parameter]

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Skclusive.Material.Button
 {
@@ -51,7 +52,7 @@ namespace Skclusive.Material.Button
         public int Timeout { set; get; }
 
         [Parameter]
-        public EventCallback<IReference> OnExited { set; get; }
+        public Func<IReference, Task> OnExited { set; get; }
 
         /// <summary>
         /// <c>class</c> applied on the child element.
@@ -141,10 +142,7 @@ namespace Skclusive.Material.Button
             {
                 Leaving = true;
 
-                if (OnExited.HasDelegate)
-                {
-                    RunTimeout(() => OnExited.InvokeAsync(Reference.Empty), Timeout);
-                }
+                RunTimeout(() => OnExited?.Invoke(Reference.Empty), Timeout);
             }
         }
     }

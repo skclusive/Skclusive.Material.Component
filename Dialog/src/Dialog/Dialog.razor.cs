@@ -134,37 +134,37 @@ namespace Skclusive.Material.Dialog
         /// Transition <c>OnEnter</c> callback.
         /// </summary>
         [Parameter]
-        public EventCallback<(IReference, bool)> OnEnter { set; get; }
+        public Func<(IReference, bool), Task> OnEnter { set; get; }
 
         /// <summary>
         /// Transition <c>OnEntering</c> callback.
         /// </summary>
         [Parameter]
-        public EventCallback<(IReference, bool)> OnEntering { set; get; }
+        public Func<(IReference, bool), Task> OnEntering { set; get; }
 
         /// <summary>
         /// Transition <c>OnEntered</c> callback.
         /// </summary>
         [Parameter]
-        public EventCallback<(IReference, bool)> OnEntered { set; get; }
+        public Func<(IReference, bool), Task> OnEntered { set; get; }
 
         /// <summary>
         /// Transition <c>OnExit</c> callback.
         /// </summary>
         [Parameter]
-        public EventCallback<IReference> OnExit { set; get; }
+        public Func<IReference, Task> OnExit { set; get; }
 
         /// <summary>
         /// Transition <c>OnExiting</c> callback.
         /// </summary>
         [Parameter]
-        public EventCallback<IReference> OnExiting { set; get; }
+        public Func<IReference, Task> OnExiting { set; get; }
 
         /// <summary>
         /// Transition <c>OnExited</c> callback.
         /// </summary>
         [Parameter]
-        public EventCallback<IReference> OnExited { set; get; }
+        public Func<IReference, Task> OnExited { set; get; }
 
         /// <summary>
         /// Callback fired when the dialog is getting closed.
@@ -211,16 +211,16 @@ namespace Skclusive.Material.Dialog
         public Func<(IReference, bool), Task> CreateOnEnter(Func<(IReference, bool), Task> onEnter)
         {
             return async ((IReference reference, bool appearing) args) => {
-                await onEnter?.Invoke(args);
-                await OnEnter.InvokeAsync(args);
+                await (onEnter?.Invoke(args) ?? Task.CompletedTask);
+                await (OnEnter?.Invoke(args) ?? Task.CompletedTask);
             };
         }
 
         public Func<IReference, Task> CreateOnExited(Func<IReference, Task> onExited)
         {
             return async (IReference reference) => {
-                await onExited?.Invoke(reference);
-                await OnExited.InvokeAsync(reference);
+                await (onExited?.Invoke(reference) ?? Task.CompletedTask);
+                await (OnExited?.Invoke(reference) ?? Task.CompletedTask);
             };
         }
 
@@ -330,22 +330,22 @@ namespace Skclusive.Material.Dialog
 
         protected Task HandleEnteringAsync((IReference, bool) args)
         {
-            return OnEntering.InvokeAsync(args);
+            return OnEntering?.Invoke(args) ?? Task.CompletedTask;
         }
 
         protected Task HandleEnteredAsync((IReference, bool) args)
         {
-            return OnEntered.InvokeAsync(args);
+            return OnEntered?.Invoke(args) ?? Task.CompletedTask;
         }
 
         protected Task HandleExitAsync(IReference refback)
         {
-            return OnExit.InvokeAsync(refback);
+            return OnExit?.Invoke(refback) ?? Task.CompletedTask;
         }
 
         protected Task HandleExitingAsync(IReference refback)
         {
-            return OnExiting.InvokeAsync(refback);
+            return OnExiting?.Invoke(refback) ?? Task.CompletedTask;
         }
     }
 }

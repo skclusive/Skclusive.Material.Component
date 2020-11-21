@@ -160,6 +160,12 @@ namespace Skclusive.Material.Input
         public EventCallback<ChangeEventArgs> OnChange { set; get; }
 
         /// <summary>
+        /// Binding callback fired when the value is changed.
+        /// </summary>
+        [Parameter]
+        public EventCallback<string> ValueChanged { get; set; }
+
+        /// <summary>
         /// <c>class</c> applied on the <c>Input</c> element.
         /// </summary>
         [Parameter]
@@ -167,7 +173,7 @@ namespace Skclusive.Material.Input
 
         protected string _Input => InputComponent ?? (Multiline ? "textarea" : "input");
 
-        protected bool IsControlled => OnChange.HasDelegate;
+        protected bool IsControlled => OnChange.HasDelegate || ValueChanged.HasDelegate;
 
         protected string ValueState { set; get; }
 
@@ -282,12 +288,16 @@ namespace Skclusive.Material.Input
             else if (!object.Equals(value, Value))
             {
                 await OnChange.InvokeAsync(args);
+
+                await ValueChanged.InvokeAsync(value);
             }
         }
 
         protected async Task HandleInputAsync(ChangeEventArgs args)
         {
             await OnChange.InvokeAsync(args);
+
+            await ValueChanged.InvokeAsync(args.Value?.ToString());
         }
 
         private string LastValue { set; get; }
@@ -320,6 +330,8 @@ namespace Skclusive.Material.Input
                         {
                             Value = value
                         });
+
+                        await ValueChanged.InvokeAsync(value);
                     }
                 }
                 else

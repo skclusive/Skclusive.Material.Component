@@ -123,37 +123,37 @@ namespace Skclusive.Material.Popover
         /// Callback fired before the Ppopover enters.
         /// </summary>
         [Parameter]
-        public EventCallback<(IReference, bool)> OnEnter { set; get; }
+        public Func<(IReference, bool), Task> OnEnter { set; get; }
 
         /// <summary>
         /// Callback fired when the Ppopover is entering.
         /// </summary>
         [Parameter]
-        public EventCallback<(IReference, bool)> OnEntering { set; get; }
+        public Func<(IReference, bool), Task> OnEntering { set; get; }
 
         /// <summary>
         /// Callback fired when the Ppopover has entered.
         /// </summary>
         [Parameter]
-        public EventCallback<(IReference, bool)> OnEntered { set; get; }
+        public Func<(IReference, bool), Task> OnEntered { set; get; }
 
         /// <summary>
         /// Callback fired before the Ppopover exits.
         /// </summary>
         [Parameter]
-        public EventCallback<IReference> OnExit { set; get; }
+        public Func<IReference, Task> OnExit { set; get; }
 
         /// <summary>
         /// Callback fired when the Ppopover is exiting.
         /// </summary>
         [Parameter]
-        public EventCallback<IReference> OnExiting { set; get; }
+        public Func<IReference, Task> OnExiting { set; get; }
 
         /// <summary>
         /// Callback fired when the Ppopover has exited.
         /// </summary>
         [Parameter]
-        public EventCallback<IReference> OnExited { set; get; }
+        public Func<IReference, Task> OnExited { set; get; }
 
         [Parameter]
         public EventCallback OnClose { set; get; }
@@ -295,9 +295,9 @@ namespace Skclusive.Material.Popover
 
                 await SetPositioningStylesAsync(reference.Current);
 
-                await onEnter?.Invoke(args);
+                await (onEnter?.Invoke(args) ?? Task.CompletedTask);
 
-                await OnEnter.InvokeAsync(args);
+                await (OnEnter?.Invoke(args) ?? Task.CompletedTask);
             };
         }
 
@@ -305,9 +305,9 @@ namespace Skclusive.Material.Popover
         {
             return async (IReference reference) =>
             {
-                await onExited?.Invoke(reference);
+                await (onExited?.Invoke(reference) ?? Task.CompletedTask);
 
-                await OnExited.InvokeAsync(reference);
+                await (OnExited?.Invoke(reference) ?? Task.CompletedTask);
             };
         }
 
@@ -373,24 +373,24 @@ namespace Skclusive.Material.Popover
 
         protected Task HandleEnteringAsync((IReference, bool) args)
         {
-            return OnEntering.InvokeAsync(args);
+            return OnEntering?.Invoke(args) ?? Task.CompletedTask;
 
             // _ = SetPositioningStylesAsync(refback.Current);
         }
 
         protected Task HandleEnteredAsync((IReference, bool) args)
         {
-            return OnEntered.InvokeAsync(args);
+            return OnEntered?.Invoke(args) ?? Task.CompletedTask;
         }
 
         protected Task HandleExitAsync(IReference refback)
         {
-            return OnExit.InvokeAsync(refback);
+            return OnExit?.Invoke(refback) ?? Task.CompletedTask;
         }
 
         protected Task HandleExitingAsync(IReference refback)
         {
-            return OnExiting.InvokeAsync(refback);
+            return OnExiting?.Invoke(refback) ?? Task.CompletedTask;
         }
 
         protected async Task<double> GetContentAnchorOffsetAsync(ElementReference? element)

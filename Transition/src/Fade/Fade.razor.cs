@@ -35,37 +35,37 @@ namespace Skclusive.Material.Transition
         /// Callback fired before the Menu enters.
         /// </summary>
         [Parameter]
-        public EventCallback<(IReference, bool)> OnEnter { set; get; }
+        public Func<(IReference, bool), Task> OnEnter { set; get; }
 
         /// <summary>
         /// Callback fired when the Menu is entering.
         /// </summary>
         [Parameter]
-        public EventCallback<(IReference, bool)> OnEntering { set; get; }
+        public Func<(IReference, bool), Task> OnEntering { set; get; }
 
         /// <summary>
         /// Callback fired when the Menu has entered.
         /// </summary>
         [Parameter]
-        public EventCallback<(IReference, bool)> OnEntered { set; get; }
+        public Func<(IReference, bool), Task> OnEntered { set; get; }
 
         /// <summary>
         /// Callback fired before the Menu exits.
         /// </summary>
         [Parameter]
-        public EventCallback<IReference> OnExit { set; get; }
+        public Func<IReference, Task> OnExit { set; get; }
 
         /// <summary>
         /// Callback fired when the Menu is exiting.
         /// </summary>
         [Parameter]
-        public EventCallback<IReference> OnExiting { set; get; }
+        public Func<IReference, Task> OnExiting { set; get; }
 
         /// <summary>
         /// Callback fired when the Menu has exited.
         /// </summary>
         [Parameter]
-        public EventCallback<IReference> OnExited { set; get; }
+        public Func<IReference, Task> OnExited { set; get; }
 
         /// <summary>
         /// fade transition duration.
@@ -198,32 +198,32 @@ namespace Skclusive.Material.Transition
         {
             //SetTransition(refback, GetEnterDuration(), TransitionDelay);
 
-            return OnEnter.InvokeAsync(args);
+            return OnEnter?.Invoke(args) ?? Task.CompletedTask;
         }
 
         protected Task HandleEnteringAsync((IReference, bool) args)
         {
-            return OnEntering.InvokeAsync(args);
+            return OnEntering?.Invoke(args) ?? Task.CompletedTask;
         }
 
         protected Task HandleEnteredAsync((IReference, bool) args)
         {
-            return OnEntered.InvokeAsync(args);
+            return OnEntered?.Invoke(args) ?? Task.CompletedTask;
         }
 
         protected Task HandleExitAsync(IReference refback)
         {
-            return OnExit.InvokeAsync(refback);
+            return OnExit?.Invoke(refback) ?? Task.CompletedTask;
         }
 
         protected Task HandleExitingAsync(IReference refback)
         {
-            return OnExiting.InvokeAsync(refback);
+            return OnExiting?.Invoke(refback) ?? Task.CompletedTask;
         }
 
         protected Task HandleExitedAsync(IReference refback)
         {
-            return OnExited.InvokeAsync(refback);
+            return OnExited?.Invoke(refback) ?? Task.CompletedTask;
         }
 
         protected string GetTransition(int duration, int delay)

@@ -182,6 +182,12 @@ namespace Skclusive.Material.Text
         [Parameter]
         public EventCallback<ChangeEventArgs> OnChange { set; get; }
 
+        /// <summary>
+        /// Binding callback fired when the value is changed.
+        /// </summary>
+        [Parameter]
+        public EventCallback<string> ValueChanged { get; set; }
+
         protected ControlVariant? _Variant => Variant != null ? (ControlVariant)Enum.Parse(typeof(ControlVariant), Variant.ToString()) : default(ControlVariant?);
 
         protected bool HasStartAdornment => StartAdornment != null;
@@ -243,6 +249,8 @@ namespace Skclusive.Material.Text
             await InvokeAsync(StateHasChanged);
 
             await OnChange.InvokeAsync(args);
+
+            await ValueChanged.InvokeAsync(Value);
         }
     }
 }
