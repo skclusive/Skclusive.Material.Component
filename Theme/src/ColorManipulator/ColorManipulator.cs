@@ -9,20 +9,30 @@ namespace Skclusive.Material.Theme
 {
     public static class ColorManipulator
     {
+        public static decimal Clamp(decimal n, int min, int max)
+        {
+            return Math.Max(Math.Min(n, max), min);
+        }
+
         public static string HexToRgb(this string color)
         {
             color = color.Substring(1);
 
             var reg = new Regex($".{{1,{color.Length / 3}}}", RegexOptions.ECMAScript);
 
-            IList<Match> matches = reg.Matches(color);
+            var matches = reg.Matches(color);
 
             var builder = new StringBuilder();
             if (matches.Count > 0)
             {
                 builder.Append("rgb(");
 
-                var hexes = matches.Select(match => match.Value).ToList();
+                var hexes = new List<string>();
+                for (int ctr = 0; ctr < matches.Count; ctr++)
+                {
+                    hexes.Add(matches[ctr].Value);
+                }
+                // matches.Select(match => match.Value).ToList();
 
                 if (matches[0].Length == 1)
                 {
@@ -101,7 +111,7 @@ namespace Skclusive.Material.Theme
             var type = color.Substring(0, marker);
 
             var values = color.Substring(marker + 1, (color.Length - 1) - (marker + 1))
-            .Split(",")
+            .Split(',')
             .Select(value => value.Trim().Replace("%", ""))
             .Select(value => decimal.Parse(value, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture)).ToArray();
 
@@ -154,7 +164,7 @@ namespace Skclusive.Material.Theme
         {
             var (type, values) = color.DecomposeColor();
 
-            alpha = Math.Clamp(alpha, 0, 1);
+            alpha = Clamp(alpha, 0, 1);
 
             var segs = new List<decimal>(values);
             if (segs.Count > 3)
@@ -174,7 +184,7 @@ namespace Skclusive.Material.Theme
         {
             var (type, values) = color.DecomposeColor();
 
-            coefficient = Math.Clamp(coefficient, 0, 1);
+            coefficient = Clamp(coefficient, 0, 1);
 
             if (type.IndexOf("hsl") != -1)
             {
@@ -194,7 +204,7 @@ namespace Skclusive.Material.Theme
         {
             var (type, values) = color.DecomposeColor();
 
-            coefficient = Math.Clamp(coefficient, 0, 1);
+            coefficient = Clamp(coefficient, 0, 1);
 
             if (type.IndexOf("hsl") != -1)
             {

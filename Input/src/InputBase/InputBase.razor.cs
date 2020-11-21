@@ -97,13 +97,19 @@ namespace Skclusive.Material.Input
         /// Number of rows to display when multiline option is set to true.
         /// </summary>
         [Parameter]
-        public int Rows { set; get; }
+        public int? Rows { set; get; }
 
         /// <summary>
         /// Maximum number of rows to display when multiline option is set to true.
         /// </summary>
         [Parameter]
-        public int RowsMax { set; get; }
+        public int? RowsMax { set; get; }
+
+        /// <summary>
+        /// maximum number of characters allowed in the <input> element
+        /// </summary>
+        [Parameter]
+        public int? MaxLength { set; get; }
 
         /// <summary>
         /// Should be <c>true</c> when the component hosts a select.
@@ -154,6 +160,12 @@ namespace Skclusive.Material.Input
         public EventCallback<ChangeEventArgs> OnChange { set; get; }
 
         /// <summary>
+        /// Binding callback fired when the value is changed.
+        /// </summary>
+        [Parameter]
+        public EventCallback<string> ValueChanged { get; set; }
+
+        /// <summary>
         /// <c>class</c> applied on the <c>Input</c> element.
         /// </summary>
         [Parameter]
@@ -161,7 +173,7 @@ namespace Skclusive.Material.Input
 
         protected string _Input => InputComponent ?? (Multiline ? "textarea" : "input");
 
-        protected bool IsControlled => OnChange.HasDelegate;
+        protected bool IsControlled => OnChange.HasDelegate || ValueChanged.HasDelegate;
 
         protected string ValueState { set; get; }
 
@@ -276,12 +288,16 @@ namespace Skclusive.Material.Input
             else if (!object.Equals(value, Value))
             {
                 await OnChange.InvokeAsync(args);
+
+                await ValueChanged.InvokeAsync(value);
             }
         }
 
         protected async Task HandleInputAsync(ChangeEventArgs args)
         {
             await OnChange.InvokeAsync(args);
+
+            await ValueChanged.InvokeAsync(args.Value?.ToString());
         }
 
         private string LastValue { set; get; }
@@ -314,6 +330,8 @@ namespace Skclusive.Material.Input
                         {
                             Value = value
                         });
+
+                        await ValueChanged.InvokeAsync(value);
                     }
                 }
                 else

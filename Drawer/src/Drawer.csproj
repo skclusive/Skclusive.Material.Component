@@ -1,9 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <VersionPrefix>5.0.1</VersionPrefix>
+    <VersionPrefix>5.1.0</VersionPrefix>
     <VersionSuffix>$(VersionSuffix)</VersionSuffix>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net5.0</TargetFrameworks>
+    <RazorLangVersion>3.0</RazorLangVersion>
     <AssemblyName>Skclusive.Material.Drawer</AssemblyName>
     <PackageId>Skclusive.Material.Drawer</PackageId>
     <RootNamespace>Skclusive.Material.Drawer</RootNamespace>

@@ -36,37 +36,37 @@ namespace Skclusive.Material.Transition
         /// Callback fired before the Menu enters.
         /// </summary>
         [Parameter]
-        public EventCallback<(IReference, bool)> OnEnter { set; get; }
+        public Func<(IReference, bool), Task> OnEnter { set; get; }
 
         /// <summary>
         /// Callback fired when the Menu is entering.
         /// </summary>
         [Parameter]
-        public EventCallback<(IReference, bool)> OnEntering { set; get; }
+        public Func<(IReference, bool), Task> OnEntering { set; get; }
 
         /// <summary>
         /// Callback fired when the Menu has entered.
         /// </summary>
         [Parameter]
-        public EventCallback<(IReference, bool)> OnEntered { set; get; }
+        public Func<(IReference, bool), Task> OnEntered { set; get; }
 
         /// <summary>
         /// Callback fired before the Menu exits.
         /// </summary>
         [Parameter]
-        public EventCallback<IReference> OnExit { set; get; }
+        public Func<IReference, Task> OnExit { set; get; }
 
         /// <summary>
         /// Callback fired when the Menu is exiting.
         /// </summary>
         [Parameter]
-        public EventCallback<IReference> OnExiting { set; get; }
+        public Func<IReference, Task> OnExiting { set; get; }
 
         /// <summary>
         /// Callback fired when the Menu has exited.
         /// </summary>
         [Parameter]
-        public EventCallback<IReference> OnExited { set; get; }
+        public Func<IReference, Task> OnExited { set; get; }
 
         /// <summary>
         /// collapse transition duration.
@@ -183,7 +183,7 @@ namespace Skclusive.Material.Transition
 
             await DomHelpers.SetStyleAsync(refback.Current, styles, trigger: true);
 
-            await OnEnter.InvokeAsync(args);
+            await (OnEnter?.Invoke(args) ?? Task.CompletedTask);
         }
 
         protected async Task HandleEnteringAsync((IReference, bool) args)
@@ -200,7 +200,7 @@ namespace Skclusive.Material.Transition
 
             await DomHelpers.SetStyleAsync(refback.Current, styles, trigger: true);
 
-            await OnEntering.InvokeAsync(args);
+            await (OnEntering?.Invoke(args) ?? Task.CompletedTask);
         }
 
         protected async Task HandleEnteredAsync((IReference, bool) args)
@@ -214,7 +214,7 @@ namespace Skclusive.Material.Transition
 
             await DomHelpers.SetStyleAsync(refback.Current, styles, trigger: true);
 
-            await OnEntered.InvokeAsync(args);
+            await (OnEntered?.Invoke(args) ?? Task.CompletedTask);
         }
 
         protected async Task HandleExitAsync(IReference refback)
@@ -228,7 +228,7 @@ namespace Skclusive.Material.Transition
 
             await DomHelpers.SetStyleAsync(refback.Current, styles, trigger: true);
 
-            await OnExit.InvokeAsync(refback);
+            await (OnExit?.Invoke(refback) ?? Task.CompletedTask);
         }
 
         protected async Task HandleExitingAsync(IReference refback)
@@ -241,12 +241,12 @@ namespace Skclusive.Material.Transition
 
             await DomHelpers.SetStyleAsync(refback.Current, styles, trigger: true);
 
-            await OnExiting.InvokeAsync(refback);
+            await (OnExiting?.Invoke(refback) ?? Task.CompletedTask);
         }
 
         protected Task HandleExitedAsync(IReference refback)
         {
-            return OnExited.InvokeAsync(refback);
+            return OnExited?.Invoke(refback) ?? Task.CompletedTask;
         }
 
         protected string GetTransition(int duration, int delay)

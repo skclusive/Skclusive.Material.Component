@@ -48,25 +48,25 @@ namespace Skclusive.Material.Transition
         /// Callback fired before the Menu enters.
         /// </summary>
         [Parameter]
-        public EventCallback<(IReference, bool)> OnEnter { set; get; }
+        public Func<(IReference, bool), Task> OnEnter { set; get; }
 
         /// <summary>
         /// Callback fired when the Menu is entering.
         /// </summary>
         [Parameter]
-        public EventCallback<(IReference, bool)> OnEntering { set; get; }
+        public Func<(IReference, bool), Task> OnEntering { set; get; }
 
         /// <summary>
         /// Callback fired before the Menu exits.
         /// </summary>
         [Parameter]
-        public EventCallback<IReference> OnExit { set; get; }
+        public Func<IReference, Task> OnExit { set; get; }
 
         /// <summary>
         /// Callback fired when the Menu has exited.
         /// </summary>
         [Parameter]
-        public EventCallback<IReference> OnExited { set; get; }
+        public Func<IReference, Task> OnExited { set; get; }
 
         /// <summary>
         /// slide transition appear.
@@ -189,7 +189,7 @@ namespace Skclusive.Material.Transition
 
             await SlideHelper.SetSlideTranslateValueAsync(Placement, refback.Current);
 
-            await OnEnter.InvokeAsync(args);
+            await (OnEnter?.Invoke(args) ?? Task.CompletedTask);
         }
 
         protected async Task HandleEnteringAsync((IReference, bool) args)
@@ -208,7 +208,7 @@ namespace Skclusive.Material.Transition
 
             await DomHelpers.SetStyleAsync(refback.Current, styles, trigger: true);
 
-            await OnEntering.InvokeAsync(args);
+            await (OnEntering?.Invoke(args) ?? Task.CompletedTask);
         }
 
         protected async Task HandleExitAsync(IReference refback)
@@ -225,7 +225,7 @@ namespace Skclusive.Material.Transition
 
             await SlideHelper.SetSlideTranslateValueAsync(Placement, refback.Current);
 
-            await OnExit.InvokeAsync(refback);
+            await (OnExit?.Invoke(refback) ?? Task.CompletedTask);
         }
 
         protected async Task HandleExitedAsync(IReference refback)
@@ -241,7 +241,7 @@ namespace Skclusive.Material.Transition
 
             await DomHelpers.SetStyleAsync(refback.Current, styles, trigger: false);
 
-            await OnExited.InvokeAsync(refback);
+            await (OnExited?.Invoke(refback) ?? Task.CompletedTask);
         }
 
         protected override async Task OnAfterUpdateAsync()

@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Linq;
 
@@ -7,12 +6,12 @@ namespace Skclusive.Material.Theme
 {
     internal class StyleProducerComparator : IEqualityComparer<IStyleProducer>
     {
-        public bool Equals([AllowNull] IStyleProducer left, [AllowNull] IStyleProducer right)
+        public bool Equals(IStyleProducer left, IStyleProducer right)
         {
             return left.GetType().Equals(right.GetType());
         }
 
-        public int GetHashCode([DisallowNull] IStyleProducer obj)
+        public int GetHashCode(IStyleProducer obj)
         {
             return obj.GetType().GetHashCode();
         }
@@ -38,7 +37,7 @@ namespace Skclusive.Material.Theme
         {
             var scheme = theme.IsDark() ? "dark" : "light";
 
-            return @$"@media (prefers-color-scheme: {scheme}) {{
+            return $@"@media (prefers-color-scheme: {scheme}) {{
                 {BuildScheme(theme)}
             }}";
         }

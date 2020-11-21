@@ -34,7 +34,6 @@ namespace Skclusive.Material.Component
             services.TryAddContainerServices(config);
             services.TryAddGridServices(config);
             services.TryAddDividerServices(config);
-            services.TryAddHiddenServices(config);
             services.TryAddBadgeServices(config);
             services.TryAddToolbarServices(config);
             services.TryAddProgressServices(config);
@@ -50,6 +49,8 @@ namespace Skclusive.Material.Component
             services.TryAddMenuServices(config);
             services.TryAddTextServices(config);
             services.TryAddAppBarServices(config);
+
+            services.TryAddHiddenServices(config);
         }
     }
 }

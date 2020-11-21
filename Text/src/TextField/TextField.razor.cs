@@ -37,6 +37,24 @@ namespace Skclusive.Material.Text
         public bool Focused { set; get; }
 
         /// <summary>
+        /// Number of rows to display when multiline option is set to true.
+        /// </summary>
+        [Parameter]
+        public int? Rows { set; get; }
+
+        /// <summary>
+        /// Maximum number of rows to display when multiline option is set to true.
+        /// </summary>
+        [Parameter]
+        public int? RowsMax { set; get; }
+
+        /// <summary>
+        /// maximum number of characters allowed in the <input> element
+        /// </summary>
+        [Parameter]
+        public int? MaxLength { set; get; }
+
+        /// <summary>
         /// If <c>true</c>, the label will indicate that the input is required.
         /// </summary>
         [Parameter]
@@ -164,6 +182,12 @@ namespace Skclusive.Material.Text
         [Parameter]
         public EventCallback<ChangeEventArgs> OnChange { set; get; }
 
+        /// <summary>
+        /// Binding callback fired when the value is changed.
+        /// </summary>
+        [Parameter]
+        public EventCallback<string> ValueChanged { get; set; }
+
         protected ControlVariant? _Variant => Variant != null ? (ControlVariant)Enum.Parse(typeof(ControlVariant), Variant.ToString()) : default(ControlVariant?);
 
         protected bool HasStartAdornment => StartAdornment != null;
@@ -225,6 +249,8 @@ namespace Skclusive.Material.Text
             await InvokeAsync(StateHasChanged);
 
             await OnChange.InvokeAsync(args);
+
+            await ValueChanged.InvokeAsync(Value);
         }
     }
 }

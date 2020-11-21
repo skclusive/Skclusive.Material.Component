@@ -110,7 +110,7 @@ namespace Skclusive.Material.Button
                 builder.OpenRegion(context.Key);
                 builder.OpenComponent<Ripple>(context.Key + 1);
                 builder.AddAttribute(context.Key + 2, "In", context.In);
-                builder.AddAttribute(context.Key + 3, "OnExited", EventCallback.Factory.Create(this, context.OnExited));
+                builder.AddAttribute(context.Key + 3, "OnExited", context.OnExited);
                 builder.AddAttribute(context.Key + 4, "Timeout", DURATION);
                 builder.AddAttribute(context.Key + 5, "Pulsate", pulsate);
                 builder.AddAttribute(context.Key + 6, "RippleX", rippleX);

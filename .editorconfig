@@ -1,0 +1,17 @@
+﻿# This file is the top-most EditorConfig file
+root = true
+
+[*]
+charset = utf-8-bom
+indent_style = space
+end_of_line = crlf
+insert_final_newline = false
+trim_trailing_whitespace = true
+indent_size = 4
+
+[*.{xml,csproj}]
+indent_size = 2
+insert_final_newline = true
+
+[*.{cs,razor}]
+dotnet_diagnostic.CA1304.severity = error
