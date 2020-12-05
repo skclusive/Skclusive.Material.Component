@@ -4,7 +4,7 @@ namespace Skclusive.Material.Link
 {
     public class LinkStyleProvider : StyleTypeProvider
     {
-        public LinkStyleProvider() : base(typeof(LinkStyle))
+        public LinkStyleProvider() : base(priority: 200, typeof(LinkStyle))
         {
         }
     }

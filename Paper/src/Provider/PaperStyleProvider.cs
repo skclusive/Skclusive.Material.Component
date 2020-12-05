@@ -4,7 +4,7 @@ namespace Skclusive.Material.Paper
 {
     public class PaperStyleProvider : StyleTypeProvider
     {
-        public PaperStyleProvider() : base(typeof(PaperStyle))
+        public PaperStyleProvider() : base(priority: 70, typeof(PaperStyle))
         {
         }
     }

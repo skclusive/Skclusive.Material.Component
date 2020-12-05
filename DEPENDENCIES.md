@@ -5,8 +5,8 @@
 1 - Core
     2 - Script (DomHelpers)
     2 - Theme
-        3 - Responsive (just for consitent)
         3 - Baseline
+        3 - Responsive (just for consitent)
         3 - Container
         3 - Divider
         3 - Grid
@@ -59,3 +59,35 @@
                 5 - Popover
                     6 - Menu
 
+
+Priority:
+
+Baseline: 10
+Container: 20
+Grid: 30
+Divider: 40
+Badge: 50
+Avatar: 60
+Paper: 70
+Icon: 80
+Form: 90
+Toolbar: 100
+Typography: 110
+Chip: 120
+Transition: 130
+Button: 140
+Card: 150
+Progress: 160
+Selection: 170
+Tab: 180
+Table: 190
+Link: 200
+Modal: 210
+Dialog: 220
+Drawer: 230
+List: 240
+Popover: 250
+Menu: 260
+Input: 270
+AppBar: 280
+Hidden: 1000

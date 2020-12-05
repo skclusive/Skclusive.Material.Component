@@ -45,6 +45,18 @@ namespace Skclusive.Material.Input
         public bool AutoFocus { set; get; }
 
         /// <summary>
+        /// safari `AutoCorrect` for this component.
+        /// </summary>
+        [Parameter]
+        public bool AutoCorrect { set; get; }
+
+        /// <summary>
+        /// safari `AutoCapitalize` for this component.
+        /// </summary>
+        [Parameter]
+        public bool AutoCapitalize { set; get; }
+
+        /// <summary>
         /// The default <c>input</c> element value. Use when the component is not controlled.
         /// </summary>
         [Parameter]
@@ -172,6 +184,10 @@ namespace Skclusive.Material.Input
         public string InputClass { set; get; }
 
         protected string _Input => InputComponent ?? (Multiline ? "textarea" : "input");
+
+        protected string _AutoCorrect => AutoCorrect ? "on" : "off";
+
+        protected string _AutoCapitalize => AutoCapitalize ? "on" : "off";
 
         protected bool IsControlled => OnChange.HasDelegate || ValueChanged.HasDelegate;
 

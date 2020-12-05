@@ -4,7 +4,7 @@ namespace Skclusive.Material.Popover
 {
     public class PopoverStyleProvider : StyleTypeProvider
     {
-        public PopoverStyleProvider() : base(typeof(PopoverStyle))
+        public PopoverStyleProvider() : base(priority: 250, typeof(PopoverStyle))
         {
         }
     }

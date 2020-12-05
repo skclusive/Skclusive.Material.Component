@@ -6,6 +6,7 @@ namespace Skclusive.Material.Card
     {
         public CardStyleProvider() : base
         (
+            priority: 150,
             typeof(CardStyle),
             typeof(CardContentStyle),
             typeof(CardHeaderStyle),

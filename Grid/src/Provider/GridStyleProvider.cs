@@ -4,7 +4,7 @@ namespace Skclusive.Material.Grid
 {
     public class GridStyleProvider : StyleTypeProvider
     {
-        public GridStyleProvider() : base(typeof(GridStyle))
+        public GridStyleProvider() : base(priority: 30, typeof(GridStyle))
         {
         }
     }

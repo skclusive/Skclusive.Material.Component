@@ -4,7 +4,7 @@ namespace Skclusive.Material.Menu
 {
     public class MenuScriptProvider : ScriptTypeProvider
     {
-        public MenuScriptProvider() : base(typeof(MenuScript))
+        public MenuScriptProvider() : base(priority: 260, typeof(MenuScript))
         {
         }
     }

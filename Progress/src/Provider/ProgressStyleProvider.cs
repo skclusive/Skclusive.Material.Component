@@ -4,7 +4,7 @@ namespace Skclusive.Material.Progress
 {
     public class ProgressStyleProvider : StyleTypeProvider
     {
-        public ProgressStyleProvider() : base(typeof(CircularProgressStyle), typeof(LinearProgressStyle))
+        public ProgressStyleProvider() : base(priority: 160, typeof(CircularProgressStyle), typeof(LinearProgressStyle))
         {
         }
     }

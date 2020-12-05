@@ -6,6 +6,9 @@ using Skclusive.Core.Component;
 namespace Skclusive.Material.Modal
 {
     public class TrapFocusHelper : IAsyncDisposable
+    #if NETSTANDARD2_0
+        , IDisposable
+    #endif
     {
         public TrapFocusHelper(IScriptService scriptService)
         {
@@ -30,5 +33,17 @@ namespace Skclusive.Material.Modal
                 await ScriptService.InvokeVoidAsync("Skclusive.Material.Modal.TrapFocusHelper.dispose", Id);
             }
         }
+
+#if NETSTANDARD2_0
+
+        void IDisposable.Dispose()
+        {
+            if (this is IAsyncDisposable disposable)
+            {
+                _ = disposable.DisposeAsync();
+            }
+        }
+
+#endif
     }
 }

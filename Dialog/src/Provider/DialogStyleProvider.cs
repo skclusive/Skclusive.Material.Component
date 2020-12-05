@@ -6,6 +6,7 @@ namespace Skclusive.Material.Dialog
     {
         public DialogStyleProvider() : base
         (
+            priority: 220,
             typeof(DialogStyle),
             typeof(DialogActionsStyle),
             typeof(DialogContentStyle),

@@ -6,6 +6,7 @@ namespace Skclusive.Material.List
     {
         public ListStyleProvider() : base
         (
+            priority: 240,
             typeof(ListStyle),
             typeof(ListItemStyle),
             typeof(ListItemAvatarStyle),

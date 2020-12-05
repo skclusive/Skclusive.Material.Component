@@ -6,6 +6,7 @@ namespace Skclusive.Material.Modal
     {
         public ModalStyleProvider() : base
         (
+            priority: 210,
             typeof(BackdropStyle),
             typeof(SimpleBackdropStyle)
         )

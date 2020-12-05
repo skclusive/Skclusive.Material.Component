@@ -4,7 +4,7 @@ namespace Skclusive.Material.Transition
 {
     public class TransitionScriptProvider : ScriptTypeProvider
     {
-        public TransitionScriptProvider() : base(typeof(TransitionScript))
+        public TransitionScriptProvider() : base(priority: 130, typeof(TransitionScript))
         {
         }
     }

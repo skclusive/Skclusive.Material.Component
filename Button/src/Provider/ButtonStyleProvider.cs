@@ -6,6 +6,7 @@ namespace Skclusive.Material.Button
     {
         public ButtonStyleProvider() : base
         (
+            priority: 140,
             typeof(ButtonBaseStyle),
             typeof(FabStyle),
             typeof(IconButtonStyle),

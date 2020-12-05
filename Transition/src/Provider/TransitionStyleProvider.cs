@@ -4,7 +4,7 @@ namespace Skclusive.Material.Transition
 {
     public class TransitionStyleProvider : StyleTypeProvider
     {
-        public TransitionStyleProvider() : base(typeof(CollapseContainerStyle))
+        public TransitionStyleProvider() : base(priority: 130, typeof(CollapseContainerStyle))
         {
         }
     }

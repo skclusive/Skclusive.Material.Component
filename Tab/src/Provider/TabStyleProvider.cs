@@ -6,6 +6,7 @@ namespace Skclusive.Material.Tab
     {
         public TabStyleProvider() : base
         (
+            priority: 170,
             typeof(TabIndicatorStyle),
             typeof(TabScrollButtonStyle),
             typeof(TabStyle),

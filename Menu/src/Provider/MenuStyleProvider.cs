@@ -4,7 +4,7 @@ namespace Skclusive.Material.Menu
 {
     public class MenuStyleProvider : StyleTypeProvider
     {
-        public MenuStyleProvider() : base(typeof(MenuStyle), typeof(MenuItemStyle))
+        public MenuStyleProvider() : base(priority: 260, typeof(MenuStyle), typeof(MenuItemStyle))
         {
         }
     }

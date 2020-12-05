@@ -4,7 +4,7 @@ namespace Skclusive.Material.Popover
 {
     public class PopoverScriptProvider : ScriptTypeProvider
     {
-        public PopoverScriptProvider() : base(typeof(PopoverScript))
+        public PopoverScriptProvider() : base(priority: 250, typeof(PopoverScript))
         {
         }
     }

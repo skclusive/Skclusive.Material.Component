@@ -15,9 +15,9 @@ namespace Skclusive.Material.Selection
         {
             services.TryAddIconServices(config);
 
-            services.TryAddFormServices(config);
-
             services.TryAddButtonServices(config);
+
+            services.TryAddFormServices(config);
 
             services.TryAddTransient<RadioGroupHelper>();
 

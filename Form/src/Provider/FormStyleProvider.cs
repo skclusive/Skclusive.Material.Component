@@ -6,6 +6,7 @@ namespace Skclusive.Material.Form
     {
         public FormStyleProvider() : base
         (
+            priority: 90,
             typeof(FormControlStyle),
             typeof(FormControlLabelStyle),
             typeof(FormGroupStyle),

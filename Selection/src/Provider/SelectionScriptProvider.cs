@@ -4,7 +4,7 @@ namespace Skclusive.Material.Selection
 {
     public class SelectionScriptProvider : ScriptTypeProvider
     {
-        public SelectionScriptProvider() : base(typeof(SelectionScript))
+        public SelectionScriptProvider() : base(priority: 170, typeof(SelectionScript))
         {
         }
     }

@@ -4,7 +4,7 @@ namespace Skclusive.Material.Typography
 {
     public class TypographyStyleProvider : StyleTypeProvider
     {
-        public TypographyStyleProvider() : base(typeof(TypographyStyle))
+        public TypographyStyleProvider() : base(priority: 110, typeof(TypographyStyle))
         {
         }
     }

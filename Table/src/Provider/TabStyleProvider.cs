@@ -6,6 +6,7 @@ namespace Skclusive.Material.Table
     {
         public TableStyleProvider() : base
         (
+            priority: 190,
             typeof(TableStyle),
             typeof(TableBodyStyle),
             typeof(TableCellStyle),

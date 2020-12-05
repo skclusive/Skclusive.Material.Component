@@ -4,7 +4,7 @@ namespace Skclusive.Material.Badge
 {
     public class BadgeStyleProvider : StyleTypeProvider
     {
-        public BadgeStyleProvider() : base(typeof(BadgeStyle))
+        public BadgeStyleProvider() : base(priority: 50, typeof(BadgeStyle))
         {
         }
     }

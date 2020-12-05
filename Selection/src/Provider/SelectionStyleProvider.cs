@@ -6,6 +6,7 @@ namespace Skclusive.Material.Selection
     {
         public SelectionStyleProvider() : base
         (
+            priority: 170,
             typeof(SwitchBaseStyle),
             typeof(SwitchStyle),
             typeof(CheckboxStyle),

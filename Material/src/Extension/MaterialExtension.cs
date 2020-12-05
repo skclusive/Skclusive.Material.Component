@@ -29,8 +29,8 @@ namespace Skclusive.Material.Component
     {
         public static void TryAddMaterialServices(this IServiceCollection services, IMaterialConfig config)
         {
-            services.TryAddResponsiveServices(config);
             services.TryAddBaselineServices(config);
+            services.TryAddResponsiveServices(config);
             services.TryAddContainerServices(config);
             services.TryAddGridServices(config);
             services.TryAddDividerServices(config);

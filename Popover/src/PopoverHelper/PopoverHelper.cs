@@ -8,6 +8,9 @@ using System;
 namespace Skclusive.Material.Popover
 {
     public class PopoverHelper : IAsyncDisposable
+    #if NETSTANDARD2_0
+        , IDisposable
+    #endif
     {
         public PopoverHelper(IScriptService scriptService, DomHelpers domHelpers)
         {
@@ -57,5 +60,17 @@ namespace Skclusive.Material.Popover
         {
             return default;
         }
+
+#if NETSTANDARD2_0
+
+        void IDisposable.Dispose()
+        {
+            if (this is IAsyncDisposable disposable)
+            {
+                _ = disposable.DisposeAsync();
+            }
+        }
+
+#endif
     }
 }

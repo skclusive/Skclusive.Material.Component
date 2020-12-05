@@ -6,6 +6,9 @@ using Skclusive.Core.Component;
 namespace Skclusive.Material.Menu
 {
     public class MenuListHelper : IAsyncDisposable
+    #if NETSTANDARD2_0
+        , IDisposable
+    #endif
     {
         public MenuListHelper(IScriptService scriptService)
         {
@@ -28,5 +31,17 @@ namespace Skclusive.Material.Menu
                 await ScriptService.InvokeVoidAsync("Skclusive.Material.Menu.MenuListHelper.construct", Id);
             }
         }
+
+#if NETSTANDARD2_0
+
+        void IDisposable.Dispose()
+        {
+            if (this is IAsyncDisposable disposable)
+            {
+                _ = disposable.DisposeAsync();
+            }
+        }
+
+#endif
     }
 }

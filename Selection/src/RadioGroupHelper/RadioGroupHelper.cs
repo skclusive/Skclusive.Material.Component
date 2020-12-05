@@ -6,6 +6,9 @@ using Skclusive.Core.Component;
 namespace Skclusive.Material.Selection
 {
     public class RadioGroupHelper : IAsyncDisposable
+    #if NETSTANDARD2_0
+        , IDisposable
+    #endif
     {
         public RadioGroupHelper(IScriptService scriptService)
         {
@@ -26,5 +29,17 @@ namespace Skclusive.Material.Selection
         {
             return default;
         }
+
+#if NETSTANDARD2_0
+
+        void IDisposable.Dispose()
+        {
+            if (this is IAsyncDisposable disposable)
+            {
+                _ = disposable.DisposeAsync();
+            }
+        }
+
+#endif
     }
 }

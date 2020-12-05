@@ -6,6 +6,7 @@ namespace Skclusive.Material.Input
     {
         public InputStyleProvider() : base
         (
+            priority: 270,
             typeof(InputAdornmentStyle),
             typeof(InputLabelStyle),
             typeof(InputBaseStyle),
